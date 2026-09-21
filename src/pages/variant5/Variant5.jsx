@@ -1,6 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiHeart, FiShoppingBag, FiCheck, FiArrowRight, FiShield, FiTruck, FiRotateCcw, FiAward } from "react-icons/fi";
+import {
+  FiHeart,
+  FiShoppingBag,
+  FiCheck,
+  FiArrowRight,
+  FiShield,
+  FiTruck,
+  FiRotateCcw,
+  FiAward,
+  FiCompass,
+  FiClock,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
+import { BsStarFill, BsStarHalf } from "react-icons/bs";
+import { RiTimerFlashLine } from "react-icons/ri";
+import { HiSparkles } from "react-icons/hi2";
 import Header from "../../components/layout/Header.jsx";
 import Footer from "../../components/layout/Footer.jsx";
 import SkipLink from "../../components/layout/SkipLink.jsx";
@@ -11,51 +27,252 @@ import ProductDiscoveryHub from "../../components/products/ProductDiscoveryHub.j
 import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReviewsCarousel.jsx";
 import WatchBrandsInfiniteCarousel from "../../components/layout/WatchBrandsInfiniteCarousel.jsx";
 
-// ─── Reference Datasets from AmiHive ──────────────────────────────────────────
+// ─── Shared Brand Datasets ──────────────────────────────────────────────────
 const usps = [
-  { title: "Insured Shipping", text: "Free on every order", icon: FiTruck },
-  { title: "Certified Original", text: "Every piece verified", icon: FiAward },
-  { title: "2 Year Warranty", text: "On all movements", icon: FiShield },
-  { title: "7 Day Returns", text: "No questions asked", icon: FiRotateCcw },
+  {
+    title: "Insured Global Shipping",
+    text: "Complimentary express delivery on every order",
+    icon: FiTruck,
+    badge: "Fast Transit",
+  },
+  {
+    title: "Certified Atelier Provenance",
+    text: "Every movement verified with numbered certificate",
+    icon: FiAward,
+    badge: "100% Genuine",
+  },
+  {
+    title: "25-Year Guarantee",
+    text: "Transferable mechanical warranty on all calibres",
+    icon: FiShield,
+    badge: "Heirloom Quality",
+  },
+  {
+    title: "7-Day Home Trial",
+    text: "Hassle-free doorstep pickup & direct refund",
+    icon: FiRotateCcw,
+    badge: "Risk-Free",
+  },
 ];
 
 const categories = [
-  { name: "Automatic Watches", count: "24 items", image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=500&q=80" },
-  { name: "Chronographs", count: "16 items", image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=500&q=80" },
-  { name: "Leather Straps", count: "32 items", image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=500&q=80" },
-  { name: "Steel Bracelets", count: "18 items", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" },
-  { name: "Accessories", count: "14 items", image: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=500&q=80" },
-  { name: "Gift Sets", count: "9 items", image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=500&q=80" },
+  {
+    name: "Automatic Watches",
+    count: "24 Pieces",
+    tag: "Self-Winding",
+    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    name: "Dress Chronographs",
+    count: "16 Pieces",
+    tag: "Precision Calibre",
+    image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    name: "Bridle Leather Straps",
+    count: "32 Options",
+    tag: "Hand-Stitched",
+    image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    name: "Steel Jubilee Bracelets",
+    count: "18 Styles",
+    tag: "Solid Milled",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    name: "Leather Horology Rolls",
+    count: "14 Items",
+    tag: "Archival Storage",
+    image: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    name: "Heirloom Gift Coffrets",
+    count: "9 Suites",
+    tag: "Limited Registry",
+    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80",
+  },
 ];
 
 const deals = [
-  { id: "d1", name: "Aster No.04", subtitle: "Automatic Blue Dial", price: 18990, originalPrice: 21990, discount: 14, rating: 4.7, image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85" },
-  { id: "d2", name: "Aster No.02", subtitle: "Chronograph", price: 22990, originalPrice: 27990, discount: 18, rating: 4.6, image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85" },
-  { id: "d3", name: "Meridian Steel", subtitle: "Jubilee Bracelet", price: 24990, originalPrice: 28990, discount: 13, rating: 4.8, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85" },
-  { id: "d4", name: "Heritage No.01", subtitle: "Classic Leather", price: 16990, originalPrice: 19990, discount: 15, rating: 4.5, image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=85" },
-  { id: "d5", name: "Urban No.03", subtitle: "Everyday Field Watch", price: 14990, originalPrice: 17990, discount: 17, rating: 4.4, image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=85" },
+  {
+    id: "d1",
+    name: "Aster No.04 Blue Dial",
+    brand: "Aster Horology · Cal. 9015",
+    price: "₹18,990",
+    mrp: "₹21,990",
+    discount: "Save 14%",
+    rating: 4.9,
+    reviews: 284,
+    dealEnds: "2h 45m",
+    badge: "Flash Deal",
+    badgeColor: "bg-error text-on-error",
+    image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "d2",
+    name: "Aster Chronograph No.02",
+    brand: "Aster Horology · Mechanical",
+    price: "₹22,990",
+    mrp: "₹27,990",
+    discount: "Save 18%",
+    rating: 4.8,
+    reviews: 178,
+    dealEnds: "5h 12m",
+    badge: "Flash Deal",
+    badgeColor: "bg-error text-on-error",
+    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "d3",
+    name: "Meridian Steel Jubilee",
+    brand: "Meridian Atelier · Sapphire",
+    price: "₹24,990",
+    mrp: "₹28,990",
+    discount: "Save 13%",
+    rating: 4.9,
+    reviews: 312,
+    dealEnds: "8h 30m",
+    badge: "Trending",
+    badgeColor: "bg-secondary-container text-on-secondary-container",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "d4",
+    name: "Heritage No.01 Cognac",
+    brand: "Heritage Line · Vegetable Tan",
+    price: "₹16,990",
+    mrp: "₹19,990",
+    discount: "Save 15%",
+    rating: 4.7,
+    reviews: 205,
+    dealEnds: "11h 00m",
+    badge: "Special Value",
+    badgeColor: "bg-[#067d62] text-white",
+    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "d5",
+    name: "Urban Field Watch No.03",
+    brand: "Aster Tactical · 100M Water",
+    price: "₹14,990",
+    mrp: "₹17,990",
+    discount: "Save 17%",
+    rating: 4.6,
+    reviews: 87,
+    dealEnds: "1d 4h",
+    badge: "Field Spec",
+    badgeColor: "bg-primary text-on-primary",
+    image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=85",
+  },
 ];
 
 const bestsellers = [
-  { id: "f1", type: "watch", name: "Aster No.04", subtitle: "Automatic Blue Dial Watch", price: 18990, originalPrice: 21990, rating: 4.7, ratings: 284, image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=85" },
-  { id: "f2", type: "strap", name: "Signature Clasp", subtitle: "Steel Jubilee Strap", price: 3490, originalPrice: 3990, rating: 4.6, ratings: 96, image: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=85" },
-  { id: "f3", type: "watch", name: "Aster No.01", subtitle: "Classic Everyday", price: 16990, originalPrice: 19990, rating: 4.8, ratings: 412, image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=85" },
-  { id: "f4", type: "accessory", name: "Travel Case", subtitle: "Leather Watch Roll", price: 2290, originalPrice: 2790, rating: 4.5, ratings: 63, image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=85" },
-  { id: "f5", type: "watch", name: "Meridian No.02", subtitle: "Steel Chronograph", price: 24990, originalPrice: 28990, rating: 4.6, ratings: 178, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85" },
-  { id: "f6", type: "strap", name: "Cognac Strap", subtitle: "Italian Leather", price: 2990, originalPrice: 3490, rating: 4.7, ratings: 141, image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85" },
-  { id: "f7", type: "watch", name: "Urban No.03", subtitle: "Everyday Field Watch", price: 14990, originalPrice: 17990, rating: 4.4, ratings: 87, image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=85" },
-  { id: "f8", type: "watch", name: "Heritage No.01", subtitle: "Classic Leather", price: 16990, originalPrice: 19990, rating: 4.5, ratings: 205, image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85" },
+  {
+    id: "f1",
+    type: "watch",
+    name: "Aster No.04 Automatic",
+    brand: "Aster Horology · Sunburst Blue",
+    price: "₹18,990",
+    mrp: "₹21,990",
+    rating: 4.9,
+    reviews: 284,
+    badge: "Artisan Bestseller",
+    badgeColor: "bg-primary text-on-primary",
+    image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "f2",
+    type: "strap",
+    name: "Signature Steel Clasp",
+    brand: "AmiHive Straps · Solid 316L",
+    price: "₹3,490",
+    mrp: "₹3,990",
+    rating: 4.8,
+    reviews: 96,
+    badge: "Interchangeable",
+    badgeColor: "bg-secondary text-on-secondary",
+    image: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "f3",
+    type: "watch",
+    name: "Aster No.01 Classic",
+    brand: "Aster Horology · Clean Dial",
+    price: "₹16,990",
+    mrp: "₹19,990",
+    rating: 4.9,
+    reviews: 412,
+    badge: "Top Rated",
+    badgeColor: "bg-primary text-on-primary",
+    image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "f4",
+    type: "accessory",
+    name: "Italian Leather Watch Roll",
+    brand: "Jaipur Saddlery · 3 Compartments",
+    price: "₹2,290",
+    mrp: "₹2,790",
+    rating: 4.7,
+    reviews: 63,
+    badge: "Travel Essential",
+    badgeColor: "bg-tertiary text-on-tertiary",
+    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "f5",
+    type: "watch",
+    name: "Meridian Chronograph",
+    brand: "Meridian Atelier · Ceramic Bezel",
+    price: "₹24,990",
+    mrp: "₹28,990",
+    rating: 4.8,
+    reviews: 178,
+    badge: "Limited Edition",
+    badgeColor: "bg-error text-on-error",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "f6",
+    type: "strap",
+    name: "Cognac Harness Leather",
+    brand: "Kanpur Guild · Vegetable Tanned",
+    price: "₹2,990",
+    mrp: "₹3,490",
+    rating: 4.9,
+    reviews: 141,
+    badge: "Full Grain",
+    badgeColor: "bg-secondary text-on-secondary",
+    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "f7",
+    type: "watch",
+    name: "Urban No.03 Field Canvas",
+    brand: "Aster Tactical · Khaki Strap",
+    price: "₹14,990",
+    mrp: "₹17,990",
+    rating: 4.7,
+    reviews: 87,
+    badge: "Daily Driver",
+    badgeColor: "bg-primary text-on-primary",
+    image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=85",
+  },
+  {
+    id: "f8",
+    type: "watch",
+    name: "Heritage Dress Automatic",
+    brand: "Heritage Line · Exhibition Back",
+    price: "₹16,990",
+    mrp: "₹19,990",
+    rating: 4.8,
+    reviews: 205,
+    badge: "Classic",
+    badgeColor: "bg-primary text-on-primary",
+    image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85",
+  },
 ];
-
-const testimonials = [
-  { initials: "AK", name: "Arjun K.", date: "2 weeks ago", rating: 5, text: "The blue dial looks significantly better in person. Proportions are exactly what I wanted." },
-  { initials: "RM", name: "Rahul M.", date: "1 month ago", rating: 5, text: "Leather feels premium and the watch sits with a really balanced presence on the wrist." },
-  { initials: "SN", name: "Sneha N.", date: "1 month ago", rating: 4, text: "Great everyday watch, packaging and delivery were both excellent." },
-];
-
-function formatPrice(val) {
-  return Number(val).toLocaleString("en-IN");
-}
 
 export default function Variant5() {
   const [activeTab, setActiveTab] = useState("all");
@@ -96,40 +313,38 @@ export default function Variant5() {
   );
 
   return (
-    <div className="relative bg-[#ffffff] min-h-screen font-instrument text-[#0f1111] antialiased">
+    <div className="relative bg-surface min-h-screen font-body-md text-on-surface antialiased">
       <SkipLink />
       <Header />
 
       <PageLoader skeleton={<Variant5Skeleton />} duration={800}>
         <main id="main-content" className="w-full pt-[92px] md:pt-[132px] pb-16">
-          {/* 1. Hero Banner Carousel */}
+          {/* 1. Hero Banner Carousel (Fitted to page width) */}
           <HEROWITHSWEEPINGSTRAPRIBBON />
 
           {/* Watch Brand Partners Infinite Marquee */}
           <WatchBrandsInfiniteCarousel />
 
-          {/* 2. Compact 4-Column USP Assurance Strip */}
-          <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-5">
-            <div className="grid grid-cols-2 md:grid-cols-4 border border-[#e3e6e6] rounded-md overflow-hidden bg-[#f6f7f9]">
+          {/* 2. Unified 4-Column USP Assurance Strip matching the luxury design system */}
+          <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 bg-surface-container-low/70 rounded-2xl border border-outline-variant/30 shadow-xs">
               {usps.map((usp, idx) => {
                 const Icon = usp.icon;
                 return (
                   <div
                     key={idx}
-                    className={`p-3.5 sm:p-4 flex items-center gap-3 ${
-                      idx !== usps.length - 1 ? "md:border-r border-[#e3e6e6]" : ""
-                    } ${idx === 0 || idx === 1 ? "border-b md:border-b-0 border-[#e3e6e6]" : ""} ${
-                      idx % 2 === 0 ? "border-r md:border-r-0 border-[#e3e6e6]" : ""
-                    }`}
+                    className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-surface-container-lowest/80 transition-colors"
                   >
-                    <div className="w-8 h-8 rounded-full bg-white border border-[#e3e6e6] flex items-center justify-center flex-shrink-0 text-primary">
-                      <Icon className="text-sm" />
+                    <div className="w-11 h-11 rounded-xl bg-surface-container-lowest text-primary flex items-center justify-center flex-shrink-0 shadow-xs border border-outline-variant/20">
+                      <Icon className="text-xl" />
                     </div>
                     <div>
-                      <strong className="block text-xs sm:text-sm font-semibold text-[#0f1111]">
-                        {usp.title}
-                      </strong>
-                      <span className="text-[11px] text-[#565959] leading-tight block">
+                      <div className="flex items-center gap-1.5 mb-0.5">
+                        <strong className="font-title-editorial text-sm font-bold text-on-surface leading-snug">
+                          {usp.title}
+                        </strong>
+                      </div>
+                      <span className="font-body-sm text-xs text-on-surface-variant leading-relaxed block">
                         {usp.text}
                       </span>
                     </div>
@@ -139,161 +354,245 @@ export default function Variant5() {
             </div>
           </section>
 
-          {/* 3. Shop by Category (6 Columns) */}
-          <section id="categories" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="flex items-baseline justify-between mb-4">
-              <h2 className="font-poppins text-lg sm:text-xl lg:text-2xl font-bold text-[#0f1111]">
-                Shop by category
-              </h2>
-              <a href="#collection" className="text-xs text-[#007185] hover:underline font-medium">
-                View all categories
+          {/* 3. Shop by Category - Luxury Discovery Bento matching ProductDiscoveryHub */}
+          <section id="categories" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-14">
+            <div className="flex items-end justify-between mb-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <FiCompass className="text-primary text-base" />
+                  <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest">
+                    Curated Horological Disciplines
+                  </span>
+                </div>
+                <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                  Shop by Category
+                </h2>
+              </div>
+              <a
+                href="#collection"
+                className="hidden sm:inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-md text-xs font-semibold uppercase tracking-wider transition-colors"
+              >
+                <span>Explore Full Roster</span>
+                <FiArrowRight />
               </a>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
               {categories.map((cat, idx) => (
                 <a
                   key={idx}
                   href="#collection"
-                  className="group bg-white border border-[#e3e6e6] hover:border-[#007185] rounded-md p-2.5 flex flex-col items-center text-center transition-all duration-200"
+                  className="group relative bg-surface-container-lowest rounded-2xl border border-outline-variant/25 shadow-xs hover:shadow-xl transition-all duration-300 p-3 flex flex-col justify-between"
                 >
-                  <div className="w-full h-28 sm:h-32 rounded overflow-hidden bg-[#f6f7f9] mb-2 relative">
+                  <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-surface-container mb-3">
                     <img
                       src={cat.image}
                       alt={cat.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                       loading="lazy"
                     />
+                    <span className="absolute top-2 left-2 rounded-full px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-xs font-label-caps text-[9px] uppercase tracking-wider font-bold text-primary shadow-xs">
+                      {cat.count}
+                    </span>
                   </div>
-                  <span className="text-xs font-semibold text-[#0f1111] group-hover:text-[#007185] transition-colors leading-tight">
-                    {cat.name}
-                  </span>
-                  <span className="text-[10px] text-[#565959] mt-0.5">
-                    {cat.count}
-                  </span>
+
+                  <div>
+                    <h3 className="font-title-editorial text-sm font-bold text-on-surface group-hover:text-primary transition-colors leading-snug line-clamp-1">
+                      {cat.name}
+                    </h3>
+                    <div className="flex items-center justify-between mt-1 text-[11px] text-on-surface-variant">
+                      <span>{cat.tag}</span>
+                      <span className="text-primary group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
                 </a>
               ))}
             </div>
           </section>
 
-          {/* 4. Today's Flash Deals (5 Columns) */}
-          <section id="deals" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="flex items-baseline justify-between mb-4">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <h2 className="font-poppins text-lg sm:text-xl lg:text-2xl font-bold text-[#0f1111]">
-                  Today's deals
+          {/* 4. Today's Flash Deals matching ProductDiscoveryHub card design */}
+          <section id="deals" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <RiTimerFlashLine className="text-error text-base animate-pulse" />
+                  <span className="font-label-caps text-label-caps text-error uppercase tracking-widest font-bold">
+                    Limited Allocations & Flash Pricing
+                  </span>
+                </div>
+                <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                  Today's Flash Deals
                 </h2>
-                <span className="bg-[#cc1023] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider animate-pulse">
-                  Flash Sale
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="font-label-caps text-[11px] text-error font-bold uppercase bg-error-container/40 px-3 py-1 rounded-full border border-error-container flex items-center gap-1.5">
+                  <FiClock className="text-xs" />
+                  <span>Next Allocation Drops in 4h 18m</span>
                 </span>
               </div>
-              <a href="#collection" className="text-xs text-[#007185] hover:underline font-medium">
-                View all deals
-              </a>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {deals.map((item) => (
                 <div
                   key={item.id}
-                  className="relative bg-white border border-[#e3e6e6] hover:border-[#007185] rounded-md p-3 flex flex-col transition-all duration-200"
+                  className="rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
-                  {/* Discount Badge */}
-                  <span className="absolute top-4 left-4 z-10 bg-[#cc1023] text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
-                    {item.discount}% off
-                  </span>
-
-                  {/* Wishlist Button */}
-                  <button
-                    onClick={() => toggleWishlist(item.id, item.name)}
-                    aria-label="Save to wishlist"
-                    className="absolute top-4 right-4 z-10 w-7 h-7 rounded-full bg-white/90 border border-[#e3e6e6] flex items-center justify-center text-xs transition-colors hover:bg-white"
-                  >
-                    <FiHeart
-                      className={`${
-                        wishlist[item.id] ? "fill-[#cc1023] text-[#cc1023]" : "text-[#565959]"
-                      }`}
-                    />
-                  </button>
-
-                  <div className="w-full h-36 sm:h-40 rounded overflow-hidden bg-[#f6f7f9] mb-2.5">
+                  {/* Image with Badges & Wishlist */}
+                  <div className="relative aspect-square w-full overflow-hidden bg-surface-container select-none">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                  </div>
 
-                  <div className="flex flex-col flex-1">
-                    <strong className="text-xs sm:text-sm font-semibold text-[#0f1111] line-clamp-1">
-                      {item.name}
-                    </strong>
-                    <span className="text-[11px] text-[#565959] line-clamp-1 mb-1">
-                      {item.subtitle}
+                    {/* Discount Badge */}
+                    <span className="absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider bg-error text-on-error shadow-xs">
+                      {item.discount}
                     </span>
 
-                    {/* Star Rating */}
-                    <div className="flex items-center gap-1 text-[11px] text-[#e07f00] mb-2">
-                      <span>★</span>
-                      <span className="font-semibold">{item.rating}</span>
+                    {/* Wishlist Button */}
+                    <motion.button
+                      whileTap={{ scale: 0.85 }}
+                      onClick={() => toggleWishlist(item.id, item.name)}
+                      className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-surface-container-lowest shadow-xs cursor-pointer"
+                      aria-label="Wishlist"
+                    >
+                      <FiHeart
+                        className={`text-base ${
+                          wishlist[item.id] ? "fill-error text-error" : "text-on-surface-variant"
+                        }`}
+                      />
+                    </motion.button>
+                  </div>
+
+                  {/* Card Info */}
+                  <div className="p-4 flex flex-col flex-1">
+                    {/* Stars */}
+                    <div className="flex items-center gap-1 mb-1">
+                      <div className="flex text-[#FF9F00]">
+                        {[1, 2, 3, 4].map((s) => (
+                          <BsStarFill key={s} className="text-[11px]" />
+                        ))}
+                        {item.rating >= 4.8 ? (
+                          <BsStarFill className="text-[11px]" />
+                        ) : (
+                          <BsStarHalf className="text-[11px]" />
+                        )}
+                      </div>
+                      <span className="font-label-caps text-[10px] text-outline">({item.reviews})</span>
+                    </div>
+
+                    <h3 className="font-title-editorial text-sm font-bold text-on-surface truncate">
+                      {item.name}
+                    </h3>
+                    <p className="font-body-sm text-xs text-outline truncate mb-1">
+                      {item.brand}
+                    </p>
+
+                    {/* Deal Timer */}
+                    <div className="flex items-center gap-1 mt-1 mb-2">
+                      <RiTimerFlashLine className="text-error text-xs" />
+                      <span className="font-label-caps text-[10px] text-error uppercase font-bold">
+                        Ends in {item.dealEnds}
+                      </span>
                     </div>
 
                     {/* Price Row */}
-                    <div className="mt-auto pt-1 flex items-baseline gap-2">
-                      <strong className="text-sm sm:text-base font-bold text-[#0f1111]">
-                        ₹{formatPrice(item.price)}
-                      </strong>
-                      <s className="text-xs text-[#767676]">
-                        ₹{formatPrice(item.originalPrice)}
-                      </s>
+                    <div className="mt-auto pt-2 flex items-baseline gap-2">
+                      <span className="font-numeric-price text-numeric-price text-on-surface font-bold">
+                        {item.price}
+                      </span>
+                      <span className="font-body-sm text-xs text-outline line-through">
+                        {item.mrp}
+                      </span>
                     </div>
 
-                    <button
+                    {/* CTA Button matching ProductCard */}
+                    <motion.button
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => handleAddToCart(item.name)}
-                      className="mt-2.5 w-full py-1.5 bg-[#ffd814] hover:bg-[#f7ca00] text-[#0f1111] font-bold text-xs rounded transition-colors cursor-pointer"
+                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-secondary-container hover:bg-secondary text-on-secondary shadow-xs cursor-pointer"
                     >
-                      Add to Cart
-                    </button>
+                      <FiShoppingBag className="text-sm" />
+                      <span>Add to Bag</span>
+                    </motion.button>
                   </div>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* 5. Customizer Callout Strip */}
-          <section id="customizer" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="bg-[#131a2c] text-white rounded-lg p-6 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div className="max-w-xl">
-                <span className="text-[#ff9f1c] text-xs font-bold uppercase tracking-wider mb-1 block">
-                  Bespoke Configuration
-                </span>
-                <h2 className="font-poppins text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-2">
-                  Build your own timepiece
-                </h2>
-                <p className="font-instrument text-white/80 text-xs sm:text-sm leading-relaxed">
-                  Choose your dial color, vegetable-tanned leather or steel jubilee strap, and case size — delivered exactly the way you want it.
-                </p>
+          {/* 5. Bespoke Timepiece Customizer - Luxury Atelier Presentation */}
+          <section id="customizer" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
+            <div className="relative rounded-3xl bg-gradient-to-br from-[#002a63] via-primary to-[#0f1a1d] text-white p-8 sm:p-12 lg:p-14 shadow-xl overflow-hidden">
+              {/* Background ambient lighting */}
+              <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#ffb866]/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                <div className="max-w-2xl">
+                  <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 bg-white/10 backdrop-blur-md font-label-caps text-[10px] uppercase tracking-widest text-[#ffddba] font-bold mb-4 border border-white/15">
+                    <HiSparkles className="text-sm text-[#ffddba]" />
+                    <span>Atelier Bespoke Registry</span>
+                  </div>
+
+                  <h2 className="font-headline-lg text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight mb-3">
+                    Build Your Own Master Timepiece
+                  </h2>
+
+                  <p className="font-body-lg text-sm sm:text-base text-white/85 leading-relaxed mb-5 max-w-xl">
+                    Select your handcrafted sunburst or enamel dial, harness bridle leather or solid jubilee bracelet, and case dimensions — calibrated by hand and signed by third-generation Jaipur master horologists.
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-white/80 font-medium">
+                    <span className="flex items-center gap-1.5">
+                      <FiShield className="text-[#ffddba]" /> 25-Year Transferable Warranty
+                    </span>
+                    <span className="hidden sm:inline">•</span>
+                    <span className="flex items-center gap-1.5">
+                      <FiAward className="text-[#ffddba]" /> Free Archival Monogramming
+                    </span>
+                    <span className="hidden sm:inline">•</span>
+                    <span className="flex items-center gap-1.5">
+                      <FiTruck className="text-[#ffddba]" /> Insured Wood Coffret Dispatch
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex-shrink-0">
+                  <motion.a
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    href="#bestsellers"
+                    className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider font-bold shadow-xl transition-all cursor-pointer"
+                  >
+                    <span>Start Customizing</span>
+                    <FiArrowRight className="text-lg" />
+                  </motion.a>
+                </div>
               </div>
-              <a
-                href="#bestsellers"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#ff9f1c] hover:bg-[#e07f00] text-[#131a2c] font-bold text-xs sm:text-sm transition-all flex-shrink-0 cursor-pointer shadow-md"
-              >
-                <span>Start Customizing</span>
-                <FiArrowRight />
-              </a>
             </div>
           </section>
 
-          {/* 6. Bestsellers Filterable Catalog */}
-          <section id="bestsellers" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 mb-4">
-              <h2 className="font-poppins text-lg sm:text-xl lg:text-2xl font-bold text-[#0f1111]">
-                Bestsellers & Curated Collection
-              </h2>
+          {/* 6. Bestsellers & Curated Collection matching ProductDiscoveryHub */}
+          <section id="bestsellers" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <FiAward className="text-primary text-base" />
+                  <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">
+                    Verified Atelier Acquisitions
+                  </span>
+                </div>
+                <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                  Bestsellers & Curated Collection
+                </h2>
+              </div>
 
               {/* Filter Tabs */}
-              <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto">
+              <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto select-none">
                 {[
                   { id: "all", label: "All Items" },
                   { id: "watch", label: "Watches" },
@@ -303,10 +602,10 @@ export default function Variant5() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-3 py-1 text-xs rounded-full transition-colors cursor-pointer ${
+                    className={`px-4 py-2 rounded-full font-label-caps text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
                       activeTab === tab.id
-                        ? "bg-[#131a2c] text-white font-bold"
-                        : "bg-[#f6f7f9] text-[#565959] hover:bg-[#e3e6e6]"
+                        ? "bg-primary text-on-primary shadow-sm"
+                        : "bg-surface-container hover:bg-surface-container-high text-on-surface-variant"
                     }`}
                   >
                     {tab.label}
@@ -315,62 +614,84 @@ export default function Variant5() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {filteredBestsellers.map((item) => (
                 <div
                   key={item.id}
-                  className="group bg-white border border-[#e3e6e6] hover:border-[#007185] rounded-md overflow-hidden flex flex-col transition-all duration-200"
+                  className="rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
-                  <div className="relative w-full h-44 sm:h-52 bg-[#f6f7f9] overflow-hidden">
+                  {/* Image Container */}
+                  <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-surface-container select-none">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <button
-                      onClick={() => toggleWishlist(item.id, item.name)}
-                      aria-label="Save to wishlist"
-                      className="absolute top-3 right-3 z-10 w-7 h-7 rounded-full bg-white/90 border border-[#e3e6e6] flex items-center justify-center text-xs transition-colors hover:bg-white cursor-pointer"
-                    >
-                      <FiHeart
-                        className={`${
-                          wishlist[item.id] ? "fill-[#cc1023] text-[#cc1023]" : "text-[#565959]"
-                        }`}
-                      />
-                    </button>
-                  </div>
 
-                  <div className="p-3 flex flex-col flex-1">
-                    <strong className="text-xs sm:text-sm font-semibold text-[#0f1111] line-clamp-1">
-                      {item.name}
-                    </strong>
-                    <span className="text-[11px] text-[#565959] line-clamp-1 mb-1">
-                      {item.subtitle}
+                    {/* Badge */}
+                    <span className={`absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider ${item.badgeColor} shadow-xs`}>
+                      {item.badge}
                     </span>
 
-                    <div className="flex items-center gap-1 text-[11px] text-[#565959] mb-2">
-                      <span className="text-[#e07f00]">★</span>
-                      <span className="font-semibold text-[#0f1111]">{item.rating}</span>
-                      <span>({item.ratings})</span>
-                    </div>
-
-                    <div className="mt-auto pt-1 flex items-baseline gap-2">
-                      <strong className="text-sm sm:text-base font-bold text-[#0f1111]">
-                        ₹{formatPrice(item.price)}
-                      </strong>
-                      <s className="text-xs text-[#767676]">
-                        ₹{formatPrice(item.originalPrice)}
-                      </s>
-                    </div>
-
-                    <button
-                      onClick={() => handleAddToCart(item.name)}
-                      className="mt-2.5 w-full py-2 bg-[#ffd814] hover:bg-[#f7ca00] text-[#0f1111] font-bold text-xs rounded transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                    {/* Wishlist Button */}
+                    <motion.button
+                      whileTap={{ scale: 0.85 }}
+                      onClick={() => toggleWishlist(item.id, item.name)}
+                      className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-surface-container-lowest shadow-xs cursor-pointer"
+                      aria-label="Wishlist"
                     >
-                      <FiShoppingBag className="text-xs" />
-                      <span>Add to Cart</span>
-                    </button>
+                      <FiHeart
+                        className={`text-base ${
+                          wishlist[item.id] ? "fill-error text-error" : "text-on-surface-variant"
+                        }`}
+                      />
+                    </motion.button>
+                  </div>
+
+                  {/* Body */}
+                  <div className="p-4 flex flex-col flex-1">
+                    {/* Stars */}
+                    <div className="flex items-center gap-1 mb-1">
+                      <div className="flex text-[#FF9F00]">
+                        {[1, 2, 3, 4].map((s) => (
+                          <BsStarFill key={s} className="text-[11px]" />
+                        ))}
+                        {item.rating >= 4.8 ? (
+                          <BsStarFill className="text-[11px]" />
+                        ) : (
+                          <BsStarHalf className="text-[11px]" />
+                        )}
+                      </div>
+                      <span className="font-label-caps text-[10px] text-outline">({item.reviews})</span>
+                    </div>
+
+                    <h3 className="font-title-editorial text-title-editorial font-bold text-on-surface truncate">
+                      {item.name}
+                    </h3>
+                    <p className="font-body-sm text-body-sm text-outline truncate mb-2">
+                      {item.brand}
+                    </p>
+
+                    {/* Price Row */}
+                    <div className="mt-auto pt-2 flex items-baseline gap-2">
+                      <span className="font-numeric-price text-numeric-price text-on-surface font-bold">
+                        {item.price}
+                      </span>
+                      <span className="font-body-sm text-body-sm text-outline line-through">
+                        {item.mrp}
+                      </span>
+                    </div>
+
+                    {/* CTA Button matching ProductDiscoveryHub */}
+                    <motion.button
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => handleAddToCart(item.name)}
+                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-primary hover:bg-primary-container text-on-primary shadow-xs cursor-pointer"
+                    >
+                      <FiShoppingBag className="text-sm" />
+                      <span>Add to Bag</span>
+                    </motion.button>
                   </div>
                 </div>
               ))}
@@ -378,27 +699,30 @@ export default function Variant5() {
           </section>
 
           {/* 7. Product Discovery Hub (Recently Viewed, Recommendations, Deals in Watches) */}
-          <div className="mt-8">
+          <div className="mt-6">
             <ProductDiscoveryHub />
           </div>
 
           {/* 8. Continuous Infinite Reviews Carousel */}
-          <ContinuousReviewsCarousel className="mt-10 sm:mt-12" />
+          <ContinuousReviewsCarousel className="mt-14" />
 
           {/* 9. Collector Circle Newsletter Box */}
-          <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="bg-[#f6f7f9] border border-[#e3e6e6] rounded-lg p-6 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
+            <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
               <div>
-                <h2 className="font-poppins text-lg sm:text-xl font-bold text-[#0f1111] mb-1">
+                <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold block mb-1">
+                  Atelier Dispatch & Private Releases
+                </span>
+                <h2 className="font-headline-md text-headline-md font-bold text-on-surface mb-2">
                   Join the Collector Circle
                 </h2>
-                <p className="font-instrument text-xs sm:text-sm text-[#565959] max-w-md">
-                  Get private access to limited edition drops, workshop logs, and invitation-only atelier events.
+                <p className="font-body-md text-sm text-on-surface-variant max-w-md">
+                  Receive private invitations to preview numbered cohort drops, workshop dispatches, and private atelier allocations.
                 </p>
               </div>
 
               {newsletterDone ? (
-                <div className="flex items-center gap-2 text-[#067d62] font-semibold text-xs sm:text-sm bg-emerald-50 px-4 py-2.5 rounded border border-emerald-200">
+                <div className="flex items-center gap-2 text-[#067d62] font-semibold text-xs sm:text-sm bg-emerald-50 px-5 py-3 rounded-xl border border-emerald-200">
                   <FiCheck className="text-base" />
                   <span>You are subscribed to the collector circle.</span>
                 </div>
@@ -413,11 +737,11 @@ export default function Variant5() {
                     placeholder="Enter your email address"
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
-                    className="h-10 px-3.5 bg-white border border-[#e3e6e6] rounded text-xs sm:text-sm text-[#0f1111] placeholder:text-[#767676] outline-none focus:border-[#007185] min-w-[220px] sm:min-w-[280px]"
+                    className="h-11 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl text-sm text-on-surface placeholder:text-outline outline-none focus:border-primary min-w-[240px] sm:min-w-[300px] shadow-xs"
                   />
                   <button
                     type="submit"
-                    className="h-10 px-5 bg-[#131a2c] hover:bg-[#232f47] text-white font-bold text-xs rounded transition-colors cursor-pointer flex-shrink-0"
+                    className="h-11 px-6 bg-primary hover:bg-primary-container text-on-primary font-label-caps text-label-caps uppercase tracking-wider font-bold rounded-xl transition-colors cursor-pointer flex-shrink-0 shadow-xs"
                   >
                     Subscribe
                   </button>
@@ -437,7 +761,7 @@ export default function Variant5() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-6 right-6 z-[9999] bg-[#067d62] text-white px-4 py-3 rounded shadow-lg text-xs font-semibold flex items-center gap-2"
+            className="fixed bottom-6 right-6 z-[9999] bg-[#067d62] text-white px-5 py-3 rounded-xl shadow-xl text-xs font-semibold flex items-center gap-2"
           >
             <FiCheck className="text-base" />
             <span>{toastMessage}</span>

@@ -96,22 +96,28 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
           />
         </AnimatePresence>
 
-        {/* Prev / Next arrows — show on hover */}
+        {/* Prev / Next arrows — manual user control */}
         {imgs.length > 1 && (
           <>
             <button
-              onClick={() => setImgIdx((i) => (i - 1 + imgs.length) % imgs.length)}
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 text-white backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-black/60 transition-all z-10"
+              onClick={(e) => {
+                e.stopPropagation();
+                setImgIdx((i) => (i - 1 + imgs.length) % imgs.length);
+              }}
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-all z-20 shadow-md cursor-pointer"
               aria-label="Previous image"
             >
-              <FiChevronLeft className="text-sm" />
+              <FiChevronLeft className="text-base" />
             </button>
             <button
-              onClick={() => setImgIdx((i) => (i + 1) % imgs.length)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/40 text-white backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-black/60 transition-all z-10"
+              onClick={(e) => {
+                e.stopPropagation();
+                setImgIdx((i) => (i + 1) % imgs.length);
+              }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-all z-20 shadow-md cursor-pointer"
               aria-label="Next image"
             >
-              <FiChevronRight className="text-sm" />
+              <FiChevronRight className="text-base" />
             </button>
           </>
         )}

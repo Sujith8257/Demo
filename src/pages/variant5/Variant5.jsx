@@ -94,6 +94,35 @@ const categories = [
   },
 ];
 
+// ─── Image pools for multi-angle product carousels ─────────────────────────
+const watchImgSets = {
+  blue: [
+    "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=85",
+  ],
+  chrono: [
+    "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85",
+  ],
+  steel: [
+    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=85",
+  ],
+  leather: [
+    "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=85",
+  ],
+  tactical: [
+    "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85",
+    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=85",
+  ],
+};
+
 const deals = [
   {
     id: "d1",
@@ -107,7 +136,7 @@ const deals = [
     dealEnds: "2h 45m",
     badge: "Flash Deal",
     badgeColor: "bg-error text-on-error",
-    image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.blue,
   },
   {
     id: "d2",
@@ -121,7 +150,7 @@ const deals = [
     dealEnds: "5h 12m",
     badge: "Flash Deal",
     badgeColor: "bg-error text-on-error",
-    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.chrono,
   },
   {
     id: "d3",
@@ -135,7 +164,7 @@ const deals = [
     dealEnds: "8h 30m",
     badge: "Trending",
     badgeColor: "bg-secondary-container text-on-secondary-container",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.steel,
   },
   {
     id: "d4",
@@ -149,7 +178,7 @@ const deals = [
     dealEnds: "11h 00m",
     badge: "Special Value",
     badgeColor: "bg-[#067d62] text-white",
-    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.leather,
   },
   {
     id: "d5",
@@ -163,7 +192,7 @@ const deals = [
     dealEnds: "1d 4h",
     badge: "Field Spec",
     badgeColor: "bg-primary text-on-primary",
-    image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.tactical,
   },
 ];
 
@@ -179,7 +208,7 @@ const bestsellers = [
     reviews: 284,
     badge: "Artisan Bestseller",
     badgeColor: "bg-primary text-on-primary",
-    image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.blue,
   },
   {
     id: "f2",
@@ -192,7 +221,7 @@ const bestsellers = [
     reviews: 96,
     badge: "Interchangeable",
     badgeColor: "bg-secondary text-on-secondary",
-    image: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.steel,
   },
   {
     id: "f3",
@@ -205,7 +234,7 @@ const bestsellers = [
     reviews: 412,
     badge: "Top Rated",
     badgeColor: "bg-primary text-on-primary",
-    image: "https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.chrono,
   },
   {
     id: "f4",
@@ -218,7 +247,7 @@ const bestsellers = [
     reviews: 63,
     badge: "Travel Essential",
     badgeColor: "bg-tertiary text-on-tertiary",
-    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.leather,
   },
   {
     id: "f5",
@@ -231,7 +260,7 @@ const bestsellers = [
     reviews: 178,
     badge: "Limited Edition",
     badgeColor: "bg-error text-on-error",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.steel,
   },
   {
     id: "f6",
@@ -244,7 +273,7 @@ const bestsellers = [
     reviews: 141,
     badge: "Full Grain",
     badgeColor: "bg-secondary text-on-secondary",
-    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.leather,
   },
   {
     id: "f7",
@@ -257,7 +286,7 @@ const bestsellers = [
     reviews: 87,
     badge: "Daily Driver",
     badgeColor: "bg-primary text-on-primary",
-    image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.tactical,
   },
   {
     id: "f8",
@@ -270,9 +299,83 @@ const bestsellers = [
     reviews: 205,
     badge: "Classic",
     badgeColor: "bg-primary text-on-primary",
-    image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85",
+    images: watchImgSets.blue,
   },
 ];
+
+// ─── Reusable Manual Product Image Carousel ──────────────────────────────────
+function ManualProductImageCarousel({ images, name }) {
+  const [imgIdx, setImgIdx] = useState(0);
+  const imgs = images && images.length > 0 ? images : ["https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=85"];
+
+  return (
+    <div className="relative aspect-square w-full overflow-hidden bg-surface-container select-none group">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={imgIdx}
+          src={imgs[imgIdx]}
+          alt={name}
+          initial={{ opacity: 0, x: 14 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -14 }}
+          transition={{ duration: 0.2 }}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+      </AnimatePresence>
+
+      {/* Prev / Next manual user controls */}
+      {imgs.length > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setImgIdx((i) => (i - 1 + imgs.length) % imgs.length);
+            }}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-all z-20 shadow-md cursor-pointer"
+            aria-label="Previous image"
+          >
+            <FiChevronLeft className="text-base" />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setImgIdx((i) => (i + 1) % imgs.length);
+            }}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center transition-all z-20 shadow-md cursor-pointer"
+            aria-label="Next image"
+          >
+            <FiChevronRight className="text-base" />
+          </button>
+        </>
+      )}
+
+      {/* Dot Indicators corresponding to number of images */}
+      {imgs.length > 1 && (
+        <div className="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1.5 z-20">
+          {imgs.map((_, i) => (
+            <button
+              type="button"
+              key={i}
+              onClick={(e) => {
+                e.stopPropagation();
+                setImgIdx(i);
+              }}
+              className={`rounded-full transition-all cursor-pointer ${
+                i === imgIdx
+                  ? "w-4 h-1.5 bg-white shadow-xs"
+                  : "w-1.5 h-1.5 bg-white/50 hover:bg-white/80"
+              }`}
+              aria-label={`Image ${i + 1}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Variant5() {
   const [activeTab, setActiveTab] = useState("all");
@@ -438,14 +541,9 @@ export default function Variant5() {
                   key={item.id}
                   className="rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
-                  {/* Image with Badges & Wishlist */}
+                  {/* Image with Badges, Multi-image dots, Left/Right arrows & Wishlist */}
                   <div className="relative aspect-square w-full overflow-hidden bg-surface-container select-none">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    <ManualProductImageCarousel images={item.images} name={item.name} />
 
                     {/* Discount Badge */}
                     <span className="absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider bg-error text-on-error shadow-xs">
@@ -620,14 +718,9 @@ export default function Variant5() {
                   key={item.id}
                   className="rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
-                  {/* Image Container */}
+                  {/* Image Container with manual multi-image carousel */}
                   <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-surface-container select-none">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    <ManualProductImageCarousel images={item.images} name={item.name} />
 
                     {/* Badge */}
                     <span className={`absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider ${item.badgeColor} shadow-xs`}>

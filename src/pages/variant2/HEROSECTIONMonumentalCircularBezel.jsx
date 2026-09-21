@@ -74,16 +74,14 @@ const bezelSlides = [
 
 export default function HEROSECTIONMonumentalCircularBezel() {
   const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-advance every 5 seconds
+  // Auto-advance continuously every 5 seconds regardless of hover
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % bezelSlides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [isPaused, current]);
+  }, []);
 
   const active = bezelSlides[current];
   const BadgeIcon = active.badgeIcon;
@@ -92,11 +90,7 @@ export default function HEROSECTIONMonumentalCircularBezel() {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + bezelSlides.length) % bezelSlides.length);
 
   return (
-    <section
-      className="relative w-full overflow-hidden bg-surface-container-lowest pb-space-xl"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="relative w-full overflow-hidden bg-surface-container-lowest pb-space-xl">
       {/* Ambient Radial Glow behind bezel cut */}
       <div className="absolute -top-32 right-0 w-[840px] h-[840px] rounded-full bg-surface-container-high/40 blur-3xl pointer-events-none -z-0"></div>
 

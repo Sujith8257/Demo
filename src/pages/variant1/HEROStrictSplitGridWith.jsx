@@ -67,16 +67,14 @@ const v1Slides = [
 
 export default function HEROStrictSplitGridWith() {
   const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-advance every 5 seconds
+  // Auto-advance continuously every 5 seconds regardless of hover
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % v1Slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [isPaused, current]);
+  }, []);
 
   const active = v1Slides[current];
 
@@ -84,11 +82,7 @@ export default function HEROStrictSplitGridWith() {
   const prevSlide = () => setCurrent((prev) => (prev - 1 + v1Slides.length) % v1Slides.length);
 
   return (
-    <section
-      className="relative w-full overflow-hidden bg-surface-container-low"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
+    <section className="relative w-full overflow-hidden bg-surface-container-low">
       <div className="max-w-[1760px] mx-auto px-margin">
         <div className="min-h-[460px] py-4 flex flex-col justify-between">
           <AnimatePresence mode="wait">
@@ -198,7 +192,7 @@ export default function HEROStrictSplitGridWith() {
                 />
               ))}
               <span className="ml-3 font-label-caps text-[10px] text-outline uppercase tracking-wider hidden sm:inline">
-                0{current + 1} / 0{v1Slides.length} {isPaused && "(Paused)"}
+                0{current + 1} / 0{v1Slides.length}
               </span>
             </div>
 

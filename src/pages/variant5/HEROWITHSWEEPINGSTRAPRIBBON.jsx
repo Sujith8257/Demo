@@ -34,16 +34,14 @@ const heroBanners = [
 
 export default function HEROWITHSWEEPINGSTRAPRIBBON() {
   const [current, setCurrent] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
-  // Auto-advance banner every 5.5s unless hovered
+  // Auto-advance banner continuously every 5.5s regardless of hover
   useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroBanners.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, [isPaused, current]);
+  }, []);
 
   const banner = heroBanners[current];
 
@@ -51,8 +49,6 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
     <section
       id="collection"
       className="relative w-full overflow-hidden bg-[#131a2c] select-none group"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Full-width banner frame fitting the top of the page itself with reduced height */}
       <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[440px] overflow-hidden">

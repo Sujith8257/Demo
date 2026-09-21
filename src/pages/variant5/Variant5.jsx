@@ -9,6 +9,7 @@ import Variant5Skeleton from "./Variant5Skeleton.jsx";
 import HEROWITHSWEEPINGSTRAPRIBBON from "./HEROWITHSWEEPINGSTRAPRIBBON.jsx";
 import ProductDiscoveryHub from "../../components/products/ProductDiscoveryHub.jsx";
 import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReviewsCarousel.jsx";
+import WatchBrandsInfiniteCarousel from "../../components/layout/WatchBrandsInfiniteCarousel.jsx";
 
 // ─── Reference Datasets from AmiHive ──────────────────────────────────────────
 const usps = [
@@ -103,6 +104,9 @@ export default function Variant5() {
         <main id="main-content" className="w-full pt-[92px] md:pt-[132px] pb-16">
           {/* 1. Hero Banner Carousel */}
           <HEROWITHSWEEPINGSTRAPRIBBON />
+
+          {/* Watch Brand Partners Infinite Marquee */}
+          <WatchBrandsInfiniteCarousel />
 
           {/* 2. Compact 4-Column USP Assurance Strip */}
           <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-5">

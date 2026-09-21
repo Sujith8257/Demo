@@ -71,8 +71,8 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
 
   const accentMap = {
     secondary: "bg-secondary-container text-on-secondary hover:bg-secondary",
-    primary: "bg-primary text-on-primary hover:bg-primary-container",
-    error: "bg-error-container text-error hover:bg-error hover:text-on-error",
+    primary: "bg-secondary-container text-on-secondary hover:bg-secondary",
+    error: "bg-secondary-container text-on-secondary hover:bg-secondary",
   };
 
   return (

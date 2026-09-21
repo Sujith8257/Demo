@@ -75,7 +75,7 @@ export default function BESTSELLERSAsymmetrical4ColumnBento() {
                 <span className={"font-numeric-price text-numeric-price text-on-surface"}>
                   ₹4,800
                 </span>
-                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-surface-container text-on-surface flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors"}>
+                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-secondary-container text-on-secondary flex items-center justify-center hover:bg-secondary transition-colors shadow-xs"}>
                   <span className={"material-symbols-outlined text-[16px]"}>
                     add
                   </span>
@@ -99,7 +99,7 @@ export default function BESTSELLERSAsymmetrical4ColumnBento() {
                 <span className={"font-numeric-price text-numeric-price text-on-surface"}>
                   ₹7,200
                 </span>
-                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-surface-container text-on-surface flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors"}>
+                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-secondary-container text-on-secondary flex items-center justify-center hover:bg-secondary transition-colors shadow-xs"}>
                   <span className={"material-symbols-outlined text-[16px]"}>
                     add
                   </span>
@@ -123,7 +123,7 @@ export default function BESTSELLERSAsymmetrical4ColumnBento() {
                 <span className={"font-numeric-price text-numeric-price text-on-surface"}>
                   ₹2,900
                 </span>
-                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-surface-container text-on-surface flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors"}>
+                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-secondary-container text-on-secondary flex items-center justify-center hover:bg-secondary transition-colors shadow-xs"}>
                   <span className={"material-symbols-outlined text-[16px]"}>
                     add
                   </span>
@@ -147,7 +147,7 @@ export default function BESTSELLERSAsymmetrical4ColumnBento() {
                 <span className={"font-numeric-price text-numeric-price text-on-surface"}>
                   ₹5,400
                 </span>
-                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-surface-container text-on-surface flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors"}>
+                <button aria-label={"Add to cart"} className={"w-8 h-8 rounded-lg bg-secondary-container text-on-secondary flex items-center justify-center hover:bg-secondary transition-colors shadow-xs"}>
                   <span className={"material-symbols-outlined text-[16px]"}>
                     add
                   </span>

@@ -687,7 +687,7 @@ export default function Variant5() {
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => handleAddToCart(item.name)}
-                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-primary hover:bg-primary-container text-on-primary shadow-xs cursor-pointer"
+                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-secondary-container hover:bg-secondary text-on-secondary shadow-xs cursor-pointer"
                     >
                       <FiShoppingBag className="text-sm" />
                       <span>Add to Bag</span>

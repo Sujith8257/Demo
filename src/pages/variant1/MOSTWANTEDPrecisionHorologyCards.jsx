@@ -63,7 +63,7 @@ export default function MOSTWANTEDPrecisionHorologyCards() {
                   -14%
                 </span>
               </div>
-              <button className={"w-full py-2.5 rounded-lg bg-surface-container text-on-surface font-label-caps text-label-caps uppercase hover:bg-secondary-container hover:text-on-secondary transition-all flex items-center justify-center gap-2"}>
+              <button className={"w-full py-2.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-label-caps text-label-caps uppercase transition-all flex items-center justify-center gap-2 shadow-xs active:scale-98"}>
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>
@@ -99,7 +99,7 @@ export default function MOSTWANTEDPrecisionHorologyCards() {
                   ₹18,500
                 </span>
               </div>
-              <button className={"w-full py-2.5 rounded-lg bg-surface-container text-on-surface font-label-caps text-label-caps uppercase hover:bg-secondary-container hover:text-on-secondary transition-all flex items-center justify-center gap-2"}>
+              <button className={"w-full py-2.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-label-caps text-label-caps uppercase transition-all flex items-center justify-center gap-2 shadow-xs active:scale-98"}>
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>
@@ -138,7 +138,7 @@ export default function MOSTWANTEDPrecisionHorologyCards() {
                   ₹14,000
                 </span>
               </div>
-              <button className={"w-full py-2.5 rounded-lg bg-surface-container text-on-surface font-label-caps text-label-caps uppercase hover:bg-secondary-container hover:text-on-secondary transition-all flex items-center justify-center gap-2"}>
+              <button className={"w-full py-2.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-label-caps text-label-caps uppercase transition-all flex items-center justify-center gap-2 shadow-xs active:scale-98"}>
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>
@@ -174,7 +174,7 @@ export default function MOSTWANTEDPrecisionHorologyCards() {
                   ₹16,900
                 </span>
               </div>
-              <button className={"w-full py-2.5 rounded-lg bg-surface-container text-on-surface font-label-caps text-label-caps uppercase hover:bg-secondary-container hover:text-on-secondary transition-all flex items-center justify-center gap-2"}>
+              <button className={"w-full py-2.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-label-caps text-label-caps uppercase transition-all flex items-center justify-center gap-2 shadow-xs active:scale-98"}>
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>

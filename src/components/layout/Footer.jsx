@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
 <>
-    <footer className={"w-full bg-[#172337] text-[#FAF8FF] mt-space-xl"}>
-      <div className={"max-w-[1760px] mx-auto px-margin pt-space-xl pb-space-lg"}>
+    <footer className={"w-full bg-[#131a2c] text-[#cdd3cd] mt-12 sm:mt-16 border-t border-white/10"}>
+      <div className={"max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"}>
         <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-lg"}>
           <div className={"lg:col-span-1"}>
             <div className={"flex items-center gap-2 mb-space-sm"}>

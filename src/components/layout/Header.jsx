@@ -102,136 +102,130 @@ export default function Header() {
         </div>
 
         {/* Main Header Row */}
-        <div className="w-full">
-          <div className="h-16 max-w-[1760px] mx-auto px-margin flex items-center justify-between gap-3 sm:gap-space-md">
+        <div className="w-full bg-surface border-b border-outline-variant/20">
+          <div className="h-16 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 sm:gap-6">
             {/* Left: Mobile Hamburger + Brand Logo */}
-            <div className="flex items-center gap-2 sm:gap-space-md">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Open Navigation Menu"
-                className="md:hidden w-9 h-9 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors -ml-1"
+                className="md:hidden w-9 h-9 rounded-md flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors -ml-1"
               >
                 <FiMenu className="text-xl" />
               </button>
 
               <a
-                className="group flex items-center gap-2 text-on-surface decoration-0"
+                className="group flex items-center gap-1.5 text-on-surface decoration-0"
                 data-path="home"
-                href="#"
+                href="/"
               >
-                <div className="w-3 h-3 rounded-full bg-primary relative flex items-center justify-center">
-                  <div className="w-1 h-1 rounded-full bg-surface-container-lowest"></div>
-                </div>
-                <span className="font-headline-sm text-headline-sm tracking-tight font-extrabold text-on-surface uppercase text-lg sm:text-xl">
-                  AMIHIVE
+                <span className="font-poppins text-2xl font-extrabold tracking-tight text-on-surface lowercase">
+                  amihive
                 </span>
+                <span className="inline-block w-2 h-2 rounded-full bg-[#ff9f1c] mb-1"></span>
               </a>
             </div>
 
-            {/* Middle: Desktop Search Input */}
-            <div className="flex-1 max-w-2xl lg:max-w-3xl xl:max-w-4xl hidden md:block">
-              <div className="relative flex items-center">
-                <FiSearch className="absolute left-space-sm text-outline text-[18px] pointer-events-none" />
-                <input
-                  className="w-full h-11 pl-11 pr-4 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest border border-outline-variant/20 focus:border-primary transition-colors"
-                  placeholder="Search watches, handcrafted pieces, gifts and more..."
-                  type="text"
-                />
-              </div>
+            {/* Middle: Desktop Search Input with Amber Button */}
+            <div className="flex-1 max-w-xl lg:max-w-2xl hidden md:block">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById("featured") || document.getElementById("deals");
+                  if (target) target.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="relative flex items-center w-full"
+              >
+                <div className="relative flex-1 flex items-center">
+                  <FiSearch className="absolute left-3.5 text-outline text-[17px] pointer-events-none" />
+                  <input
+                    className="w-full h-10 pl-10 pr-4 bg-surface-container-lowest rounded-l-md font-instrument text-sm text-on-surface placeholder:text-outline/70 focus:outline-none border border-r-0 border-outline-variant/40 focus:border-primary transition-colors"
+                    placeholder="Search watches, straps and handcrafted pieces..."
+                    type="text"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="h-10 px-5 bg-[#ff9f1c] hover:bg-[#e07f00] text-[#131a2c] font-bold text-xs uppercase tracking-wider rounded-r-md transition-colors flex items-center justify-center cursor-pointer border border-[#ff9f1c]"
+                >
+                  Search
+                </button>
+              </form>
             </div>
 
-            {/* Right: Actions (Mobile Search Toggle, Wishlist, Cart, Profile) */}
-            <div className="flex items-center gap-1 sm:gap-space-sm">
+            {/* Right: Actions (Wishlist, Account, Cart) */}
+            <div className="flex items-center gap-1.5 sm:gap-3">
               <button
                 onClick={() => setMobileSearchOpen((o) => !o)}
                 aria-label="Toggle Search"
-                className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors"
+                className="md:hidden w-9 h-9 flex items-center justify-center rounded-md hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors"
               >
                 <FiSearch className="text-lg" />
               </button>
 
               <a
                 aria-label="Wishlist"
-                className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors"
+                className="relative h-9 px-2.5 sm:px-3 flex items-center gap-1.5 rounded-md hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors font-instrument text-xs font-semibold"
                 data-path="wishlist"
-                href="#"
+                href="#bestsellers"
               >
-                <FiHeart className="text-lg sm:text-xl" />
-                <span className="absolute top-1 right-1 min-w-[17px] h-[17px] bg-secondary-container text-on-secondary rounded-full font-label-caps text-[9px] leading-tight flex items-center justify-center px-1 font-bold">
+                <FiHeart className="text-base sm:text-lg text-primary" />
+                <span className="hidden sm:inline">Wishlist</span>
+                <span className="min-w-[18px] h-[18px] bg-secondary-container text-on-secondary rounded-full font-label-caps text-[9px] flex items-center justify-center px-1 font-bold">
                   3
                 </span>
               </a>
 
               <a
                 aria-label="Cart"
-                className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-lg hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors"
+                className="relative h-9 px-2.5 sm:px-3 flex items-center gap-1.5 rounded-md hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors font-instrument text-xs font-semibold"
                 data-path="cart"
-                href="#"
+                href="#deals"
               >
-                <FiShoppingBag className="text-lg sm:text-xl" />
-                <span className="absolute top-1 right-1 min-w-[17px] h-[17px] bg-primary text-on-primary rounded-full font-label-caps text-[9px] leading-tight flex items-center justify-center px-1 font-bold">
+                <FiShoppingBag className="text-base sm:text-lg text-primary" />
+                <span className="hidden sm:inline">Cart</span>
+                <span className="min-w-[18px] h-[18px] bg-primary text-on-primary rounded-full font-label-caps text-[9px] flex items-center justify-center px-1 font-bold">
                   2
                 </span>
               </a>
 
               <button
                 aria-label="Account profile"
-                className="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-0.5 text-on-primary hover:bg-primary-container transition-colors"
+                className="h-9 px-2.5 sm:px-3 rounded-md hover:bg-surface-container text-on-surface-variant flex items-center gap-1.5 transition-colors font-instrument text-xs font-semibold cursor-pointer"
               >
-                <FiUser className="text-[15px]" />
+                <FiUser className="text-base" />
+                <span className="hidden lg:inline">Account</span>
               </button>
             </div>
           </div>
 
-          {/* Expandable Mobile Search Bar */}
-          <AnimatePresence>
-            {mobileSearchOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="md:hidden px-margin py-2.5 bg-surface-container-lowest border-t border-outline-variant/30 flex items-center gap-2 overflow-hidden"
-              >
-                <div className="relative flex-1 flex items-center">
-                  <FiSearch className="absolute left-3 text-outline text-[16px] pointer-events-none" />
-                  <input
-                    autoFocus
-                    className="w-full h-10 pl-9 pr-3 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container"
-                    placeholder="Search watches, leather, ceramics..."
-                    type="text"
-                  />
-                </div>
-                <button
-                  onClick={() => setMobileSearchOpen(false)}
-                  className="text-on-surface-variant hover:text-on-surface text-xs font-semibold px-2 py-1.5 uppercase font-label-caps"
-                >
-                  Cancel
-                </button>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Desktop & Tablet Category Bar */}
+          {/* Desktop Category Nav Strip */}
           <nav
-            aria-label="Primary Marketplace Categories"
-            className="h-11 sm:h-12 max-w-[1760px] mx-auto px-margin flex items-center gap-5 sm:gap-6 lg:gap-8 overflow-x-auto text-body-sm font-label-md select-none"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            aria-label="Marketplace Navigation"
+            className="h-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 hidden md:flex items-center gap-6 overflow-x-auto text-xs font-medium text-on-surface-variant select-none border-t border-outline-variant/15"
           >
-            {navCategories.map((cat, i) => (
-              <a
-                key={cat.path}
-                className={`whitespace-nowrap transition-colors flex items-center gap-1 ${
-                  i === 0
-                    ? "text-on-surface font-bold border-b-2 border-primary pb-0.5"
-                    : "text-on-surface-variant hover:text-on-surface"
-                }`}
-                data-path={cat.path}
-                href="#"
-              >
-                {cat.name}
-              </a>
-            ))}
+            <a href="#collection" className="font-semibold text-primary hover:text-primary transition-colors">
+              Collection
+            </a>
+            <a href="#deals" className="hover:text-primary transition-colors flex items-center gap-1">
+              <span>Deals</span>
+              <span className="bg-[#cc1023] text-white text-[9px] px-1.5 py-0.2 rounded font-bold uppercase">Sale</span>
+            </a>
+            <a href="#categories" className="hover:text-primary transition-colors">
+              Categories
+            </a>
+            <a href="#bestsellers" className="hover:text-primary transition-colors">
+              Bestsellers
+            </a>
+            <a href="#customizer" className="hover:text-primary transition-colors">
+              Customizer
+            </a>
+            <a href="#reviews" className="hover:text-primary transition-colors">
+              Reviews
+            </a>
+            <a href="#care" className="hover:text-primary transition-colors">
+              Care & Warranty
+            </a>
           </nav>
         </div>
       </header>

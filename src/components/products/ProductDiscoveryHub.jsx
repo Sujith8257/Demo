@@ -221,13 +221,13 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
 
   return (
     <motion.section
-      className={`w-full py-12 ${bg}`}
-      initial={{ opacity: 0, y: 30 }}
+      className={`w-full py-6 sm:py-8 ${bg}`}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="max-w-[1760px] mx-auto px-margin">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex items-end justify-between mb-6">
           <div>

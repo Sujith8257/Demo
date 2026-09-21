@@ -69,30 +69,61 @@ main > :last-child { margin-bottom: 0 !important; }
 }
 
 /* =========================================================================
-   Fluid Screen-Fitting Layout System
-   Eliminates excessive empty margins on left & right for modern/wide displays
+   Disciplined eCommerce Container Width & Spacing System
+   (Matches https://ecommerceq.netlify.app/ with clean 1320px max-width)
    ========================================================================= */
 .max-w-\[1760px\],
-.max-w-\[1360px\] {
-  max-width: 96vw !important;
+.max-w-\[1360px\],
+.max-w-\[1320px\],
+.max-w-\[1280px\] {
+  max-width: 1320px !important;
   width: 100% !important;
-}
-
-@media (min-width: 2560px) {
-  .max-w-\[1760px\],
-  .max-w-\[1360px\] {
-    max-width: 2440px !important;
-  }
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .px-margin {
-  padding-left: clamp(1rem, 2.5vw, 3rem) !important;
-  padding-right: clamp(1rem, 2.5vw, 3rem) !important;
+  padding-left: clamp(16px, 3vw, 32px) !important;
+  padding-right: clamp(16px, 3vw, 32px) !important;
 }
 
 #root {
   width: 100%;
   overflow-x: hidden;
+}
+
+/* =========================================================================
+   AmiHive Reference Design System Variables & Classes
+   ========================================================================= */
+:root {
+  --navy: #131a2c;
+  --navy-light: #232f47;
+  --amber: #ff9f1c;
+  --amber-dark: #e07f00;
+  --red: #cc1023;
+  --green: #067d62;
+  --link: #007185;
+  --ink: #0f1111;
+  --ink-soft: #565959;
+  --line: #e3e6e6;
+  --bg: #ffffff;
+  --bg-soft: #f6f7f9;
+}
+
+.font-instrument {
+  font-family: 'Instrument Sans', Inter, -apple-system, sans-serif;
+}
+
+.font-bricolage {
+  font-family: 'Bricolage Grotesque', 'Poppins', sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-inter {
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 /* =========================================================================

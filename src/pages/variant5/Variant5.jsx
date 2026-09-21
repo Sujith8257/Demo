@@ -8,6 +8,7 @@ import PageLoader from "../../components/skeleton/PageLoader.jsx";
 import Variant5Skeleton from "./Variant5Skeleton.jsx";
 import HEROWITHSWEEPINGSTRAPRIBBON from "./HEROWITHSWEEPINGSTRAPRIBBON.jsx";
 import ProductDiscoveryHub from "../../components/products/ProductDiscoveryHub.jsx";
+import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReviewsCarousel.jsx";
 
 // ─── Reference Datasets from AmiHive ──────────────────────────────────────────
 const usps = [
@@ -377,45 +378,8 @@ export default function Variant5() {
             <ProductDiscoveryHub />
           </div>
 
-          {/* 8. Customer Testimonials & Reviews */}
-          <section id="reviews" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="mb-4">
-              <h2 className="font-poppins text-lg sm:text-xl lg:text-2xl font-bold text-[#0f1111]">
-                What customers say
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
-              {testimonials.map((t, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white border border-[#e3e6e6] rounded-md p-4 flex flex-col"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-[#131a2c] text-white flex items-center justify-center font-bold text-xs">
-                      {t.initials}
-                    </div>
-                    <div>
-                      <strong className="text-xs font-semibold text-[#0f1111] block">
-                        {t.name}
-                      </strong>
-                      <span className="text-[10px] text-[#565959]">
-                        Verified Buyer • {t.date}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="text-[#e07f00] text-xs mb-2">
-                    {"★".repeat(t.rating)}
-                  </div>
-
-                  <p className="font-instrument text-xs text-[#565959] leading-relaxed">
-                    "{t.text}"
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
+          {/* 8. Continuous Infinite Reviews Carousel */}
+          <ContinuousReviewsCarousel className="mt-10 sm:mt-12" />
 
           {/* 9. Collector Circle Newsletter Box */}
           <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">

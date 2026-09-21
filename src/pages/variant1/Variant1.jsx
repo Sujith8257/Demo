@@ -13,7 +13,7 @@ import BESTSELLERSAsymmetrical4ColumnBento from "./BESTSELLERSAsymmetrical4Colum
 import WATCHMATERIALSTRIPTYCHConnected3 from "./WATCHMATERIALSTRIPTYCHConnected3.jsx";
 import SHOPBYBUDGETHorizontalPill from "./SHOPBYBUDGETHorizontalPill.jsx";
 import ProductDiscoveryHub from "../../components/products/ProductDiscoveryHub.jsx";
-import REVIEWSLIFESTYLEHOROLOGYSCROLLER from "./REVIEWSLIFESTYLEHOROLOGYSCROLLER.jsx";
+import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReviewsCarousel.jsx";
 
 export default function Variant1() {
   return (
@@ -32,7 +32,7 @@ export default function Variant1() {
           <WATCHMATERIALSTRIPTYCHConnected3 />
           <SHOPBYBUDGETHorizontalPill />
           <ProductDiscoveryHub />
-          <REVIEWSLIFESTYLEHOROLOGYSCROLLER />
+          <ContinuousReviewsCarousel />
         </main>
         <Footer />
       </PageLoader>

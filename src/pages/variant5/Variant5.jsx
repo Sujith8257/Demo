@@ -100,7 +100,7 @@ export default function Variant5() {
       <Header />
 
       <PageLoader skeleton={<Variant5Skeleton />} duration={800}>
-        <main id="main-content" className="w-full pt-28 pb-16">
+        <main id="main-content" className="w-full pt-[92px] md:pt-[132px] pb-16">
           {/* 1. Hero Banner Carousel */}
           <HEROWITHSWEEPINGSTRAPRIBBON />
 

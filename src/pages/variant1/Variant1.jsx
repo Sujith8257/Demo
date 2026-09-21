@@ -21,7 +21,7 @@ export default function Variant1() {
       <SkipLink />
       <Header />
       <PageLoader skeleton={<Variant1Skeleton />} duration={1500}>
-        <main id="main-content" className="w-full pt-28 bg-surface">
+        <main id="main-content" className="w-full pt-[92px] md:pt-[132px] bg-surface">
           <HEROStrictSplitGridWith />
           <ARCHITECTURALCATEGORYRAIL />
           <SHOPTHEEDITDisciplined2 />

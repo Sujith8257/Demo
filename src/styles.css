@@ -1,0 +1,136 @@
+html, body, #root { min-height: 100%; }
+html, body { margin: 0; padding: 0; }
+body { overscroll-behavior: none; }
+main > :first-child { margin-top: 0 !important; }
+main > :last-child { margin-bottom: 0 !important; }
+::-webkit-scrollbar { display: none; }
+
+
+@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+@keyframes slides {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+.logos {
+  overflow: hidden;
+  padding: 24px 0px;
+  white-space: nowrap;
+  position: relative;
+}
+.logos:before, .logos:after {
+  position: absolute;
+  top: 0;
+  content: '';
+  width: 250px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.logos:before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.logos:after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.logo_items {
+  display: inline-block;
+  animation: 35s slides infinite linear;
+}
+.logos:hover .logo_items {
+  animation-play-state: paused;
+}
+.logo_items img {
+  height: 64px;
+  display: inline-block;
+  margin: 0 24px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+
+
+@keyframes marqueeProviders {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.provider-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeProviders 28s linear infinite;
+}
+.provider-track:hover {
+  animation-play-state: paused;
+}
+
+/* =========================================================================
+   Fluid Screen-Fitting Layout System
+   Eliminates excessive empty margins on left & right for modern/wide displays
+   ========================================================================= */
+.max-w-\[1760px\],
+.max-w-\[1360px\] {
+  max-width: 96vw !important;
+  width: 100% !important;
+}
+
+@media (min-width: 2560px) {
+  .max-w-\[1760px\],
+  .max-w-\[1360px\] {
+    max-width: 2440px !important;
+  }
+}
+
+.px-margin {
+  padding-left: clamp(1rem, 2.5vw, 3rem) !important;
+  padding-right: clamp(1rem, 2.5vw, 3rem) !important;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================================================================
+   Mobile Touch & Responsive Optimizations
+   ========================================================================= */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure media stays contained */
+img, video {
+  max-width: 100%;
+}
+
+/* Responsive typography scaling for small mobile screens */
+@media (max-width: 640px) {
+  .font-display-hero {
+    font-size: 32px !important;
+    line-height: 38px !important;
+  }
+  .font-headline-lg {
+    font-size: 26px !important;
+    line-height: 32px !important;
+  }
+  .font-headline-md {
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
+}
+
+

@@ -122,7 +122,6 @@ export default function Header() {
                 <span className="font-poppins text-2xl font-extrabold tracking-tight text-on-surface lowercase">
                   amihive
                 </span>
-                <span className="inline-block w-2 h-2 rounded-full bg-[#ff9f1c] mb-1"></span>
               </a>
             </div>
 

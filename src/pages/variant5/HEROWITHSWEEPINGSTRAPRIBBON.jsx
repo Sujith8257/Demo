@@ -54,8 +54,8 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Full-width banner frame fitting the top of the page itself */}
-      <div className="relative w-full h-[360px] sm:h-[420px] md:h-[480px] lg:h-[520px] overflow-hidden">
+      {/* Full-width banner frame fitting the top of the page itself with reduced height */}
+      <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[440px] overflow-hidden">
         {/* Animated Background Image */}
         <AnimatePresence mode="wait">
           <motion.img
@@ -72,24 +72,24 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
 
         {/* High-contrast gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-[#131a2c]/95 via-[#131a2c]/80 sm:via-[#131a2c]/65 to-transparent z-10">
-          <div className="w-full h-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end sm:justify-center pb-12 sm:pb-0">
+          <div className="w-full h-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end sm:justify-center pb-8 sm:pb-0">
             <div className="max-w-xl">
-              <span className="inline-block text-[#ff9f1c] text-xs sm:text-sm font-bold uppercase tracking-wider mb-2 sm:mb-3">
+              <span className="inline-block text-[#ff9f1c] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
                 {banner.tag}
               </span>
 
-              <h1 className="font-poppins text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.1] mb-2 sm:mb-3">
+              <h1 className="font-poppins text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-[1.1] mb-1.5 sm:mb-2">
                 {banner.title}
               </h1>
 
-              <p className="font-instrument text-white/85 text-xs sm:text-sm md:text-base leading-relaxed mb-4 sm:mb-6 max-w-md">
+              <p className="font-instrument text-white/85 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 max-w-md">
                 {banner.subtitle}
               </p>
 
               <div>
                 <a
                   href={banner.href}
-                  className="inline-flex items-center justify-center h-10 sm:h-12 px-6 sm:px-8 rounded-md bg-[#ff9f1c] hover:bg-[#e07f00] text-[#131a2c] font-bold text-xs sm:text-sm transition-all shadow-lg active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center h-9 sm:h-10 px-5 sm:px-6 rounded-md bg-[#ff9f1c] hover:bg-[#e07f00] text-[#131a2c] font-bold text-xs transition-all shadow-lg active:scale-95 cursor-pointer"
                 >
                   {banner.cta}
                 </a>

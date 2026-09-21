@@ -90,7 +90,7 @@ export default function HEROStrictSplitGridWith() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="max-w-[1760px] mx-auto px-margin">
-        <div className="min-h-[580px] py-space-md flex flex-col justify-between">
+        <div className="min-h-[460px] py-4 flex flex-col justify-between">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
@@ -98,11 +98,11 @@ export default function HEROStrictSplitGridWith() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px] items-center gap-space-lg"
+              className="grid grid-cols-1 lg:grid-cols-12 min-h-[420px] items-center gap-space-md"
             >
               {/* Left Column: Typographic Spec */}
-              <div className="lg:col-span-6 py-6 sm:py-space-xl flex flex-col justify-center z-10">
-                <div className="flex items-center gap-space-xs mb-space-sm text-primary flex-wrap">
+              <div className="lg:col-span-6 py-4 flex flex-col justify-center z-10">
+                <div className="flex items-center gap-space-xs mb-space-xs text-primary flex-wrap">
                   <span className="font-label-caps text-label-caps tracking-widest uppercase bg-surface-container px-3 py-1 rounded-full text-primary font-bold">
                     {active.edition}
                   </span>
@@ -112,19 +112,19 @@ export default function HEROStrictSplitGridWith() {
                   </span>
                 </div>
 
-                <h1 className="font-display-hero text-display-hero text-on-surface mb-space-sm max-w-lg">
+                <h1 className="font-display-hero text-2xl sm:text-3xl md:text-4xl text-on-surface mb-space-xs max-w-lg">
                   {active.title}
                 </h1>
 
-                <p className="font-body-lg text-body-lg text-on-surface-variant max-w-md mb-space-lg">
+                <p className="font-body-lg text-sm sm:text-base text-on-surface-variant max-w-md mb-space-md">
                   {active.description}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-space-sm mb-space-lg">
+                <div className="flex flex-wrap items-center gap-space-sm mb-space-md">
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-lg bg-secondary-container text-on-secondary font-label-caps text-label-caps tracking-wider uppercase shadow-md hover:bg-secondary transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-secondary-container text-on-secondary font-label-caps text-label-caps tracking-wider uppercase shadow-md hover:bg-secondary transition-colors cursor-pointer"
                     href="#"
                   >
                     <span>{active.ctaPrimary}</span>
@@ -133,7 +133,7 @@ export default function HEROStrictSplitGridWith() {
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-surface-container-lowest text-primary font-label-caps text-label-caps tracking-wider uppercase hover:bg-surface-container transition-colors shadow-sm cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-surface-container-lowest text-primary font-label-caps text-label-caps tracking-wider uppercase hover:bg-surface-container transition-colors shadow-sm cursor-pointer"
                     href="#"
                   >
                     <span>{active.ctaSecondary}</span>
@@ -141,7 +141,7 @@ export default function HEROStrictSplitGridWith() {
                 </div>
 
                 {/* Micro-Telemetry Widget */}
-                <div className="grid grid-cols-3 gap-space-sm pt-space-sm bg-surface-container-lowest p-space-sm rounded-xl max-w-md shadow-sm border border-outline-variant/20">
+                <div className="grid grid-cols-3 gap-space-sm pt-space-xs bg-surface-container-lowest p-space-xs rounded-xl max-w-md shadow-sm border border-outline-variant/20">
                   {active.specs.map((s, i) => (
                     <div key={i}>
                       <span className="font-label-caps text-label-caps text-outline block uppercase text-[10px]">
@@ -156,8 +156,8 @@ export default function HEROStrictSplitGridWith() {
               </div>
 
               {/* Right Column: Circular Composition Cutting Edge */}
-              <div className="lg:col-span-6 relative h-[360px] sm:h-[480px] lg:h-[580px] flex items-center justify-start lg:justify-end overflow-hidden lg:overflow-visible">
-                <div className="relative lg:absolute lg:-right-28 xl:-right-36 w-[320px] h-[320px] sm:w-[460px] sm:h-[460px] lg:w-[580px] lg:h-[580px] rounded-full bg-surface-container-high shadow-xl flex items-center justify-center p-4 sm:p-6 mx-auto lg:mx-0">
+              <div className="lg:col-span-6 relative h-[300px] sm:h-[380px] lg:h-[440px] flex items-center justify-start lg:justify-end overflow-hidden lg:overflow-visible">
+                <div className="relative lg:absolute lg:-right-20 xl:-right-24 w-[280px] h-[280px] sm:w-[380px] sm:h-[380px] lg:w-[440px] lg:h-[440px] rounded-full bg-surface-container-high shadow-xl flex items-center justify-center p-3 sm:p-4 mx-auto lg:mx-0">
                   <div className="w-full h-full rounded-full bg-surface-container-lowest relative overflow-hidden flex items-center justify-center shadow-inner">
                     <img
                       className="absolute inset-0 w-full h-full object-cover scale-105"

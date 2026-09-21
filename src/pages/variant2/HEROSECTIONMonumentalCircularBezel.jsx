@@ -100,8 +100,8 @@ export default function HEROSECTIONMonumentalCircularBezel() {
       {/* Ambient Radial Glow behind bezel cut */}
       <div className="absolute -top-32 right-0 w-[840px] h-[840px] rounded-full bg-surface-container-high/40 blur-3xl pointer-events-none -z-0"></div>
 
-      <div className="max-w-[1760px] mx-auto px-margin relative z-10 pt-space-lg">
-        <div className="relative min-h-[660px] sm:min-h-[580px] lg:h-[620px] w-full bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/30">
+      <div className="max-w-[1760px] mx-auto px-margin relative z-10 pt-4">
+        <div className="relative min-h-[500px] sm:min-h-[460px] lg:h-[480px] w-full bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/30">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.id}
@@ -109,11 +109,11 @@ export default function HEROSECTIONMonumentalCircularBezel() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between p-space-md lg:p-space-xl gap-space-lg"
+              className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between p-4 sm:p-6 lg:p-8 gap-space-md"
             >
               {/* Left Column Text */}
               <div className="w-full lg:w-1/2 flex flex-col justify-center items-start z-20">
-                <div className="flex items-center gap-2 mb-space-sm flex-wrap">
+                <div className="flex items-center gap-2 mb-space-xs flex-wrap">
                   <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-label-caps text-label-caps uppercase tracking-wider font-bold ${active.badgeColor}`}>
                     <BadgeIcon className="text-[14px]" />
                     {active.badge}
@@ -123,11 +123,11 @@ export default function HEROSECTIONMonumentalCircularBezel() {
                   </span>
                 </div>
 
-                <h1 className="font-display-hero text-display-hero text-on-surface mb-space-sm max-w-lg">
+                <h1 className="font-display-hero text-2xl sm:text-3xl md:text-4xl text-on-surface mb-space-xs max-w-lg">
                   {active.title}
                 </h1>
 
-                <p className="font-body-lg text-body-lg text-on-surface-variant mb-space-lg max-w-md">
+                <p className="font-body-lg text-sm sm:text-base text-on-surface-variant mb-space-md max-w-md">
                   {active.description}
                 </p>
 
@@ -135,7 +135,7 @@ export default function HEROSECTIONMonumentalCircularBezel() {
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-7 py-3.5 rounded-lg bg-secondary-container text-on-secondary font-label-caps text-label-caps uppercase tracking-wider shadow-md hover:bg-secondary transition-all flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-2.5 rounded-lg bg-secondary-container text-on-secondary font-label-caps text-label-caps uppercase tracking-wider shadow-md hover:bg-secondary transition-all flex items-center gap-2 cursor-pointer"
                     href="#"
                   >
                     <span>{active.ctaPrimary}</span>
@@ -144,7 +144,7 @@ export default function HEROSECTIONMonumentalCircularBezel() {
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors shadow-sm cursor-pointer"
+                    className="px-5 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors shadow-sm cursor-pointer"
                     href="#"
                   >
                     {active.ctaSecondary}
@@ -152,7 +152,7 @@ export default function HEROSECTIONMonumentalCircularBezel() {
                 </div>
 
                 {/* Live Calibre Metric Meter */}
-                <div className="mt-space-lg pt-space-md flex items-center gap-4 sm:gap-space-md bg-surface-container-lowest/80 backdrop-blur-sm px-4 py-3 rounded-lg border border-outline-variant/20">
+                <div className="mt-space-md pt-space-xs flex items-center gap-4 sm:gap-space-md bg-surface-container-lowest/80 backdrop-blur-sm px-4 py-2.5 rounded-lg border border-outline-variant/20">
                   {active.metrics.map((m, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       {idx > 0 && <div className="w-px h-8 bg-outline-variant/60" />}
@@ -168,15 +168,15 @@ export default function HEROSECTIONMonumentalCircularBezel() {
               </div>
 
               {/* Right Column: Monumental Circular Bezel */}
-              <div className="w-full lg:w-1/2 h-[300px] sm:h-[340px] lg:h-full flex items-center justify-center relative">
+              <div className="w-full lg:w-1/2 h-[260px] sm:h-[300px] lg:h-full flex items-center justify-center relative">
                 {/* Decorative Outer Calibration Ring */}
                 <div
-                  className="absolute w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] lg:w-[500px] lg:h-[500px] rounded-full border-2 border-dashed border-outline-variant/60 animate-spin pointer-events-none"
+                  className="absolute w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] lg:w-[400px] lg:h-[400px] rounded-full border-2 border-dashed border-outline-variant/60 animate-spin pointer-events-none"
                   style={{ animationDuration: "90s" }}
                 />
 
                 {/* Bezel Step 1 */}
-                <div className="w-[250px] h-[250px] sm:w-[320px] sm:h-[320px] lg:w-[450px] lg:h-[450px] rounded-full p-3 bg-surface-container-highest shadow-xl flex items-center justify-center relative">
+                <div className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[360px] lg:h-[360px] rounded-full p-2.5 bg-surface-container-highest shadow-xl flex items-center justify-center relative">
                   {/* Chrono Index Ticks */}
                   <div className="absolute inset-2 rounded-full border border-primary/20 pointer-events-none flex items-center justify-center">
                     <span className="absolute top-1 font-label-caps text-[10px] text-outline">60</span>

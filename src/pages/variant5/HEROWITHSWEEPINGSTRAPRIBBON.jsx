@@ -52,7 +52,7 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
     >
       {/* Full-width banner frame fitting the page viewport */}
       <div className="relative w-full h-[70vh] sm:h-[80vh] lg:h-[calc(100vh-92px)] min-h-[520px] max-h-[900px] overflow-hidden">
-        {/* Animated Background Image */}
+        {/* Animated Background Image with contrast dimming */}
         <AnimatePresence mode="wait">
           <motion.img
             key={banner.id}
@@ -62,30 +62,32 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 w-full h-full object-cover object-center select-none"
+            className="absolute inset-0 w-full h-full object-cover object-center select-none brightness-[0.60] sm:brightness-[0.65] contrast-[1.05]"
           />
         </AnimatePresence>
 
         {/* High-contrast gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-[#131a2c]/95 via-[#131a2c]/80 sm:via-[#131a2c]/65 to-transparent z-10">
-          <div className="w-full h-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end sm:justify-center pb-12 sm:pb-0">
-            <div className="max-w-2xl">
-              <span className="inline-block text-[#ff9f1c] text-xs sm:text-sm font-bold uppercase tracking-wider mb-2 sm:mb-3">
+        <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-[#0b101b]/95 via-[#0b101b]/70 to-black/30 z-10">
+          <div className="w-full h-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end sm:justify-center pb-14 sm:pb-0">
+            {/* High-contrast Frosted Glass Scrim Panel for crystal-clear readability */}
+            <div className="max-w-xl lg:max-w-2xl p-6 sm:p-8 rounded-2xl bg-[#0d1424]/85 sm:bg-[#0d1424]/70 backdrop-blur-md border border-white/15 shadow-2xl">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#ff9f1c]/20 text-[#ff9f1c] border border-[#ff9f1c]/40 text-xs sm:text-sm font-bold uppercase tracking-wider mb-2.5 sm:mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#ff9f1c] animate-pulse" />
                 {banner.tag}
               </span>
 
-              <h1 className="font-poppins text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-2 sm:mb-3">
+              <h1 className="font-poppins text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-3 drop-shadow-[0_3px_12px_rgba(0,0,0,0.8)]">
                 {banner.title}
               </h1>
 
-              <p className="font-instrument text-white/85 text-sm sm:text-base md:text-lg leading-relaxed mb-5 sm:mb-6 max-w-lg">
+              <p className="font-instrument text-slate-100 text-sm sm:text-base md:text-lg leading-relaxed mb-6 max-w-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
                 {banner.subtitle}
               </p>
 
               <div>
                 <a
                   href={banner.href}
-                  className="inline-flex items-center justify-center h-11 sm:h-12 px-7 sm:px-8 rounded-md bg-[#ff9f1c] hover:bg-[#e07f00] text-[#131a2c] font-bold text-sm sm:text-base transition-all shadow-lg active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center h-11 sm:h-12 px-7 sm:px-8 rounded-md bg-[#ff9f1c] hover:bg-[#e07f00] text-[#131a2c] font-bold text-sm sm:text-base transition-all shadow-xl hover:shadow-[#ff9f1c]/25 active:scale-95 cursor-pointer"
                 >
                   {banner.cta}
                 </a>

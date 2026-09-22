@@ -1,8 +1,10 @@
-export default function WATCHMATERIALSTRIPTYCHConnected3() {
+export default function WATCHMATERIALSTRIPTYCHConnected3({
+  className = "",
+  containerClassName = "max-w-[1760px] mx-auto px-margin",
+}) {
   return (
-<>
-    <section className={"w-full py-space-xl bg-surface-container-low"} id={"specification-triptych"}>
-      <div className={"max-w-[1760px] mx-auto px-margin"}>
+    <section className={`w-full py-space-xl bg-surface-container-low ${className}`} id="specification-triptych">
+      <div className={containerClassName}>
         <div className={"text-center max-w-xl mx-auto mb-space-lg"}>
           <span className={"font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-1"}>
             Horological Anatomy
@@ -99,6 +101,5 @@ export default function WATCHMATERIALSTRIPTYCHConnected3() {
         </div>
       </div>
     </section>
-</>
   );
 }

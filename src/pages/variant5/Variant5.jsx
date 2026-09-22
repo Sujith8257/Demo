@@ -27,6 +27,7 @@ import ProductDiscoveryHub from "../../components/products/ProductDiscoveryHub.j
 import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReviewsCarousel.jsx";
 import WatchBrandsInfiniteCarousel from "../../components/layout/WatchBrandsInfiniteCarousel.jsx";
 import SHOPBYBUDGETHorizontalPill from "../variant1/SHOPBYBUDGETHorizontalPill.jsx";
+import WATCHMATERIALSTRIPTYCHConnected3 from "../variant1/WATCHMATERIALSTRIPTYCHConnected3.jsx";
 
 // ─── Shared Brand Datasets ──────────────────────────────────────────────────
 const categories = [
@@ -731,7 +732,10 @@ export default function Variant5() {
             </div>
           </section>
 
-          {/* 7. Shop By Investment Range (Portfolio Accessibility from Variant 1) */}
+          {/* 7. Horological Anatomy (Tolerances Without Compromise from Variant 1) */}
+          <WATCHMATERIALSTRIPTYCHConnected3 containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" />
+
+          {/* 8. Shop By Investment Range (Portfolio Accessibility from Variant 1) */}
           <SHOPBYBUDGETHorizontalPill containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" />
 
           {/* 8. Product Discovery Hub (Recently Viewed, Recommendations, Deals in Watches) */}

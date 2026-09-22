@@ -418,10 +418,10 @@ export default function Variant5() {
   return (
     <div className="relative bg-surface min-h-screen font-body-md text-on-surface antialiased">
       <SkipLink />
-      <Header />
+      <Header showNavStrip={false} />
 
       <PageLoader skeleton={<Variant5Skeleton />} duration={800}>
-        <main id="main-content" className="w-full pt-[92px] md:pt-[132px] pb-16">
+        <main id="main-content" className="w-full pt-[92px] pb-16">
           {/* 1. Hero Banner Carousel (Fitted to page width) */}
           <HEROWITHSWEEPINGSTRAPRIBBON />
 

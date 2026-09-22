@@ -24,7 +24,7 @@ const navCategories = [
   { name: "Offers", path: "special-offers" },
 ];
 
-export default function Header() {
+export default function Header({ showNavStrip = true }) {
   const [visible, setVisible] = useState(true);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -199,33 +199,35 @@ export default function Header() {
           </div>
 
           {/* Desktop Category Nav Strip */}
-          <nav
-            aria-label="Marketplace Navigation"
-            className="h-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 hidden md:flex items-center gap-6 overflow-x-auto text-xs font-medium text-on-surface-variant select-none border-t border-outline-variant/15"
-          >
-            <a href="#collection" className="font-semibold text-primary hover:text-primary transition-colors">
-              Collection
-            </a>
-            <a href="#deals" className="hover:text-primary transition-colors flex items-center gap-1">
-              <span>Deals</span>
-              <span className="bg-[#cc1023] text-white text-[9px] px-1.5 py-0.2 rounded font-bold uppercase">Sale</span>
-            </a>
-            <a href="#categories" className="hover:text-primary transition-colors">
-              Categories
-            </a>
-            <a href="#bestsellers" className="hover:text-primary transition-colors">
-              Bestsellers
-            </a>
-            <a href="#customizer" className="hover:text-primary transition-colors">
-              Customizer
-            </a>
-            <a href="#reviews" className="hover:text-primary transition-colors">
-              Reviews
-            </a>
-            <a href="#care" className="hover:text-primary transition-colors">
-              Care & Warranty
-            </a>
-          </nav>
+          {showNavStrip && (
+            <nav
+              aria-label="Marketplace Navigation"
+              className="h-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 hidden md:flex items-center gap-6 overflow-x-auto text-xs font-medium text-on-surface-variant select-none border-t border-outline-variant/15"
+            >
+              <a href="#collection" className="font-semibold text-primary hover:text-primary transition-colors">
+                Collection
+              </a>
+              <a href="#deals" className="hover:text-primary transition-colors flex items-center gap-1">
+                <span>Deals</span>
+                <span className="bg-[#cc1023] text-white text-[9px] px-1.5 py-0.2 rounded font-bold uppercase">Sale</span>
+              </a>
+              <a href="#categories" className="hover:text-primary transition-colors">
+                Categories
+              </a>
+              <a href="#bestsellers" className="hover:text-primary transition-colors">
+                Bestsellers
+              </a>
+              <a href="#customizer" className="hover:text-primary transition-colors">
+                Customizer
+              </a>
+              <a href="#reviews" className="hover:text-primary transition-colors">
+                Reviews
+              </a>
+              <a href="#care" className="hover:text-primary transition-colors">
+                Care & Warranty
+              </a>
+            </nav>
+          )}
         </div>
       </header>
 

@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FiHeart,
   FiShoppingBag,
-  FiCheck,
   FiArrowRight,
   FiShield,
   FiTruck,
@@ -370,8 +369,6 @@ export default function Variant5() {
   const [activeTab, setActiveTab] = useState("all");
   const [wishlist, setWishlist] = useState({});
   const [toastMessage, setToastMessage] = useState("");
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterDone, setNewsletterDone] = useState(false);
 
   const showToast = (msg) => {
     setToastMessage(msg);
@@ -390,14 +387,6 @@ export default function Variant5() {
 
   const handleAddToCart = (name) => {
     showToast(`Added "${name}" to your Cart`);
-  };
-
-  const handleNewsletter = (e) => {
-    e.preventDefault();
-    if (newsletterEmail) {
-      setNewsletterDone(true);
-      showToast("Thank you for joining the Collector Circle!");
-    }
   };
 
   const filteredBestsellers = bestsellers.filter(
@@ -753,50 +742,6 @@ export default function Variant5() {
 
           {/* 9. Four Pillars of Material Integrity & Standard of Authenticity (from Variant 4) */}
           <PRODUCTINTEGRITYTRIPTYCH containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" className="mt-14 sm:mt-16" />
-
-          {/* 10. Collector Circle Newsletter Box */}
-          <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
-            <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
-              <div>
-                <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold block mb-1">
-                  Atelier Dispatch & Private Releases
-                </span>
-                <h2 className="font-headline-md text-headline-md font-bold text-on-surface mb-2">
-                  Join the Collector Circle
-                </h2>
-                <p className="font-body-md text-sm text-on-surface-variant max-w-md">
-                  Receive private invitations to preview numbered cohort drops, workshop dispatches, and private atelier allocations.
-                </p>
-              </div>
-
-              {newsletterDone ? (
-                <div className="flex items-center gap-2 text-[#067d62] font-semibold text-xs sm:text-sm bg-emerald-50 px-5 py-3 rounded-xl border border-emerald-200">
-                  <FiCheck className="text-base" />
-                  <span>You are subscribed to the collector circle.</span>
-                </div>
-              ) : (
-                <form
-                  onSubmit={handleNewsletter}
-                  className="flex items-center gap-2 w-full md:w-auto"
-                >
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email address"
-                    value={newsletterEmail}
-                    onChange={(e) => setNewsletterEmail(e.target.value)}
-                    className="h-11 px-4 bg-surface-container-lowest border border-outline-variant/30 rounded-xl text-sm text-on-surface placeholder:text-outline outline-none focus:border-primary min-w-[240px] sm:min-w-[300px] shadow-xs"
-                  />
-                  <button
-                    type="submit"
-                    className="h-11 px-6 bg-primary hover:bg-primary-container text-on-primary font-label-caps text-label-caps uppercase tracking-wider font-bold rounded-xl transition-colors cursor-pointer flex-shrink-0 shadow-xs"
-                  >
-                    Subscribe
-                  </button>
-                </form>
-              )}
-            </div>
-          </section>
         </main>
 
         <Footer />

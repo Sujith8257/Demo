@@ -31,38 +31,50 @@ import WatchBrandsInfiniteCarousel from "../../components/layout/WatchBrandsInfi
 const categories = [
   {
     name: "Automatic Watches",
-    count: "24 Pieces",
+    sub: "Self-Winding",
     tag: "Self-Winding",
+    count: "24 Pieces",
+    img: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=80",
     image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Dress Chronographs",
-    count: "16 Pieces",
+    sub: "Precision Calibre",
     tag: "Precision Calibre",
+    count: "16 Pieces",
+    img: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=80",
     image: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Bridle Leather Straps",
-    count: "32 Options",
+    sub: "Hand-Stitched",
     tag: "Hand-Stitched",
+    count: "32 Options",
+    img: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=80",
     image: "https://images.unsplash.com/photo-1495857000853-fe46c8aefc30?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Steel Jubilee Bracelets",
-    count: "18 Styles",
+    sub: "Solid Milled",
     tag: "Solid Milled",
+    count: "18 Styles",
+    img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Leather Horology Rolls",
-    count: "14 Items",
+    sub: "Archival Storage",
     tag: "Archival Storage",
+    count: "14 Items",
+    img: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=80",
     image: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Heirloom Gift Coffrets",
-    count: "9 Suites",
+    sub: "Limited Registry",
     tag: "Limited Registry",
+    count: "9 Suites",
+    img: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80",
     image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80",
   },
 ];
@@ -401,68 +413,41 @@ export default function Variant5() {
           {/* Watch Brand Partners Infinite Marquee */}
           <WatchBrandsInfiniteCarousel className="my-3 sm:my-5" />
 
-          {/* 3. Shop by Category - Insta Stories Style Circular Row */}
-          <section id="categories" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="flex items-end justify-between mb-5 sm:mb-6">
+          {/* 3. Shop by Category */}
+          <section id="categories" className="max-w-[1400px] mx-auto px-6 sm:px-10 py-10 sm:py-12">
+            <div className="flex items-center justify-between mb-8">
               <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <FiCompass className="text-primary text-base" />
-                  <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest">
-                    Curated Horological Disciplines
-                  </span>
-                </div>
-                <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                <span className="text-xs font-semibold tracking-wider text-blue-600 uppercase">
+                  Curated Horological Disciplines
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mt-1">
                   Shop by Category
                 </h2>
               </div>
               <a
                 href="#collection"
-                className="hidden sm:inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-md text-xs font-semibold uppercase tracking-wider transition-colors"
+                className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
               >
-                <span>Explore Full Roster</span>
-                <FiArrowRight />
+                Explore full roster →
               </a>
             </div>
 
-            {/* Insta-Stories Circular Category Rail */}
-            <div className="flex items-start justify-start sm:justify-between gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 px-1 select-none no-scrollbar">
-              {categories.map((cat, idx) => (
-                <a
-                  key={idx}
-                  href="#collection"
-                  className="group flex flex-col items-center text-center flex-shrink-0 w-20 sm:w-24 focus:outline-none"
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+              {categories.map((cat) => (
+                <div
+                  key={cat.name}
+                  className="flex flex-col items-center text-center cursor-pointer group"
                 >
-                  {/* Outer Insta Story Gradient Ring */}
-                  <div className="relative p-[2.5px] rounded-full bg-gradient-to-tr from-[#fd661d] via-[#f7b731] to-[#eb3b5a] group-hover:scale-105 group-active:scale-95 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                    {/* Inner White Gap */}
-                    <div className="p-[2.5px] rounded-full bg-surface">
-                      {/* Circular Story Avatar */}
-                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-surface-container">
-                        <img
-                          src={cat.image}
-                          alt={cat.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Small count pill badge at the bottom of the circle */}
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-surface text-primary border border-outline-variant/30 text-[9px] font-bold font-label-caps px-1.5 py-0.2 rounded-full whitespace-nowrap shadow-xs scale-90 group-hover:scale-100 transition-transform">
-                      {cat.count.split(" ")[0]}
-                    </span>
-                  </div>
-
-                  {/* Category Title & Tag below the circle */}
-                  <div className="mt-2.5 flex flex-col items-center">
-                    <span className="text-[12px] sm:text-[13px] font-semibold text-on-surface group-hover:text-primary transition-colors leading-tight line-clamp-2 max-w-[85px] sm:max-w-[95px]">
-                      {cat.name}
-                    </span>
-                    <span className="text-[10px] text-on-surface-variant font-medium mt-0.5 leading-none">
-                      {cat.tag}
-                    </span>
-                  </div>
-                </a>
+                  <img
+                    src={cat.img || cat.image}
+                    alt={cat.name}
+                    className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-4 transition-transform group-hover:scale-105"
+                  />
+                  <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug">
+                    {cat.name}
+                  </h3>
+                  <p className="text-sm text-gray-500 mt-1">{cat.sub}</p>
+                </div>
               ))}
             </div>
           </section>

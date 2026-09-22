@@ -401,9 +401,9 @@ export default function Variant5() {
           {/* Watch Brand Partners Infinite Marquee */}
           <WatchBrandsInfiniteCarousel />
 
-          {/* 3. Shop by Category - Luxury Discovery Bento matching ProductDiscoveryHub */}
+          {/* 3. Shop by Category - Insta Stories Style Circular Row */}
           <section id="categories" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
-            <div className="flex items-end justify-between mb-6">
+            <div className="flex items-end justify-between mb-5 sm:mb-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <FiCompass className="text-primary text-base" />
@@ -424,33 +424,43 @@ export default function Variant5() {
               </a>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
+            {/* Insta-Stories Circular Category Rail */}
+            <div className="flex items-start justify-start sm:justify-between gap-4 sm:gap-6 overflow-x-auto pb-4 pt-1 px-1 select-none no-scrollbar">
               {categories.map((cat, idx) => (
                 <a
                   key={idx}
                   href="#collection"
-                  className="group relative bg-surface-container-lowest rounded-2xl border border-outline-variant/25 shadow-xs hover:shadow-xl transition-all duration-300 p-3 flex flex-col justify-between"
+                  className="group flex flex-col items-center text-center flex-shrink-0 w-20 sm:w-24 focus:outline-none"
                 >
-                  <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-surface-container mb-3">
-                    <img
-                      src={cat.image}
-                      alt={cat.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
-                      loading="lazy"
-                    />
-                    <span className="absolute top-2 left-2 rounded-full px-2 py-0.5 bg-surface-container-lowest/90 backdrop-blur-xs font-label-caps text-[9px] uppercase tracking-wider font-bold text-primary shadow-xs">
-                      {cat.count}
+                  {/* Outer Insta Story Gradient Ring */}
+                  <div className="relative p-[2.5px] rounded-full bg-gradient-to-tr from-[#fd661d] via-[#f7b731] to-[#eb3b5a] group-hover:scale-105 group-active:scale-95 transition-all duration-300 shadow-sm group-hover:shadow-md">
+                    {/* Inner White Gap */}
+                    <div className="p-[2.5px] rounded-full bg-surface">
+                      {/* Circular Story Avatar */}
+                      <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden bg-surface-container">
+                        <img
+                          src={cat.image}
+                          alt={cat.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Small count pill badge at the bottom of the circle */}
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-surface text-primary border border-outline-variant/30 text-[9px] font-bold font-label-caps px-1.5 py-0.2 rounded-full whitespace-nowrap shadow-xs scale-90 group-hover:scale-100 transition-transform">
+                      {cat.count.split(" ")[0]}
                     </span>
                   </div>
 
-                  <div>
-                    <h3 className="font-title-editorial text-sm font-bold text-on-surface group-hover:text-primary transition-colors leading-snug line-clamp-1">
+                  {/* Category Title & Tag below the circle */}
+                  <div className="mt-2.5 flex flex-col items-center">
+                    <span className="text-[12px] sm:text-[13px] font-semibold text-on-surface group-hover:text-primary transition-colors leading-tight line-clamp-2 max-w-[85px] sm:max-w-[95px]">
                       {cat.name}
-                    </h3>
-                    <div className="flex items-center justify-between mt-1 text-[11px] text-on-surface-variant">
-                      <span>{cat.tag}</span>
-                      <span className="text-primary group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
+                    </span>
+                    <span className="text-[10px] text-on-surface-variant font-medium mt-0.5 leading-none">
+                      {cat.tag}
+                    </span>
                   </div>
                 </a>
               ))}

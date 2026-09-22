@@ -3,14 +3,9 @@ import Skeleton from "../../components/skeleton/Skeleton.jsx";
 export default function Variant5Skeleton() {
   return (
     <div className="w-full pt-28 pb-16 bg-surface">
-      {/* Hero 16:6 banner skeleton */}
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-4">
-        <Skeleton variant="pulse" className="w-full aspect-[16/6] rounded-xl" />
-        <div className="flex justify-center gap-2 mt-4">
-          <Skeleton variant="pulse" className="h-2 w-8" rounded="rounded-full" />
-          <Skeleton variant="pulse" className="h-2 w-2" rounded="rounded-full" />
-          <Skeleton variant="pulse" className="h-2 w-2" rounded="rounded-full" />
-        </div>
+      {/* Hero banner skeleton fitting page */}
+      <div className="w-full">
+        <Skeleton variant="pulse" className="w-full h-[70vh] sm:h-[80vh] lg:h-[calc(100vh-92px)] min-h-[520px]" />
       </div>
 
 

@@ -161,7 +161,7 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
 
   return (
     <section
-      className={`w-full bg-[#0d1117] py-4 sm:py-5 overflow-hidden border-y border-white/10 select-none ${className}`}
+      className={`w-full bg-transparent py-5 sm:py-6 overflow-hidden border-y border-outline-variant/15 select-none ${className}`}
       aria-label="Watch Brand Partners"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -180,17 +180,23 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
           className="brand-marquee-track flex items-center"
           style={{
             width: "max-content",
-            animation: "brandMarquee 34s linear infinite",
+            animation: "brandMarquee 32s linear infinite",
             animationPlayState: isPaused ? "paused" : "running",
           }}
         >
           {brandTrack.map((brand, idx) => (
             <div
               key={`${brand.name}-${idx}`}
-              className="flex items-center justify-center px-8 sm:px-12 text-white/80 opacity-80 select-none flex-shrink-0"
+              className="group/brand flex items-center justify-center px-8 sm:px-12 text-on-surface/55 hover:text-primary transition-all duration-300 cursor-pointer select-none flex-shrink-0"
+              style={{
+                animation: `subtleBrandFloat 3.6s ease-in-out infinite`,
+                animationDelay: `${(idx % 6) * 0.6}s`,
+              }}
               title={brand.name}
             >
-              {brand.svg}
+              <div className="transition-all duration-300 transform group-hover/brand:scale-110 group-hover/brand:-translate-y-1">
+                {brand.svg}
+              </div>
             </div>
           ))}
         </div>
@@ -200,6 +206,10 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
         @keyframes brandMarquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
+        }
+        @keyframes subtleBrandFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-3px); }
         }
         .brand-marquee-track:hover {
           animation-play-state: paused !important;

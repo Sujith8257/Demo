@@ -399,7 +399,7 @@ export default function Variant5() {
           <HEROWITHSWEEPINGSTRAPRIBBON />
 
           {/* Watch Brand Partners Infinite Marquee */}
-          <WatchBrandsInfiniteCarousel />
+          <WatchBrandsInfiniteCarousel className="my-3 sm:my-5" />
 
           {/* 3. Shop by Category - Insta Stories Style Circular Row */}
           <section id="categories" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">

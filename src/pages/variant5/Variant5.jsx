@@ -28,6 +28,8 @@ import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReview
 import WatchBrandsInfiniteCarousel from "../../components/layout/WatchBrandsInfiniteCarousel.jsx";
 import SHOPBYBUDGETHorizontalPill from "../variant1/SHOPBYBUDGETHorizontalPill.jsx";
 import WATCHMATERIALSTRIPTYCHConnected3 from "../variant1/WATCHMATERIALSTRIPTYCHConnected3.jsx";
+import VALUEDEALSECTIONDeepBlue from "../variant2/VALUEDEALSECTIONDeepBlue.jsx";
+import PRODUCTINTEGRITYTRIPTYCH from "../variant4/PRODUCTINTEGRITYTRIPTYCH.jsx";
 
 // ─── Shared Brand Datasets ──────────────────────────────────────────────────
 const categories = [
@@ -562,6 +564,9 @@ export default function Variant5() {
               ))}
             </div>
           </section>
+ 
+          {/* Curated Value Season (from Variant 2) */}
+          <VALUEDEALSECTIONDeepBlue containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" className="mt-14 sm:mt-16" />
 
           {/* 5. Bespoke Timepiece Customizer - Luxury Atelier Presentation */}
           <section id="customizer" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
@@ -746,7 +751,10 @@ export default function Variant5() {
           {/* 8. Continuous Infinite Reviews Carousel */}
           <ContinuousReviewsCarousel className="mt-14" />
 
-          {/* 9. Collector Circle Newsletter Box */}
+          {/* 9. Four Pillars of Material Integrity & Standard of Authenticity (from Variant 4) */}
+          <PRODUCTINTEGRITYTRIPTYCH containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" className="mt-14 sm:mt-16" />
+
+          {/* 10. Collector Circle Newsletter Box */}
           <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
             <div className="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
               <div>

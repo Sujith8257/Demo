@@ -1,7 +1,9 @@
-export default function VALUEDEALSECTIONDeepBlue() {
+export default function VALUEDEALSECTIONDeepBlue({
+  className = "",
+  containerClassName = "max-w-[1760px] mx-auto px-margin",
+}) {
   return (
-<>
-    <section className={"w-full py-space-xl bg-[#0056C3] text-white overflow-hidden relative"}>
+    <section className={`w-full py-space-xl bg-[#0056C3] text-white overflow-hidden relative ${className}`}>
       {/* Subtle Guilloché Clock Dial Background Line Art */}
       <div className={"absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center"}>
         <svg className={"w-[900px] h-[900px] stroke-white fill-none"} strokeWidth={"1.5"} viewBox={"0 0 1000 1000"}>
@@ -12,7 +14,7 @@ export default function VALUEDEALSECTIONDeepBlue() {
           <path d={"M 500,50 L 500,950 M 50,500 L 950,500"}></path>
         </svg>
       </div>
-      <div className={"max-w-[1760px] mx-auto px-margin relative z-10"}>
+      <div className={`${containerClassName} relative z-10`}>
         <div className={"grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center"}>
           <div className={"lg:col-span-7"}>
             <div className={"inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#388E3C] text-white font-label-caps text-label-caps uppercase tracking-wider mb-space-sm font-bold"}>
@@ -85,6 +87,5 @@ export default function VALUEDEALSECTIONDeepBlue() {
         </div>
       </div>
     </section>
-</>
   );
 }

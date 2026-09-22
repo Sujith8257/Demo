@@ -1,8 +1,10 @@
-export default function PRODUCTINTEGRITYTRIPTYCH() {
+export default function PRODUCTINTEGRITYTRIPTYCH({
+  className = "",
+  containerClassName = "max-w-[1760px] mx-auto px-margin",
+}) {
   return (
-<>
-    <section className={"w-full py-space-xl bg-surface-container-low"}>
-      <div className={"max-w-[1760px] mx-auto px-margin"}>
+    <section className={`w-full py-space-xl bg-surface-container-low ${className}`}>
+      <div className={containerClassName}>
         <div className={"border-b border-transparent pb-space-sm mb-space-lg text-center"}>
           <span className={"font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-1"}>
             Standard of Authenticity
@@ -146,6 +148,5 @@ export default function PRODUCTINTEGRITYTRIPTYCH() {
         </div>
       </div>
     </section>
-</>
   );
 }

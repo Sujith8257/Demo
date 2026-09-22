@@ -32,20 +32,34 @@ const heroBanners = [
 ];
 
 export default function HEROWITHSWEEPINGSTRAPRIBBON() {
+  const SLIDE_DURATION = 5000; // 5 seconds per slide
   const [current, setCurrent] = useState(0);
+  const [progressKey, setProgressKey] = useState(0);
 
-  // Auto-advance banner continuously every 5.5s
+  // Auto-advance banner continuously with timer
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setCurrent((prev) => (prev + 1) % heroBanners.length);
-    }, 5500);
-    return () => clearInterval(timer);
-  }, []);
+    }, SLIDE_DURATION);
+    return () => clearTimeout(timer);
+  }, [current, progressKey]);
 
   const banner = heroBanners[current];
 
-  const handleNext = () => setCurrent((prev) => (prev + 1) % heroBanners.length);
-  const handlePrev = () => setCurrent((prev) => (prev - 1 + heroBanners.length) % heroBanners.length);
+  const handleNext = () => {
+    setCurrent((prev) => (prev + 1) % heroBanners.length);
+    setProgressKey((prev) => prev + 1);
+  };
+
+  const handlePrev = () => {
+    setCurrent((prev) => (prev - 1 + heroBanners.length) % heroBanners.length);
+    setProgressKey((prev) => prev + 1);
+  };
+
+  const handleSelect = (idx) => {
+    setCurrent(idx);
+    setProgressKey((prev) => prev + 1);
+  };
 
   return (
     <section id="collection" className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
@@ -112,22 +126,59 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
           </div>
         </div>
 
-        {/* Slide counter, top right, on the image itself */}
-        <span className="absolute top-6 right-8 text-xs text-white/70 tracking-wider z-10 font-mono">
-          {`0${current + 1}`} / {`0${heroBanners.length}`}
-        </span>
+        {/* Slide counter with live countdown circular timer, top right */}
+        <div className="absolute top-6 right-8 flex items-center gap-2 text-xs text-white/80 tracking-wider z-10 font-mono bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 shadow-sm">
+          <svg className="w-3.5 h-3.5 -rotate-90" viewBox="0 0 24 24">
+            <circle
+              cx="12"
+              cy="12"
+              r="9"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              className="text-white/20"
+            />
+            <motion.circle
+              key={`circle-${current}-${progressKey}`}
+              cx="12"
+              cy="12"
+              r="9"
+              fill="none"
+              stroke="#fbbf24"
+              strokeWidth="3"
+              strokeDasharray={56.5}
+              initial={{ strokeDashoffset: 56.5 }}
+              animate={{ strokeDashoffset: 0 }}
+              transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
+              strokeLinecap="round"
+            />
+          </svg>
+          <span>{`0${current + 1}`} / {`0${heroBanners.length}`}</span>
+        </div>
 
-        {/* Dots, bottom right */}
-        <div className="absolute bottom-6 right-8 flex gap-2 z-10">
+        {/* Animated Timer Pill Indicators, bottom right (matches user screenshot) */}
+        <div className="absolute bottom-6 right-8 flex items-center gap-2 z-10">
           {heroBanners.map((b, idx) => (
             <button
               key={b.id}
-              onClick={() => setCurrent(idx)}
+              onClick={() => handleSelect(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                idx === current ? "w-6 bg-amber-400" : "w-6 bg-white/30 hover:bg-white/60"
-              }`}
-            />
+              className="relative h-2 w-8 sm:w-10 rounded-full bg-white/30 hover:bg-white/50 overflow-hidden cursor-pointer transition-colors"
+            >
+              {idx === current ? (
+                <motion.div
+                  key={`timer-${current}-${progressKey}`}
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
+                  className="h-full bg-amber-400 rounded-full"
+                />
+              ) : idx < current ? (
+                <div className="h-full w-full bg-amber-400 rounded-full" />
+              ) : (
+                <div className="h-full w-0 bg-amber-400 rounded-full" />
+              )}
+            </button>
           ))}
         </div>
       </div>

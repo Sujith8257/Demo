@@ -28,33 +28,6 @@ import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReview
 import WatchBrandsInfiniteCarousel from "../../components/layout/WatchBrandsInfiniteCarousel.jsx";
 
 // ─── Shared Brand Datasets ──────────────────────────────────────────────────
-const usps = [
-  {
-    title: "Insured Global Shipping",
-    text: "Complimentary express delivery on every order",
-    icon: FiTruck,
-    badge: "Fast Transit",
-  },
-  {
-    title: "Certified Atelier Provenance",
-    text: "Every movement verified with numbered certificate",
-    icon: FiAward,
-    badge: "100% Genuine",
-  },
-  {
-    title: "25-Year Guarantee",
-    text: "Transferable mechanical warranty on all calibres",
-    icon: FiShield,
-    badge: "Heirloom Quality",
-  },
-  {
-    title: "7-Day Home Trial",
-    text: "Hassle-free doorstep pickup & direct refund",
-    icon: FiRotateCcw,
-    badge: "Risk-Free",
-  },
-];
-
 const categories = [
   {
     name: "Automatic Watches",
@@ -428,37 +401,8 @@ export default function Variant5() {
           {/* Watch Brand Partners Infinite Marquee */}
           <WatchBrandsInfiniteCarousel />
 
-          {/* 2. Unified 4-Column USP Assurance Strip matching the luxury design system */}
-          <section className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 bg-surface-container-low/70 rounded-2xl border border-outline-variant/30 shadow-xs">
-              {usps.map((usp, idx) => {
-                const Icon = usp.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-surface-container-lowest/80 transition-colors"
-                  >
-                    <div className="w-11 h-11 rounded-xl bg-surface-container-lowest text-primary flex items-center justify-center flex-shrink-0 shadow-xs border border-outline-variant/20">
-                      <Icon className="text-xl" />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5 mb-0.5">
-                        <strong className="font-title-editorial text-sm font-bold text-on-surface leading-snug">
-                          {usp.title}
-                        </strong>
-                      </div>
-                      <span className="font-body-sm text-xs text-on-surface-variant leading-relaxed block">
-                        {usp.text}
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-
           {/* 3. Shop by Category - Luxury Discovery Bento matching ProductDiscoveryHub */}
-          <section id="categories" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-14">
+          <section id="categories" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 sm:mt-12">
             <div className="flex items-end justify-between mb-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">

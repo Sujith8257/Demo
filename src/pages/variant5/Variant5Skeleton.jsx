@@ -13,20 +13,6 @@ export default function Variant5Skeleton() {
         </div>
       </div>
 
-      {/* 4-Item USP Strip skeleton */}
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 border border-outline-variant/30 rounded-lg p-3 bg-surface-container-low">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="flex items-center gap-3 p-2">
-              <Skeleton variant="pulse" className="h-8 w-8 rounded-full" />
-              <div className="flex-1 space-y-1">
-                <Skeleton variant="pulse" className="h-3.5 w-24" />
-                <Skeleton variant="pulse" className="h-2.5 w-16" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Categories skeleton */}
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-10">

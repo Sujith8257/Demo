@@ -126,35 +126,6 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
           </div>
         </div>
 
-        {/* Slide counter with live countdown circular timer, top right */}
-        <div className="absolute top-6 right-8 flex items-center gap-2 text-xs text-white/80 tracking-wider z-10 font-mono bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15 shadow-sm">
-          <svg className="w-3.5 h-3.5 -rotate-90" viewBox="0 0 24 24">
-            <circle
-              cx="12"
-              cy="12"
-              r="9"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="3"
-              className="text-white/20"
-            />
-            <motion.circle
-              key={`circle-${current}-${progressKey}`}
-              cx="12"
-              cy="12"
-              r="9"
-              fill="none"
-              stroke="#fbbf24"
-              strokeWidth="3"
-              strokeDasharray={56.5}
-              initial={{ strokeDashoffset: 56.5 }}
-              animate={{ strokeDashoffset: 0 }}
-              transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
-              strokeLinecap="round"
-            />
-          </svg>
-          <span>{`0${current + 1}`} / {`0${heroBanners.length}`}</span>
-        </div>
 
         {/* Animated Timer Pill Indicators, bottom right (matches user screenshot) */}
         <div className="absolute bottom-6 right-8 flex items-center gap-2 z-10">

@@ -161,14 +161,14 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
 
   return (
     <section
-      className={`w-full bg-transparent py-5 sm:py-6 overflow-hidden border-y border-outline-variant/15 select-none ${className}`}
+      className={`w-full bg-transparent overflow-hidden border-y border-outline-variant/15 select-none ${className}`}
       aria-label="Watch Brand Partners"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Edge gradient mask for smooth fade-in and fade-out */}
       <div
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden py-4 sm:py-5"
         style={{
           WebkitMaskImage:
             "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
@@ -177,7 +177,7 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
         }}
       >
         <div
-          className="brand-marquee-track flex items-center"
+          className="brand-marquee-track flex items-center py-2"
           style={{
             width: "max-content",
             animation: "brandMarquee 32s linear infinite",
@@ -187,14 +187,14 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
           {brandTrack.map((brand, idx) => (
             <div
               key={`${brand.name}-${idx}`}
-              className="group/brand flex items-center justify-center px-8 sm:px-12 text-on-surface/55 hover:text-primary transition-all duration-300 cursor-pointer select-none flex-shrink-0"
+              className="group/brand flex items-center justify-center px-8 sm:px-12 py-2 text-on-surface/55 hover:text-primary transition-all duration-300 cursor-pointer select-none flex-shrink-0"
               style={{
                 animation: `subtleBrandFloat 3.6s ease-in-out infinite`,
                 animationDelay: `${(idx % 6) * 0.6}s`,
               }}
               title={brand.name}
             >
-              <div className="transition-all duration-300 transform group-hover/brand:scale-110 group-hover/brand:-translate-y-1">
+              <div className="transition-all duration-300 transform group-hover/brand:scale-110">
                 {brand.svg}
               </div>
             </div>

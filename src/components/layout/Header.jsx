@@ -86,7 +86,9 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
             }}
           >
             <motion.div
-              className="flex items-center whitespace-nowrap font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider"
+              className={`flex items-center whitespace-nowrap font-label-caps text-label-caps uppercase tracking-wider ${
+                isPetrol ? "text-[#F7F6F2]" : "text-on-surface-variant"
+              }`}
               style={{ width: "max-content" }}
               animate={reduceMotion ? {} : { x: ["0%", "-33.333%"] }}
               transition={{
@@ -101,8 +103,8 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
                 return (
                   <div key={idx} className="flex items-center gap-2 px-6">
                     <Icon className={`text-[13px] flex-shrink-0 ${isPetrol ? "text-[#C7A66A]" : "text-primary"}`} />
-                    <span className="font-semibold">{item.text}</span>
-                    <span className={`${isPetrol ? "text-[#123B3A]" : "text-outline-variant/80"} ml-6 select-none font-bold`}>
+                    <span className={`font-semibold tracking-wide ${isPetrol ? "text-[#F7F6F2]" : ""}`}>{item.text}</span>
+                    <span className={`${isPetrol ? "text-[#C7A66A]/60" : "text-outline-variant/80"} ml-6 select-none font-bold`}>
                       •
                     </span>
                   </div>

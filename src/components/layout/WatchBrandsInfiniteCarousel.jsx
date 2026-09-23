@@ -153,7 +153,8 @@ const watchBrands = [
   },
 ];
 
-export default function WatchBrandsInfiniteCarousel({ className = "" }) {
+export default function WatchBrandsInfiniteCarousel({ className = "", theme = "default" }) {
+  const isPetrol = theme === "variant5" || theme === "petrol";
   const [isPaused, setIsPaused] = useState(false);
 
   // Duplicate to ensure perfectly continuous seamless infinite scrolling
@@ -161,7 +162,9 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
 
   return (
     <section
-      className={`w-full bg-transparent overflow-hidden border-y border-outline-variant/15 select-none ${className}`}
+      className={`w-full bg-transparent overflow-hidden ${
+        isPetrol ? "border-y border-[#DDE9E4]" : "border-y border-outline-variant/15"
+      } select-none ${className}`}
       aria-label="Watch Brand Partners"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -187,7 +190,11 @@ export default function WatchBrandsInfiniteCarousel({ className = "" }) {
           {brandTrack.map((brand, idx) => (
             <div
               key={`${brand.name}-${idx}`}
-              className="group/brand flex items-center justify-center px-8 sm:px-12 py-2 text-on-surface/55 hover:text-primary transition-all duration-300 cursor-pointer select-none flex-shrink-0"
+              className={`group/brand flex items-center justify-center px-8 sm:px-12 py-2 ${
+                isPetrol
+                  ? "text-[#707776] hover:text-[#123B3A]"
+                  : "text-on-surface/55 hover:text-primary"
+              } transition-all duration-300 cursor-pointer select-none flex-shrink-0`}
               style={{
                 animation: `subtleBrandFloat 3.6s ease-in-out infinite`,
                 animationDelay: `${(idx % 6) * 0.6}s`,

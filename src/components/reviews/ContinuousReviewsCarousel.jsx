@@ -105,9 +105,11 @@ export default function ContinuousReviewsCarousel({
   title = "Real Collector Voices & Verified Reviews",
   subtitle = "Direct feedback from collectors who wear and preserve our pieces daily.",
   className = "",
+  theme = "default",
 }) {
   const reduceMotion = useReducedMotion();
   const [isPaused, setIsPaused] = useState(false);
+  const isPetrol = theme === "variant5" || theme === "petrol";
 
   // Duplicate list to create a seamless, continuous infinite ticker loop
   const carouselTrack = [...reviewData, ...reviewData];
@@ -115,27 +117,29 @@ export default function ContinuousReviewsCarousel({
   return (
     <section
       id="reviews"
-      className={`w-full py-10 sm:py-12 bg-[#fafbfc] border-y border-[#e3e6e6] overflow-hidden select-none ${className}`}
+      className={`w-full py-10 sm:py-12 ${
+        isPetrol ? "bg-[#F7F6F2] border-y border-[#DDE9E4]" : "bg-[#fafbfc] border-y border-[#e3e6e6]"
+      } overflow-hidden select-none ${className}`}
       aria-label="Customer Reviews Carousel"
     >
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="inline-block w-2 h-2 rounded-full bg-[#067d62]"></span>
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#067d62]">
+            <span className={`inline-block w-2 h-2 rounded-full ${isPetrol ? "bg-[#34745F]" : "bg-[#067d62]"}`}></span>
+            <span className={`text-[11px] font-bold uppercase tracking-wider ${isPetrol ? "text-[#34745F]" : "text-[#067d62]"}`}>
               Verified Studio Provenance
             </span>
           </div>
-          <h2 className="font-poppins text-xl sm:text-2xl lg:text-3xl font-bold text-[#0f1111] tracking-tight">
+          <h2 className={`font-poppins text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight ${isPetrol ? "text-[#171B1B]" : "text-[#0f1111]"}`}>
             {title}
           </h2>
-          <p className="font-instrument text-xs sm:text-sm text-[#565959] mt-0.5 max-w-xl">
+          <p className={`font-instrument text-xs sm:text-sm mt-0.5 max-w-xl ${isPetrol ? "text-[#707776]" : "text-[#565959]"}`}>
             {subtitle}
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs text-[#565959] font-medium pt-1 sm:pt-0">
-          <span className="text-[#e07f00] font-bold">★ 4.9 out of 5</span>
+        <div className={`flex items-center gap-2 text-xs font-medium pt-1 sm:pt-0 ${isPetrol ? "text-[#707776]" : "text-[#565959]"}`}>
+          <span className={`font-bold ${isPetrol ? "text-[#C7A66A]" : "text-[#e07f00]"}`}>★ 4.9 out of 5</span>
           <span>•</span>
           <span>Based on 1,420+ verified deliveries</span>
         </div>
@@ -172,37 +176,47 @@ export default function ContinuousReviewsCarousel({
           {carouselTrack.map((review, idx) => (
             <div
               key={`${review.id}-${idx}`}
-              className="w-[300px] sm:w-[350px] bg-white border border-[#e3e6e6] hover:border-[#007185] rounded-lg p-4 sm:p-5 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between flex-shrink-0"
+              className={`w-[300px] sm:w-[350px] bg-white rounded-lg p-4 sm:p-5 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between flex-shrink-0 ${
+                isPetrol
+                  ? "border border-[#DDE9E4] hover:border-[#123B3A]"
+                  : "border border-[#e3e6e6] hover:border-[#007185]"
+              }`}
             >
               <div>
                 {/* ── Line 1: User Name (Left)  |  Ratings (Right) ── */}
-                <div className="flex items-center justify-between gap-3 pb-2 border-b border-[#f0f2f2]">
+                <div className={`flex items-center justify-between gap-3 pb-2 border-b ${isPetrol ? "border-[#DDE9E4]" : "border-[#f0f2f2]"}`}>
                   <div className="flex items-center gap-2 min-w-0">
-                    <div className="w-8 h-8 rounded-full bg-[#131a2c] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 ${
+                      isPetrol ? "bg-[#123B3A] text-white" : "bg-[#131a2c] text-white"
+                    }`}>
                       {review.userInitials}
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <strong className="text-xs sm:text-sm font-semibold text-[#0f1111] truncate block">
+                        <strong className={`text-xs sm:text-sm font-semibold truncate block ${isPetrol ? "text-[#171B1B]" : "text-[#0f1111]"}`}>
                           {review.userName}
                         </strong>
                         {review.verified && (
                           <FiCheckCircle
-                            className="text-[#067d62] text-xs flex-shrink-0"
+                            className={`text-xs flex-shrink-0 ${isPetrol ? "text-[#34745F]" : "text-[#067d62]"}`}
                             title="Verified Buyer"
                           />
                         )}
                       </div>
-                      <span className="text-[10px] text-[#767676] block truncate">
+                      <span className={`text-[10px] block truncate ${isPetrol ? "text-[#707776]" : "text-[#767676]"}`}>
                         {review.location}
                       </span>
                     </div>
                   </div>
 
                   {/* Ratings on Right */}
-                  <div className="flex items-center gap-1 flex-shrink-0 bg-[#fff8e7] px-2 py-0.5 rounded border border-[#ffe082]">
-                    <span className="text-[#e07f00] text-xs font-bold flex items-center gap-0.5">
-                      <FiStar className="fill-[#e07f00] text-[#e07f00] text-[11px]" />
+                  <div className={`flex items-center gap-1 flex-shrink-0 px-2 py-0.5 rounded border ${
+                    isPetrol
+                      ? "bg-[#F2E9D8] border-[#C7A66A]/40 text-[#171B1B]"
+                      : "bg-[#fff8e7] border-[#ffe082] text-[#e07f00]"
+                  }`}>
+                    <span className={`text-xs font-bold flex items-center gap-0.5 ${isPetrol ? "text-[#171B1B]" : "text-[#e07f00]"}`}>
+                      <FiStar className={`${isPetrol ? "fill-[#C7A66A] text-[#C7A66A]" : "fill-[#e07f00] text-[#e07f00]"} text-[11px]`} />
                       {review.ratings.toFixed(1)}
                     </span>
                   </div>
@@ -210,21 +224,27 @@ export default function ContinuousReviewsCarousel({
 
                 {/* ── Line 2: Product Name ── */}
                 <div className="pt-2.5 pb-2">
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-[#007185] block truncate">
+                  <span className={`text-[10px] uppercase font-bold tracking-wider block truncate ${
+                    isPetrol ? "text-[#123B3A]" : "text-[#007185]"
+                  }`}>
                     {review.productName}
                   </span>
                 </div>
 
                 {/* ── Review Text ── */}
-                <p className="font-instrument text-xs text-[#565959] leading-relaxed line-clamp-3">
+                <p className={`font-instrument text-xs leading-relaxed line-clamp-3 ${
+                  isPetrol ? "text-[#707776]" : "text-[#565959]"
+                }`}>
                   "{review.reviewText}"
                 </p>
               </div>
 
               {/* ── Card Footer ── */}
-              <div className="pt-3 mt-3 border-t border-[#f0f2f2] flex items-center justify-between text-[10px] text-[#767676]">
-                <span className="text-[#067d62] font-semibold flex items-center gap-1">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#067d62]"></span>
+              <div className={`pt-3 mt-3 border-t flex items-center justify-between text-[10px] ${
+                isPetrol ? "border-[#DDE9E4] text-[#707776]" : "border-[#f0f2f2] text-[#767676]"
+              }`}>
+                <span className={`font-semibold flex items-center gap-1 ${isPetrol ? "text-[#34745F]" : "text-[#067d62]"}`}>
+                  <span className={`inline-block w-1.5 h-1.5 rounded-full ${isPetrol ? "bg-[#34745F]" : "bg-[#067d62]"}`}></span>
                   Verified Purchase
                 </span>
                 <span>{review.timeAgo}</span>
@@ -235,7 +255,9 @@ export default function ContinuousReviewsCarousel({
       </div>
 
       {/* Micro instructions */}
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-3 flex items-center justify-between text-[11px] text-[#767676]">
+      <div className={`max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-3 flex items-center justify-between text-[11px] ${
+        isPetrol ? "text-[#707776]" : "text-[#767676]"
+      }`}>
         <span>Hover over any review card to pause</span>
         <span className="hidden sm:inline">Automatic continuous scroller • 100% Genuine reviews</span>
       </div>

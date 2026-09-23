@@ -52,8 +52,10 @@ export default function SHOPBYBUDGETHorizontalPill({
   activeBtnClass = "bg-primary text-on-primary shadow-md",
   inactiveBtnClass = "bg-surface-container-low hover:bg-surface-container text-on-surface group",
   activeKickerClass = "text-inverse-primary",
+  inactiveKickerClass = "text-outline group-hover:text-primary",
   ctaBtnClass = "bg-secondary-container hover:bg-secondary text-on-secondary",
   activeTierTextClass = "text-primary",
+  activeSnapshotBgClass = "bg-surface-container-low",
 }) {
   const [selectedTier, setSelectedTier] = useState(3);
   const active = tiers[selectedTier];
@@ -90,7 +92,7 @@ export default function SHOPBYBUDGETHorizontalPill({
                 >
                   <span
                     className={`font-label-caps text-label-caps uppercase mb-1 font-bold ${
-                      isSelected ? activeKickerClass : "text-outline group-hover:text-primary"
+                      isSelected ? activeKickerClass : inactiveKickerClass
                     }`}
                   >
                     {t.kicker}
@@ -115,7 +117,7 @@ export default function SHOPBYBUDGETHorizontalPill({
           </div>
 
           {/* Curated Snapshot For Selected Tier */}
-          <div className="bg-surface-container-low p-space-md rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md">
+          <div className={`${activeSnapshotBgClass} p-space-md rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md`}>
             <div className="flex items-center gap-space-md">
               <div className="w-16 h-16 rounded-lg bg-surface-container-lowest overflow-hidden shrink-0 shadow-xs">
                 <img

@@ -39,7 +39,7 @@ export default function WATCHMATERIALSTRIPTYCHConnected3({
                   Custom tungsten rotors ensure rapid kinetic transfer. Regulated in five physical positions for impeccable chronometric consistency.
                 </p>
               </div>
-              <div className={"pt-space-sm border-t border-surface-container flex items-center justify-between text-outline font-label-caps text-label-caps uppercase"}>
+              <div className={`pt-space-sm border-t ${borderClass} flex items-center justify-between text-outline font-label-caps text-label-caps uppercase`}>
                 <span>
                   Reserve: 42h
                 </span>

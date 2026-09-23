@@ -144,23 +144,58 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
         )}
 
         {/* Badge */}
-        <span className={`absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider ${product.badgeColor}`}>
-          {product.badge}
-        </span>
+        {(() => {
+          const badgeCls = isPetrol
+            ? (() => {
+                const b = (product.badge || "").toLowerCase();
+                if (b.includes("save") || b.includes("left") || b.includes("deal") || b.includes("flash") || b.includes("rare") || b.includes("limited")) {
+                  return "bg-[#C95F50] text-white";
+                }
+                if (b.includes("atelier") || b.includes("certified") || b.includes("bestseller") || b.includes("special")) {
+                  return "bg-[#34745F] text-white";
+                }
+                if (b.includes("pick") || b.includes("artisan") || b.includes("trending")) {
+                  return "bg-[#C7A66A] text-[#171B1B]";
+                }
+                return "bg-[#DDE9E4] text-[#123B3A]";
+              })()
+            : product.badgeColor;
+          return (
+            <span className={`absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider ${badgeCls}`}>
+              {product.badge}
+            </span>
+          );
+        })()}
 
         {/* Wishlist toggle */}
         <motion.button
           whileTap={{ scale: 0.85 }}
           onClick={() => setWished((w) => !w)}
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm flex items-center justify-center transition-colors hover:bg-surface-container-lowest"
+          className={`absolute top-3 right-3 z-10 w-8 h-8 rounded-full backdrop-blur-sm flex items-center justify-center transition-colors ${
+            isPetrol
+              ? "bg-white/90 hover:bg-white text-[#123B3A] shadow-xs cursor-pointer"
+              : "bg-surface-container-lowest/80 hover:bg-surface-container-lowest"
+          }`}
           aria-label="Wishlist"
         >
-          <FiHeart className={`text-base ${wished ? "fill-error text-error" : "text-on-surface-variant"}`} />
+          <FiHeart
+            className={`text-base ${
+              wished
+                ? isPetrol
+                  ? "fill-[#C95F50] text-[#C95F50]"
+                  : "fill-error text-error"
+                : isPetrol
+                ? "text-[#123B3A]"
+                : "text-on-surface-variant"
+            }`}
+          />
         </motion.button>
 
         {/* Tag pill */}
         {product.tag && (
-          <span className="absolute top-3 left-1/2 -translate-x-1/2 z-10 bg-inverse-surface text-inverse-on-surface font-label-caps text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full">
+          <span className={`absolute top-3 left-1/2 -translate-x-1/2 z-10 font-label-caps text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-full ${
+            isPetrol ? "bg-[#123B3A] text-white" : "bg-inverse-surface text-inverse-on-surface"
+          }`}>
             {product.tag}
           </span>
         )}

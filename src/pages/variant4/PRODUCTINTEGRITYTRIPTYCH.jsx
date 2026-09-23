@@ -146,7 +146,7 @@ export default function PRODUCTINTEGRITYTRIPTYCH({
             </div>
           </div>
           <div className={"flex items-center gap-3"}>
-            <span className={"material-symbols-outlined text-primary text-[28px]"}>
+            <span className={`material-symbols-outlined ${trustBarIconClass} text-[28px]`}>
               handshake
             </span>
             <div>

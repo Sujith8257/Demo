@@ -405,7 +405,7 @@ export default function Variant5() {
           <HEROWITHSWEEPINGSTRAPRIBBON />
 
           {/* Watch Brand Partners Infinite Marquee */}
-          <WatchBrandsInfiniteCarousel className="my-3 sm:my-5" />
+          <WatchBrandsInfiniteCarousel className="my-3 sm:my-5" theme="variant5" />
 
           {/* 3. Shop by Category */}
           <section id="categories" className="max-w-[1400px] mx-auto px-6 sm:px-10 py-10 sm:py-12">
@@ -754,8 +754,10 @@ export default function Variant5() {
             activeBtnClass="bg-[#123B3A] text-white shadow-md"
             inactiveBtnClass="bg-[#F7F6F2] hover:bg-[#DDE9E4] text-[#171B1B] border border-[#DDE9E4]/60"
             activeKickerClass="text-[#C7A66A]"
+            inactiveKickerClass="text-[#707776] group-hover:text-[#123B3A]"
             ctaBtnClass="bg-[#34745F] hover:bg-[#2C604F] text-white font-bold"
             activeTierTextClass="text-[#123B3A]"
+            activeSnapshotBgClass="bg-[#F7F6F2] border border-[#DDE9E4]"
           />
 
           {/* 8. Product Discovery Hub (Recently Viewed, Recommendations, Deals in Watches) */}
@@ -764,7 +766,7 @@ export default function Variant5() {
           </div>
 
           {/* 8. Continuous Infinite Reviews Carousel */}
-          <ContinuousReviewsCarousel className="mt-14" />
+          <ContinuousReviewsCarousel className="mt-14" theme="variant5" />
 
           {/* 9. Four Pillars of Material Integrity & Standard of Authenticity (from Variant 4) */}
           <PRODUCTINTEGRITYTRIPTYCH

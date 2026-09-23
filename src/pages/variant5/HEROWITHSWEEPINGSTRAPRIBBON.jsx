@@ -83,7 +83,7 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
 
         {/* Text sits directly on the gradient — no card, no box */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-10 max-w-[480px]">
+        <div className="relative z-10 h-full flex flex-col justify-between p-5 sm:p-10 max-w-[480px]">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-2 text-xs font-bold text-[#C7A66A] border border-[#C7A66A]/40 bg-black/40 backdrop-blur-md rounded-full px-3.5 py-1 w-fit tracking-wider uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C7A66A]" />
@@ -92,10 +92,10 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
           </div>
 
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
               {banner.title}
             </h1>
-            <p className="text-[#F7F6F2]/90 mt-3 text-sm sm:text-base drop-shadow">
+            <p className="text-[#F7F6F2]/90 mt-2 sm:mt-3 text-xs sm:text-base drop-shadow line-clamp-3 sm:line-clamp-none">
               {banner.subtitle}
             </p>
           </div>
@@ -106,14 +106,14 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
               <button
                 onClick={handlePrev}
                 aria-label="Previous Slide"
-                className="w-9 h-9 rounded-full bg-white/10 backdrop-blur hover:bg-white/20 flex items-center justify-center text-white cursor-pointer text-lg leading-none transition"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 backdrop-blur hover:bg-white/20 flex items-center justify-center text-white cursor-pointer text-base sm:text-lg leading-none transition"
               >
                 ‹
               </button>
               <button
                 onClick={handleNext}
                 aria-label="Next Slide"
-                className="w-9 h-9 rounded-full bg-white/10 backdrop-blur hover:bg-white/20 flex items-center justify-center text-white cursor-pointer text-lg leading-none transition"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 backdrop-blur hover:bg-white/20 flex items-center justify-center text-white cursor-pointer text-base sm:text-lg leading-none transition"
               >
                 ›
               </button>
@@ -122,7 +122,7 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
             {/* Explore / CTA Button */}
             <a
               href={banner.href}
-              className="order-2 sm:order-1 inline-flex items-center justify-center bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold px-6 py-3 rounded-lg transition-all shadow-md active:scale-95 cursor-pointer uppercase tracking-wider text-xs sm:text-sm"
+              className="order-2 sm:order-1 inline-flex items-center justify-center bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all shadow-md active:scale-95 cursor-pointer uppercase tracking-wider text-xs sm:text-sm"
             >
               {banner.cta}
             </a>
@@ -130,14 +130,14 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
         </div>
 
 
-        {/* Animated Timer Pill Indicators, bottom right (matches user screenshot) */}
-        <div className="absolute bottom-6 right-8 flex items-center gap-2 z-10">
+        {/* Animated Timer Pill Indicators, bottom right */}
+        <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-8 flex items-center gap-1.5 sm:gap-2 z-10">
           {heroBanners.map((b, idx) => (
             <button
               key={b.id}
               onClick={() => handleSelect(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className="relative h-2 w-8 sm:w-10 rounded-full bg-white/30 hover:bg-white/50 overflow-hidden cursor-pointer transition-colors"
+              className="relative h-1.5 sm:h-2 w-6 sm:w-10 rounded-full bg-white/30 hover:bg-white/50 overflow-hidden cursor-pointer transition-colors"
             >
               {idx === current ? (
                 <motion.div

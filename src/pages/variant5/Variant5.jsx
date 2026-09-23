@@ -400,7 +400,7 @@ export default function Variant5() {
       <Header showNavStrip={false} theme="variant5" />
 
       <PageLoader skeleton={<Variant5Skeleton />} duration={800}>
-        <main id="main-content" className="w-full pt-[92px] pb-0">
+        <main id="main-content" className="w-full pt-[82px] sm:pt-[92px] pb-0">
           {/* 1. Hero Banner Carousel (Fitted to page width) */}
           <HEROWITHSWEEPINGSTRAPRIBBON />
 

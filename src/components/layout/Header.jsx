@@ -116,25 +116,25 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
 
         {/* Main Header Row */}
         <div className={`w-full border-b ${isPetrol ? "bg-[#123B3A] border-white/10" : "bg-surface border-outline-variant/20"}`}>
-          <div className="h-16 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 sm:gap-6">
+          <div className="h-14 sm:h-16 max-w-[1320px] mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-6">
             {/* Left: Mobile Hamburger + Brand Logo */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={() => setMobileMenuOpen(true)}
                 aria-label="Open Navigation Menu"
-                className={`md:hidden w-9 h-9 rounded-md flex items-center justify-center transition-colors -ml-1 ${
+                className={`md:hidden w-8 h-8 sm:w-9 sm:h-9 rounded-md flex items-center justify-center transition-colors -ml-1 ${
                   isPetrol ? "text-white hover:bg-white/10" : "text-on-surface hover:bg-surface-container"
                 }`}
               >
-                <FiMenu className="text-xl" />
+                <FiMenu className="text-lg sm:text-xl" />
               </button>
 
               <a
-                className="group flex items-center gap-1.5 text-on-surface decoration-0"
+                className="group flex items-center gap-1.5 text-on-surface decoration-0 select-none"
                 data-path="home"
                 href="/"
               >
-                <span className={`font-poppins text-2xl font-extrabold tracking-tight lowercase ${
+                <span className={`font-poppins text-xl sm:text-2xl font-extrabold tracking-tight lowercase ${
                   isPetrol ? "text-white group-hover:text-[#C7A66A] transition-colors" : "text-on-surface"
                 }`}>
                   amihive
@@ -173,21 +173,27 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
               </form>
             </div>
 
-            {/* Right: Actions (Wishlist, Account, Cart) */}
-            <div className="flex items-center gap-1.5 sm:gap-3">
+            {/* Right: Actions (Search Toggle, Wishlist, Account, Cart) */}
+            <div className="flex items-center gap-1 sm:gap-2.5">
               <button
                 onClick={() => setMobileSearchOpen((o) => !o)}
                 aria-label="Toggle Search"
-                className={`md:hidden w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
-                  isPetrol ? "text-white hover:bg-white/10" : "hover:bg-surface-container hover:text-on-surface text-on-surface-variant"
+                className={`md:hidden w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-md transition-colors ${
+                  mobileSearchOpen
+                    ? isPetrol
+                      ? "bg-[#C7A66A] text-[#171B1B]"
+                      : "bg-primary text-on-primary"
+                    : isPetrol
+                    ? "text-[#C7A66A] hover:bg-white/10"
+                    : "hover:bg-surface-container hover:text-on-surface text-on-surface-variant"
                 }`}
               >
-                <FiSearch className="text-lg" />
+                <FiSearch className="text-base sm:text-lg" />
               </button>
 
               <a
                 aria-label="Wishlist"
-                className={`relative h-9 px-2.5 sm:px-3 flex items-center gap-1.5 rounded-md transition-colors font-instrument text-xs font-semibold ${
+                className={`relative h-8 sm:h-9 px-2 sm:px-3 flex items-center gap-1 sm:gap-1.5 rounded-md transition-colors font-instrument text-xs font-semibold ${
                   isPetrol ? "text-white/90 hover:bg-white/10 hover:text-white" : "hover:bg-surface-container hover:text-on-surface text-on-surface-variant"
                 }`}
                 data-path="wishlist"
@@ -195,7 +201,7 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
               >
                 <FiHeart className={`text-base sm:text-lg ${isPetrol ? "text-[#C7A66A]" : "text-primary"}`} />
                 <span className="hidden sm:inline">Wishlist</span>
-                <span className={`min-w-[18px] h-[18px] rounded-full font-label-caps text-[9px] flex items-center justify-center px-1 font-bold ${
+                <span className={`min-w-[16px] sm:min-w-[18px] h-4 sm:h-[18px] rounded-full font-label-caps text-[9px] flex items-center justify-center px-1 font-bold ${
                   isPetrol ? "bg-[#C7A66A] text-[#171B1B]" : "bg-secondary-container text-on-secondary"
                 }`}>
                   3
@@ -204,7 +210,7 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
 
               <a
                 aria-label="Cart"
-                className={`relative h-9 px-2.5 sm:px-3 flex items-center gap-1.5 rounded-md transition-colors font-instrument text-xs font-semibold ${
+                className={`relative h-8 sm:h-9 px-2 sm:px-3 flex items-center gap-1 sm:gap-1.5 rounded-md transition-colors font-instrument text-xs font-semibold ${
                   isPetrol ? "text-white/90 hover:bg-white/10 hover:text-white" : "hover:bg-surface-container hover:text-on-surface text-on-surface-variant"
                 }`}
                 data-path="cart"
@@ -212,7 +218,7 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
               >
                 <FiShoppingBag className={`text-base sm:text-lg ${isPetrol ? "text-[#C7A66A]" : "text-primary"}`} />
                 <span className="hidden sm:inline">Cart</span>
-                <span className={`min-w-[18px] h-[18px] rounded-full font-label-caps text-[9px] flex items-center justify-center px-1 font-bold ${
+                <span className={`min-w-[16px] sm:min-w-[18px] h-4 sm:h-[18px] rounded-full font-label-caps text-[9px] flex items-center justify-center px-1 font-bold ${
                   isPetrol ? "bg-[#34745F] text-white" : "bg-primary text-on-primary"
                 }`}>
                   2
@@ -221,7 +227,7 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
 
               <button
                 aria-label="Account profile"
-                className={`h-9 px-2.5 sm:px-3 rounded-md flex items-center gap-1.5 transition-colors font-instrument text-xs font-semibold cursor-pointer ${
+                className={`h-8 sm:h-9 px-2 sm:px-3 rounded-md hidden sm:flex items-center gap-1.5 transition-colors font-instrument text-xs font-semibold cursor-pointer ${
                   isPetrol ? "text-white/90 hover:bg-white/10 hover:text-white" : "hover:bg-surface-container text-on-surface-variant"
                 }`}
               >
@@ -230,6 +236,57 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
               </button>
             </div>
           </div>
+
+          {/* Expandable Mobile Search Bar */}
+          <AnimatePresence>
+            {mobileSearchOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
+                className={`md:hidden px-3.5 py-2.5 border-t overflow-hidden ${
+                  isPetrol
+                    ? "bg-[#0D2D2C] border-white/10"
+                    : "bg-surface-container border-outline-variant/30"
+                }`}
+              >
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const target = document.getElementById("featured") || document.getElementById("deals") || document.getElementById("categories");
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                    setMobileSearchOpen(false);
+                  }}
+                  className="flex items-center gap-2"
+                >
+                  <div className="relative flex-1 flex items-center">
+                    <FiSearch className={`absolute left-3 text-[15px] pointer-events-none ${isPetrol ? "text-[#707776]" : "text-outline"}`} />
+                    <input
+                      autoFocus
+                      type="text"
+                      placeholder="Search watches, straps, craft..."
+                      className={`w-full h-9 pl-9 pr-3 rounded-lg text-xs font-instrument focus:outline-none transition-colors ${
+                        isPetrol
+                          ? "bg-white text-[#171B1B] placeholder:text-[#707776] border border-[#DDE9E4] focus:border-[#C7A66A]"
+                          : "bg-surface text-on-surface placeholder:text-outline border border-outline-variant focus:border-primary"
+                      }`}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className={`h-9 px-3.5 rounded-lg font-bold text-xs uppercase tracking-wider flex items-center justify-center transition-colors cursor-pointer ${
+                      isPetrol
+                        ? "bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B]"
+                        : "bg-[#ff9f1c] hover:bg-[#e07f00] text-white"
+                    }`}
+                  >
+                    Go
+                  </button>
+                </form>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Desktop Category Nav Strip */}
           {showNavStrip && (
@@ -282,72 +339,137 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
               initial={{ x: "-100%" }}
               animate={{ x: "0%" }}
               exit={{ x: "-100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 left-0 bottom-0 w-[82vw] max-w-[340px] bg-surface z-[101] flex flex-col shadow-2xl"
+              transition={{ type: "spring", stiffness: 320, damping: 32 }}
+              className={`fixed top-0 left-0 bottom-0 w-[84vw] max-w-[340px] z-[101] flex flex-col shadow-2xl ${
+                isPetrol ? "bg-[#F7F6F2] text-[#171B1B]" : "bg-surface text-on-surface"
+              }`}
             >
               {/* Drawer Header */}
-              <div className="p-4 border-b border-outline-variant/30 flex items-center justify-between">
+              <div className={`p-4 border-b flex items-center justify-between ${
+                isPetrol ? "bg-[#123B3A] border-[#0D2D2C] text-white" : "border-outline-variant/30"
+              }`}>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-primary flex items-center justify-center">
-                    <div className="w-1 h-1 rounded-full bg-surface-container-lowest"></div>
+                  <div className={`w-3 h-3 rounded-full flex items-center justify-center ${
+                    isPetrol ? "bg-[#C7A66A]" : "bg-primary"
+                  }`}>
+                    <div className={`w-1 h-1 rounded-full ${isPetrol ? "bg-[#123B3A]" : "bg-surface-container-lowest"}`}></div>
                   </div>
-                  <span className="font-headline-sm text-headline-sm font-extrabold uppercase tracking-tight text-on-surface">
+                  <span className={`font-headline-sm text-headline-sm font-extrabold uppercase tracking-tight ${
+                    isPetrol ? "text-white" : "text-on-surface"
+                  }`}>
                     AMIHIVE
                   </span>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface"
+                  className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+                    isPetrol ? "bg-white/10 hover:bg-white/20 text-white" : "bg-surface-container hover:bg-surface-container-high text-on-surface"
+                  }`}
                   aria-label="Close menu"
                 >
                   <FiX className="text-lg" />
                 </button>
               </div>
 
-              {/* Drawer Category Links */}
+              {/* Drawer Quick Section Links + Categories */}
               <div className="flex-1 overflow-y-auto p-4 space-y-1">
-                <p className="font-label-caps text-label-caps uppercase text-outline tracking-wider px-3 mb-2">
-                  Categories
+                {/* On-page section shortcuts */}
+                <p className={`font-label-caps text-label-caps uppercase tracking-wider px-3 mb-2 font-bold ${
+                  isPetrol ? "text-[#123B3A]" : "text-outline"
+                }`}>
+                  Explore Atelier
                 </p>
-                {navCategories.map((cat) => (
+                {[
+                  { name: "Collection Hero", href: "#collection" },
+                  { name: "Today's Flash Deals", href: "#deals" },
+                  { name: "Shop By Category", href: "#categories" },
+                  { name: "Bespoke Customizer", href: "#customizer" },
+                  { name: "Bestsellers Roster", href: "#bestsellers" },
+                  { name: "Collector Reviews", href: "#reviews" },
+                ].map((sec) => (
                   <a
-                    key={cat.path}
-                    href="#"
+                    key={sec.href}
+                    href={sec.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3 py-2.5 rounded-lg text-on-surface hover:bg-surface-container text-body-md font-semibold transition-colors"
+                    className={`flex items-center justify-between px-3 py-2 rounded-lg text-body-md font-semibold transition-colors ${
+                      isPetrol
+                        ? "text-[#171B1B] hover:bg-[#DDE9E4] hover:text-[#123B3A]"
+                        : "text-on-surface hover:bg-surface-container"
+                    }`}
                   >
-                    <span>{cat.name}</span>
-                    <span className="text-outline text-xs">›</span>
+                    <span>{sec.name}</span>
+                    <span className={`text-xs ${isPetrol ? "text-[#707776]" : "text-outline"}`}>›</span>
                   </a>
                 ))}
 
-                {/* Atelier Guarantees in Drawer */}
-                <div className="pt-4 mt-4 border-t border-outline-variant/30 space-y-2 px-3">
-                  <p className="font-label-caps text-label-caps uppercase text-outline tracking-wider mb-2">
-                    Our Standards
+                <div className={`pt-3 my-2 border-t ${isPetrol ? "border-[#DDE9E4]" : "border-outline-variant/30"}`}>
+                  <p className={`font-label-caps text-label-caps uppercase tracking-wider px-3 mb-2 font-bold ${
+                    isPetrol ? "text-[#123B3A]" : "text-outline"
+                  }`}>
+                    Product Categories
                   </p>
-                  <div className="flex items-center gap-2 text-on-surface-variant font-label-md text-xs">
-                    <FiShield className="text-primary text-sm flex-shrink-0" />
+                  {navCategories.map((cat) => (
+                    <a
+                      key={cat.path}
+                      href="#collection"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center justify-between px-3 py-2 rounded-lg text-body-md font-medium transition-colors ${
+                        isPetrol
+                          ? "text-[#707776] hover:bg-[#DDE9E4] hover:text-[#171B1B]"
+                          : "text-on-surface hover:bg-surface-container"
+                      }`}
+                    >
+                      <span>{cat.name}</span>
+                      <span className={`text-xs ${isPetrol ? "text-[#707776]" : "text-outline"}`}>›</span>
+                    </a>
+                  ))}
+                </div>
+
+                {/* Atelier Guarantees in Drawer */}
+                <div className={`pt-4 mt-3 border-t space-y-2.5 px-3 ${
+                  isPetrol ? "border-[#DDE9E4]" : "border-outline-variant/30"
+                }`}>
+                  <p className={`font-label-caps text-label-caps uppercase tracking-wider mb-2 font-bold ${
+                    isPetrol ? "text-[#123B3A]" : "text-outline"
+                  }`}>
+                    Atelier Standards
+                  </p>
+                  <div className={`flex items-center gap-2 text-xs font-medium ${
+                    isPetrol ? "text-[#707776]" : "text-on-surface-variant"
+                  }`}>
+                    <FiShield className={`text-sm flex-shrink-0 ${isPetrol ? "text-[#34745F]" : "text-primary"}`} />
                     <span>Secure Encrypted Payments</span>
                   </div>
-                  <div className="flex items-center gap-2 text-on-surface-variant font-label-md text-xs">
-                    <FiTruck className="text-primary text-sm flex-shrink-0" />
+                  <div className={`flex items-center gap-2 text-xs font-medium ${
+                    isPetrol ? "text-[#707776]" : "text-on-surface-variant"
+                  }`}>
+                    <FiTruck className={`text-sm flex-shrink-0 ${isPetrol ? "text-[#34745F]" : "text-primary"}`} />
                     <span>Free Delivery Above ₹1,999</span>
                   </div>
-                  <div className="flex items-center gap-2 text-on-surface-variant font-label-md text-xs">
-                    <FiRotateCcw className="text-primary text-sm flex-shrink-0" />
+                  <div className={`flex items-center gap-2 text-xs font-medium ${
+                    isPetrol ? "text-[#707776]" : "text-on-surface-variant"
+                  }`}>
+                    <FiRotateCcw className={`text-sm flex-shrink-0 ${isPetrol ? "text-[#34745F]" : "text-primary"}`} />
                     <span>7-Day Easy Returns Guarantee</span>
                   </div>
-                  <div className="flex items-center gap-2 text-on-surface-variant font-label-md text-xs">
-                    <HiCheckBadge className="text-primary text-sm flex-shrink-0" />
+                  <div className={`flex items-center gap-2 text-xs font-medium ${
+                    isPetrol ? "text-[#707776]" : "text-on-surface-variant"
+                  }`}>
+                    <HiCheckBadge className={`text-sm flex-shrink-0 ${isPetrol ? "text-[#34745F]" : "text-primary"}`} />
                     <span>Atelier Authenticity Certified</span>
                   </div>
                 </div>
               </div>
 
               {/* Drawer Footer Account CTA */}
-              <div className="p-4 border-t border-outline-variant/30 bg-surface-container-low">
-                <button className="w-full py-2.5 rounded-lg bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm">
+              <div className={`p-4 border-t ${
+                isPetrol ? "bg-white border-[#DDE9E4]" : "bg-surface-container-low border-outline-variant/30"
+              }`}>
+                <button className={`w-full py-2.5 rounded-lg font-label-caps text-label-caps uppercase tracking-wider font-bold shadow-sm transition-all cursor-pointer ${
+                  isPetrol
+                    ? "bg-[#123B3A] hover:bg-[#0D2D2C] text-white"
+                    : "bg-primary text-on-primary"
+                }`}>
                   Sign In / Register
                 </button>
               </div>

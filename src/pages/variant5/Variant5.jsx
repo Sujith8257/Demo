@@ -12,6 +12,7 @@ import {
   FiClock,
   FiChevronLeft,
   FiChevronRight,
+  FiCheck,
 } from "react-icons/fi";
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiTimerFlashLine } from "react-icons/ri";
@@ -123,7 +124,7 @@ const deals = [
     reviews: 284,
     dealEnds: "2h 45m",
     badge: "Flash Deal",
-    badgeColor: "bg-error text-on-error",
+    badgeColor: "bg-[#C95F50] text-white",
     images: watchImgSets.blue,
   },
   {
@@ -137,7 +138,7 @@ const deals = [
     reviews: 178,
     dealEnds: "5h 12m",
     badge: "Flash Deal",
-    badgeColor: "bg-error text-on-error",
+    badgeColor: "bg-[#C95F50] text-white",
     images: watchImgSets.chrono,
   },
   {
@@ -151,7 +152,7 @@ const deals = [
     reviews: 312,
     dealEnds: "8h 30m",
     badge: "Trending",
-    badgeColor: "bg-secondary-container text-on-secondary-container",
+    badgeColor: "bg-[#C7A66A] text-[#171B1B]",
     images: watchImgSets.steel,
   },
   {
@@ -165,7 +166,7 @@ const deals = [
     reviews: 205,
     dealEnds: "11h 00m",
     badge: "Special Value",
-    badgeColor: "bg-[#067d62] text-white",
+    badgeColor: "bg-[#34745F] text-white",
     images: watchImgSets.leather,
   },
   {
@@ -179,7 +180,7 @@ const deals = [
     reviews: 87,
     dealEnds: "1d 4h",
     badge: "Field Spec",
-    badgeColor: "bg-primary text-on-primary",
+    badgeColor: "bg-[#DDE9E4] text-[#123B3A]",
     images: watchImgSets.tactical,
   },
 ];
@@ -195,7 +196,7 @@ const bestsellers = [
     rating: 4.9,
     reviews: 284,
     badge: "Artisan Bestseller",
-    badgeColor: "bg-primary text-on-primary",
+    badgeColor: "bg-[#C7A66A] text-[#171B1B]",
     images: watchImgSets.blue,
   },
   {
@@ -208,7 +209,7 @@ const bestsellers = [
     rating: 4.8,
     reviews: 96,
     badge: "Interchangeable",
-    badgeColor: "bg-secondary text-on-secondary",
+    badgeColor: "bg-[#DDE9E4] text-[#123B3A]",
     images: watchImgSets.steel,
   },
   {
@@ -221,7 +222,7 @@ const bestsellers = [
     rating: 4.9,
     reviews: 412,
     badge: "Top Rated",
-    badgeColor: "bg-primary text-on-primary",
+    badgeColor: "bg-[#34745F] text-white",
     images: watchImgSets.chrono,
   },
   {
@@ -234,7 +235,7 @@ const bestsellers = [
     rating: 4.7,
     reviews: 63,
     badge: "Travel Essential",
-    badgeColor: "bg-tertiary text-on-tertiary",
+    badgeColor: "bg-[#F2E9D8] text-[#171B1B]",
     images: watchImgSets.leather,
   },
   {
@@ -247,7 +248,7 @@ const bestsellers = [
     rating: 4.8,
     reviews: 178,
     badge: "Limited Edition",
-    badgeColor: "bg-error text-on-error",
+    badgeColor: "bg-[#E8E2EE] text-[#123B3A]",
     images: watchImgSets.steel,
   },
   {
@@ -260,7 +261,7 @@ const bestsellers = [
     rating: 4.9,
     reviews: 141,
     badge: "Full Grain",
-    badgeColor: "bg-secondary text-on-secondary",
+    badgeColor: "bg-[#DDE9E4] text-[#123B3A]",
     images: watchImgSets.leather,
   },
   {
@@ -273,7 +274,7 @@ const bestsellers = [
     rating: 4.7,
     reviews: 87,
     badge: "Daily Driver",
-    badgeColor: "bg-primary text-on-primary",
+    badgeColor: "bg-[#123B3A] text-white",
     images: watchImgSets.tactical,
   },
   {
@@ -286,7 +287,7 @@ const bestsellers = [
     rating: 4.8,
     reviews: 205,
     badge: "Classic",
-    badgeColor: "bg-primary text-on-primary",
+    badgeColor: "bg-[#123B3A] text-white",
     images: watchImgSets.blue,
   },
 ];
@@ -394,9 +395,9 @@ export default function Variant5() {
   );
 
   return (
-    <div className="relative bg-surface min-h-screen font-body-md text-on-surface antialiased">
+    <div className="relative bg-[#F7F6F2] min-h-screen font-body-md text-[#171B1B] antialiased">
       <SkipLink />
-      <Header showNavStrip={false} />
+      <Header showNavStrip={false} theme="variant5" />
 
       <PageLoader skeleton={<Variant5Skeleton />} duration={800}>
         <main id="main-content" className="w-full pt-[92px] pb-0">
@@ -410,16 +411,16 @@ export default function Variant5() {
           <section id="categories" className="max-w-[1400px] mx-auto px-6 sm:px-10 py-10 sm:py-12">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <span className="text-xs font-semibold tracking-wider text-blue-600 uppercase">
+                <span className="text-xs font-bold tracking-wider text-[#123B3A] uppercase">
                   Curated Horological Disciplines
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mt-1">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171B1B] mt-1">
                   Shop by Category
                 </h2>
               </div>
               <a
                 href="#collection"
-                className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                className="text-sm font-semibold text-[#123B3A] hover:text-[#0D2D2C] transition-colors"
               >
                 Explore full roster →
               </a>
@@ -434,12 +435,12 @@ export default function Variant5() {
                   <img
                     src={cat.img || cat.image}
                     alt={cat.name}
-                    className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-4 transition-transform group-hover:scale-105"
+                    className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover mb-4 transition-transform group-hover:scale-105 group-hover:ring-2 group-hover:ring-[#123B3A] group-hover:ring-offset-2"
                   />
-                  <h3 className="text-base font-bold text-gray-900 dark:text-white leading-snug">
+                  <h3 className="text-base font-bold text-[#171B1B] leading-snug group-hover:text-[#123B3A] transition-colors">
                     {cat.name}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">{cat.sub}</p>
+                  <p className="text-sm text-[#707776] mt-1">{cat.sub}</p>
                 </div>
               ))}
             </div>
@@ -450,17 +451,17 @@ export default function Variant5() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <RiTimerFlashLine className="text-error text-base animate-pulse" />
-                  <span className="font-label-caps text-label-caps text-error uppercase tracking-widest font-bold">
+                  <RiTimerFlashLine className="text-[#C95F50] text-base animate-pulse" />
+                  <span className="font-label-caps text-label-caps text-[#C95F50] uppercase tracking-widest font-bold">
                     Limited Allocations & Flash Pricing
                   </span>
                 </div>
-                <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                <h2 className="font-headline-md text-headline-md text-[#171B1B] font-bold">
                   Today's Flash Deals
                 </h2>
               </div>
               <div className="flex items-center gap-3">
-                <span className="font-label-caps text-[11px] text-error font-bold uppercase bg-error-container/40 px-3 py-1 rounded-full border border-error-container flex items-center gap-1.5">
+                <span className="font-label-caps text-[11px] text-[#C95F50] font-bold uppercase bg-[#C95F50]/10 px-3 py-1 rounded-full border border-[#C95F50]/30 flex items-center gap-1.5">
                   <FiClock className="text-xs" />
                   <span>Next Allocation Drops in 4h 18m</span>
                 </span>
@@ -471,14 +472,14 @@ export default function Variant5() {
               {deals.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
+                  className="rounded-2xl bg-white border border-[#DDE9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
                   {/* Image with Badges, Multi-image dots, Left/Right arrows & Wishlist */}
-                  <div className="relative aspect-square w-full overflow-hidden bg-surface-container select-none">
+                  <div className="relative aspect-square w-full overflow-hidden bg-[#F7F6F2] select-none">
                     <ManualProductImageCarousel images={item.images} name={item.name} />
 
                     {/* Discount Badge */}
-                    <span className="absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider bg-error text-on-error shadow-xs">
+                    <span className="absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 font-label-caps text-[10px] uppercase font-bold tracking-wider bg-[#C95F50] text-white shadow-xs">
                       {item.discount}
                     </span>
 
@@ -486,12 +487,12 @@ export default function Variant5() {
                     <motion.button
                       whileTap={{ scale: 0.85 }}
                       onClick={() => toggleWishlist(item.id, item.name)}
-                      className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-surface-container-lowest shadow-xs cursor-pointer"
+                      className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-white text-[#123B3A] shadow-xs cursor-pointer"
                       aria-label="Wishlist"
                     >
                       <FiHeart
                         className={`text-base ${
-                          wishlist[item.id] ? "fill-error text-error" : "text-on-surface-variant"
+                          wishlist[item.id] ? "fill-[#C95F50] text-[#C95F50]" : "text-[#123B3A]"
                         }`}
                       />
                     </motion.button>
@@ -501,7 +502,7 @@ export default function Variant5() {
                   <div className="p-4 flex flex-col flex-1">
                     {/* Stars */}
                     <div className="flex items-center gap-1 mb-1">
-                      <div className="flex text-[#FF9F00]">
+                      <div className="flex text-[#C7A66A]">
                         {[1, 2, 3, 4].map((s) => (
                           <BsStarFill key={s} className="text-[11px]" />
                         ))}
@@ -511,30 +512,30 @@ export default function Variant5() {
                           <BsStarHalf className="text-[11px]" />
                         )}
                       </div>
-                      <span className="font-label-caps text-[10px] text-outline">({item.reviews})</span>
+                      <span className="font-label-caps text-[10px] text-[#707776]">({item.reviews})</span>
                     </div>
 
-                    <h3 className="font-title-editorial text-sm font-bold text-on-surface truncate">
+                    <h3 className="font-title-editorial text-sm font-bold text-[#171B1B] truncate">
                       {item.name}
                     </h3>
-                    <p className="font-body-sm text-xs text-outline truncate mb-1">
+                    <p className="font-body-sm text-xs text-[#707776] truncate mb-1">
                       {item.brand}
                     </p>
 
                     {/* Deal Timer */}
                     <div className="flex items-center gap-1 mt-1 mb-2">
-                      <RiTimerFlashLine className="text-error text-xs" />
-                      <span className="font-label-caps text-[10px] text-error uppercase font-bold">
+                      <RiTimerFlashLine className="text-[#C95F50] text-xs" />
+                      <span className="font-label-caps text-[10px] text-[#C95F50] uppercase font-bold">
                         Ends in {item.dealEnds}
                       </span>
                     </div>
 
                     {/* Price Row */}
                     <div className="mt-auto pt-2 flex items-baseline gap-2">
-                      <span className="font-numeric-price text-numeric-price text-on-surface font-bold">
+                      <span className="font-numeric-price text-numeric-price text-[#123B3A] font-bold">
                         {item.price}
                       </span>
-                      <span className="font-body-sm text-xs text-outline line-through">
+                      <span className="font-body-sm text-xs text-[#707776] line-through">
                         {item.mrp}
                       </span>
                     </div>
@@ -543,7 +544,7 @@ export default function Variant5() {
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => handleAddToCart(item.name)}
-                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-secondary-container hover:bg-secondary text-on-secondary shadow-xs cursor-pointer"
+                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-[#34745F] hover:bg-[#2C604F] text-white shadow-xs cursor-pointer"
                     >
                       <FiShoppingBag className="text-sm" />
                       <span>Add to Bag</span>
@@ -555,19 +556,27 @@ export default function Variant5() {
           </section>
  
           {/* Curated Value Season (from Variant 2) */}
-          <VALUEDEALSECTIONDeepBlue containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" className="mt-14 sm:mt-16" />
+          <VALUEDEALSECTIONDeepBlue
+            containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8"
+            className="mt-14 sm:mt-16"
+            bgClass="bg-[#123B3A]"
+            badgeClass="bg-[#34745F] text-white"
+            checkColorClass="text-[#34745F]"
+            btnClass="bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold"
+            clockBoxClass="bg-black/40 border border-white/10"
+          />
 
           {/* 5. Bespoke Timepiece Customizer - Luxury Atelier Presentation */}
           <section id="customizer" className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 mt-14 sm:mt-16">
-            <div className="relative rounded-3xl bg-gradient-to-br from-[#002a63] via-primary to-[#0f1a1d] text-white p-8 sm:p-12 lg:p-14 shadow-xl overflow-hidden">
+            <div className="relative rounded-3xl bg-gradient-to-br from-[#123B3A] via-[#0D2D2C] to-[#171B1B] text-white p-8 sm:p-12 lg:p-14 shadow-xl overflow-hidden">
               {/* Background ambient lighting */}
-              <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#ffb866]/20 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-primary-fixed/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#C7A66A]/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -left-20 -bottom-20 w-96 h-96 bg-[#34745F]/15 rounded-full blur-3xl pointer-events-none" />
 
               <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                 <div className="max-w-2xl">
-                  <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 bg-white/10 backdrop-blur-md font-label-caps text-[10px] uppercase tracking-widest text-[#ffddba] font-bold mb-4 border border-white/15">
-                    <HiSparkles className="text-sm text-[#ffddba]" />
+                  <div className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 bg-[#F2E9D8]/15 backdrop-blur-md font-label-caps text-[10px] uppercase tracking-widest text-[#C7A66A] font-bold mb-4 border border-[#C7A66A]/40">
+                    <HiSparkles className="text-sm text-[#C7A66A]" />
                     <span>Atelier Bespoke Registry</span>
                   </div>
 
@@ -581,15 +590,15 @@ export default function Variant5() {
 
                   <div className="flex flex-wrap items-center gap-4 text-xs text-white/80 font-medium">
                     <span className="flex items-center gap-1.5">
-                      <FiShield className="text-[#ffddba]" /> 25-Year Transferable Warranty
+                      <FiShield className="text-[#C7A66A]" /> 25-Year Transferable Warranty
                     </span>
                     <span className="hidden sm:inline">•</span>
                     <span className="flex items-center gap-1.5">
-                      <FiAward className="text-[#ffddba]" /> Free Archival Monogramming
+                      <FiAward className="text-[#C7A66A]" /> Free Archival Monogramming
                     </span>
                     <span className="hidden sm:inline">•</span>
                     <span className="flex items-center gap-1.5">
-                      <FiTruck className="text-[#ffddba]" /> Insured Wood Coffret Dispatch
+                      <FiTruck className="text-[#C7A66A]" /> Insured Wood Coffret Dispatch
                     </span>
                   </div>
                 </div>
@@ -599,7 +608,7 @@ export default function Variant5() {
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     href="#bestsellers"
-                    className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-secondary-container hover:bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider font-bold shadow-xl transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-label-md text-label-md uppercase tracking-wider font-bold shadow-xl transition-all cursor-pointer"
                   >
                     <span>Start Customizing</span>
                     <FiArrowRight className="text-lg" />
@@ -614,12 +623,12 @@ export default function Variant5() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <FiAward className="text-primary text-base" />
-                  <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">
+                  <FiAward className="text-[#123B3A] text-base" />
+                  <span className="font-label-caps text-label-caps text-[#123B3A] uppercase tracking-widest font-bold">
                     Verified Atelier Acquisitions
                   </span>
                 </div>
-                <h2 className="font-headline-md text-headline-md text-on-surface font-bold">
+                <h2 className="font-headline-md text-headline-md text-[#171B1B] font-bold">
                   Bestsellers & Curated Collection
                 </h2>
               </div>
@@ -637,8 +646,8 @@ export default function Variant5() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`px-4 py-2 rounded-full font-label-caps text-xs uppercase tracking-wider font-bold transition-all cursor-pointer ${
                       activeTab === tab.id
-                        ? "bg-primary text-on-primary shadow-sm"
-                        : "bg-surface-container hover:bg-surface-container-high text-on-surface-variant"
+                        ? "bg-[#123B3A] text-white shadow-sm"
+                        : "bg-white hover:bg-[#DDE9E4] text-[#707776] hover:text-[#171B1B] border border-[#DDE9E4]"
                     }`}
                   >
                     {tab.label}
@@ -651,10 +660,10 @@ export default function Variant5() {
               {filteredBestsellers.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-2xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
+                  className="rounded-2xl bg-white border border-[#DDE9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
                 >
                   {/* Image Container with manual multi-image carousel */}
-                  <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-surface-container select-none">
+                  <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-[#F7F6F2] select-none">
                     <ManualProductImageCarousel images={item.images} name={item.name} />
 
                     {/* Badge */}
@@ -666,12 +675,12 @@ export default function Variant5() {
                     <motion.button
                       whileTap={{ scale: 0.85 }}
                       onClick={() => toggleWishlist(item.id, item.name)}
-                      className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-surface-container-lowest shadow-xs cursor-pointer"
+                      className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-white text-[#123B3A] shadow-xs cursor-pointer"
                       aria-label="Wishlist"
                     >
                       <FiHeart
                         className={`text-base ${
-                          wishlist[item.id] ? "fill-error text-error" : "text-on-surface-variant"
+                          wishlist[item.id] ? "fill-[#C95F50] text-[#C95F50]" : "text-[#123B3A]"
                         }`}
                       />
                     </motion.button>
@@ -681,7 +690,7 @@ export default function Variant5() {
                   <div className="p-4 flex flex-col flex-1">
                     {/* Stars */}
                     <div className="flex items-center gap-1 mb-1">
-                      <div className="flex text-[#FF9F00]">
+                      <div className="flex text-[#C7A66A]">
                         {[1, 2, 3, 4].map((s) => (
                           <BsStarFill key={s} className="text-[11px]" />
                         ))}
@@ -691,22 +700,22 @@ export default function Variant5() {
                           <BsStarHalf className="text-[11px]" />
                         )}
                       </div>
-                      <span className="font-label-caps text-[10px] text-outline">({item.reviews})</span>
+                      <span className="font-label-caps text-[10px] text-[#707776]">({item.reviews})</span>
                     </div>
 
-                    <h3 className="font-title-editorial text-title-editorial font-bold text-on-surface truncate">
+                    <h3 className="font-title-editorial text-title-editorial font-bold text-[#171B1B] truncate">
                       {item.name}
                     </h3>
-                    <p className="font-body-sm text-body-sm text-outline truncate mb-2">
+                    <p className="font-body-sm text-body-sm text-[#707776] truncate mb-2">
                       {item.brand}
                     </p>
 
                     {/* Price Row */}
                     <div className="mt-auto pt-2 flex items-baseline gap-2">
-                      <span className="font-numeric-price text-numeric-price text-on-surface font-bold">
+                      <span className="font-numeric-price text-numeric-price text-[#123B3A] font-bold">
                         {item.price}
                       </span>
-                      <span className="font-body-sm text-body-sm text-outline line-through">
+                      <span className="font-body-sm text-body-sm text-[#707776] line-through">
                         {item.mrp}
                       </span>
                     </div>
@@ -715,7 +724,7 @@ export default function Variant5() {
                     <motion.button
                       whileTap={{ scale: 0.97 }}
                       onClick={() => handleAddToCart(item.name)}
-                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-secondary-container hover:bg-secondary text-on-secondary shadow-xs cursor-pointer"
+                      className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-[#34745F] hover:bg-[#2C604F] text-white shadow-xs cursor-pointer"
                     >
                       <FiShoppingBag className="text-sm" />
                       <span>Add to Bag</span>
@@ -727,24 +736,57 @@ export default function Variant5() {
           </section>
 
           {/* 7. Horological Anatomy (Tolerances Without Compromise from Variant 1) */}
-          <WATCHMATERIALSTRIPTYCHConnected3 containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" />
+          <WATCHMATERIALSTRIPTYCHConnected3
+            containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8"
+            bgClass="bg-[#F7F6F2]"
+            kickerClass="text-[#123B3A]"
+            cardBgClass="bg-white border border-[#DDE9E4] shadow-xs"
+            fieldTagClass="bg-white/95 text-[#123B3A] border border-[#DDE9E4]"
+            borderClass="border-[#DDE9E4]"
+          />
 
           {/* 8. Shop By Investment Range (Portfolio Accessibility from Variant 1) */}
-          <SHOPBYBUDGETHorizontalPill containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" />
+          <SHOPBYBUDGETHorizontalPill
+            containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8"
+            bgClass="bg-[#F7F6F2]"
+            cardBgClass="bg-white border border-[#DDE9E4]"
+            kickerClass="text-[#123B3A]"
+            activeBtnClass="bg-[#123B3A] text-white shadow-md"
+            inactiveBtnClass="bg-[#F7F6F2] hover:bg-[#DDE9E4] text-[#171B1B] border border-[#DDE9E4]/60"
+            activeKickerClass="text-[#C7A66A]"
+            ctaBtnClass="bg-[#34745F] hover:bg-[#2C604F] text-white font-bold"
+            activeTierTextClass="text-[#123B3A]"
+          />
 
           {/* 8. Product Discovery Hub (Recently Viewed, Recommendations, Deals in Watches) */}
           <div className="mt-6">
-            <ProductDiscoveryHub />
+            <ProductDiscoveryHub theme="variant5" />
           </div>
 
           {/* 8. Continuous Infinite Reviews Carousel */}
           <ContinuousReviewsCarousel className="mt-14" />
 
           {/* 9. Four Pillars of Material Integrity & Standard of Authenticity (from Variant 4) */}
-          <PRODUCTINTEGRITYTRIPTYCH containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8" className="mt-14 sm:mt-16 !pb-2" />
+          <PRODUCTINTEGRITYTRIPTYCH
+            containerClassName="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8"
+            className="mt-14 sm:mt-16 !pb-2"
+            bgClass="bg-[#F7F6F2]"
+            cardBgClass="bg-white border border-[#DDE9E4] shadow-xs"
+            kickerClass="text-[#123B3A]"
+            pillar1IconClass="bg-[#DDE9E4] text-[#123B3A]"
+            pillar1TagClass="text-[#123B3A]"
+            pillar2IconClass="bg-[#F2E9D8] text-[#C7A66A]"
+            pillar2TagClass="text-[#C7A66A]"
+            pillar3IconClass="bg-[#E8E2EE] text-[#123B3A]"
+            pillar3TagClass="text-[#123B3A]"
+            pillar4IconClass="bg-[#DCE8EE] text-[#123B3A]"
+            pillar4TagClass="text-[#707776]"
+            trustBarBgClass="bg-white border border-[#DDE9E4] shadow-xs"
+            trustBarIconClass="text-[#123B3A]"
+          />
         </main>
 
-        <Footer className="!mt-0" />
+        <Footer className="!mt-0" theme="variant5" />
       </PageLoader>
 
       {/* Floating Interactive Toast Feedback */}
@@ -754,7 +796,7 @@ export default function Variant5() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-6 right-6 z-[9999] bg-[#067d62] text-white px-5 py-3 rounded-xl shadow-xl text-xs font-semibold flex items-center gap-2"
+            className="fixed bottom-6 right-6 z-[9999] bg-[#34745F] text-white px-5 py-3 rounded-xl shadow-xl text-xs font-semibold flex items-center gap-2"
           >
             <FiCheck className="text-base" />
             <span>{toastMessage}</span>

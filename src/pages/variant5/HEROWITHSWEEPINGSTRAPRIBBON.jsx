@@ -85,8 +85,8 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
         {/* Text sits directly on the gradient — no card, no box */}
         <div className="relative z-10 h-full flex flex-col justify-between p-6 sm:p-10 max-w-[480px]">
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold text-amber-400 border border-amber-500/40 rounded-full px-3 py-1 w-fit">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span className="inline-flex items-center gap-2 text-xs font-bold text-[#C7A66A] border border-[#C7A66A]/40 bg-black/40 backdrop-blur-md rounded-full px-3.5 py-1 w-fit tracking-wider uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C7A66A]" />
               {banner.tag}
             </span>
           </div>
@@ -95,7 +95,7 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg">
               {banner.title}
             </h1>
-            <p className="text-gray-200 mt-3 text-sm sm:text-base drop-shadow">
+            <p className="text-[#F7F6F2]/90 mt-3 text-sm sm:text-base drop-shadow">
               {banner.subtitle}
             </p>
           </div>
@@ -103,7 +103,7 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
           <div className="flex items-center gap-4">
             <a
               href={banner.href}
-              className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-black font-semibold px-6 py-3 rounded-lg transition cursor-pointer"
+              className="inline-flex items-center justify-center bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold px-6 py-3 rounded-lg transition-all shadow-md active:scale-95 cursor-pointer uppercase tracking-wider text-xs sm:text-sm"
             >
               {banner.cta}
             </a>
@@ -142,12 +142,12 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
                   initial={{ width: "0%" }}
                   animate={{ width: "100%" }}
                   transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
-                  className="h-full bg-amber-400 rounded-full"
+                  className="h-full bg-[#C7A66A] rounded-full"
                 />
               ) : idx < current ? (
-                <div className="h-full w-full bg-amber-400 rounded-full" />
+                <div className="h-full w-full bg-[#C7A66A] rounded-full" />
               ) : (
-                <div className="h-full w-0 bg-amber-400 rounded-full" />
+                <div className="h-full w-0 bg-[#C7A66A] rounded-full" />
               )}
             </button>
           ))}

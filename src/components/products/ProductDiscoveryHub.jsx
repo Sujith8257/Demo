@@ -64,22 +64,25 @@ const trendingNear = [
 ];
 
 // ─── Multi-image Product Card ───────────────────────────────────────────────
-function ProductCard({ product, accent = "secondary", showDeal = false, showCity = false }) {
+function ProductCard({ product, accent = "secondary", showDeal = false, showCity = false, theme = "default" }) {
+  const isPetrol = theme === "variant5" || theme === "petrol";
   const [imgIdx, setImgIdx] = useState(0);
   const [wished, setWished] = useState(false);
   const imgs = product.images || [];
 
   const accentMap = {
-    secondary: "bg-secondary-container text-on-secondary hover:bg-secondary",
-    primary: "bg-secondary-container text-on-secondary hover:bg-secondary",
-    error: "bg-secondary-container text-on-secondary hover:bg-secondary",
+    secondary: isPetrol ? "bg-[#34745F] text-white hover:bg-[#2C604F] font-bold" : "bg-secondary-container text-on-secondary hover:bg-secondary",
+    primary: isPetrol ? "bg-[#34745F] text-white hover:bg-[#2C604F] font-bold" : "bg-secondary-container text-on-secondary hover:bg-secondary",
+    error: isPetrol ? "bg-[#34745F] text-white hover:bg-[#2C604F] font-bold" : "bg-secondary-container text-on-secondary hover:bg-secondary",
   };
 
   return (
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      className="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start rounded-2xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-shadow flex flex-col"
+      className={`min-w-[280px] max-w-[300px] flex-shrink-0 snap-start rounded-2xl ${
+        isPetrol ? "bg-white border border-[#DDE9E4]" : "bg-surface-container-lowest"
+      } shadow-sm hover:shadow-xl transition-shadow flex flex-col`}
     >
       {/* ── Image carousel with multi-image navigation ── */}
       <div className="relative aspect-square w-full overflow-hidden rounded-t-2xl bg-surface-container select-none group">
@@ -167,39 +170,39 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
       <div className="p-4 flex flex-col flex-1">
         {/* Stars */}
         <div className="flex items-center gap-1 mb-1">
-          <div className="flex text-[#FF9F00]">
+          <div className={`flex ${isPetrol ? "text-[#C7A66A]" : "text-[#FF9F00]"}`}>
             {[1,2,3,4].map(s => <BsStarFill key={s} className="text-[11px]" />)}
             {product.rating >= 4.5
               ? <BsStarFill className="text-[11px]" />
               : <BsStarHalf className="text-[11px]" />}
           </div>
-          <span className="font-label-caps text-[10px] text-outline">({product.reviews})</span>
+          <span className={`font-label-caps text-[10px] ${isPetrol ? "text-[#707776]" : "text-outline"}`}>({product.reviews})</span>
         </div>
 
-        <h3 className="font-title-editorial text-title-editorial text-on-surface truncate">{product.name}</h3>
-        <p className="font-body-sm text-body-sm text-outline truncate">{product.brand}</p>
+        <h3 className={`font-title-editorial text-title-editorial ${isPetrol ? "text-[#171B1B] font-bold" : "text-on-surface"} truncate`}>{product.name}</h3>
+        <p className={`font-body-sm text-body-sm ${isPetrol ? "text-[#707776]" : "text-outline"} truncate`}>{product.brand}</p>
 
         {/* City tag for trending */}
         {showCity && product.city && (
           <div className="flex items-center gap-1 mt-1">
-            <FiMapPin className="text-[11px] text-secondary" />
-            <span className="font-label-caps text-[10px] text-secondary uppercase">Trending in {product.city}</span>
+            <FiMapPin className={`text-[11px] ${isPetrol ? "text-[#123B3A]" : "text-secondary"}`} />
+            <span className={`font-label-caps text-[10px] uppercase ${isPetrol ? "text-[#123B3A] font-bold" : "text-secondary"}`}>Trending in {product.city}</span>
           </div>
         )}
 
         {/* Deal timer */}
         {showDeal && product.dealEnds && (
           <div className="flex items-center gap-1 mt-1">
-            <RiTimerFlashLine className="text-error text-sm" />
-            <span className="font-label-caps text-[10px] text-error uppercase font-bold">Ends in {product.dealEnds}</span>
+            <RiTimerFlashLine className={`text-sm ${isPetrol ? "text-[#C95F50]" : "text-error"}`} />
+            <span className={`font-label-caps text-[10px] uppercase font-bold ${isPetrol ? "text-[#C95F50]" : "text-error"}`}>Ends in {product.dealEnds}</span>
           </div>
         )}
 
         {/* Price row */}
         <div className="flex items-center gap-2 mt-2">
-          <span className="font-numeric-price text-numeric-price text-on-surface">{product.price}</span>
+          <span className={`font-numeric-price text-numeric-price font-bold ${isPetrol ? "text-[#123B3A]" : "text-on-surface"}`}>{product.price}</span>
           {product.mrp && (
-            <span className="font-body-sm text-body-sm text-outline line-through">{product.mrp}</span>
+            <span className={`font-body-sm text-body-sm line-through ${isPetrol ? "text-[#707776]" : "text-outline"}`}>{product.mrp}</span>
           )}
         </div>
 
@@ -217,7 +220,8 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
 }
 
 // ─── Section Rail ───────────────────────────────────────────────────────────
-function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, showCity, bg = "bg-surface" }) {
+function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, showCity, bg = "bg-surface", theme = "default" }) {
+  const isPetrol = theme === "variant5" || theme === "petrol";
   const sectionId = `rail-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
   const scroll = (dir) => {
@@ -227,7 +231,7 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
 
   return (
     <motion.section
-      className={`w-full py-6 sm:py-8 ${bg}`}
+      className={`w-full py-6 sm:py-8 ${isPetrol ? "bg-[#F7F6F2]" : bg}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -238,29 +242,37 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
         <div className="flex items-end justify-between mb-6">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              {Icon && <Icon className="text-primary text-base" />}
-              <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest">
+              {Icon && <Icon className={`${isPetrol ? "text-[#123B3A]" : "text-primary"} text-base`} />}
+              <span className={`font-label-caps text-label-caps ${isPetrol ? "text-[#123B3A] font-bold" : "text-primary"} uppercase tracking-widest`}>
                 {eyebrow}
               </span>
             </div>
-            <h2 className="font-headline-md text-headline-md text-on-surface font-bold">{title}</h2>
+            <h2 className={`font-headline-md text-headline-md ${isPetrol ? "text-[#171B1B]" : "text-on-surface"} font-bold`}>{title}</h2>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => scroll(-1)}
-              className="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center transition-colors text-on-surface"
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+                isPetrol
+                  ? "bg-white hover:bg-[#DDE9E4] text-[#123B3A] border border-[#DDE9E4]"
+                  : "bg-surface-container hover:bg-surface-container-high text-on-surface"
+              }`}
               aria-label="Scroll left"
             >
               <FiChevronLeft />
             </button>
             <button
               onClick={() => scroll(1)}
-              className="w-9 h-9 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center transition-colors text-on-surface"
+              className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors cursor-pointer ${
+                isPetrol
+                  ? "bg-white hover:bg-[#DDE9E4] text-[#123B3A] border border-[#DDE9E4]"
+                  : "bg-surface-container hover:bg-surface-container-high text-on-surface"
+              }`}
               aria-label="Scroll right"
             >
               <FiChevronRight />
             </button>
-            <a href="#" className="ml-2 font-label-md text-label-md text-primary hover:underline hidden sm:block">
+            <a href="#" className={`ml-2 font-label-md text-label-md ${isPetrol ? "text-[#123B3A] hover:text-[#0D2D2C] font-semibold" : "text-primary hover:underline"} hidden sm:block`}>
               See all
             </a>
           </div>
@@ -285,6 +297,7 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
                 accent={accent}
                 showDeal={showDeal}
                 showCity={showCity}
+                theme={theme}
               />
             </motion.div>
           ))}
@@ -295,7 +308,9 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
 }
 
 // ─── Main export: 5-section Product Discovery Hub ────────────────────────────
-export default function ProductDiscoveryHub() {
+export default function ProductDiscoveryHub({ theme = "default" }) {
+  const isPetrol = theme === "variant5" || theme === "petrol";
+
   return (
     <div className="w-full">
       {/* 1. Recently Viewed */}
@@ -306,6 +321,7 @@ export default function ProductDiscoveryHub() {
         products={recentlyViewed}
         accent="secondary"
         bg="bg-surface"
+        theme={theme}
       />
 
       {/* 2. Recommendations for You */}
@@ -316,6 +332,7 @@ export default function ProductDiscoveryHub() {
         products={recommended}
         accent="primary"
         bg="bg-surface-container-low"
+        theme={theme}
       />
 
       {/* 3. Deals for You in Watches */}
@@ -327,6 +344,7 @@ export default function ProductDiscoveryHub() {
         accent="error"
         showDeal={true}
         bg="bg-surface"
+        theme={theme}
       />
 
       {/* 4. New Arrivals */}
@@ -337,6 +355,7 @@ export default function ProductDiscoveryHub() {
         products={newArrivals}
         accent="primary"
         bg="bg-surface-container-low"
+        theme={theme}
       />
 
       {/* 5. Trending Near You */}
@@ -348,6 +367,7 @@ export default function ProductDiscoveryHub() {
         accent="secondary"
         showCity={true}
         bg="bg-surface"
+        theme={theme}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import Skeleton from "../../components/skeleton/Skeleton.jsx";
 
 export default function Variant5Skeleton() {
   return (
-    <div className="w-full pt-28 pb-16 bg-surface">
+    <div className="w-full pt-28 pb-16 bg-[#F7F6F2]">
       {/* Hero banner skeleton fitting page */}
       <div className="w-full">
         <Skeleton variant="pulse" className="w-full h-[70vh] sm:h-[80vh] lg:h-[calc(100vh-92px)] min-h-[520px]" />

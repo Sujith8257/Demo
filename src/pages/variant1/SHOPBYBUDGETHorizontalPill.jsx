@@ -46,17 +46,25 @@ const tiers = [
 export default function SHOPBYBUDGETHorizontalPill({
   className = "",
   containerClassName = "max-w-[1760px] mx-auto px-margin",
+  bgClass = "bg-surface",
+  cardBgClass = "bg-surface-container-lowest border border-outline-variant/20",
+  kickerClass = "text-primary",
+  activeBtnClass = "bg-primary text-on-primary shadow-md",
+  inactiveBtnClass = "bg-surface-container-low hover:bg-surface-container text-on-surface group",
+  activeKickerClass = "text-inverse-primary",
+  ctaBtnClass = "bg-secondary-container hover:bg-secondary text-on-secondary",
+  activeTierTextClass = "text-primary",
 }) {
   const [selectedTier, setSelectedTier] = useState(3);
   const active = tiers[selectedTier];
 
   return (
-    <section className={`w-full py-space-xl bg-surface ${className}`}>
+    <section className={`w-full py-space-xl ${bgClass} ${className}`}>
       <div className={containerClassName}>
-        <div className="bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm border border-outline-variant/20">
+        <div className={`${cardBgClass} rounded-2xl p-space-lg shadow-sm`}>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-md">
             <div>
-              <span className="font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-1 font-bold">
+              <span className={`font-label-caps text-label-caps ${kickerClass} uppercase tracking-widest block mb-1 font-bold`}>
                 Portfolio Accessibility
               </span>
               <h3 className="font-headline-md text-headline-md text-on-surface font-bold">
@@ -77,28 +85,26 @@ export default function SHOPBYBUDGETHorizontalPill({
                   key={t.id}
                   onClick={() => setSelectedTier(t.id)}
                   className={`py-4 px-4 rounded-xl transition-all text-center flex flex-col items-center justify-center cursor-pointer ${
-                    isSelected
-                      ? "bg-primary text-on-primary shadow-md"
-                      : "bg-surface-container-low hover:bg-surface-container text-on-surface group"
+                    isSelected ? activeBtnClass : inactiveBtnClass
                   }`}
                 >
                   <span
                     className={`font-label-caps text-label-caps uppercase mb-1 font-bold ${
-                      isSelected ? "text-inverse-primary" : "text-outline group-hover:text-primary"
+                      isSelected ? activeKickerClass : "text-outline group-hover:text-primary"
                     }`}
                   >
                     {t.kicker}
                   </span>
                   <span
                     className={`font-headline-sm text-headline-sm font-bold ${
-                      isSelected ? "text-on-primary" : "text-on-surface"
+                      isSelected ? "" : "text-on-surface"
                     }`}
                   >
                     {t.title}
                   </span>
                   <span
                     className={`font-body-sm text-body-sm mt-1 ${
-                      isSelected ? "text-primary-fixed" : "text-outline"
+                      isSelected ? "opacity-90" : "text-outline"
                     }`}
                   >
                     {t.subtitle}
@@ -119,7 +125,7 @@ export default function SHOPBYBUDGETHorizontalPill({
                 />
               </div>
               <div>
-                <div className="font-label-caps text-label-caps text-primary uppercase font-bold">
+                <div className={`font-label-caps text-label-caps ${activeTierTextClass} uppercase font-bold`}>
                   Active Tier Selection
                 </div>
                 <div className="font-label-md text-label-md text-on-surface">
@@ -128,7 +134,7 @@ export default function SHOPBYBUDGETHorizontalPill({
               </div>
             </div>
             <a
-              className="px-6 py-2.5 rounded-lg bg-secondary-container hover:bg-secondary text-on-secondary font-label-caps text-label-caps uppercase tracking-wider font-bold whitespace-nowrap shadow-xs hover:shadow-md transition-all cursor-pointer"
+              className={`px-6 py-2.5 rounded-lg ${ctaBtnClass} font-label-caps text-label-caps uppercase tracking-wider font-bold whitespace-nowrap shadow-xs hover:shadow-md transition-all cursor-pointer`}
               href="#collection"
             >
               {active.cta}

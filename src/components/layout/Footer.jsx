@@ -1,12 +1,14 @@
-export default function Footer({ className = "" }) {
+export default function Footer({ className = "", theme = "default" }) {
+  const isPetrol = theme === "variant5" || theme === "petrol";
+
   return (
-    <footer className={`w-full bg-[#131a2c] text-[#cdd3cd] mt-12 sm:mt-16 border-t border-white/10 ${className}`}>
+    <footer className={`w-full ${isPetrol ? "bg-[#0D2D2C] text-[#DDE9E4]" : "bg-[#131a2c] text-[#cdd3cd]"} mt-12 sm:mt-16 border-t border-white/10 ${className}`}>
       <div className={"max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12"}>
         <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-lg pb-space-lg"}>
           <div className={"lg:col-span-1"}>
             <div className={"flex items-center gap-2 mb-space-sm"}>
-              <div className={"w-3 h-3 rounded-full bg-inverse-primary relative flex items-center justify-center"}>
-                <div className={"w-1 h-1 rounded-full bg-[#172337]"}></div>
+              <div className={`w-3 h-3 rounded-full ${isPetrol ? "bg-[#C7A66A]" : "bg-inverse-primary"} relative flex items-center justify-center`}>
+                <div className={`w-1 h-1 rounded-full ${isPetrol ? "bg-[#0D2D2C]" : "bg-[#172337]"}`}></div>
               </div>
               <span className={"font-headline-sm text-headline-sm font-extrabold tracking-tight uppercase text-white"}>
                 AMIHIVE
@@ -107,8 +109,8 @@ export default function Footer({ className = "" }) {
               Receive private invitations to private ateliers and rare limited allocations.
             </p>
             <div className={"flex flex-col gap-2 mb-space-md"}>
-              <input className={"h-10 px-3 rounded-lg bg-slate-800 text-white font-body-sm text-body-sm placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-inverse-primary"} placeholder={"Enter your atelier email"} type={"email"} />
-              <button className={"h-10 px-4 rounded-lg bg-secondary-container hover:bg-secondary text-white font-label-caps text-label-caps uppercase transition-colors"}>
+              <input className={`h-10 px-3 rounded-lg ${isPetrol ? "bg-[#123B3A] text-white placeholder:text-white/50 focus:ring-[#C7A66A]" : "bg-slate-800 text-white placeholder:text-slate-400 focus:ring-inverse-primary"} font-body-sm text-body-sm focus:outline-none focus:ring-1`} placeholder={"Enter your atelier email"} type={"email"} />
+              <button className={`h-10 px-4 rounded-lg ${isPetrol ? "bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold" : "bg-secondary-container hover:bg-secondary text-white"} font-label-caps text-label-caps uppercase transition-colors cursor-pointer`}>
                 Subscribe
               </button>
             </div>
@@ -116,7 +118,7 @@ export default function Footer({ className = "" }) {
               <span className={"font-label-caps text-label-caps text-slate-400"}>
                 Currency:
               </span>
-              <div className={"flex items-center gap-1 bg-slate-800 px-3 py-1 rounded font-body-sm text-body-sm text-white"}>
+              <div className={`flex items-center gap-1 ${isPetrol ? "bg-[#123B3A]" : "bg-slate-800"} px-3 py-1 rounded font-body-sm text-body-sm text-white`}>
                 <span className={"material-symbols-outlined text-[16px]"}>
                   currency_rupee
                 </span>

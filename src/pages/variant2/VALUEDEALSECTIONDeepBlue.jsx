@@ -1,9 +1,14 @@
 export default function VALUEDEALSECTIONDeepBlue({
   className = "",
   containerClassName = "max-w-[1760px] mx-auto px-margin",
+  bgClass = "bg-[#0056C3]",
+  badgeClass = "bg-[#388E3C] text-white",
+  checkColorClass = "text-[#388E3C]",
+  btnClass = "bg-[#FD661D] hover:bg-secondary text-white",
+  clockBoxClass = "bg-black/30",
 }) {
   return (
-    <section className={`w-full py-space-xl bg-[#0056C3] text-white overflow-hidden relative ${className}`}>
+    <section className={`w-full py-space-xl text-white overflow-hidden relative ${bgClass} ${className}`}>
       {/* Subtle Guilloché Clock Dial Background Line Art */}
       <div className={"absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center"}>
         <svg className={"w-[900px] h-[900px] stroke-white fill-none"} strokeWidth={"1.5"} viewBox={"0 0 1000 1000"}>
@@ -17,7 +22,7 @@ export default function VALUEDEALSECTIONDeepBlue({
       <div className={`${containerClassName} relative z-10`}>
         <div className={"grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center"}>
           <div className={"lg:col-span-7"}>
-            <div className={"inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#388E3C] text-white font-label-caps text-label-caps uppercase tracking-wider mb-space-sm font-bold"}>
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full font-label-caps text-label-caps uppercase tracking-wider mb-space-sm font-bold ${badgeClass}`}>
               <span className={"material-symbols-outlined text-[14px]"}>
                 local_offer
               </span>
@@ -31,7 +36,7 @@ export default function VALUEDEALSECTIONDeepBlue({
             </p>
             <div className={"flex flex-wrap items-center gap-space-md"}>
               <div className={"flex items-center gap-2"}>
-                <span className={"material-symbols-outlined text-[#388E3C] text-[22px]"} style={{ fontVariationSettings: "'FILL' 1" }}>
+                <span className={`material-symbols-outlined ${checkColorClass} text-[22px]`} style={{ fontVariationSettings: "'FILL' 1" }}>
                   check_circle
                 </span>
                 <span className={"font-body-sm text-body-sm text-white"}>
@@ -39,7 +44,7 @@ export default function VALUEDEALSECTIONDeepBlue({
                 </span>
               </div>
               <div className={"flex items-center gap-2"}>
-                <span className={"material-symbols-outlined text-[#388E3C] text-[22px]"} style={{ fontVariationSettings: "'FILL' 1" }}>
+                <span className={`material-symbols-outlined ${checkColorClass} text-[22px]`} style={{ fontVariationSettings: "'FILL' 1" }}>
                   check_circle
                 </span>
                 <span className={"font-body-sm text-body-sm text-white"}>
@@ -54,7 +59,7 @@ export default function VALUEDEALSECTIONDeepBlue({
                 Season Closes In
               </span>
               <div className={"flex items-center gap-2 my-2 text-white font-numeric-price text-headline-sm"}>
-                <div className={"bg-black/30 px-3 py-1.5 rounded"}>
+                <div className={`${clockBoxClass} px-3 py-1.5 rounded`}>
                   03
                   <span className={"text-[10px] block text-slate-300 font-label-caps"}>
                     DAYS
@@ -63,7 +68,7 @@ export default function VALUEDEALSECTIONDeepBlue({
                 <span>
                   :
                 </span>
-                <div className={"bg-black/30 px-3 py-1.5 rounded"}>
+                <div className={`${clockBoxClass} px-3 py-1.5 rounded`}>
                   18
                   <span className={"text-[10px] block text-slate-300 font-label-caps"}>
                     HRS
@@ -72,14 +77,14 @@ export default function VALUEDEALSECTIONDeepBlue({
                 <span>
                   :
                 </span>
-                <div className={"bg-black/30 px-3 py-1.5 rounded"}>
+                <div className={`${clockBoxClass} px-3 py-1.5 rounded`}>
                   44
                   <span className={"text-[10px] block text-slate-300 font-label-caps"}>
                     MIN
                   </span>
                 </div>
               </div>
-              <a className={"w-full mt-2 py-3 px-6 rounded-lg bg-[#FD661D] hover:bg-secondary text-white font-label-caps text-label-caps uppercase tracking-wider text-center transition-all shadow-md active:scale-95"} href={"#"}>
+              <a className={`w-full mt-2 py-3 px-6 rounded-lg ${btnClass} font-label-caps text-label-caps uppercase tracking-wider text-center transition-all shadow-md active:scale-95`} href={"#"}>
                 Explore Value Curation
               </a>
             </div>

@@ -3,7 +3,7 @@ export default function PRODUCTINTEGRITYTRIPTYCH({
   containerClassName = "max-w-[1760px] mx-auto px-margin",
 }) {
   return (
-    <section className={`w-full py-space-xl bg-surface-container-low ${className}`}>
+    <section className={`w-full pt-space-xl pb-space-sm bg-surface-container-low ${className}`}>
       <div className={containerClassName}>
         <div className={"border-b border-transparent pb-space-sm mb-space-lg text-center"}>
           <span className={"font-label-caps text-label-caps text-primary uppercase tracking-widest block mb-1"}>

@@ -100,14 +100,9 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
-            <a
-              href={banner.href}
-              className="inline-flex items-center justify-center bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold px-6 py-3 rounded-lg transition-all shadow-md active:scale-95 cursor-pointer uppercase tracking-wider text-xs sm:text-sm"
-            >
-              {banner.cta}
-            </a>
-            <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+            {/* Slide Navigation Arrows: placed above the CTA button in mobile view */}
+            <div className="flex gap-2 order-1 sm:order-2">
               <button
                 onClick={handlePrev}
                 aria-label="Previous Slide"
@@ -123,6 +118,14 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
                 ›
               </button>
             </div>
+
+            {/* Explore / CTA Button */}
+            <a
+              href={banner.href}
+              className="order-2 sm:order-1 inline-flex items-center justify-center bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold px-6 py-3 rounded-lg transition-all shadow-md active:scale-95 cursor-pointer uppercase tracking-wider text-xs sm:text-sm"
+            >
+              {banner.cta}
+            </a>
           </div>
         </div>
 

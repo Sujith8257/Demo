@@ -54,7 +54,7 @@ export default function ChronoPage({ onNavigateHome, onNavigateToProductDetail }
    <motion.div key={active} initial={reduced?false:{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={reduced?undefined:{opacity:0,y:-9}}
     transition={{duration:.25}} className="min-h-screen bg-surface">
     <CatalogueProvider key={active} variant={active} cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} onNavigateToProductDetail={onNavigateToProductDetail}>
-     <Header onNavigateHome={onNavigateHome}/>
+     <Header onNavigateHome={onNavigateHome} onNavigateToCatalogue={() => window.scrollTo({ top: 0, behavior: "smooth" })}/>
      <div id="main-content" className="preview-root" onClick={handleContentClick}><Page/></div>
      <Footer/>
      <QuickViewModal onNavigateToProductDetail={onNavigateToProductDetail}/>

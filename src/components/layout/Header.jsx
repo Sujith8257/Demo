@@ -24,7 +24,7 @@ const navCategories = [
   { name: "Offers", path: "special-offers" },
 ];
 
-export default function Header({ showNavStrip = true, theme = "default" }) {
+export default function Header({ showNavStrip = true, theme = "default", onNavigateToCatalogue, onNavigateHome }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
   const [visible, setVisible] = useState(true);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
@@ -130,9 +130,15 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
               </button>
 
               <a
-                className="group flex items-center gap-1.5 text-on-surface decoration-0 select-none"
+                className="group flex items-center gap-1.5 text-on-surface decoration-0 select-none cursor-pointer"
                 data-path="home"
                 href="/"
+                onClick={(e) => {
+                  if (onNavigateHome) {
+                    e.preventDefault();
+                    onNavigateHome();
+                  }
+                }}
               >
                 <span className={`font-poppins text-xl sm:text-2xl font-extrabold tracking-tight lowercase ${
                   isPetrol ? "text-white group-hover:text-[#C7A66A] transition-colors" : "text-on-surface"
@@ -147,8 +153,12 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  const target = document.getElementById("featured") || document.getElementById("deals");
-                  if (target) target.scrollIntoView({ behavior: "smooth" });
+                  if (onNavigateToCatalogue) {
+                    onNavigateToCatalogue();
+                  } else {
+                    const target = document.getElementById("featured") || document.getElementById("deals");
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                  }
                 }}
                 className="relative flex items-center w-full"
               >
@@ -254,9 +264,13 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
-                    const target = document.getElementById("featured") || document.getElementById("deals") || document.getElementById("categories");
-                    if (target) target.scrollIntoView({ behavior: "smooth" });
                     setMobileSearchOpen(false);
+                    if (onNavigateToCatalogue) {
+                      onNavigateToCatalogue();
+                    } else {
+                      const target = document.getElementById("featured") || document.getElementById("deals") || document.getElementById("categories");
+                      if (target) target.scrollIntoView({ behavior: "smooth" });
+                    }
                   }}
                   className="flex items-center gap-2"
                 >
@@ -412,8 +426,14 @@ export default function Header({ showNavStrip = true, theme = "default" }) {
                     <a
                       key={cat.path}
                       href="#collection"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-3 py-2 rounded-lg text-body-md font-medium transition-colors ${
+                      onClick={(e) => {
+                        setMobileMenuOpen(false);
+                        if (onNavigateToCatalogue) {
+                          e.preventDefault();
+                          onNavigateToCatalogue();
+                        }
+                      }}
+                      className={`flex items-center justify-between px-3 py-2 rounded-lg text-body-md font-medium transition-colors cursor-pointer ${
                         isPetrol
                           ? "text-[#707776] hover:bg-[#DDE9E4] hover:text-[#171B1B]"
                           : "text-on-surface hover:bg-surface-container"

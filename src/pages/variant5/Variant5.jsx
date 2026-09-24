@@ -366,7 +366,7 @@ function ManualProductImageCarousel({ images, name }) {
   );
 }
 
-export default function Variant5() {
+export default function Variant5({ onNavigateToCatalogue }) {
   const [activeTab, setActiveTab] = useState("all");
   const [wishlist, setWishlist] = useState({});
   const [toastMessage, setToastMessage] = useState("");
@@ -397,12 +397,17 @@ export default function Variant5() {
   return (
     <div className="relative bg-[#F7F6F2] min-h-screen font-body-md text-[#171B1B] antialiased">
       <SkipLink />
-      <Header showNavStrip={false} theme="variant5" />
+      <Header
+        showNavStrip={false}
+        theme="variant5"
+        onNavigateToCatalogue={onNavigateToCatalogue}
+        onNavigateHome={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      />
 
       <PageLoader skeleton={<Variant5Skeleton />} duration={800}>
         <main id="main-content" className="w-full pt-[82px] sm:pt-[92px] pb-0">
           {/* 1. Hero Banner Carousel (Fitted to page width) */}
-          <HEROWITHSWEEPINGSTRAPRIBBON />
+          <HEROWITHSWEEPINGSTRAPRIBBON onNavigateToCatalogue={onNavigateToCatalogue} />
 
           {/* Watch Brand Partners Infinite Marquee */}
           <WatchBrandsInfiniteCarousel className="my-3 sm:my-5" theme="variant5" />
@@ -420,7 +425,13 @@ export default function Variant5() {
               </div>
               <a
                 href="#collection"
-                className="text-sm font-semibold text-[#123B3A] hover:text-[#0D2D2C] transition-colors"
+                onClick={(e) => {
+                  if (onNavigateToCatalogue) {
+                    e.preventDefault();
+                    onNavigateToCatalogue();
+                  }
+                }}
+                className="text-sm font-semibold text-[#123B3A] hover:text-[#0D2D2C] transition-colors cursor-pointer"
               >
                 Explore full roster →
               </a>
@@ -430,6 +441,7 @@ export default function Variant5() {
               {categories.map((cat) => (
                 <div
                   key={cat.name}
+                  onClick={() => onNavigateToCatalogue?.()}
                   className="flex flex-col items-center text-center cursor-pointer group"
                 >
                   <img
@@ -472,7 +484,8 @@ export default function Variant5() {
               {deals.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-2xl bg-white border border-[#DDE9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
+                  onClick={() => onNavigateToCatalogue?.()}
+                  className="rounded-2xl bg-white border border-[#DDE9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden cursor-pointer"
                 >
                   {/* Image with Badges, Multi-image dots, Left/Right arrows & Wishlist */}
                   <div className="relative aspect-square w-full overflow-hidden bg-[#F7F6F2] select-none">
@@ -486,7 +499,10 @@ export default function Variant5() {
                     {/* Wishlist Button */}
                     <motion.button
                       whileTap={{ scale: 0.85 }}
-                      onClick={() => toggleWishlist(item.id, item.name)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleWishlist(item.id, item.name);
+                      }}
                       className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-white text-[#123B3A] shadow-xs cursor-pointer"
                       aria-label="Wishlist"
                     >
@@ -543,7 +559,10 @@ export default function Variant5() {
                     {/* CTA Button matching ProductCard */}
                     <motion.button
                       whileTap={{ scale: 0.97 }}
-                      onClick={() => handleAddToCart(item.name)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAddToCart(item.name);
+                      }}
                       className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-[#34745F] hover:bg-[#2C604F] text-white shadow-xs cursor-pointer"
                     >
                       <FiShoppingBag className="text-sm" />
@@ -564,6 +583,7 @@ export default function Variant5() {
             checkColorClass="text-[#34745F]"
             btnClass="bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold"
             clockBoxClass="bg-black/40 border border-white/10"
+            onNavigateToCatalogue={onNavigateToCatalogue}
           />
 
           {/* 5. Bespoke Timepiece Customizer - Luxury Atelier Presentation */}
@@ -607,7 +627,13 @@ export default function Variant5() {
                   <motion.a
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    href="#bestsellers"
+                    href="#collection"
+                    onClick={(e) => {
+                      if (onNavigateToCatalogue) {
+                        e.preventDefault();
+                        onNavigateToCatalogue();
+                      }
+                    }}
                     className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-label-md text-label-md uppercase tracking-wider font-bold shadow-xl transition-all cursor-pointer"
                   >
                     <span>Start Customizing</span>
@@ -660,7 +686,8 @@ export default function Variant5() {
               {filteredBestsellers.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-2xl bg-white border border-[#DDE9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden"
+                  onClick={() => onNavigateToCatalogue?.()}
+                  className="rounded-2xl bg-white border border-[#DDE9E4] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden cursor-pointer"
                 >
                   {/* Image Container with manual multi-image carousel */}
                   <div className="relative aspect-[4/3] sm:aspect-square w-full overflow-hidden bg-[#F7F6F2] select-none">
@@ -674,7 +701,10 @@ export default function Variant5() {
                     {/* Wishlist Button */}
                     <motion.button
                       whileTap={{ scale: 0.85 }}
-                      onClick={() => toggleWishlist(item.id, item.name)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleWishlist(item.id, item.name);
+                      }}
                       className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs flex items-center justify-center transition-colors hover:bg-white text-[#123B3A] shadow-xs cursor-pointer"
                       aria-label="Wishlist"
                     >
@@ -723,7 +753,10 @@ export default function Variant5() {
                     {/* CTA Button matching ProductDiscoveryHub */}
                     <motion.button
                       whileTap={{ scale: 0.97 }}
-                      onClick={() => handleAddToCart(item.name)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAddToCart(item.name);
+                      }}
                       className="mt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider font-bold transition-all bg-[#34745F] hover:bg-[#2C604F] text-white shadow-xs cursor-pointer"
                     >
                       <FiShoppingBag className="text-sm" />
@@ -758,11 +791,12 @@ export default function Variant5() {
             ctaBtnClass="bg-[#34745F] hover:bg-[#2C604F] text-white font-bold"
             activeTierTextClass="text-[#123B3A]"
             activeSnapshotBgClass="bg-[#F7F6F2] border border-[#DDE9E4]"
+            onNavigateToCatalogue={onNavigateToCatalogue}
           />
 
           {/* 8. Product Discovery Hub (Recently Viewed, Recommendations, Deals in Watches) */}
           <div className="mt-6">
-            <ProductDiscoveryHub theme="variant5" />
+            <ProductDiscoveryHub theme="variant5" onNavigateToCatalogue={onNavigateToCatalogue} />
           </div>
 
           {/* 8. Continuous Infinite Reviews Carousel */}
@@ -788,7 +822,7 @@ export default function Variant5() {
           />
         </main>
 
-        <Footer className="!mt-0" theme="variant5" />
+        <Footer className="!mt-0" theme="variant5" onNavigateToCatalogue={onNavigateToCatalogue} />
       </PageLoader>
 
       {/* Floating Interactive Toast Feedback */}

@@ -56,6 +56,7 @@ export default function SHOPBYBUDGETHorizontalPill({
   ctaBtnClass = "bg-secondary-container hover:bg-secondary text-on-secondary",
   activeTierTextClass = "text-primary",
   activeSnapshotBgClass = "bg-surface-container-low",
+  onNavigateToCatalogue,
 }) {
   const [selectedTier, setSelectedTier] = useState(3);
   const active = tiers[selectedTier];
@@ -138,6 +139,12 @@ export default function SHOPBYBUDGETHorizontalPill({
             <a
               className={`px-6 py-2.5 rounded-lg ${ctaBtnClass} font-label-caps text-label-caps uppercase tracking-wider font-bold whitespace-nowrap shadow-xs hover:shadow-md transition-all cursor-pointer`}
               href="#collection"
+              onClick={(e) => {
+                if (onNavigateToCatalogue) {
+                  e.preventDefault();
+                  onNavigateToCatalogue();
+                }
+              }}
             >
               {active.cta}
             </a>

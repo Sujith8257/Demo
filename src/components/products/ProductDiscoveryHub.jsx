@@ -64,7 +64,7 @@ const trendingNear = [
 ];
 
 // ─── Multi-image Product Card ───────────────────────────────────────────────
-function ProductCard({ product, accent = "secondary", showDeal = false, showCity = false, theme = "default" }) {
+function ProductCard({ product, accent = "secondary", showDeal = false, showCity = false, theme = "default", onNavigateToCatalogue }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
   const [imgIdx, setImgIdx] = useState(0);
   const [wished, setWished] = useState(false);
@@ -80,9 +80,10 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
+      onClick={() => onNavigateToCatalogue?.()}
       className={`min-w-[280px] max-w-[300px] flex-shrink-0 snap-start rounded-2xl ${
         isPetrol ? "bg-white border border-[#DDE9E4]" : "bg-surface-container-lowest"
-      } shadow-sm hover:shadow-xl transition-shadow flex flex-col`}
+      } shadow-sm hover:shadow-xl transition-shadow flex flex-col cursor-pointer`}
     >
       {/* ── Image carousel with multi-image navigation ── */}
       <div className="relative aspect-square w-full overflow-hidden rounded-t-2xl bg-surface-container select-none group">
@@ -131,7 +132,10 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
             {imgs.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setImgIdx(i)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setImgIdx(i);
+                }}
                 className={`rounded-full transition-all ${
                   i === imgIdx
                     ? "w-4 h-1.5 bg-white"
@@ -170,7 +174,10 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
         {/* Wishlist toggle */}
         <motion.button
           whileTap={{ scale: 0.85 }}
-          onClick={() => setWished((w) => !w)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setWished((w) => !w);
+          }}
           className={`absolute top-3 right-3 z-10 w-8 h-8 rounded-full backdrop-blur-sm flex items-center justify-center transition-colors ${
             isPetrol
               ? "bg-white/90 hover:bg-white text-[#123B3A] shadow-xs cursor-pointer"
@@ -244,6 +251,7 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
         {/* CTA */}
         <motion.button
           whileTap={{ scale: 0.97 }}
+          onClick={(e) => e.stopPropagation()}
           className={`mt-auto pt-3 w-full flex items-center justify-center gap-2 rounded-lg py-2.5 font-label-caps text-label-caps uppercase tracking-wider transition-colors ${accentMap[accent]}`}
         >
           <FiShoppingBag className="text-sm" />
@@ -255,7 +263,7 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
 }
 
 // ─── Section Rail ───────────────────────────────────────────────────────────
-function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, showCity, bg = "bg-surface", theme = "default" }) {
+function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, showCity, bg = "bg-surface", theme = "default", onNavigateToCatalogue }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
   const sectionId = `rail-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
@@ -307,7 +315,16 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
             >
               <FiChevronRight />
             </button>
-            <a href="#" className={`ml-2 font-label-md text-label-md ${isPetrol ? "text-[#123B3A] hover:text-[#0D2D2C] font-semibold" : "text-primary hover:underline"} hidden sm:block`}>
+            <a
+              href="#collection"
+              onClick={(e) => {
+                if (onNavigateToCatalogue) {
+                  e.preventDefault();
+                  onNavigateToCatalogue();
+                }
+              }}
+              className={`ml-2 font-label-md text-label-md cursor-pointer ${isPetrol ? "text-[#123B3A] hover:text-[#0D2D2C] font-semibold" : "text-primary hover:underline"} hidden sm:block`}
+            >
               See all
             </a>
           </div>
@@ -333,6 +350,7 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
                 showDeal={showDeal}
                 showCity={showCity}
                 theme={theme}
+                onNavigateToCatalogue={onNavigateToCatalogue}
               />
             </motion.div>
           ))}
@@ -343,7 +361,7 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
 }
 
 // ─── Main export: 5-section Product Discovery Hub ────────────────────────────
-export default function ProductDiscoveryHub({ theme = "default" }) {
+export default function ProductDiscoveryHub({ theme = "default", onNavigateToCatalogue }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
 
   return (
@@ -357,6 +375,7 @@ export default function ProductDiscoveryHub({ theme = "default" }) {
         accent="secondary"
         bg="bg-surface"
         theme={theme}
+        onNavigateToCatalogue={onNavigateToCatalogue}
       />
 
       {/* 2. Recommendations for You */}
@@ -368,6 +387,7 @@ export default function ProductDiscoveryHub({ theme = "default" }) {
         accent="primary"
         bg="bg-surface-container-low"
         theme={theme}
+        onNavigateToCatalogue={onNavigateToCatalogue}
       />
 
       {/* 3. Deals for You in Watches */}
@@ -380,6 +400,7 @@ export default function ProductDiscoveryHub({ theme = "default" }) {
         showDeal={true}
         bg="bg-surface"
         theme={theme}
+        onNavigateToCatalogue={onNavigateToCatalogue}
       />
 
       {/* 4. New Arrivals */}
@@ -391,6 +412,7 @@ export default function ProductDiscoveryHub({ theme = "default" }) {
         accent="primary"
         bg="bg-surface-container-low"
         theme={theme}
+        onNavigateToCatalogue={onNavigateToCatalogue}
       />
 
       {/* 5. Trending Near You */}
@@ -403,6 +425,7 @@ export default function ProductDiscoveryHub({ theme = "default" }) {
         showCity={true}
         bg="bg-surface"
         theme={theme}
+        onNavigateToCatalogue={onNavigateToCatalogue}
       />
     </div>
   );

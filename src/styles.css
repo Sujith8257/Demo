@@ -164,4 +164,15 @@ img, video {
   }
 }
 
+/* Product Catalogue Dock and Filter Classes */
+#compareTray, #comparison-dock {
+  bottom: 88px !important;
+}
+#compareTray.hidden, #comparison-dock.hidden {
+  display: none !important;
+}
+.preview-root article.hidden, .preview-root div.group.hidden {
+  display: none !important;
+}
+
 

@@ -1,4 +1,4 @@
-export default function Footer({ className = "", theme = "default" }) {
+export default function Footer({ className = "", theme = "default", onNavigateToCatalogue }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
 
   return (
@@ -31,22 +31,22 @@ export default function Footer({ className = "", theme = "default" }) {
               Shop Curations
             </h3>
             <ul className={"space-y-2 font-body-sm text-body-sm text-slate-300"}>
-              <li className={"hover:text-white transition-colors cursor-pointer"}>
+              <li onClick={() => onNavigateToCatalogue?.()} className={"hover:text-white transition-colors cursor-pointer"}>
                 Mechanical Timepieces
               </li>
-              <li className={"hover:text-white transition-colors cursor-pointer"}>
+              <li onClick={() => onNavigateToCatalogue?.()} className={"hover:text-white transition-colors cursor-pointer"}>
                 Handmade Ceramics
               </li>
-              <li className={"hover:text-white transition-colors cursor-pointer"}>
+              <li onClick={() => onNavigateToCatalogue?.()} className={"hover:text-white transition-colors cursor-pointer"}>
                 Full-Grain Leather goods
               </li>
-              <li className={"hover:text-white transition-colors cursor-pointer"}>
+              <li onClick={() => onNavigateToCatalogue?.()} className={"hover:text-white transition-colors cursor-pointer"}>
                 Architectural Objects
               </li>
-              <li className={"hover:text-white transition-colors cursor-pointer"}>
+              <li onClick={() => onNavigateToCatalogue?.()} className={"hover:text-white transition-colors cursor-pointer"}>
                 Limited Production Runs
               </li>
-              <li className={"hover:text-white transition-colors cursor-pointer"}>
+              <li onClick={() => onNavigateToCatalogue?.()} className={"hover:text-white transition-colors cursor-pointer"}>
                 Heirloom Keepsakes
               </li>
             </ul>

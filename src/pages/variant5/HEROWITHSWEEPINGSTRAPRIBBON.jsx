@@ -31,7 +31,7 @@ const heroBanners = [
   },
 ];
 
-export default function HEROWITHSWEEPINGSTRAPRIBBON() {
+export default function HEROWITHSWEEPINGSTRAPRIBBON({ onNavigateToCatalogue }) {
   const SLIDE_DURATION = 5000; // 5 seconds per slide
   const [current, setCurrent] = useState(0);
   const [progressKey, setProgressKey] = useState(0);
@@ -122,6 +122,12 @@ export default function HEROWITHSWEEPINGSTRAPRIBBON() {
             {/* Explore / CTA Button */}
             <a
               href={banner.href}
+              onClick={(e) => {
+                if (onNavigateToCatalogue) {
+                  e.preventDefault();
+                  onNavigateToCatalogue();
+                }
+              }}
               className="order-2 sm:order-1 inline-flex items-center justify-center bg-[#C7A66A] hover:bg-[#B28E52] text-[#171B1B] font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg transition-all shadow-md active:scale-95 cursor-pointer uppercase tracking-wider text-xs sm:text-sm"
             >
               {banner.cta}

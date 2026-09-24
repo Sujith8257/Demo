@@ -6,6 +6,7 @@ export default function VALUEDEALSECTIONDeepBlue({
   checkColorClass = "text-[#388E3C]",
   btnClass = "bg-[#FD661D] hover:bg-secondary text-white",
   clockBoxClass = "bg-black/30",
+  onNavigateToCatalogue,
 }) {
   return (
     <section className={`w-full py-space-xl text-white overflow-hidden relative ${bgClass} ${className}`}>
@@ -84,7 +85,16 @@ export default function VALUEDEALSECTIONDeepBlue({
                   </span>
                 </div>
               </div>
-              <a className={`w-full mt-2 py-3 px-6 rounded-lg ${btnClass} font-label-caps text-label-caps uppercase tracking-wider text-center transition-all shadow-md active:scale-95`} href={"#"}>
+              <a
+                className={`w-full mt-2 py-3 px-6 rounded-lg ${btnClass} font-label-caps text-label-caps uppercase tracking-wider text-center transition-all shadow-md active:scale-95 cursor-pointer`}
+                href={"#collection"}
+                onClick={(e) => {
+                  if (onNavigateToCatalogue) {
+                    e.preventDefault();
+                    onNavigateToCatalogue();
+                  }
+                }}
+              >
                 Explore Value Curation
               </a>
             </div>

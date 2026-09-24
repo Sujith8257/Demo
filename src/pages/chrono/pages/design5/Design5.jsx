@@ -10,5 +10,5 @@ import Section06RecentlyStyledOnThe from "./Section06RecentlyStyledOnThe.jsx";
 
 export default function Design5() {
  const ui=useCatalogue();
- return (<main className="w-full pt-41 bg-surface min-h-[70vh]"><div className="flex flex-col w-full"><Section01Section /><Section02AWatchForThe /><Section03ShopBySilhouettesMaterial /><Section04MeridianClassic38 /><Section05ChosenForTheMoment /><Section06RecentlyStyledOnThe /></div></main>);
+ return (<main className="w-full pt-24 sm:pt-28 bg-surface min-h-[70vh]"><div className="flex flex-col w-full"><Section01Section /><Section02AWatchForThe /><Section03ShopBySilhouettesMaterial /><Section04MeridianClassic38 /><Section05ChosenForTheMoment /><Section06RecentlyStyledOnThe /></div></main>);
 }

@@ -9,5 +9,5 @@ import Section05ChooseByTheWay from "./Section05ChooseByTheWay.jsx";
 import Section06TheActiveCalibreProtocol from "./Section06TheActiveCalibreProtocol.jsx";
 export default function Design3() {
   const ui = useCatalogue();
-  return <main className="w-full pt-41 bg-surface min-h-[70vh]"><div className="flex flex-col w-full"><Section01BuiltForEveryMove /><Section02Section /><Section038PerformanceInstruments /><Section04AtlasS4DualGps /><Section05ChooseByTheWay /><Section06TheActiveCalibreProtocol /></div></main>;
+  return <main className="w-full pt-24 sm:pt-28 bg-surface min-h-[70vh]"><div className="flex flex-col w-full"><Section01BuiltForEveryMove /><Section02Section /><Section038PerformanceInstruments /><Section04AtlasS4DualGps /><Section05ChooseByTheWay /><Section06TheActiveCalibreProtocol /></div></main>;
 }

@@ -28,12 +28,18 @@ export default function App() {
       if (options.design) {
         url.searchParams.set("design", String(options.design));
       }
+      if (options.query) {
+        url.searchParams.set("q", options.query);
+      } else if (!url.searchParams.has("q")) {
+        url.searchParams.delete("q");
+      }
       window.history.pushState({}, "", url.toString());
       setPage("catalogue");
       window.scrollTo({ top: 0, behavior: "instant" });
     } else {
       url.searchParams.delete("page");
       url.searchParams.delete("design");
+      url.searchParams.delete("q");
       const cleanUrl = url.pathname + (url.search ? url.search : "");
       window.history.pushState({}, "", cleanUrl);
       setPage("home");

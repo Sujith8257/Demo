@@ -27,12 +27,17 @@ function readVariant() {
   return pages[saved] ? saved : 1;
 }
 
+function readQuery() {
+  return new URLSearchParams(window.location.search).get("q") || "";
+}
+
 export default function CataloguePage({ onNavigateHome }) {
   const [active, setActive] = useState(readVariant);
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const reduced = useReducedMotion();
   const Page = pages[active] || Design1;
+  const initialQuery = readQuery();
 
   useEffect(() => {
     window.localStorage.setItem("amihive-chrono-design", String(active));
@@ -65,12 +70,13 @@ export default function CataloguePage({ onNavigateHome }) {
           className="min-h-screen bg-surface"
         >
           <CatalogueProvider
-            key={active}
+            key={`${active}-${initialQuery}`}
             variant={active}
             cart={cart}
             setCart={setCart}
             wishlist={wishlist}
             setWishlist={setWishlist}
+            initialQuery={initialQuery}
           >
             <Header onNavigateHome={onNavigateHome} />
             <div id="main-content" className="preview-root">

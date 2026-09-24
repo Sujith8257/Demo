@@ -26,10 +26,10 @@ import HEROWITHSWEEPINGSTRAPRIBBON from "./HEROWITHSWEEPINGSTRAPRIBBON.jsx";
 import ProductDiscoveryHub from "../../components/products/ProductDiscoveryHub.jsx";
 import ContinuousReviewsCarousel from "../../components/reviews/ContinuousReviewsCarousel.jsx";
 import WatchBrandsInfiniteCarousel from "../../components/layout/WatchBrandsInfiniteCarousel.jsx";
-import SHOPBYBUDGETHorizontalPill from "../variant1/SHOPBYBUDGETHorizontalPill.jsx";
-import WATCHMATERIALSTRIPTYCHConnected3 from "../variant1/WATCHMATERIALSTRIPTYCHConnected3.jsx";
-import VALUEDEALSECTIONDeepBlue from "../variant2/VALUEDEALSECTIONDeepBlue.jsx";
-import PRODUCTINTEGRITYTRIPTYCH from "../variant4/PRODUCTINTEGRITYTRIPTYCH.jsx";
+import SHOPBYBUDGETHorizontalPill from "./SHOPBYBUDGETHorizontalPill.jsx";
+import WATCHMATERIALSTRIPTYCHConnected3 from "./WATCHMATERIALSTRIPTYCHConnected3.jsx";
+import VALUEDEALSECTIONDeepBlue from "./VALUEDEALSECTIONDeepBlue.jsx";
+import PRODUCTINTEGRITYTRIPTYCH from "./PRODUCTINTEGRITYTRIPTYCH.jsx";
 
 // ─── Shared Brand Datasets ──────────────────────────────────────────────────
 const categories = [

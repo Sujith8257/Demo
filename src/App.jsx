@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import Variant5 from "./pages/variant5/Variant5.jsx";
 import CataloguePage from "./pages/catalogue/CataloguePage.jsx";
+import ProductDetailPage from "./pages/product/ProductDetailPage.jsx";
 
 export default function App() {
   const getInitialPage = () => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("page") === "products" || params.get("page") === "catalogue" || params.has("design")) {
-      return "catalogue";
-    }
+    if (params.get("page") === "productdetail") return "productdetail";
+    if (params.get("page") === "products" || params.get("page") === "catalogue") return "catalogue";
     return "home";
   };
 
@@ -23,15 +23,21 @@ export default function App() {
 
   const navigateTo = (targetPage, options = {}) => {
     const url = new URL(window.location.href);
-    if (targetPage === "catalogue" || targetPage === "products") {
+
+    if (targetPage === "productdetail") {
+      url.searchParams.set("page", "productdetail");
+      url.searchParams.delete("design");
+      if (options.pddesign) {
+        url.searchParams.set("pddesign", String(options.pddesign));
+      }
+      window.history.pushState({}, "", url.toString());
+      setPage("productdetail");
+      window.scrollTo({ top: 0, behavior: "instant" });
+    } else if (targetPage === "catalogue" || targetPage === "products") {
       url.searchParams.set("page", "products");
+      url.searchParams.delete("pddesign");
       if (options.design) {
         url.searchParams.set("design", String(options.design));
-      }
-      if (options.query) {
-        url.searchParams.set("q", options.query);
-      } else if (!url.searchParams.has("q")) {
-        url.searchParams.delete("q");
       }
       window.history.pushState({}, "", url.toString());
       setPage("catalogue");
@@ -39,7 +45,7 @@ export default function App() {
     } else {
       url.searchParams.delete("page");
       url.searchParams.delete("design");
-      url.searchParams.delete("q");
+      url.searchParams.delete("pddesign");
       const cleanUrl = url.pathname + (url.search ? url.search : "");
       window.history.pushState({}, "", cleanUrl);
       setPage("home");
@@ -47,11 +53,28 @@ export default function App() {
     }
   };
 
-  if (page === "catalogue") {
-    return <CataloguePage onNavigateHome={() => navigateTo("home")} />;
+  if (page === "productdetail") {
+    return (
+      <ProductDetailPage
+        onNavigateHome={() => navigateTo("home")}
+        onNavigateToCatalogue={(opts) => navigateTo("catalogue", opts)}
+      />
+    );
   }
 
-  return <Variant5 onNavigateToCatalogue={(opts) => navigateTo("catalogue", opts)} />;
+  if (page === "catalogue") {
+    return (
+      <CataloguePage
+        onNavigateHome={() => navigateTo("home")}
+        onNavigateToProductDetail={(opts) => navigateTo("productdetail", opts)}
+      />
+    );
+  }
+
+  return (
+    <Variant5
+      onNavigateToCatalogue={(opts) => navigateTo("catalogue", opts)}
+      onNavigateToProductDetail={(opts) => navigateTo("productdetail", opts)}
+    />
+  );
 }
-
-

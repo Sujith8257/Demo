@@ -29,7 +29,6 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
   const [visible, setVisible] = useState(true);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const lastScrollY = useRef(0);
   const reduceMotion = useReducedMotion();
 
@@ -155,7 +154,7 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
                 onSubmit={(e) => {
                   e.preventDefault();
                   if (onNavigateToCatalogue) {
-                    onNavigateToCatalogue({ query: searchQuery.trim() });
+                    onNavigateToCatalogue();
                   } else {
                     const target = document.getElementById("featured") || document.getElementById("deals");
                     if (target) target.scrollIntoView({ behavior: "smooth" });
@@ -166,8 +165,6 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
                 <div className="relative flex-1 flex items-center">
                   <FiSearch className="absolute left-3.5 text-outline text-[17px] pointer-events-none" />
                   <input
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full h-10 pl-10 pr-4 bg-white rounded-l-md font-instrument text-sm text-[#171B1B] placeholder:text-[#707776] focus:outline-none border border-r-0 border-outline-variant/40 focus:border-[#123B3A] transition-colors"
                     placeholder="Search watches, straps and handcrafted pieces..."
                     type="text"
@@ -269,7 +266,7 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
                     e.preventDefault();
                     setMobileSearchOpen(false);
                     if (onNavigateToCatalogue) {
-                      onNavigateToCatalogue({ query: searchQuery.trim() });
+                      onNavigateToCatalogue();
                     } else {
                       const target = document.getElementById("featured") || document.getElementById("deals") || document.getElementById("categories");
                       if (target) target.scrollIntoView({ behavior: "smooth" });
@@ -282,8 +279,6 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
                     <input
                       autoFocus
                       type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search watches, straps, craft..."
                       className={`w-full h-9 pl-9 pr-3 rounded-lg text-xs font-instrument focus:outline-none transition-colors ${
                         isPetrol

@@ -64,7 +64,7 @@ const trendingNear = [
 ];
 
 // ─── Multi-image Product Card ───────────────────────────────────────────────
-function ProductCard({ product, accent = "secondary", showDeal = false, showCity = false, theme = "default", onNavigateToCatalogue }) {
+function ProductCard({ product, accent = "secondary", showDeal = false, showCity = false, theme = "default", onNavigateToCatalogue, onNavigateToProductDetail }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
   const [imgIdx, setImgIdx] = useState(0);
   const [wished, setWished] = useState(false);
@@ -80,7 +80,7 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      onClick={() => onNavigateToCatalogue?.()}
+      onClick={() => onNavigateToProductDetail?.() || onNavigateToCatalogue?.()}
       className={`min-w-[280px] max-w-[300px] flex-shrink-0 snap-start rounded-2xl ${
         isPetrol ? "bg-white border border-[#DDE9E4]" : "bg-surface-container-lowest"
       } shadow-sm hover:shadow-xl transition-shadow flex flex-col cursor-pointer`}
@@ -263,7 +263,7 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
 }
 
 // ─── Section Rail ───────────────────────────────────────────────────────────
-function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, showCity, bg = "bg-surface", theme = "default", onNavigateToCatalogue }) {
+function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, showCity, bg = "bg-surface", theme = "default", onNavigateToCatalogue, onNavigateToProductDetail }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
   const sectionId = `rail-${title.replace(/\s+/g, "-").toLowerCase()}`;
 
@@ -350,8 +350,7 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
                 showDeal={showDeal}
                 showCity={showCity}
                 theme={theme}
-                onNavigateToCatalogue={onNavigateToCatalogue}
-              />
+                onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToProductDetail={onNavigateToProductDetail} />
             </motion.div>
           ))}
         </div>
@@ -361,7 +360,7 @@ function RailSection({ title, eyebrow, icon: Icon, products, accent, showDeal, s
 }
 
 // ─── Main export: 5-section Product Discovery Hub ────────────────────────────
-export default function ProductDiscoveryHub({ theme = "default", onNavigateToCatalogue }) {
+export default function ProductDiscoveryHub({ theme = "default", onNavigateToCatalogue, onNavigateToProductDetail }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
 
   return (
@@ -375,8 +374,7 @@ export default function ProductDiscoveryHub({ theme = "default", onNavigateToCat
         accent="secondary"
         bg="bg-surface"
         theme={theme}
-        onNavigateToCatalogue={onNavigateToCatalogue}
-      />
+        onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToProductDetail={onNavigateToProductDetail} />
 
       {/* 2. Recommendations for You */}
       <RailSection
@@ -387,8 +385,7 @@ export default function ProductDiscoveryHub({ theme = "default", onNavigateToCat
         accent="primary"
         bg="bg-surface-container-low"
         theme={theme}
-        onNavigateToCatalogue={onNavigateToCatalogue}
-      />
+        onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToProductDetail={onNavigateToProductDetail} />
 
       {/* 3. Deals for You in Watches */}
       <RailSection
@@ -400,8 +397,7 @@ export default function ProductDiscoveryHub({ theme = "default", onNavigateToCat
         showDeal={true}
         bg="bg-surface"
         theme={theme}
-        onNavigateToCatalogue={onNavigateToCatalogue}
-      />
+        onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToProductDetail={onNavigateToProductDetail} />
 
       {/* 4. New Arrivals */}
       <RailSection
@@ -412,8 +408,7 @@ export default function ProductDiscoveryHub({ theme = "default", onNavigateToCat
         accent="primary"
         bg="bg-surface-container-low"
         theme={theme}
-        onNavigateToCatalogue={onNavigateToCatalogue}
-      />
+        onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToProductDetail={onNavigateToProductDetail} />
 
       {/* 5. Trending Near You */}
       <RailSection
@@ -425,8 +420,7 @@ export default function ProductDiscoveryHub({ theme = "default", onNavigateToCat
         showCity={true}
         bg="bg-surface"
         theme={theme}
-        onNavigateToCatalogue={onNavigateToCatalogue}
-      />
+        onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToProductDetail={onNavigateToProductDetail} />
     </div>
   );
 }

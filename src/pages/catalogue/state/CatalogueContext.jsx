@@ -4,13 +4,13 @@ const firstSort={
   1:"Featured Chronometry", 2:"Featured Calibration",3:"Battery Endurance (High - Low)",
   4:"Curated Horology",5:"Curator's Recommendation"
 };
-export function CatalogueProvider({children,variant,cart,setCart,wishlist,setWishlist,initialQuery=""}){
+export function CatalogueProvider({children,variant,cart,setCart,wishlist,setWishlist}){
  const [category,setCategory]=useState("all");
  const [palette,setPalette]=useState("all");
  const [hero,setHero]=useState("Automatic Watches");
  const [mode,setMode]=useState("all");
  const [sort,setSort]=useState(firstSort[variant]);
- const [query,setQuery]=useState(initialQuery);
+ const [query,setQuery]=useState("");
  const [filtersOpen,setFiltersOpen]=useState(variant!==4);
  const [density,setDensity]=useState(4);
  const [compared,setCompared]=useState(variant===3?["Atlas S4 Dual GPS","Pulse One AMOLED","Tide Diver 42 Pro"]:[]);

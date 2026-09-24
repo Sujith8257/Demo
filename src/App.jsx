@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import Variant5 from "./pages/variant5/Variant5.jsx";
 import CataloguePage from "./pages/catalogue/CataloguePage.jsx";
 import ProductDetailPage from "./pages/product/ProductDetailPage.jsx";
+import ChronoPage from "./pages/chrono/ChronoPage.jsx";
 
 export default function App() {
   const getInitialPage = () => {
     const params = new URLSearchParams(window.location.search);
     if (params.get("page") === "productdetail") return "productdetail";
+    if (params.get("page") === "chrono") return "chrono";
     if (params.get("page") === "products" || params.get("page") === "catalogue") return "catalogue";
     return "home";
   };
@@ -14,9 +16,7 @@ export default function App() {
   const [page, setPage] = useState(getInitialPage);
 
   useEffect(() => {
-    const onPopState = () => {
-      setPage(getInitialPage());
-    };
+    const onPopState = () => setPage(getInitialPage());
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
@@ -27,30 +27,34 @@ export default function App() {
     if (targetPage === "productdetail") {
       url.searchParams.set("page", "productdetail");
       url.searchParams.delete("design");
-      if (options.pddesign) {
-        url.searchParams.set("pddesign", String(options.pddesign));
-      }
+      url.searchParams.delete("chdesign");
+      if (options.pddesign) url.searchParams.set("pddesign", String(options.pddesign));
       window.history.pushState({}, "", url.toString());
       setPage("productdetail");
-      window.scrollTo({ top: 0, behavior: "instant" });
+    } else if (targetPage === "chrono") {
+      url.searchParams.set("page", "chrono");
+      url.searchParams.delete("design");
+      url.searchParams.delete("pddesign");
+      if (options.chdesign) url.searchParams.set("chdesign", String(options.chdesign));
+      window.history.pushState({}, "", url.toString());
+      setPage("chrono");
     } else if (targetPage === "catalogue" || targetPage === "products") {
       url.searchParams.set("page", "products");
       url.searchParams.delete("pddesign");
-      if (options.design) {
-        url.searchParams.set("design", String(options.design));
-      }
+      url.searchParams.delete("chdesign");
+      if (options.design) url.searchParams.set("design", String(options.design));
       window.history.pushState({}, "", url.toString());
       setPage("catalogue");
-      window.scrollTo({ top: 0, behavior: "instant" });
     } else {
       url.searchParams.delete("page");
       url.searchParams.delete("design");
       url.searchParams.delete("pddesign");
+      url.searchParams.delete("chdesign");
       const cleanUrl = url.pathname + (url.search ? url.search : "");
       window.history.pushState({}, "", cleanUrl);
       setPage("home");
-      window.scrollTo({ top: 0, behavior: "instant" });
     }
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   if (page === "productdetail") {
@@ -58,6 +62,15 @@ export default function App() {
       <ProductDetailPage
         onNavigateHome={() => navigateTo("home")}
         onNavigateToCatalogue={(opts) => navigateTo("catalogue", opts)}
+      />
+    );
+  }
+
+  if (page === "chrono") {
+    return (
+      <ChronoPage
+        onNavigateHome={() => navigateTo("home")}
+        onNavigateToProductDetail={(opts) => navigateTo("productdetail", opts)}
       />
     );
   }

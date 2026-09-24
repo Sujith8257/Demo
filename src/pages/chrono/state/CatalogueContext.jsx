@@ -4,7 +4,7 @@ const firstSort={
   1:"Featured Chronometry", 2:"Featured Calibration",3:"Battery Endurance (High - Low)",
   4:"Curated Horology",5:"Curator's Recommendation"
 };
-export function CatalogueProvider({children,variant,cart,setCart,wishlist,setWishlist}){
+export function CatalogueProvider({children,variant,cart,setCart,wishlist,setWishlist,onNavigateToProductDetail}){
  const [category,setCategory]=useState("all");
  const [palette,setPalette]=useState("all");
  const [hero,setHero]=useState("Automatic Watches");
@@ -13,8 +13,6 @@ export function CatalogueProvider({children,variant,cart,setCart,wishlist,setWis
  const [query,setQuery]=useState("");
  const [filtersOpen,setFiltersOpen]=useState(variant!==4);
  const [density,setDensity]=useState(4);
- const [compared,setCompared]=useState(variant===3?["Atlas S4 Dual GPS","Pulse One AMOLED","Tide Diver 42 Pro"]:[]);
- const [compareOpen,setCompareOpen]=useState(variant===3);
  const [quickView,setQuickView]=useState(null);
  const [toast,setToast]=useState(null);
  const recentRef=useRef(null),lookbookRef=useRef(null),sequence=useRef(0);
@@ -27,14 +25,16 @@ export function CatalogueProvider({children,variant,cart,setCart,wishlist,setWis
  const addCart=useCallback(name=>{
   setCart(prev=>[...prev,name]);notify(`${name} added to preview cart`);
  },[setCart,notify]);
- const openQuickView=useCallback(item=>setQuickView(item),[]);
+ const openQuickView=useCallback(item=>{
+  if(onNavigateToProductDetail){
+   onNavigateToProductDetail(item);
+  }else{
+   setQuickView(item);
+  }
+ },[onNavigateToProductDetail]);
  const closeQuickView=useCallback(()=>setQuickView(null),[]);
  const addModalToCart=useCallback(()=>{if(quickView){addCart(quickView.title);setQuickView(null)}},[quickView,addCart]);
  const toggleFilters=useCallback(()=>setFiltersOpen(prev=>!prev),[]);
- const toggleCompareOpen=useCallback(()=>setCompareOpen(prev=>!prev),[]);
- const toggleCompare=useCallback(name=>setCompared(prev=>prev.includes(name)?prev.filter(x=>x!==name):[...prev,name]),[]);
- const removeCompare=useCallback(name=>setCompared(prev=>prev.filter(x=>x!==name)),[]);
- const clearCompare=useCallback(()=>{setCompared([]);setCompareOpen(false)},[]);
  const scrollRecent=useCallback(dx=>recentRef.current?.scrollBy({left:dx,behavior:"smooth"}),[]);
  const scrollLookbook=useCallback(dx=>lookbookRef.current?.scrollBy({left:dx,behavior:"smooth"}),[]);
  const resetFilters=useCallback(()=>{setCategory("all");setPalette("all");setQuery("");setSort(firstSort[variant])},[variant]);
@@ -59,16 +59,16 @@ export function CatalogueProvider({children,variant,cart,setCart,wishlist,setWis
    const smart=/(smart|amoled|gps|ecg|sensor|fit|pulse|atlas)/.test(data);
    pass=pass&&(mode==="smart"?smart:!smart);
   }
-  return base+(pass?"":" hidden");
+  return base+" catalogue-product-card cursor-pointer"+(pass?"":" hidden");
  },[query,variant,category,palette,mode]);
  const gridClass=useCallback(base=>base.replace(/lg:grid-cols-[345]/g,"").concat(` lg:grid-cols-${filtersOpen?density:5}`),[density,filtersOpen]);
  const value=useMemo(()=>({variant,cart,wishlist,category,setCategory,palette,setPalette,hero,setHero,mode,setMode,sort,setSort,query,setQuery,
-  filtersOpen,toggleFilters,density,setDensity,compared,toggleCompare,removeCompare,clearCompare,compareOpen,toggleCompareOpen,
+  filtersOpen,toggleFilters,density,setDensity,
   quickView,openQuickView,closeQuickView,addModalToCart,toast,notify,clearToast,toggleWishlist,addCart,scrollRecent,scrollLookbook,
-  recentRef,lookbookRef,resetFilters,sortOrder,activeClass,productClass,gridClass
- }),[variant,cart,wishlist,category,palette,hero,mode,sort,query,filtersOpen,density,compared,compareOpen,quickView,toast,
- notify,clearToast,toggleWishlist,addCart,openQuickView,closeQuickView,addModalToCart,toggleFilters,toggleCompareOpen,toggleCompare,removeCompare,clearCompare,
- scrollRecent,scrollLookbook,resetFilters,sortOrder,activeClass,productClass,gridClass]);
+  recentRef,lookbookRef,resetFilters,sortOrder,activeClass,productClass,gridClass,onNavigateToProductDetail
+ }),[variant,cart,wishlist,category,palette,hero,mode,sort,query,filtersOpen,density,quickView,toast,
+ notify,clearToast,toggleWishlist,addCart,openQuickView,closeQuickView,addModalToCart,toggleFilters,
+ scrollRecent,scrollLookbook,resetFilters,sortOrder,activeClass,productClass,gridClass,onNavigateToProductDetail]);
  return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 export function useCatalogue(){const ui=useContext(Context);if(!ui)throw new Error("CatalogueProvider missing");return ui;}

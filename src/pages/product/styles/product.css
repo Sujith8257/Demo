@@ -1,0 +1,8 @@
+@config "../../../../tailwind.product.config.js";
+@tailwind utilities;
+
+.product-page { padding-bottom: 96px; font-family: Manrope, system-ui, sans-serif; background: #f7f6f2; }
+.product-page button { cursor: pointer; }
+.product-page :focus-visible { outline: 2px solid #755a26; outline-offset: 3px; }
+.product-page .max-w-7xl { max-width: 1320px; }
+.product-page .design-dock :focus-visible { outline-color: white; }

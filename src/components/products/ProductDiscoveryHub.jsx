@@ -80,7 +80,10 @@ function ProductCard({ product, accent = "secondary", showDeal = false, showCity
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 300, damping: 22 }}
-      onClick={() => onNavigateToProductDetail?.() || onNavigateToCatalogue?.()}
+      onClick={() => (onNavigateToProductDetail ?? onNavigateToCatalogue)?.()}
+      role="link"
+      tabIndex={0}
+      onKeyDown={e => { if (e.target === e.currentTarget && e.key === "Enter") (onNavigateToProductDetail ?? onNavigateToCatalogue)?.(); }}
       className={`min-w-[280px] max-w-[300px] flex-shrink-0 snap-start rounded-2xl ${
         isPetrol ? "bg-white border border-[#DDE9E4]" : "bg-surface-container-lowest"
       } shadow-sm hover:shadow-xl transition-shadow flex flex-col cursor-pointer`}

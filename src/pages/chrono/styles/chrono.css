@@ -1,0 +1,47 @@
+@config "../../../../tailwind.chrono.config.js";
+@tailwind utilities;
+
+.chrono-page { padding-bottom: 96px; font-family: Manrope, system-ui, sans-serif; background: #f7f6f2; }
+.chrono-page button { cursor: pointer; }
+.chrono-page :focus-visible { outline: 2px solid #755a26; outline-offset: 3px; }
+
+/* Match the homepage's curved cards and responsive content width. */
+.chrono-page [class~="max-w-[1440px]"] {
+  max-width: 1320px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.chrono-page .px-margin {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+.chrono-page .preview-root .catalogue-product-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgb(18 59 58 / 5%);
+  transition: box-shadow 200ms ease;
+}
+.chrono-page .preview-root .catalogue-product-card:hover {
+  box-shadow: 0 12px 28px rgb(18 59 58 / 12%);
+}
+.chrono-page .preview-root section.rounded-xl {
+  border-radius: 24px;
+}
+.chrono-page .preview-root aside.rounded-xl {
+  border-radius: 20px;
+}
+@media (min-width: 640px) {
+  .chrono-page [class~="max-w-[1440px]"] { padding-left: 24px; padding-right: 24px; }
+  .chrono-page .px-margin { padding-left: 24px !important; padding-right: 24px !important; }
+}
+@media (min-width: 1024px) {
+  .chrono-page [class~="max-w-[1440px]"] { padding-left: 32px; padding-right: 32px; }
+  .chrono-page .px-margin { padding-left: 32px !important; padding-right: 32px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chrono-page .preview-root .catalogue-product-card { transition: none; }
+}
+
+/* Shared by every product-list design, including cards rendered as divs. */
+.chrono-page .catalogue-product-card img { border-radius: 12px; }
+.chrono-page .catalogue-product-card button:not(.rounded-full) { border-radius: 12px; }

@@ -1,93 +1,72 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Variant5 from "./pages/variant5/Variant5.jsx";
-import CataloguePage from "./pages/catalogue/CataloguePage.jsx";
-import ProductDetailPage from "./pages/product/ProductDetailPage.jsx";
 import ChronoPage from "./pages/chrono/ChronoPage.jsx";
+import ProductDetailPage from "./pages/product/ProductDetailPage.jsx";
+
+const readPage = () => {
+  const p = new URLSearchParams(window.location.search).get("page");
+  if (p === "productdetail" || p === "product") return "productdetail";
+  if (p === "chrono" || p === "products" || p === "catalogue") return "chrono";
+  return "home";
+};
 
 export default function App() {
-  const getInitialPage = () => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("page") === "productdetail") return "productdetail";
-    if (params.get("page") === "chrono") return "chrono";
-    if (params.get("page") === "products" || params.get("page") === "catalogue") return "catalogue";
-    return "home";
-  };
-
-  const [page, setPage] = useState(getInitialPage);
+  const [page, setPage] = useState(readPage);
 
   useEffect(() => {
-    const onPopState = () => setPage(getInitialPage());
+    const onPopState = () => setPage(readPage());
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
-  const navigateTo = (targetPage, options = {}) => {
+  const navigate = (target, options = {}) => {
     const url = new URL(window.location.href);
-
-    if (targetPage === "productdetail") {
-      url.searchParams.set("page", "productdetail");
-      url.searchParams.delete("design");
-      url.searchParams.delete("chdesign");
-      if (options.pddesign) url.searchParams.set("pddesign", String(options.pddesign));
-      window.history.pushState({}, "", url.toString());
-      setPage("productdetail");
-    } else if (targetPage === "chrono") {
+    url.hash = "";
+    if (target === "chrono") {
       url.searchParams.set("page", "chrono");
-      url.searchParams.delete("design");
-      url.searchParams.delete("pddesign");
-      if (options.chdesign) url.searchParams.set("chdesign", String(options.chdesign));
-      window.history.pushState({}, "", url.toString());
-      setPage("chrono");
-    } else if (targetPage === "catalogue" || targetPage === "products") {
-      url.searchParams.set("page", "products");
-      url.searchParams.delete("pddesign");
-      url.searchParams.delete("chdesign");
-      if (options.design) url.searchParams.set("design", String(options.design));
-      window.history.pushState({}, "", url.toString());
-      setPage("catalogue");
+      if (options?.design) {
+        url.searchParams.set("design", String(options.design));
+      }
+    } else if (target === "productdetail") {
+      url.searchParams.set("page", "productdetail");
+      if (options?.design) {
+        url.searchParams.set("design", String(options.design));
+      }
     } else {
       url.searchParams.delete("page");
       url.searchParams.delete("design");
-      url.searchParams.delete("pddesign");
-      url.searchParams.delete("chdesign");
-      const cleanUrl = url.pathname + (url.search ? url.search : "");
-      window.history.pushState({}, "", cleanUrl);
-      setPage("home");
     }
+    window.history.pushState({}, "", url.pathname + url.search);
+    setPage(target);
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   if (page === "productdetail") {
     return (
-      <ProductDetailPage
-        onNavigateHome={() => navigateTo("home")}
-        onNavigateToCatalogue={(opts) => navigateTo("catalogue", opts)}
-      />
+      <div className="product-page">
+        <ProductDetailPage
+          onNavigateHome={() => navigate("home")}
+          onNavigateToCatalogue={(opts) => navigate("chrono", opts)}
+        />
+      </div>
     );
   }
 
   if (page === "chrono") {
     return (
-      <ChronoPage
-        onNavigateHome={() => navigateTo("home")}
-        onNavigateToProductDetail={(opts) => navigateTo("productdetail", opts)}
-      />
-    );
-  }
-
-  if (page === "catalogue") {
-    return (
-      <CataloguePage
-        onNavigateHome={() => navigateTo("home")}
-        onNavigateToProductDetail={(opts) => navigateTo("productdetail", opts)}
-      />
+      <div className="chrono-page">
+        <ChronoPage
+          onNavigateHome={() => navigate("home")}
+          onNavigateToProductDetail={(opts) => navigate("productdetail", opts)}
+        />
+      </div>
     );
   }
 
   return (
     <Variant5
-      onNavigateToCatalogue={(opts) => navigateTo("catalogue", opts)}
-      onNavigateToProductDetail={(opts) => navigateTo("productdetail", opts)}
+      onNavigateToCatalogue={(opts) => navigate("chrono", opts)}
+      onNavigateToProductDetail={(opts) => navigate("productdetail", opts)}
     />
   );
 }

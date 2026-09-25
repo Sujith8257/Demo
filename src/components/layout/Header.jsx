@@ -24,7 +24,7 @@ const navCategories = [
   { name: "Offers", path: "special-offers" },
 ];
 
-export default function Header({ showNavStrip = true, theme = "default", onNavigateToCatalogue, onNavigateHome }) {
+export default function Header({ showNavStrip = true, theme = "default", onNavigateToCatalogue, onNavigateHome, onNavigateToCart }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
   const [visible, setVisible] = useState(true);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
@@ -218,13 +218,18 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
                 </span>
               </a>
 
+
               <a
                 aria-label="Cart"
-                className={`relative h-8 sm:h-9 px-2 sm:px-3 flex items-center gap-1 sm:gap-1.5 rounded-md transition-colors font-instrument text-xs font-semibold ${
+                className={`relative h-8 sm:h-9 px-2 sm:px-3 flex items-center gap-1 sm:gap-1.5 rounded-md transition-colors font-instrument text-xs font-semibold cursor-pointer ${
                   isPetrol ? "text-white/90 hover:bg-white/10 hover:text-white" : "hover:bg-surface-container hover:text-on-surface text-on-surface-variant"
                 }`}
                 data-path="cart"
-                href="#deals"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (onNavigateToCart) onNavigateToCart();
+                }}
               >
                 <FiShoppingBag className={`text-base sm:text-lg ${isPetrol ? "text-[#C7A66A]" : "text-primary"}`} />
                 <span className="hidden sm:inline">Cart</span>
@@ -234,6 +239,7 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
                   2
                 </span>
               </a>
+
 
               <button
                 aria-label="Account profile"

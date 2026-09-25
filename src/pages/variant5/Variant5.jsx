@@ -263,7 +263,8 @@ function ManualProductImageCarousel({
 }
 export default function Variant5({
   onNavigateToCatalogue,
-  onNavigateToProductDetail
+  onNavigateToProductDetail,
+  onNavigateToCart
 }) {
   const [activeTab, setActiveTab] = useState("all");
   const [wishlist, setWishlist] = useState({});
@@ -288,7 +289,7 @@ export default function Variant5({
     showToast(`Added "${name}" to your Cart`);
   };
   const filteredBestsellers = bestsellers.filter(item => activeTab === "all" || item.type === activeTab);
-  return <div className="relative bg-[#F7F6F2] min-h-screen font-body-md text-[#171B1B] antialiased">      <SkipLink />      <Header showNavStrip={false} theme="variant5" onNavigateToCatalogue={onNavigateToCatalogue} onNavigateHome={() => window.scrollTo({
+  return <div className="relative bg-[#F7F6F2] min-h-screen font-body-md text-[#171B1B] antialiased">      <SkipLink />      <Header showNavStrip={false} theme="variant5" onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToCart={onNavigateToCart} onNavigateHome={() => window.scrollTo({
       top: 0,
       behavior: "smooth"
     })} />      <PageLoader skeleton={<Variant5Skeleton />} duration={800}>        <main id="main-content" className="w-full pt-[82px] sm:pt-[92px] pb-0">          {/* 1. Hero Banner Carousel (Fitted to page width) */}          <HEROWITHSWEEPINGSTRAPRIBBON onNavigateToCatalogue={onNavigateToCatalogue} />          {/* Watch Brand Partners Infinite Marquee */}          <WatchBrandsInfiniteCarousel className="my-3 sm:my-5" theme="variant5" />          {/* 3. Shop by Category */}          <section id="categories" className="max-w-[1400px] mx-auto px-6 sm:px-10 py-10 sm:py-12">            <div className="flex items-center justify-between mb-8">              <div>                <span className="text-xs font-bold tracking-wider text-[#123B3A] uppercase">                  Curated Horological Disciplines                </span>                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171B1B] mt-1">                  Shop by Category                </h2>              </div>              <a href="#collection" onClick={e => {

@@ -15,7 +15,7 @@ import Design5 from "./pages/design5/Design5.jsx";
 const pages={1:Design1,2:Design2,3:Design3,4:Design4,5:Design5};
 function readVariant(){const q=Number(new URLSearchParams(window.location.search).get("design"));if(pages[q])return q;
  const saved=Number(window.localStorage.getItem("amihive-chrono-design"));return pages[saved]?saved:1;}
-export default function ChronoPage({ onNavigateHome, onNavigateToProductDetail }){
+export default function ChronoPage({ onNavigateHome, onNavigateToProductDetail, onNavigateToCart }){
  const [active,setActive]=useState(readVariant);
  const [cart,setCart]=useState([]),[wishlist,setWishlist]=useState([]);
  const reduced=useReducedMotion(),Page=pages[active];
@@ -54,7 +54,7 @@ export default function ChronoPage({ onNavigateHome, onNavigateToProductDetail }
    <motion.div key={active} initial={reduced?false:{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={reduced?undefined:{opacity:0,y:-9}}
     transition={{duration:.25}} className="min-h-screen bg-surface">
     <CatalogueProvider key={active} variant={active} cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} onNavigateToProductDetail={onNavigateToProductDetail}>
-     <Header onNavigateHome={onNavigateHome} onNavigateToCatalogue={() => window.scrollTo({ top: 0, behavior: "smooth" })}/>
+     <Header onNavigateHome={onNavigateHome} onNavigateToCatalogue={() => window.scrollTo({ top: 0, behavior: "smooth" })} onNavigateToCart={onNavigateToCart}/>
      <div id="main-content" className="preview-root" onClick={handleContentClick}><Page/></div>
      <Footer/>
      <QuickViewModal onNavigateToProductDetail={onNavigateToProductDetail}/>

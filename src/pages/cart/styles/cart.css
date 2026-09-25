@@ -16,15 +16,7 @@
 .cart-page .cart-motion-card:focus-within { z-index: 2; }
 .cart-page .max-w-7xl { max-width: 1320px; }
 
-.cart-page .design-taskbar { font-family: Manrope, system-ui, sans-serif; position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 9999; max-width: calc(100vw - 24px); padding: 8px; border-radius: 22px; background: rgba(13,39,35,.96); color: white; border: 1px solid rgba(255,255,255,.15); box-shadow: 0 22px 60px rgba(0,31,29,.29); backdrop-filter: blur(22px); }
-.cart-page .design-taskbar__inner { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
-.cart-page .design-taskbar button { border: 0; min-width: 44px; min-height: 44px; padding: 0 12px; color: #d7e4df; background: transparent; border-radius: 14px; font-weight: 800; font-size: 12px; position: relative; isolation: isolate; }
-.cart-page .design-taskbar button[aria-pressed="true"] { color: #002524; }
-.cart-page .design-taskbar button span { position: relative; z-index: 1; }
-.cart-page .design-taskbar__label { padding: 0 12px 0 8px; border-right: 1px solid #5e7774; font-size: 11px; font-weight: 800; letter-spacing: .09em; line-height: 1.5; }
 .cart-demo-toast { position: fixed; right: 22px; bottom: 105px; z-index: 10000; max-width: min(380px, 90vw); padding: 14px 18px; border-radius: 16px; background: #002524; color: #fff; box-shadow: 0 12px 38px rgba(0,0,0,.24); font-size: 13px; }
 @media (max-width: 680px) {
-  .cart-page .design-taskbar__label { display: none; }
-  .cart-page .design-taskbar button { min-width: 42px; padding: 0 8px; }
   .cart-demo-toast { right: 12px; bottom: 94px; }
 }

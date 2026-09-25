@@ -22,13 +22,6 @@
 .checkout-canvas :is(a, button, input, select, textarea):focus-visible { outline: 3px solid #93d4bb; outline-offset: 3px; }
 .checkout-canvas .native-mobile-checkout { bottom: 100px; z-index: 45; }
 
-.checkout-page .design-taskbar { position: fixed; bottom: max(16px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 9999; width: max-content; max-width: calc(100vw - 24px); border: 1px solid rgba(170,210,199,.68); border-radius: 24px; background: rgba(255,255,255,.96); box-shadow: 0 20px 55px rgba(0,38,35,.22); backdrop-filter: blur(22px); padding: 7px; }
-.checkout-page .design-taskbar-inner { display: flex; gap: 4px; align-items: center; overflow-x: auto; scrollbar-width: none; max-width: calc(100vw - 39px); }
-.checkout-page .design-taskbar-inner::-webkit-scrollbar { display: none; }
-.checkout-page .design-tab { position: relative; flex: 0 0 auto; min-height: 45px; padding: 8px 14px; border: 0; border-radius: 17px; background: transparent; color: #4f6461; text-align: center; white-space: nowrap; font-size: 11px; font-weight: 800; line-height: 1.3; }
-.checkout-page .design-tab .design-tab-small { display: block; opacity: .74; font-size: 10px; font-weight: 600; }
-.checkout-page .design-tab[data-active="true"] { color: white; }
-.checkout-page .design-active-pill { position: absolute; inset: 0; border-radius: 17px; background: #002524; z-index: -1; box-shadow: 0 5px 14px rgba(0,37,36,.2); }
 .demo-toast { position: fixed; right: 20px; bottom: 105px; z-index: 9998; max-width: min(410px, calc(100vw - 40px)); padding: 14px 18px; border-radius: 16px; background: #123b3a; color: white; box-shadow: 0 10px 30px #00252433; font-size: 13px; }
 .address-modal-overlay { position: fixed; inset: 0; z-index: 9997; display: grid; place-items: center; background: #002524a8; padding: 18px; }
 .address-modal { width: 100%; max-width: 460px; padding: 25px; border-radius: 24px; background: #fff; box-shadow: 0 25px 60px #00252452; }
@@ -36,9 +29,6 @@
 .address-modal input { width: 100%; background: #f1f4f4; padding: 12px; border: 1px solid #d6dfda; border-radius: 10px; }
 .address-modal button { border-radius: 11px; padding: 10px 16px; font-weight: 700; }
 @media (max-width: 640px) {
-  .checkout-page .design-taskbar { bottom: max(9px, env(safe-area-inset-bottom)); }
-  .checkout-page .design-tab { padding: 8px 11px; font-size: 10px; }
-  .checkout-page .design-tab .design-tab-small { display: none; }
   .checkout-canvas .native-mobile-checkout { bottom: 89px; }
   .checkout-page { padding-bottom: 115px; }
 }

@@ -12,16 +12,22 @@ html, body {
   padding: 0;
   max-width: 100% !important;
   width: 100% !important;
-  overflow-x: hidden !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
   position: relative;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 #root {
   max-width: 100% !important;
   width: 100% !important;
-  overflow-x: hidden !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 body {
-  overscroll-behavior: none;
+  overscroll-behavior: auto;
 }
 main > :first-child { margin-top: 0 !important; }
 main > :last-child { margin-bottom: 0 !important; }
@@ -108,7 +114,8 @@ main > :last-child { margin-bottom: 0 !important; }
 
 #root {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 /* =========================================================================

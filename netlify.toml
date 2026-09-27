@@ -7,8 +7,9 @@
   publish = "dist"
 
 [build.environment]
-  # Recommended modern LTS Node version for Vite 6 + React 19
-  NODE_VERSION = "20"
+  # Pin the build runtime and keep Vite available during Netlify installs.
+  NODE_VERSION = "20.19.0"
+  NPM_FLAGS = "--include=dev"
 
 # Single Page App (SPA) redirect rule
 # Ensures client-side routing works on page refreshes and direct links

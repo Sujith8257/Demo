@@ -12,11 +12,14 @@ import Checkout from "./pages/Customer/orders/Checkout";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 
-// Root Dispatcher to handle both ?page= query parameter and standard routes
+// Root Dispatcher to handle both ?page= query parameter and initial load
 function RootDispatcher() {
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page");
 
+  if (page === "home") {
+    return <CustomerHome />;
+  }
   if (page === "chrono" || page === "products" || page === "catalogue") {
     return <ProductList />;
   }
@@ -29,21 +32,23 @@ function RootDispatcher() {
   if (page === "checkout") {
     return <Checkout />;
   }
-  if (page === "login") {
-    return <Login />;
-  }
   if (page === "signup") {
     return <Signup />;
   }
-  return <CustomerHome />;
+  // Default on root: load Login page first
+  return <Login />;
 }
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Customer Routes */}
+        {/* Load Login page first on root */}
         <Route path="/" element={<RootDispatcher />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* Customer Store Routes */}
         <Route path="/home" element={<CustomerHome />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/catalogue" element={<ProductList />} />
@@ -54,10 +59,6 @@ export default function App() {
         <Route path="/productdetail" element={<ProductOverview />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
-
-        {/* Auth Routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

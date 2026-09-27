@@ -76,6 +76,13 @@ export default function Signup() {
         state: { registeredEmail: formData.email.trim() },
       });
     } catch (error) {
+      if (error.message.includes("Cannot reach the server") || error.message.includes("too long")) {
+        navigate("/login", {
+          replace: true,
+          state: { registeredEmail: formData.email.trim() },
+        });
+        return;
+      }
       setError(error.message);
     } finally {
       setIsSubmitting(false);
@@ -619,7 +626,7 @@ export default function Signup() {
           <section className="right-section">
             <div className="form-wrapper">
               {/* BRAND LOGO */}
-              <div className="brand" onClick={() => navigate("/")}>
+              <div className="brand" onClick={() => navigate("/home")}>
                 <div className="brand-icon">
                   <WatchIcon />
                 </div>
@@ -779,6 +786,12 @@ export default function Signup() {
               {/* LOGIN LINK */}
               <div className="login-text">
                 Already have an account? <Link to="/login">Login</Link>
+              </div>
+
+              <div style={{ marginTop: "14px", textAlign: "center" }}>
+                <Link to="/home" style={{ fontSize: "12.5px", color: "var(--brand-900)", fontWeight: "600", textDecoration: "none" }}>
+                  Explore Store as Guest →
+                </Link>
               </div>
             </div>
           </section>

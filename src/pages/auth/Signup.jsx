@@ -113,7 +113,7 @@ export default function Signup() {
           width: 100%;
           min-height: 100vh;
           min-height: 100dvh;
-          padding: 20px 16px;
+          padding: 16px;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -130,9 +130,7 @@ export default function Signup() {
         .signup-card-container {
           width: 100%;
           max-width: 1020px;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          align-self: center !important;
+          margin: auto !important;
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           background: var(--surface-0);
@@ -141,12 +139,6 @@ export default function Signup() {
           box-shadow: 0 20px 50px rgba(18, 59, 58, 0.08);
           border: 1px solid var(--brand-100);
           box-sizing: border-box;
-        }
-
-        @media (min-height: 600px) {
-          .signup-card-container {
-            transform: translateY(-26px);
-          }
         }
 
         /* LEFT PANEL */

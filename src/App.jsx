@@ -8,6 +8,10 @@ import ProductList from "./pages/Customer/products/ProductList";
 import ProductOverview from "./pages/Customer/products/ProductOverview";
 import Checkout from "./pages/Customer/orders/Checkout";
 
+// Auth Pages
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
+
 // Root Dispatcher to handle both ?page= query parameter and standard routes
 function RootDispatcher() {
   const [searchParams] = useSearchParams();
@@ -24,6 +28,12 @@ function RootDispatcher() {
   }
   if (page === "checkout") {
     return <Checkout />;
+  }
+  if (page === "login") {
+    return <Login />;
+  }
+  if (page === "signup") {
+    return <Signup />;
   }
   return <CustomerHome />;
 }
@@ -44,6 +54,10 @@ export default function App() {
         <Route path="/productdetail" element={<ProductOverview />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+
+        {/* Auth Routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

@@ -107,50 +107,52 @@ export default function Signup() {
           --accent-100: #F2E9D8;
           --success-600: #34745F;
           --danger-600: #C95F50;
-          --info-100: #DCE8EE;
-          --premium-100: #E8E2EE;
         }
 
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-
-        html, body {
-          max-width: 100%;
-          overflow-x: hidden;
-        }
-
-        body {
-          font-family: "Manrope", sans-serif;
-          background-color: var(--surface-50);
-          color: var(--text-900);
-          -webkit-font-smoothing: antialiased;
-        }
-
-        button, input, select {
-          font-family: inherit;
-        }
-
-        .signup-page {
+        .signup-page-root {
           width: 100%;
-          max-width: 100%;
           min-height: 100vh;
           min-height: 100dvh;
-          padding: 24px 16px;
+          padding: 32px 16px;
           display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
           background: var(--surface-50);
-          overflow-x: hidden;
+          box-sizing: border-box;
+          font-family: "Manrope", sans-serif;
+          color: var(--text-900);
+        }
+
+        .signup-top-bar {
+          width: 100%;
+          max-width: 1020px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+          padding: 0 4px;
           box-sizing: border-box;
         }
 
-        .signup-card {
+        .back-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--text-500);
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+          color: var(--brand-900);
+        }
+
+        .signup-card-container {
           width: 100%;
-          max-width: 1000px;
-          min-height: 580px;
+          max-width: 1020px;
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           background: var(--surface-0);
@@ -162,8 +164,8 @@ export default function Signup() {
         }
 
         /* LEFT PANEL */
-        .left-section {
-          margin: 16px;
+        .signup-left-panel {
+          margin: 16px !important;
           padding: 36px 32px;
           display: flex;
           flex-direction: column;
@@ -202,36 +204,34 @@ export default function Signup() {
           box-shadow: 0 0 8px rgba(199, 166, 106, 0.6);
         }
 
-        .left-content h1 {
-          font-size: clamp(26px, 3vw, 38px);
-          line-height: 1.15;
+        .signup-left-content h1 {
+          font-size: clamp(26px, 3vw, 36px);
+          line-height: 1.18;
           letter-spacing: -0.8px;
           font-weight: 800;
-          margin-bottom: 16px;
+          margin-bottom: 14px;
           color: #ffffff;
-          word-break: break-word;
         }
 
-        .left-content p {
-          font-size: 14px;
+        .signup-left-content p {
+          font-size: 13.5px;
           line-height: 1.6;
-          color: rgba(255, 255, 255, 0.85);
-          font-weight: 500;
-          max-width: 100%;
+          color: rgba(255, 255, 255, 0.82);
+          font-weight: 400;
         }
 
-        .image-wrapper {
+        .signup-image-wrapper {
           margin-top: 24px;
           flex: 1;
           min-height: 220px;
-          border-radius: 20px;
+          border-radius: 18px;
           overflow: hidden;
           position: relative;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .image-wrapper img {
+        .signup-image-wrapper img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -240,7 +240,7 @@ export default function Signup() {
           transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .image-wrapper:hover img {
+        .signup-image-wrapper:hover img {
           transform: scale(1.03);
         }
 
@@ -249,10 +249,10 @@ export default function Signup() {
           bottom: 14px;
           left: 14px;
           max-width: calc(100% - 28px);
-          background: rgba(18, 59, 58, 0.88);
+          background: rgba(18, 59, 58, 0.9);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(199, 166, 106, 0.35);
+          border: 1px solid rgba(199, 166, 106, 0.4);
           color: var(--accent-100);
           font-size: 11.5px;
           font-weight: 600;
@@ -264,12 +264,11 @@ export default function Signup() {
         }
 
         /* RIGHT PANEL */
-        .right-section {
-          padding: 32px 36px;
+        .signup-right-panel {
+          padding: 36px 36px;
           display: flex;
           align-items: center;
           justify-content: center;
-          overflow-y: auto;
           min-width: 0;
           box-sizing: border-box;
         }
@@ -294,14 +293,14 @@ export default function Signup() {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 42px;
-          height: 42px;
+          width: 40px;
+          height: 40px;
           border-radius: 12px;
           background: var(--brand-100);
         }
 
         .brand h2 {
-          font-size: 22px;
+          font-size: 21px;
           font-weight: 800;
           color: var(--text-900);
           letter-spacing: -0.5px;
@@ -313,7 +312,7 @@ export default function Signup() {
         }
 
         .heading h1 {
-          font-size: 26px;
+          font-size: 25px;
           font-weight: 800;
           color: var(--text-900);
           letter-spacing: -0.5px;
@@ -337,7 +336,7 @@ export default function Signup() {
           width: 100%;
         }
 
-        .input {
+        .signup-input {
           width: 100%;
           height: 44px;
           padding: 0 16px;
@@ -348,22 +347,30 @@ export default function Signup() {
           font-size: 13px;
           font-weight: 500;
           color: var(--text-900);
+          box-sizing: border-box;
           transition: all 0.2s ease;
         }
 
-        .input::placeholder {
+        .signup-input::placeholder {
           color: var(--text-500);
         }
 
-        .input:hover {
+        .signup-input:hover {
           background: #f0eee8;
           border-color: #cbd8d3;
         }
 
-        .input:focus {
+        .signup-input:focus {
           background: var(--surface-0);
           border-color: var(--brand-900);
           box-shadow: 0 0 0 3px rgba(18, 59, 58, 0.14);
+        }
+
+        .signup-input:-webkit-autofill,
+        .signup-input:-webkit-autofill:hover,
+        .signup-input:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+          -webkit-text-fill-color: var(--text-900) !important;
         }
 
         .mobile-row {
@@ -373,7 +380,7 @@ export default function Signup() {
         }
 
         .country-select {
-          width: 90px;
+          width: 86px;
           height: 44px;
           flex-shrink: 0;
           padding: 0 10px;
@@ -382,10 +389,11 @@ export default function Signup() {
           border-radius: 12px;
           outline: none;
           font-size: 13px;
-          font-weight: 500;
+          font-weight: 600;
           color: var(--text-900);
           cursor: pointer;
           transition: all 0.2s ease;
+          box-sizing: border-box;
         }
 
         .country-select:hover {
@@ -399,7 +407,7 @@ export default function Signup() {
           box-shadow: 0 0 0 3px rgba(18, 59, 58, 0.14);
         }
 
-        .mobile-input {
+        .mobile-input-wrapper {
           flex: 1;
           min-width: 0;
         }
@@ -420,7 +428,7 @@ export default function Signup() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 4px;
+          padding: 6px;
           border-radius: 50%;
           transition: color 0.2s;
         }
@@ -433,12 +441,11 @@ export default function Signup() {
           color: var(--danger-600);
           background: #FDF4F3;
           border: 1px solid rgba(201, 95, 80, 0.25);
-          padding: 10px 14px;
+          padding: 9px 12px;
           border-radius: 10px;
           font-size: 12px;
           font-weight: 600;
           line-height: 1.4;
-          margin-top: -4px;
           display: flex;
           align-items: center;
           gap: 6px;
@@ -446,7 +453,7 @@ export default function Signup() {
 
         .create-button {
           width: 100%;
-          height: 44px;
+          height: 46px;
           background: var(--brand-900);
           border: none;
           border-radius: 12px;
@@ -456,7 +463,7 @@ export default function Signup() {
           cursor: pointer;
           box-shadow: 0 4px 14px rgba(18, 59, 58, 0.22);
           transition: all 0.2s ease;
-          margin-top: 2px;
+          margin-top: 4px;
         }
 
         .create-button:hover {
@@ -480,7 +487,7 @@ export default function Signup() {
           gap: 14px;
           margin: 18px 0 14px;
           color: var(--text-500);
-          font-size: 11px;
+          font-size: 11.5px;
         }
 
         .divider::before,
@@ -494,7 +501,7 @@ export default function Signup() {
         .social-row {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 12px;
+          gap: 10px;
         }
 
         .social-button {
@@ -506,7 +513,7 @@ export default function Signup() {
           align-items: center;
           justify-content: center;
           gap: 8px;
-          font-size: 13px;
+          font-size: 12.5px;
           font-weight: 600;
           color: var(--text-900);
           cursor: pointer;
@@ -538,29 +545,47 @@ export default function Signup() {
           text-decoration: underline;
         }
 
+        .guest-link-wrapper {
+          margin-top: 12px;
+          text-align: center;
+        }
+
+        .guest-link {
+          font-size: 12.5px;
+          color: var(--brand-900);
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+
+        .guest-link:hover {
+          color: var(--accent-500);
+          text-decoration: underline;
+        }
+
         @media (max-width: 960px) {
-          .signup-card {
+          .signup-card-container {
             grid-template-columns: 1fr;
-            max-width: 460px;
+            max-width: 480px;
             border-radius: 24px;
           }
-          .left-section {
-            display: none;
+          .signup-left-panel {
+            display: none !important;
           }
-          .right-section {
+          .signup-right-panel {
             padding: 32px 24px;
           }
         }
 
         @media (max-width: 480px) {
-          .signup-page {
+          .signup-page-root {
             padding: 16px 12px;
           }
-          .signup-card {
+          .signup-card-container {
             border-radius: 20px;
           }
-          .right-section {
-            padding: 24px 16px;
+          .signup-right-panel {
+            padding: 24px 14px;
           }
           .brand {
             margin-bottom: 16px;
@@ -571,6 +596,11 @@ export default function Signup() {
           .heading h1 {
             font-size: 22px;
           }
+          .country-select {
+            width: 76px;
+            padding: 0 6px;
+            font-size: 12px;
+          }
           .social-row {
             gap: 8px;
           }
@@ -579,19 +609,27 @@ export default function Signup() {
             gap: 6px;
             height: 40px;
           }
-          .country-select {
-            width: 76px;
-            padding: 0 6px;
-            font-size: 12px;
-          }
         }
       `}</style>
 
-      <div className="signup-page">
-        <main className="signup-card">
+      <div className="signup-page-root">
+        {/* TOP BAR WITH BACK LINK */}
+        <div className="signup-top-bar">
+          <Link to="/home" className="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            <span>Back to Atelier</span>
+          </Link>
+          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "1px", textTransform: "uppercase", color: "var(--accent-500)" }}>
+            AMIHIVE PATRON REGISTRY
+          </span>
+        </div>
+
+        <div className="signup-card-container">
           {/* LEFT PANEL */}
-          <section className="left-section">
-            <div className="left-content">
+          <div className="signup-left-panel">
+            <div className="signup-left-content">
               <div className="badge-champagne">
                 <span className="badge-dot"></span>
                 HAUTE HORLOGERIE & ATELIER
@@ -608,7 +646,7 @@ export default function Signup() {
               </p>
             </div>
 
-            <div className="image-wrapper">
+            <div className="signup-image-wrapper">
               <img
                 src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
                 alt="Amihive luxury mechanical timepiece"
@@ -620,10 +658,10 @@ export default function Signup() {
                 <span>100% Certified Horology</span>
               </div>
             </div>
-          </section>
+          </div>
 
           {/* RIGHT PANEL */}
-          <section className="right-section">
+          <div className="signup-right-panel">
             <div className="form-wrapper">
               {/* BRAND LOGO */}
               <div className="brand" onClick={() => navigate("/home")}>
@@ -643,7 +681,7 @@ export default function Signup() {
               <form className="signup-form" onSubmit={handleSubmit} noValidate>
                 <div className="input-container">
                   <input
-                    className="input"
+                    className="signup-input"
                     type="text"
                     name="fullName"
                     placeholder="Full Name"
@@ -660,16 +698,16 @@ export default function Signup() {
                     value={formData.countryCode}
                     onChange={handleChange}
                   >
-                    <option value="+91">+91</option>
-                    <option value="+1">+1</option>
-                    <option value="+44">+44</option>
-                    <option value="+61">+61</option>
-                    <option value="+971">+971</option>
+                    <option value="+91">+91 (IN)</option>
+                    <option value="+1">+1 (US)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+61">+61 (AU)</option>
+                    <option value="+971">+971 (AE)</option>
                   </select>
 
-                  <div className="mobile-input">
+                  <div className="mobile-input-wrapper">
                     <input
-                      className="input"
+                      className="signup-input"
                       type="tel"
                       name="mobile"
                       placeholder="Mobile Number"
@@ -689,7 +727,7 @@ export default function Signup() {
 
                 <div className="input-container">
                   <input
-                    className="input"
+                    className="signup-input"
                     type="email"
                     name="email"
                     placeholder="Email address"
@@ -701,7 +739,7 @@ export default function Signup() {
 
                 <div className="input-container">
                   <input
-                    className="input password-input"
+                    className="signup-input password-input"
                     type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Set Password"
@@ -722,7 +760,7 @@ export default function Signup() {
 
                 <div className="input-container">
                   <input
-                    className="input password-input"
+                    className="signup-input password-input"
                     type={showConfirmPassword ? "text" : "password"}
                     name="confirmPassword"
                     placeholder="Re-enter Password"
@@ -757,12 +795,9 @@ export default function Signup() {
                 </button>
               </form>
 
-              {/* DIVIDER */}
-              <div className="divider">
-                <span>Or Sign up with</span>
-              </div>
+              {/* SOCIAL SIGNUP */}
+              <div className="divider">Or sign up with</div>
 
-              {/* SOCIAL BUTTONS */}
               <div className="social-row">
                 <button
                   type="button"
@@ -772,7 +807,6 @@ export default function Signup() {
                   <GoogleIcon />
                   Google
                 </button>
-
                 <button
                   type="button"
                   className="social-button"
@@ -788,14 +822,14 @@ export default function Signup() {
                 Already have an account? <Link to="/login">Login</Link>
               </div>
 
-              <div style={{ marginTop: "14px", textAlign: "center" }}>
-                <Link to="/home" style={{ fontSize: "12.5px", color: "var(--brand-900)", fontWeight: "600", textDecoration: "none" }}>
+              <div className="guest-link-wrapper">
+                <Link to="/home" className="guest-link">
                   Explore Store as Guest →
                 </Link>
               </div>
             </div>
-          </section>
-        </main>
+          </div>
+        </div>
       </div>
     </>
   );

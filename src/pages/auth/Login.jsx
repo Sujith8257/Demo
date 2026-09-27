@@ -88,48 +88,53 @@ export default function Login() {
           --premium-100: #E8E2EE;
         }
 
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-
-        html, body {
-          max-width: 100%;
-          overflow-x: hidden;
-        }
-
-        body {
-          font-family: "Manrope", sans-serif;
-          background-color: var(--surface-50);
-          color: var(--text-900);
-          -webkit-font-smoothing: antialiased;
-        }
-
-        button, input {
-          font-family: inherit;
-        }
-
-        .login-page {
+        .login-page-root {
           width: 100%;
-          max-width: 100%;
           min-height: 100vh;
           min-height: 100dvh;
-          padding: 24px 16px;
+          padding: 32px 16px;
           display: flex;
+          flex-direction: column;
           justify-content: center;
           align-items: center;
           background: var(--surface-50);
-          overflow-x: hidden;
+          box-sizing: border-box;
+          font-family: "Manrope", sans-serif;
+          color: var(--text-900);
+        }
+
+        .login-top-bar {
+          width: 100%;
+          max-width: 1000px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 16px;
+          padding: 0 4px;
           box-sizing: border-box;
         }
 
-        .login-card {
+        .back-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--text-500);
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+          color: var(--brand-900);
+        }
+
+        .login-card-container {
           width: 100%;
           max-width: 1000px;
           min-height: 580px;
           display: grid;
-          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
           background: var(--surface-0);
           border-radius: 28px;
           overflow: hidden;
@@ -139,8 +144,8 @@ export default function Login() {
         }
 
         /* LEFT PANEL */
-        .left-section {
-          margin: 16px;
+        .login-left-panel {
+          margin: 16px !important;
           padding: 36px 32px;
           display: flex;
           flex-direction: column;
@@ -179,36 +184,35 @@ export default function Login() {
           box-shadow: 0 0 8px rgba(199, 166, 106, 0.6);
         }
 
-        .left-content h1 {
-          font-size: clamp(26px, 3vw, 38px);
-          line-height: 1.15;
+        .login-left-content h1 {
+          font-size: clamp(26px, 3vw, 36px);
+          line-height: 1.18;
           letter-spacing: -0.8px;
           font-weight: 800;
-          margin-bottom: 16px;
+          margin-bottom: 14px;
           color: #ffffff;
-          word-break: break-word;
         }
 
-        .left-content p {
-          font-size: 14px;
+        .login-left-content p {
+          font-size: 13.5px;
           line-height: 1.6;
-          color: rgba(255, 255, 255, 0.85);
-          font-weight: 500;
+          color: rgba(255, 255, 255, 0.82);
+          font-weight: 400;
           max-width: 100%;
         }
 
-        .image-wrapper {
+        .login-image-wrapper {
           margin-top: 24px;
           flex: 1;
           min-height: 220px;
-          border-radius: 20px;
+          border-radius: 18px;
           overflow: hidden;
           position: relative;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .image-wrapper img {
+        .login-image-wrapper img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -217,7 +221,7 @@ export default function Login() {
           transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .image-wrapper:hover img {
+        .login-image-wrapper:hover img {
           transform: scale(1.03);
         }
 
@@ -226,10 +230,10 @@ export default function Login() {
           bottom: 14px;
           left: 14px;
           max-width: calc(100% - 28px);
-          background: rgba(18, 59, 58, 0.88);
+          background: rgba(18, 59, 58, 0.9);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
-          border: 1px solid rgba(199, 166, 106, 0.35);
+          border: 1px solid rgba(199, 166, 106, 0.4);
           color: var(--accent-100);
           font-size: 11.5px;
           font-weight: 600;
@@ -241,7 +245,7 @@ export default function Login() {
         }
 
         /* RIGHT PANEL */
-        .right-section {
+        .login-right-panel {
           padding: 40px 36px;
           display: flex;
           align-items: center;
@@ -261,7 +265,7 @@ export default function Login() {
           align-items: center;
           justify-content: center;
           gap: 10px;
-          margin-bottom: 28px;
+          margin-bottom: 24px;
           cursor: pointer;
         }
 
@@ -285,11 +289,11 @@ export default function Login() {
 
         .heading {
           text-align: center;
-          margin-bottom: 28px;
+          margin-bottom: 24px;
         }
 
         .heading h1 {
-          font-size: 28px;
+          font-size: 26px;
           font-weight: 800;
           color: var(--text-900);
           letter-spacing: -0.5px;
@@ -305,7 +309,7 @@ export default function Login() {
         .login-form {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 14px;
         }
 
         .input-container {
@@ -313,7 +317,7 @@ export default function Login() {
           width: 100%;
         }
 
-        .input {
+        .login-input {
           width: 100%;
           height: 48px;
           padding: 0 16px;
@@ -324,22 +328,30 @@ export default function Login() {
           font-size: 13.5px;
           font-weight: 500;
           color: var(--text-900);
+          box-sizing: border-box;
           transition: all 0.2s ease;
         }
 
-        .input::placeholder {
+        .login-input::placeholder {
           color: var(--text-500);
         }
 
-        .input:hover {
+        .login-input:hover {
           background: #f0eee8;
           border-color: #cbd8d3;
         }
 
-        .input:focus {
+        .login-input:focus {
           background: var(--surface-0);
           border-color: var(--brand-900);
           box-shadow: 0 0 0 3px rgba(18, 59, 58, 0.14);
+        }
+
+        .login-input:-webkit-autofill,
+        .login-input:-webkit-autofill:hover,
+        .login-input:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+          -webkit-text-fill-color: var(--text-900) !important;
         }
 
         .password-input {
@@ -358,7 +370,7 @@ export default function Login() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 4px;
+          padding: 6px;
           border-radius: 50%;
           transition: color 0.2s;
         }
@@ -370,7 +382,7 @@ export default function Login() {
         .forgot-wrapper {
           display: flex;
           justify-content: flex-end;
-          margin-top: -4px;
+          margin-top: -2px;
         }
 
         .forgot-link {
@@ -394,21 +406,6 @@ export default function Login() {
           font-size: 12px;
           font-weight: 600;
           line-height: 1.4;
-          margin-top: -4px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-
-        .success-message {
-          color: var(--success-600);
-          background: var(--brand-100);
-          border: 1px solid rgba(52, 116, 95, 0.3);
-          padding: 10px 14px;
-          border-radius: 10px;
-          font-size: 12px;
-          font-weight: 600;
-          margin-top: -4px;
           display: flex;
           align-items: center;
           gap: 6px;
@@ -448,7 +445,7 @@ export default function Login() {
           display: flex;
           align-items: center;
           gap: 14px;
-          margin: 24px 0 20px;
+          margin: 22px 0 18px;
           color: var(--text-500);
           font-size: 11.5px;
         }
@@ -491,7 +488,7 @@ export default function Login() {
 
         .signup-text {
           text-align: center;
-          margin-top: 24px;
+          margin-top: 20px;
           font-size: 12.5px;
           color: var(--text-500);
         }
@@ -508,35 +505,53 @@ export default function Login() {
           text-decoration: underline;
         }
 
+        .guest-link-wrapper {
+          margin-top: 14px;
+          text-align: center;
+        }
+
+        .guest-link {
+          font-size: 12.5px;
+          color: var(--brand-900);
+          font-weight: 600;
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+
+        .guest-link:hover {
+          color: var(--accent-500);
+          text-decoration: underline;
+        }
+
         @media (max-width: 960px) {
-          .login-card {
+          .login-card-container {
             grid-template-columns: 1fr;
             max-width: 460px;
             border-radius: 24px;
           }
-          .left-section {
-            display: none;
+          .login-left-panel {
+            display: none !important;
           }
-          .right-section {
+          .login-right-panel {
             padding: 36px 24px;
           }
         }
 
         @media (max-width: 480px) {
-          .login-page {
+          .login-page-root {
             padding: 16px 12px;
           }
-          .login-card {
+          .login-card-container {
             border-radius: 20px;
           }
-          .right-section {
+          .login-right-panel {
             padding: 28px 16px;
           }
           .brand {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
           }
           .heading {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
           }
           .heading h1 {
             font-size: 22px;
@@ -552,11 +567,19 @@ export default function Login() {
         }
       `}</style>
 
-      <div className="login-page">
-        <main className="login-card">
+      <div className="login-page-root">
+        {/* TOP BAR WITH BACK LINK */}
+        <div className="login-top-bar">
+          <Link to="/home" className="back-link">
+
+          </Link>
+
+        </div>
+
+        <div className="login-card-container">
           {/* LEFT PANEL */}
-          <section className="left-section">
-            <div className="left-content">
+          <div className="login-left-panel">
+            <div className="login-left-content">
               <div className="badge-champagne">
                 <span className="badge-dot"></span>
                 HAUTE HORLOGERIE & ATELIER
@@ -573,7 +596,7 @@ export default function Login() {
               </p>
             </div>
 
-            <div className="image-wrapper">
+            <div className="login-image-wrapper">
               <img
                 src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80"
                 alt="Amihive luxury mechanical timepiece"
@@ -585,10 +608,10 @@ export default function Login() {
                 <span>100% Certified Horology</span>
               </div>
             </div>
-          </section>
+          </div>
 
           {/* RIGHT PANEL */}
-          <section className="right-section">
+          <div className="login-right-panel">
             <div className="form-wrapper">
               {/* BRAND LOGO */}
               <div className="brand" onClick={() => navigate("/home")}>
@@ -608,7 +631,7 @@ export default function Login() {
               <form className="login-form" onSubmit={handleSubmit} noValidate>
                 <div className="input-container">
                   <input
-                    className="input"
+                    className="login-input"
                     type="email"
                     name="email"
                     placeholder="Email address"
@@ -620,7 +643,7 @@ export default function Login() {
 
                 <div className="input-container">
                   <input
-                    className="input password-input"
+                    className="login-input password-input"
                     type={showPassword ? "text" : "password"}
                     name="password"
                     placeholder="Password"
@@ -640,10 +663,14 @@ export default function Login() {
                 </div>
 
                 <div className="forgot-wrapper">
-                  <a href="#forgot" className="forgot-link" onClick={(event) => {
-                    event.preventDefault();
-                    setError("Password reset is not available yet.");
-                  }}>
+                  <a
+                    href="#forgot"
+                    className="forgot-link"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      setError("Password reset is not available yet.");
+                    }}
+                  >
                     Forgot password?
                   </a>
                 </div>
@@ -659,27 +686,14 @@ export default function Login() {
                   </div>
                 )}
 
-                {location.state?.registeredEmail && (
-                  <div className="success-message">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
-                    </svg>
-                    <span>Account created. Sign in to continue.</span>
-                  </div>
-                )}
-
                 <button className="login-button" type="submit" disabled={isSubmitting} aria-busy={isSubmitting}>
-                  {isSubmitting ? "Signing in..." : "Login"}
+                  {isSubmitting ? "Signing in..." : "Sign In"}
                 </button>
               </form>
 
-              {/* DIVIDER */}
-              <div className="divider">
-                <span>Or Login with</span>
-              </div>
+              {/* SOCIAL LOGIN */}
+              <div className="divider">Or continue with</div>
 
-              {/* SOCIAL BUTTONS */}
               <div className="social-row">
                 <button
                   type="button"
@@ -689,7 +703,6 @@ export default function Login() {
                   <GoogleIcon />
                   Google
                 </button>
-
                 <button
                   type="button"
                   className="social-button"
@@ -705,14 +718,12 @@ export default function Login() {
                 Don't have an account? <Link to="/signup">Signup</Link>
               </div>
 
-              <div style={{ marginTop: "14px", textAlign: "center" }}>
-                <Link to="/home" style={{ fontSize: "12.5px", color: "var(--brand-900)", fontWeight: "600", textDecoration: "none" }}>
-                  Explore Store as Guest →
-                </Link>
+              <div className="guest-link-wrapper">
+
               </div>
             </div>
-          </section>
-        </main>
+          </div>
+        </div>
       </div>
     </>
   );

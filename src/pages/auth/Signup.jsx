@@ -359,15 +359,21 @@ export default function Signup() {
         }
 
         .country-select {
-          width: 86px;
+          width: 106px;
           height: 44px;
           flex-shrink: 0;
-          padding: 0 10px;
-          background: var(--surface-50);
+          padding: 0 24px 0 10px;
+          background-color: var(--surface-50);
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23171d1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 9px center;
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
           border: 1px solid var(--brand-100);
           border-radius: 12px;
           outline: none;
-          font-size: 13px;
+          font-size: 12.5px;
           font-weight: 600;
           color: var(--text-900);
           cursor: pointer;
@@ -583,9 +589,10 @@ export default function Signup() {
             font-size: 22px;
           }
           .country-select {
-            width: 76px;
-            padding: 0 6px;
-            font-size: 12px;
+            width: 96px;
+            padding: 0 20px 0 8px;
+            font-size: 11.5px;
+            background-position: right 7px center;
           }
           .social-row {
             gap: 8px;

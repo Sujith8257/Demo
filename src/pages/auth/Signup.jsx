@@ -113,13 +113,15 @@ export default function Signup() {
           width: 100%;
           min-height: 100vh;
           min-height: 100dvh;
-          padding: 32px 16px;
+          padding: 24px 16px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           background: var(--surface-50);
           box-sizing: border-box;
+          overflow-x: hidden;
+          position: relative;
           font-family: "Manrope", sans-serif;
           color: var(--text-900);
         }
@@ -130,9 +132,19 @@ export default function Signup() {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          gap: 12px;
           margin-bottom: 16px;
           padding: 0 4px;
           box-sizing: border-box;
+        }
+
+        .top-bar-badge {
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: var(--accent-500);
+          white-space: nowrap;
         }
 
         .back-link {
@@ -143,6 +155,7 @@ export default function Signup() {
           font-weight: 600;
           color: var(--text-500);
           text-decoration: none;
+          white-space: nowrap;
           transition: color 0.2s ease;
         }
 
@@ -563,7 +576,7 @@ export default function Signup() {
           text-decoration: underline;
         }
 
-        @media (max-width: 960px) {
+        @media (max-width: 1024px) {
           .signup-card-container {
             grid-template-columns: 1fr;
             max-width: 480px;
@@ -574,6 +587,12 @@ export default function Signup() {
           }
           .signup-right-panel {
             padding: 32px 24px;
+          }
+        }
+
+        @media (max-width: 520px) {
+          .top-bar-badge {
+            display: none;
           }
         }
 
@@ -621,9 +640,7 @@ export default function Signup() {
             </svg>
             <span>Back to Atelier</span>
           </Link>
-          <span style={{ fontSize: "11px", fontWeight: "700", letterSpacing: "1px", textTransform: "uppercase", color: "var(--accent-500)" }}>
-            AMIHIVE PATRON REGISTRY
-          </span>
+          <span className="top-bar-badge">AMIHIVE PATRON REGISTRY</span>
         </div>
 
         <div className="signup-card-container">
@@ -824,7 +841,7 @@ export default function Signup() {
 
               <div className="guest-link-wrapper">
                 <Link to="/home" className="guest-link">
-                  Explore Store as Guest →
+                  Explore Store as Guest &rarr;
                 </Link>
               </div>
             </div>

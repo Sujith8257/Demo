@@ -90,15 +90,18 @@ export default function Login() {
 
         .login-page-root {
           width: 100%;
+          max-width: 100%;
           min-height: 100vh;
           min-height: 100dvh;
-          padding: 32px 16px;
+          padding: 24px 16px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           background: var(--surface-50);
           box-sizing: border-box;
+          overflow-x: hidden;
+          position: relative;
           font-family: "Manrope", sans-serif;
           color: var(--text-900);
         }
@@ -109,9 +112,19 @@ export default function Login() {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          gap: 12px;
           margin-bottom: 16px;
           padding: 0 4px;
           box-sizing: border-box;
+        }
+
+        .top-bar-badge {
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: var(--accent-500);
+          white-space: nowrap;
         }
 
         .back-link {
@@ -122,6 +135,7 @@ export default function Login() {
           font-weight: 600;
           color: var(--text-500);
           text-decoration: none;
+          white-space: nowrap;
           transition: color 0.2s ease;
         }
 
@@ -132,7 +146,6 @@ export default function Login() {
         .login-card-container {
           width: 100%;
           max-width: 1000px;
-          min-height: 580px;
           display: grid;
           grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
           background: var(--surface-0);
@@ -523,10 +536,10 @@ export default function Login() {
           text-decoration: underline;
         }
 
-        @media (max-width: 960px) {
+        @media (max-width: 1024px) {
           .login-card-container {
             grid-template-columns: 1fr;
-            max-width: 460px;
+            max-width: 480px;
             border-radius: 24px;
           }
           .login-left-panel {
@@ -534,6 +547,12 @@ export default function Login() {
           }
           .login-right-panel {
             padding: 36px 24px;
+          }
+        }
+
+        @media (max-width: 520px) {
+          .top-bar-badge {
+            display: none;
           }
         }
 
@@ -571,9 +590,12 @@ export default function Login() {
         {/* TOP BAR WITH BACK LINK */}
         <div className="login-top-bar">
           <Link to="/home" className="back-link">
-
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            <span>Back to Atelier</span>
           </Link>
-
+          <span className="top-bar-badge">AMIHIVE ESCROW &amp; VAULT</span>
         </div>
 
         <div className="login-card-container">
@@ -719,7 +741,9 @@ export default function Login() {
               </div>
 
               <div className="guest-link-wrapper">
-
+                <Link to="/home" className="guest-link">
+                  Explore Store as Guest &rarr;
+                </Link>
               </div>
             </div>
           </div>

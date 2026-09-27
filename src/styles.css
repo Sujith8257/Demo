@@ -2,15 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root { min-height: 100%; }
-html, body { margin: 0; padding: 0; }
-body { overscroll-behavior: none; }
+html, body, #root {
+  min-height: 100%;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
+#root {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+body {
+  overscroll-behavior: none;
+}
 main > :first-child { margin-top: 0 !important; }
 main > :last-child { margin-bottom: 0 !important; }
 ::-webkit-scrollbar { display: none; }
-
-
-@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
 @keyframes slides {
   from {
     transform: translateX(0);

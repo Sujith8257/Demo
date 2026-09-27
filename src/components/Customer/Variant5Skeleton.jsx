@@ -1,4 +1,4 @@
-import Skeleton from "../../components/skeleton/Skeleton.jsx";
+import Skeleton from "./Skeleton.jsx";
 
 export default function Variant5Skeleton() {
   return (

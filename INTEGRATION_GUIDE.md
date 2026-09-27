@@ -1,63 +1,54 @@
 # AMIHIVE Project Architecture & Zip Integration Protocol
 
-This project follows the architecture and naming conventions of `amihive-ecom-admin`.
+This project follows the file structure, component naming, and format of `amihive-ecom-admin`.
 
 ---
 
 ## 1. Directory Structure
 
+All components are consolidated into **one single components folder** (`src/components/Customer/`), and all pages are organized into **customer domain folders** under `src/pages/Customer/`:
+
 ```text
 src/
-├── auth/                         # Authentication utilities & session gate
-│   ├── api.js
-│   └── AuthRoute.jsx
 ├── components/
-│   ├── Admin/                    # Admin UI components (tables, drawers, charts, topbar, sidebar)
-│   │   ├── AdminSidebar.jsx
-│   │   ├── AdminTopbar.jsx
-│   │   ├── KpiCard.jsx
-│   │   ├── OrdersTable.jsx
-│   │   └── ...
-│   └── Customer/                 # Customer-facing components
-│       ├── CustomerHeader.jsx    # Unified sticky header (petrol green, search, trust bar)
+│   └── Customer/                 # ALL components in ONE folder
+│       ├── CustomerHeader.jsx    # Unified sticky header (petrol green, trust carousel, search)
 │       ├── CustomerFooter.jsx    # Unified footer with editorial layout
-│       ├── BottomNav.jsx         # Mobile navigation bar
-│       ├── DesignTaskbar.jsx     # Floating variant switcher
-│       └── ...
-├── config/
-│   └── api.js                    # API endpoints & base configuration
-├── data/
-│   ├── customerHomeData.js       # Curated customer datasets & mock products
-│   └── mockDatabase.js           # Comprehensive backend database mocks
+│       ├── SkipLink.jsx
+│       ├── ValuePropositionMarquee.jsx
+│       ├── WatchBrandsInfiniteCarousel.jsx
+│       ├── ContinuousReviewsCarousel.jsx
+│       ├── PageLoader.jsx
+│       ├── Skeleton.jsx
+│       ├── ProductDiscoveryHub.jsx
+│       ├── HEROWITHSWEEPINGSTRAPRIBBON.jsx
+│       ├── CATEGORYDISCOVERYWITHDYNAMICCROPS.jsx
+│       ├── BESTSELLERSHORIZONTALRAIL.jsx
+│       ├── PRODUCTINTEGRITYTRIPTYCH.jsx
+│       ├── SHOPTHELOOKPanoramicDesk.jsx
+│       ├── SHOPBYCOLLECTIONAsymmetricEditorial.jsx
+│       ├── VALUEDEALSECTIONDeepBlue.jsx
+│       ├── WATCHMATERIALSTRIPTYCHConnected3.jsx
+│       ├── VIDEOMOTIONSTORY.jsx
+│       ├── CAMPAIGNCAROUSELCompactHighVelocity.jsx
+│       ├── SHOPBYBUDGETHorizontalPill.jsx
+│       ├── ARTISANJOURNALRECENTLYVIEWED.jsx
+│       ├── VALUEMANIFESTOMARQUEEREPLACEDWITH.jsx
+│       ├── TRENDINGSEARCHINTENTSCROLLERContinuous.jsx
+│       └── Variant5Skeleton.jsx
+│
 ├── pages/
-│   ├── Admin/                    # Admin portal pages
-│   │   ├── overview/Dashboard.jsx
-│   │   ├── orders/Orders.jsx & Returns.jsx
-│   │   ├── products/ProductManagement.jsx & Inventory.jsx
-│   │   ├── customers/CustomerManagement.jsx & SegmentsManagement.jsx
-│   │   ├── marketing/BannersManagement.jsx, CouponsManagement.jsx, ReviewsManagement.jsx
-│   │   ├── analytics/AnalyticsManagement.jsx
-│   │   ├── finance/PaymentsManagement.jsx
-│   │   ├── settings/SettingsManagement.jsx
-│   │   ├── integrations/IntegrationManagement.jsx
-│   │   └── users/AdminUserManagement.jsx & RolesPermissionsManagement.jsx
-│   ├── auth/                     # Authentication views
-│   │   ├── Login.jsx
-│   │   └── Signup.jsx
-│   └── Customer/                 # Customer store pages
+│   └── Customer/                 # Customer pages matching amihive-ecom-admin
 │       ├── customer/
-│       │   ├── Home.jsx          # Home page
-│       │   ├── Cart.jsx          # Shopping cart with 5 design variants
-│       │   ├── Profile.jsx       # Customer profile & addresses
-│       │   └── Search.jsx        # Search results & discovery
+│       │   ├── Home.jsx          # Customer Home page
+│       │   └── Cart.jsx          # Customer Cart page (with 5 design variants)
 │       ├── products/
-│       │   ├── ProductList.jsx   # Product catalogue / chrono with 5 design variants
-│       │   └── ProductOverview.jsx # Product detail view with 5 design variants
+│       │   ├── ProductList.jsx   # Product Catalogue / Chrono page (with 5 design variants)
+│       │   └── ProductOverview.jsx # Product Detail page (with 5 design variants)
 │       └── orders/
-│           ├── Checkout.jsx      # Checkout flow with 5 design variants
-│           ├── OrderList.jsx     # User order history
-│           └── TrackOrder.jsx    # Order tracking status
-├── App.jsx                       # Master React Router configuration
+│           └── Checkout.jsx      # Checkout page (with 5 design variants)
+│
+├── App.jsx                       # Master React Router DOM configuration
 ├── main.jsx                      # Vite entry point
 └── styles.css                    # Tailwind CSS & global styling
 ```
@@ -66,37 +57,21 @@ src/
 
 ## 2. Standard Zip File Integration Protocol
 
-Whenever a zip file is provided, follow these exact steps:
+Whenever a zip file is provided, it will be integrated following these exact rules:
 
-### Step 1: Inspect & Unpack
-1. Extract zip to a temporary scratch directory.
-2. Inspect the file tree and identify whether it contains:
-   - **Customer Pages / Components** (e.g. new checkout, cart, catalogue, or product detail)
-   - **Admin Modules** (e.g. inventory manager, analytics, drawer)
-   - **A new Design Variant** for an existing page (e.g. Design 6)
-
-### Step 2: Placement by Category
-- **Customer Components**: Move to `src/components/Customer/<ComponentName>.jsx`
-- **Customer Pages**: Move to the designated subfolder under `src/pages/Customer/`:
-  - Home / Cart / Profile / Search $\rightarrow$ `src/pages/Customer/customer/`
-  - Products / Catalogue / Product Detail $\rightarrow$ `src/pages/Customer/products/`
-  - Checkout / Orders / Tracking $\rightarrow$ `src/pages/Customer/orders/`
-- **Admin Modules**: Move to `src/components/Admin/` or `src/pages/Admin/<domain>/`
-- **Mock Data / JSON**: Place in `src/data/`
-
-### Step 3: Naming Conventions
-- Always use PascalCase for component files (`CustomerHeader.jsx`, `ProductOverview.jsx`, `Checkout.jsx`).
-- Avoid arbitrary names like `variant5`, `chrono`, or `test`. Use feature-oriented names.
-- Ensure subcomponents live either directly inside `src/components/Customer/` or in a co-located `components/` subfolder.
-
-### Step 4: Routing & Navigation Integration
-1. Open `src/App.jsx`.
-2. Add or update the Route:
-   ```jsx
-   <Route path="/new-route" element={<NewComponent />} />
-   ```
-3. Support both `react-router-dom` hooks (`useNavigate`) and callback props (`onNavigateHome`, `onNavigateToCatalogue`, etc.) so all navigation continues to operate smoothly.
-
-### Step 5: Verification
-1. Run `npm run build` to confirm 0 compilation / syntax errors.
-2. Confirm live reload on `http://127.0.0.1:3000/`.
+1. **Extract to Scratch**:
+   - Extract the contents of the zip file to inspect its files.
+2. **Components $\rightarrow$ One Folder (`src/components/Customer/`)**:
+   - Any new or updated components go directly into `src/components/Customer/`.
+   - Name files using PascalCase (e.g. `CustomerHeader.jsx`, `ProductCard.jsx`, `VariantTaskbar.jsx`).
+   - Keep all components flatly in this one folder without sub-folders.
+3. **Pages $\rightarrow$ Matching Domain Folder**:
+   - Home or Cart pages $\rightarrow$ `src/pages/Customer/customer/`
+   - Catalogue / Products / Product Detail pages $\rightarrow$ `src/pages/Customer/products/`
+   - Checkout / Order pages $\rightarrow$ `src/pages/Customer/orders/`
+4. **Wire into `App.jsx`**:
+   - Register route in `src/App.jsx`.
+   - Support both React Router hooks (`useNavigate`) and navigation callbacks.
+5. **Verify**:
+   - Run `npm run build` to confirm 0 compilation errors.
+   - Verify on live dev server `http://127.0.0.1:3000/`.

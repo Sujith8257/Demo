@@ -1,4 +1,4 @@
-import BaseHeader from "../../../components/layout/Header.jsx";
+import BaseHeader from "../../../components/Customer/CustomerHeader.jsx";
 
 export default function Header({ onNavigateHome, onNavigateToCatalogue, onNavigateToCart, ...props }) {
   return (

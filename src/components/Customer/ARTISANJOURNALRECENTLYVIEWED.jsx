@@ -1,4 +1,4 @@
-import ProductDiscoveryHub from "../../components/products/ProductDiscoveryHub.jsx";
+import ProductDiscoveryHub from "./ProductDiscoveryHub.jsx";
 
 export default function ARTISANJOURNALRECENTLYVIEWED() {
   return <ProductDiscoveryHub />;

@@ -14,7 +14,7 @@ import Design4 from "./pages/design4/Design4.jsx";
 import Design5 from "./pages/design5/Design5.jsx";
 const designs={1:Design1,2:Design2,3:Design3,4:Design4,5:Design5};
 function readDesign(){const url=Number(new URLSearchParams(location.search).get("design"));if(designs[url])return url;try{const saved=Number(localStorage.getItem("amihive-product-design"));if(designs[saved])return saved;}catch{}return 1;}
-export default function ProductDetailPage({ onNavigateHome, onNavigateToCatalogue, onNavigateToCart }){
+export default function ProductDetailPage({ onNavigateHome, onNavigateToCatalogue, onNavigateToCart, onNavigateToCheckout }){
  const [active,setActive]=useState(readDesign),[cart,setCart]=useState([]),[wishlist,setWishlist]=useState([]);
  const Page=designs[active],reduced=useReducedMotion();
  useEffect(()=>{try{localStorage.setItem("amihive-product-design",String(active));}catch{}const url=new URL(location.href);url.searchParams.set("design",String(active));history.replaceState({},"",url)},[active]);
@@ -23,7 +23,7 @@ export default function ProductDetailPage({ onNavigateHome, onNavigateToCatalogu
  return <MotionConfig reducedMotion="user">
   <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[999] focus:bg-white focus:p-3">Skip to main content</a>
   <AnimatePresence mode="wait" initial={false}><motion.div key={active} initial={reduced?false:{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={reduced?undefined:{opacity:0,y:-8}} transition={{duration:.25}}
-   className="min-h-screen bg-surface"><ProductProvider key={active} variant={active} cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist}>
+   className="min-h-screen bg-surface"><ProductProvider key={active} variant={active} cart={cart} setCart={setCart} wishlist={wishlist} setWishlist={setWishlist} onNavigateToCheckout={onNavigateToCheckout}>
     <Header onNavigateHome={onNavigateHome} onNavigateToCatalogue={onNavigateToCatalogue} onNavigateToCart={onNavigateToCart}/><Page/><Footer/><GalleryModal/><Toast/>
    </ProductProvider></motion.div></AnimatePresence>
   <DesignTaskbar active={active} onChange={onChange} onNavigateHome={onNavigateHome}/>

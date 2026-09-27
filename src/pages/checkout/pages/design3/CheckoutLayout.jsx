@@ -1,4 +1,9 @@
 import { useCheckoutUI } from "../../context/CheckoutUI.jsx";
+import AccountTelemetry from "./AccountTelemetry.jsx";
+import RapidDestination from "./RapidDestination.jsx";
+import TransitVelocity from "./TransitVelocity.jsx";
+import InstantPayment from "./InstantPayment.jsx";
+import OrderSummary from "./OrderSummary.jsx";
 export default function CheckoutLayout() {
   const { paymentTab, setPaymentTab, remaining, formatCountdown, accordionOpen, toggleAccordion, engraving, setEngraving, giftingIntent, setGiftingIntent } = useCheckoutUI();
   return (
@@ -12,13 +17,13 @@ export default function CheckoutLayout() {
 <span className="material-symbols-outlined text-[18px]">bolt</span>
 </span>
 <div>
-<span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Telemetry Node 04 • Velocity Route</span>
-<h1 className="font-headline-sm text-headline-sm text-primary">Express Horology Checkout — Instant Escrow</h1>
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Fast & Secure</span>
+<h1 className="font-headline-sm text-headline-sm text-primary">Express Checkout</h1>
 </div>
 </div>
 <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
 <span className="material-symbols-outlined text-secondary text-[16px]">timer</span>
-<span>RESERVED CALIBRES IN ESCROW: <strong className="text-primary tabular-nums font-bold" id="escrow-timer" aria-label="Preview countdown">14:59</strong></span>
+<span>ITEMS RESERVED IN CART: <strong className="text-primary tabular-nums font-bold" id="escrow-timer" aria-label="Preview countdown">14:59</strong></span>
 </div>
 </div>
 

@@ -19,16 +19,16 @@ export default function GiftingAssurance(){
               {"Your cart is waiting — Explore watches worth making time for."}
             </h4>
             <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
-              {"\n            Every timepiece listed on AMIHIVE undergoes a 30-point chronometric escapement verification prior to escrow dispatch.\n          "}
+              {"\n            Every timepiece listed on AMIHIVE undergoes a 30-point chronometric verification prior to dispatch.\n          "}
             </p>
           </div>
         </div>
         <div className="flex items-center gap-space-sm shrink-0">
           <a className="bg-primary text-on-primary hover:bg-primary-container px-space-lg py-space-sm rounded-DEFAULT font-label-md text-label-md font-bold transition-colors" data-path="discover" href="#">
-            {"\n          Browse Geneva Salon\n        "}
+            {"\n          Continue Shopping\n        "}
           </a>
           <a className="bg-surface-container-lowest hover:bg-surface-container text-on-surface px-space-md py-space-sm rounded-DEFAULT font-label-md text-label-md font-semibold transition-colors" data-path="curated-vault" href="#">
-            {"\n          Saved References\n        "}
+            {"\n          Saved Items\n        "}
           </a>
         </div>
       </div>

@@ -21,7 +21,7 @@ export default function PerformanceHero(){
               {"Active Performance Cart"}
             </h1>
             <p className="font-body-sm text-body-sm text-on-surface-variant max-w-xl mt-1">
-              {"\n            Multisport precision chronographs, biometric telemetry computers, and certified shockproof diving timepieces queued for armored courier dispatch.\n          "}
+              {"\n            Multisport precision chronographs, biometric telemetry computers, and certified shockproof diving timepieces ready for insured express delivery.\n          "}
             </p>
           </div>
           <div className="flex flex-wrap gap-space-xs items-center">

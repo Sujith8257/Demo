@@ -1,4 +1,9 @@
 import { useCheckoutUI } from "../../context/CheckoutUI.jsx";
+import RecipientDispatch from "./RecipientDispatch.jsx";
+import GiftPresentation from "./GiftPresentation.jsx";
+import WhiteGloveTransit from "./WhiteGloveTransit.jsx";
+import GiftPayment from "./GiftPayment.jsx";
+import GiftingValuation from "./GiftingValuation.jsx";
 export default function CheckoutLayout() {
   const { paymentTab, setPaymentTab, remaining, formatCountdown, accordionOpen, toggleAccordion, engraving, setEngraving, giftingIntent, setGiftingIntent } = useCheckoutUI();
   return (
@@ -11,7 +16,7 @@ export default function CheckoutLayout() {
 <span className="text-outline-variant">/</span>
 <span>Presentation Atelier</span>
 <span className="text-outline-variant">/</span>
-<span className="text-primary font-bold">Gifting Vault Escrow</span>
+<span className="text-primary font-bold">Gift Checkout</span>
 </div>
 <div className="flex items-center gap-space-sm bg-surface-container-high px-space-md py-1 rounded">
 <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>

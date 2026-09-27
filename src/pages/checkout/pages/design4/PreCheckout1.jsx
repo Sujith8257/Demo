@@ -22,30 +22,30 @@ export default function PreCheckout1() {
 <div className="inline-flex items-center gap-space-sm bg-primary/60 backdrop-blur-md px-space-md py-1.5 rounded-full mb-space-md shadow-sm">
 <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse"></span>
 <span className="font-label-sm text-label-sm tracking-widest uppercase text-on-primary-container">
-          Allocation Lock: <span className="text-secondary-fixed font-bold tracking-normal" id="countdown" aria-label="Preview countdown">{formatCountdown(remaining)}</span> Remaining
+          Cart Reserved: <span className="text-secondary-fixed font-bold tracking-normal" id="countdown" aria-label="Preview countdown">{formatCountdown(remaining)}</span> Remaining
         </span>
 <span className="text-secondary/50">•</span>
-<span className="font-label-sm text-label-sm uppercase tracking-wider text-on-primary">Vault Protocol 256-Bit</span>
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-on-primary">256-Bit SSL Encryption</span>
 </div>
 <h1 className="font-headline-xl text-headline-xl tracking-tight text-on-primary max-w-3xl leading-tight">
         A Considered Finish.<br className="hidden sm:inline" /> Your Collection, Secured.
       </h1>
 <p className="mt-space-sm font-body-md text-body-md text-on-primary-container max-w-2xl">
-        3 certified horological escapements locked in escrow allocation <span className="font-mono text-on-primary bg-primary/80 px-2 py-0.5 rounded">#AM-8820-NC</span>. Complete checkout to dispatch for master chronometric tolerance sign-off.
+        3 premium timepieces reserved in your cart <span className="font-mono text-on-primary bg-primary/80 px-2 py-0.5 rounded">#AM-8820-NC</span>. Complete checkout to confirm your order and delivery.
       </p>
 
 <div className="mt-space-lg flex flex-wrap items-center justify-center gap-space-md lg:gap-space-xl text-on-primary-container font-label-sm text-label-sm uppercase tracking-widest">
 <div className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-[18px] text-secondary-fixed">verified_user</span>
-<span>Escrow Vault Custody</span>
+<span>Secure Checkout</span>
 </div>
 <div className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-[18px] text-secondary-fixed">shield_lock</span>
-<span>Insured Transit Reserve</span>
+<span>Insured Delivery</span>
 </div>
 <div className="flex items-center gap-1.5">
 <span className="material-symbols-outlined text-[18px] text-secondary-fixed">precision_manufacturing</span>
-<span>Guild Atelier Dispatch</span>
+<span>Direct Dispatch</span>
 </div>
 </div>
 </div>

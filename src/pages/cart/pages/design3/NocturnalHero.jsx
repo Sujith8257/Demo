@@ -30,7 +30,7 @@ export default function NocturnalHero(){
                 </h1>
               </div>
               <p className="font-body-lg text-body-lg text-on-primary-container max-w-xl">
-                {"\n            Three certified nocturnal escapements reserved in your secure acquisition chamber. Calibrated, inspected, and primed for armored vault transit.\n          "}
+                {"\n            Three certified timepieces reserved in your cart. Calibrated, inspected, and primed for insured express delivery.\n          "}
               </p>
               <div className="flex flex-wrap items-center gap-space-md pt-space-xs">
                 <div className="flex items-center gap-space-sm bg-primary px-space-md py-space-sm rounded-lg shadow-inner">

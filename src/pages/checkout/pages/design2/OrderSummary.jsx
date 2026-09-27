@@ -8,7 +8,7 @@ export default function OrderSummary() {
 <div className="flex items-center justify-between border-b pb-space-sm border-surface-container-highest">
 <div className="flex items-center gap-space-xs">
 <span className="material-symbols-outlined text-secondary text-[18px]">receipt_long</span>
-<span className="font-label-lg text-label-lg text-primary uppercase tracking-wider">Escrow Manifest</span>
+<span className="font-label-lg text-label-lg text-primary uppercase tracking-wider">Order Summary</span>
 </div>
 <span className="font-label-sm text-label-sm font-mono text-on-surface-variant">#8841-PRECISION</span>
 </div>
@@ -46,39 +46,39 @@ export default function OrderSummary() {
 </div>
 <div className="p-space-sm bg-surface-container-low rounded flex flex-col gap-1">
 <div className="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
-<span>Applied Concession</span>
+<span>Promo Discount</span>
 <span className="text-tertiary font-bold font-mono">CALIBRE5 (-₹1,500)</span>
 </div>
 <div className="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
-<span>Patron Guild Allotment</span>
+<span>Member Discount</span>
 <span className="text-tertiary font-bold font-mono">TIER-1 (-₹3,000)</span>
 </div>
 </div>
 <div className="flex flex-col gap-space-xs pt-space-sm border-t border-surface-container-highest">
 <div className="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
-<span>Escrow Subtotal (3 Calibres)</span>
+<span>Subtotal (3 Items)</span>
 <span className="font-mono text-on-surface">₹47,270</span>
 </div>
 <div className="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
-<span>Multi-Axis Escapement Bench Reg.</span>
+<span>Quality Inspection</span>
 <span className="text-tertiary font-label-sm text-label-sm uppercase font-bold">Complimentary</span>
 </div>
 <div className="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
-<span>Insured Armored Transit Escort</span>
-<span className="text-tertiary font-label-sm text-label-sm uppercase font-bold">Waived</span>
+<span>Insured Delivery</span>
+<span className="text-tertiary font-label-sm text-label-sm uppercase font-bold">FREE</span>
 </div>
 <div className="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant">
-<span>Patronage Concessions</span>
+<span>Total Discounts</span>
 <span className="text-secondary font-mono">-₹4,500</span>
 </div>
 <div className="flex items-center justify-between pt-space-sm border-t border-surface-container-high mt-space-xs">
 <div>
-<span className="font-label-lg text-label-lg text-primary uppercase tracking-wider block">Net Payable Escrow</span>
+<span className="font-label-lg text-label-lg text-primary uppercase tracking-wider block">Total Amount</span>
 <span className="font-label-sm text-label-sm text-on-surface-variant">Inclusive of 18% IGST & Duties</span>
 </div>
 <div className="text-right">
 <span className="font-headline-sm text-headline-sm text-primary font-bold font-mono">₹42,770</span>
-<span className="font-label-sm text-label-sm text-secondary block uppercase">Settled on Clearance</span>
+<span className="font-label-sm text-label-sm text-secondary block uppercase">All Taxes Included</span>
 </div>
 </div>
 </div>
@@ -99,7 +99,7 @@ export default function OrderSummary() {
 </div>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant leading-normal pt-1">
-            Every balance spring and anchor pallet subjected to multi-axis verification prior to armored lockup.
+            Every timepiece is thoroughly verified and tested prior to secure packaging.
           </p>
 </div>
 <div className="p-space-md bg-primary-container text-on-primary rounded shadow-sm flex items-center justify-between">

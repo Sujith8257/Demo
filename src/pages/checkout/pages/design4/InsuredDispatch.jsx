@@ -10,13 +10,13 @@ export default function InsuredDispatch() {
                 03
               </div>
 <div>
-<span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Transit Security Matrix</span>
-<h3 className="font-headline-sm text-headline-sm text-primary">Insured Dispatch Protocol</h3>
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Delivery Option</span>
+<h3 className="font-headline-sm text-headline-sm text-primary">Express Shipping</h3>
 </div>
 </div>
 <div className="flex items-center gap-space-sm">
 <span className="hidden sm:inline-flex items-center gap-1 text-secondary font-label-sm text-label-sm uppercase tracking-wider bg-surface-container px-2.5 py-1 rounded">
-<span className="material-symbols-outlined text-[14px]">local_shipping</span> Armored Transit
+<span className="material-symbols-outlined text-[14px]">local_shipping</span> Express Delivery
               </span>
 <span className="material-symbols-outlined text-outline transition-transform duration-200" id="icon-03">{accordionOpen["section-03-body"] ? "expand_less" : "expand_more"}</span>
 </div>
@@ -29,11 +29,11 @@ export default function InsuredDispatch() {
 <input defaultChecked className="mt-1 accent-primary" name="transit" type="radio" />
 <div>
 <div className="flex items-center gap-2">
-<span className="font-label-lg text-label-lg text-primary">Signature-Verified Armored Courier Transit</span>
+<span className="font-label-lg text-label-lg text-primary">Signature-Verified Express Delivery</span>
 <span className="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded">Complimentary</span>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-1">
-                      Armored Mercedes Sprinter dispatch with two-factor custody log and cryogenic temper-evident lock ring. Live telemetry satellite ping provided post-release.
+                      Insured express courier dispatch with tamper-evident seal and real-time shipment tracking.
                     </p>
 <div className="mt-2 flex items-center gap-2 font-label-sm text-label-sm text-secondary">
 <span className="material-symbols-outlined text-[16px]">timer</span>

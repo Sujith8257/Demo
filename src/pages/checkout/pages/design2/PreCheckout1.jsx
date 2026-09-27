@@ -11,9 +11,9 @@ export default function PreCheckout1() {
 <span className="font-label-md text-label-md text-primary font-bold px-2 py-0.5 bg-surface rounded">ID: HH-2025-8841-B</span>
 </div>
 <div className="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
-<span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span> Escrow Vault Reserved</span>
+<span className="inline-flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span> Items Reserved</span>
 <span className="hidden sm:inline text-outline-variant">•</span>
-<span className="hidden sm:inline">Session Tolerance: 14:32 remaining</span>
+<span className="hidden sm:inline">Cart Expires in: 14:32</span>
 </div>
 </div>
 <div className="relative w-full py-space-xs">
@@ -25,8 +25,8 @@ export default function PreCheckout1() {
 <span className="material-symbols-outlined text-[16px]">check</span>
 </div>
 <div className="mt-2 text-left sm:text-center">
-<span className="block font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">01 Contact & Hub</span>
-<span className="hidden md:block font-body-sm text-body-sm text-on-surface-variant truncate">Singhania Atelier (BLR)</span>
+<span className="block font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">01 Details</span>
+<span className="hidden md:block font-body-sm text-body-sm text-on-surface-variant truncate">Contact Information</span>
 </div>
 </div>
 <div className="flex flex-col items-center group cursor-pointer">
@@ -34,8 +34,8 @@ export default function PreCheckout1() {
 <span className="material-symbols-outlined text-[16px]">check</span>
 </div>
 <div className="mt-2 text-left sm:text-center">
-<span className="block font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">02 Armored Transit</span>
-<span className="hidden md:block font-body-sm text-body-sm text-on-surface-variant truncate">Cryo-Transit Escort</span>
+<span className="block font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">02 Shipping</span>
+<span className="hidden md:block font-body-sm text-body-sm text-on-surface-variant truncate">Delivery Address</span>
 </div>
 </div>
 <div className="flex flex-col items-center">
@@ -43,8 +43,8 @@ export default function PreCheckout1() {
 <span className="font-bold">03</span>
 </div>
 <div className="mt-2 text-left sm:text-center">
-<span className="block font-label-sm text-label-sm text-primary font-bold tracking-wider uppercase">03 Escrow Custody</span>
-<span className="hidden md:block font-body-sm text-body-sm text-secondary font-semibold truncate">Secured Allocation</span>
+<span className="block font-label-sm text-label-sm text-primary font-bold tracking-wider uppercase">03 Payment</span>
+<span className="hidden md:block font-body-sm text-body-sm text-secondary font-semibold truncate">Select Method</span>
 </div>
 </div>
 <div className="flex flex-col items-center opacity-60">
@@ -52,8 +52,8 @@ export default function PreCheckout1() {
 <span>04</span>
 </div>
 <div className="mt-2 text-left sm:text-center">
-<span className="block font-label-sm text-label-sm text-on-surface-variant font-bold tracking-wider uppercase">04 Final Seal</span>
-<span className="hidden md:block font-body-sm text-body-sm text-outline truncate">Ledger Engraving</span>
+<span className="block font-label-sm text-label-sm text-on-surface-variant font-bold tracking-wider uppercase">04 Complete</span>
+<span className="hidden md:block font-body-sm text-body-sm text-outline truncate">Order Confirmation</span>
 </div>
 </div>
 </div>

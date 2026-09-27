@@ -24,13 +24,32 @@ const navCategories = [
   { name: "Offers", path: "special-offers" },
 ];
 
-export default function Header({ showNavStrip = true, theme = "default", onNavigateToCatalogue, onNavigateHome, onNavigateToCart }) {
+export default function Header({ showNavStrip = true, theme = "variant5", onNavigateToCatalogue, onNavigateHome, onNavigateToCart }) {
   const isPetrol = theme === "variant5" || theme === "petrol";
   const [visible, setVisible] = useState(true);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   const reduceMotion = useReducedMotion();
+
+  const handleNavAnchor = (e, hash) => {
+    const el = document.querySelector(hash);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+    } else if (hash === "#categories" || hash === "#collection" || hash === "#bestsellers") {
+      if (onNavigateToCatalogue) {
+        e.preventDefault();
+        onNavigateToCatalogue();
+      } else if (onNavigateHome) {
+        e.preventDefault();
+        onNavigateHome();
+      }
+    } else if (onNavigateHome) {
+      e.preventDefault();
+      onNavigateHome();
+    }
+  };
 
   const announcementTrack = [
     ...announcementItems,
@@ -312,28 +331,72 @@ export default function Header({ showNavStrip = true, theme = "default", onNavig
           {showNavStrip && (
             <nav
               aria-label="Marketplace Navigation"
-              className="h-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 hidden md:flex items-center gap-6 overflow-x-auto text-xs font-medium text-on-surface-variant select-none border-t border-outline-variant/15"
+              className={`h-10 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 hidden md:flex items-center gap-6 overflow-x-auto text-xs font-medium select-none border-t ${
+                isPetrol ? "border-white/10 text-white/80" : "border-outline-variant/15 text-on-surface-variant"
+              }`}
             >
-              <a href="#collection" className="font-semibold text-primary hover:text-primary transition-colors">
+              <a
+                href="#collection"
+                onClick={(e) => handleNavAnchor(e, "#collection")}
+                className={`font-semibold transition-colors ${
+                  isPetrol ? "text-[#C7A66A] hover:text-white" : "text-primary hover:text-primary"
+                }`}
+              >
                 Collection
               </a>
-              <a href="#deals" className="hover:text-primary transition-colors flex items-center gap-1">
+              <a
+                href="#deals"
+                onClick={(e) => handleNavAnchor(e, "#deals")}
+                className={`transition-colors flex items-center gap-1 ${
+                  isPetrol ? "text-white/85 hover:text-[#C7A66A]" : "hover:text-primary"
+                }`}
+              >
                 <span>Deals</span>
                 <span className="bg-[#cc1023] text-white text-[9px] px-1.5 py-0.2 rounded font-bold uppercase">Sale</span>
               </a>
-              <a href="#categories" className="hover:text-primary transition-colors">
+              <a
+                href="#categories"
+                onClick={(e) => handleNavAnchor(e, "#categories")}
+                className={`transition-colors ${
+                  isPetrol ? "text-white/85 hover:text-[#C7A66A]" : "hover:text-primary"
+                }`}
+              >
                 Categories
               </a>
-              <a href="#bestsellers" className="hover:text-primary transition-colors">
+              <a
+                href="#bestsellers"
+                onClick={(e) => handleNavAnchor(e, "#bestsellers")}
+                className={`transition-colors ${
+                  isPetrol ? "text-white/85 hover:text-[#C7A66A]" : "hover:text-primary"
+                }`}
+              >
                 Bestsellers
               </a>
-              <a href="#customizer" className="hover:text-primary transition-colors">
+              <a
+                href="#customizer"
+                onClick={(e) => handleNavAnchor(e, "#customizer")}
+                className={`transition-colors ${
+                  isPetrol ? "text-white/85 hover:text-[#C7A66A]" : "hover:text-primary"
+                }`}
+              >
                 Customizer
               </a>
-              <a href="#reviews" className="hover:text-primary transition-colors">
+              <a
+                href="#reviews"
+                onClick={(e) => handleNavAnchor(e, "#reviews")}
+                className={`transition-colors ${
+                  isPetrol ? "text-white/85 hover:text-[#C7A66A]" : "hover:text-primary"
+                }`}
+              >
                 Reviews
               </a>
-              <a href="#care" className="hover:text-primary transition-colors">
+              <a
+                href="#care"
+                onClick={(e) => handleNavAnchor(e, "#care")}
+                className={`transition-colors ${
+                  isPetrol ? "text-white/85 hover:text-[#C7A66A]" : "hover:text-primary"
+                }`}
+              >
                 Care & Warranty
               </a>
             </nav>

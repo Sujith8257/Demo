@@ -9,14 +9,14 @@ export default function OrderSummary() {
 
 <div className="pt-2 pb-space-md mb-space-md">
 <div className="flex items-center justify-between mb-space-xs">
-<span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Acquisition Manifest</span>
+<span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Items in Cart</span>
 <span className="px-2 py-0.5 bg-surface-container font-label-sm text-label-sm text-primary rounded font-mono font-bold">#8841-A</span>
 </div>
 <div className="flex items-center gap-space-xs">
 <span className="material-symbols-outlined text-[18px] text-primary">watch</span>
 <h3 className="font-headline-sm text-headline-sm text-primary font-bold">Order Summary</h3>
 </div>
-<p className="font-body-sm text-body-sm text-on-surface-variant">3 Calibres currently in vaulted inspection lock.</p>
+<p className="font-body-sm text-body-sm text-on-surface-variant">3 items reserved in your order.</p>
 </div>
 
 <div className="space-y-space-md pb-space-md mb-space-md">
@@ -72,12 +72,12 @@ export default function OrderSummary() {
 
 <div className="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant pb-space-md mb-space-md">
 <div className="flex justify-between items-center">
-<span>Subtotal (3 Calibres)</span>
+<span>Subtotal (3 Items)</span>
 <span className="text-on-surface font-medium">₹47,270</span>
 </div>
 <div className="flex justify-between items-center text-primary">
 <span className="flex items-center gap-1">
-<span className="material-symbols-outlined text-[15px] text-secondary">workspace_premium</span> Atelier Tier Privilege
+<span className="material-symbols-outlined text-[15px] text-secondary">workspace_premium</span> Special Discount
               </span>
 <span className="font-medium">-₹3,000</span>
 </div>
@@ -88,8 +88,8 @@ export default function OrderSummary() {
 <span className="font-medium">-₹1,500</span>
 </div>
 <div className="flex justify-between items-center">
-<span>Armored Escort Transit</span>
-<span className="text-secondary font-bold uppercase font-label-sm text-label-sm">FREE (Complimentary)</span>
+<span>Express Delivery</span>
+<span className="text-secondary font-bold uppercase font-label-sm text-label-sm">FREE</span>
 </div>
 <div className="flex justify-between items-center text-on-surface-variant">
 <span>Applicable GST (18% included)</span>
@@ -99,8 +99,8 @@ export default function OrderSummary() {
 
 <div className="bg-surface-container-low p-space-md rounded-xl mb-space-lg flex items-baseline justify-between">
 <div>
-<span className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold">Total Escrow Amount</span>
-<span className="block font-label-sm text-label-sm text-secondary">Taxes & Armored Cover Included</span>
+<span className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold">Total Amount</span>
+<span className="block font-label-sm text-label-sm text-secondary">All Taxes & Shipping Included</span>
 </div>
 <div className="text-right">
 <span className="text-[28px] font-bold text-primary tracking-tight leading-none">₹42,770</span>
@@ -110,28 +110,28 @@ export default function OrderSummary() {
 
 <button className="w-full h-[52px] bg-primary hover:bg-primary-container text-on-primary rounded font-label-lg text-label-lg uppercase tracking-wider flex items-center justify-center gap-space-sm shadow-md transition-all group" type="button">
 <span className="material-symbols-outlined text-[18px] text-secondary group-hover:scale-110 transition-transform">lock</span>
-<span>Authorize Escrow & Complete — ₹42,770</span>
+<span>Complete Order — ₹42,770</span>
 </button>
 
 <div className="text-center mt-space-md">
 <a className="inline-flex items-center gap-1 font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors" data-path="shopping-cart" href="#">
 <span className="material-symbols-outlined text-[14px]">arrow_back</span>
-              Return to Acquisition Manifest
+              Return to Cart
             </a>
 </div>
 
 <div className="mt-space-lg pt-space-md space-y-space-sm bg-surface-container-low p-space-sm rounded-lg">
 <div className="flex items-center gap-space-xs text-primary font-label-sm text-label-sm">
 <span className="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
-<span>256-Bit Escrow Vault Protocol Active</span>
+<span>256-Bit Secure Payment</span>
 </div>
 <div className="flex items-center gap-space-xs text-primary font-label-sm text-label-sm">
 <span className="material-symbols-outlined text-[16px] text-secondary">av_timer</span>
-<span>7-Day In-Hand Chronometer Precision Trial</span>
+<span>7-Day Return & Trial Policy</span>
 </div>
 <div className="flex items-center gap-space-xs text-primary font-label-sm text-label-sm">
 <span className="material-symbols-outlined text-[16px] text-secondary">military_tech</span>
-<span>5-Year Atelier Mechanical Escapement Warranty</span>
+<span>5-Year Movement Warranty</span>
 </div>
 </div>
 </div>

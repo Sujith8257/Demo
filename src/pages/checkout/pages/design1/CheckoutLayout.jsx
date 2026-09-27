@@ -1,4 +1,9 @@
 import { useCheckoutUI } from "../../context/CheckoutUI.jsx";
+import ContactCredentials from "./ContactCredentials.jsx";
+import VaultDestination from "./VaultDestination.jsx";
+import InsuredLogistics from "./InsuredLogistics.jsx";
+import EscrowPayment from "./EscrowPayment.jsx";
+import OrderSummary from "./OrderSummary.jsx";
 export default function CheckoutLayout() {
   const { paymentTab, setPaymentTab, remaining, formatCountdown, accordionOpen, toggleAccordion, engraving, setEngraving, giftingIntent, setGiftingIntent } = useCheckoutUI();
   return (
@@ -9,7 +14,7 @@ export default function CheckoutLayout() {
 <div className="space-y-space-xs max-w-2xl">
 <div className="flex items-center gap-space-sm mb-1">
 <span className="inline-flex items-center justify-center w-2 h-2 rounded-full bg-secondary"></span>
-<span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Authenticated Acquisition Process</span>
+<span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Secure Checkout</span>
 <span className="text-outline-variant">•</span>
 <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Step 2 of 2</span>
 </div>
@@ -17,7 +22,7 @@ export default function CheckoutLayout() {
           Checkout — Complete Your Order Securely
         </h1>
 <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-          Three calibrated escapements reserved in your secure acquisition manifest. Serialized inspection active under vaulted supervision.
+          3 items reserved in your cart. Review your details and complete your purchase securely.
         </p>
 </div>
 
@@ -30,8 +35,8 @@ export default function CheckoutLayout() {
 <span className="material-symbols-outlined text-[15px] text-primary absolute">verified</span>
 </div>
 <div className="flex flex-col pr-space-sm">
-<span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Escrow Protocol AMH-2025</span>
-<span className="font-label-sm text-label-sm text-on-surface-variant font-normal">Active Session • Vault Clearance</span>
+<span className="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">256-Bit SSL Encryption</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant font-normal">Verified & Safe Checkout</span>
 </div>
 </div>
 </div>

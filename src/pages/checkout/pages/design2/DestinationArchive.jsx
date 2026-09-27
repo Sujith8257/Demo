@@ -26,14 +26,14 @@ export default function DestinationArchive() {
 <span className="material-symbols-outlined text-[14px]">done_all</span>
 </div>
 <div className="flex flex-col min-w-0">
-<span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 02 • Armored Freight Manifest</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Step 02 • Express Shipping Method</span>
 <span className="font-body-sm text-body-sm text-on-surface font-semibold truncate">
-                  Insured Armored Air Courier • Est. Transit Window: 48h (Cryo-Lock + Realtime Dual GPS Tracked)
+                  Insured Express Air Courier • Estimated Delivery: 48h (Real-time GPS Tracked)
                 </span>
 </div>
 </div>
 <button className="shrink-0 px-space-sm py-1 rounded font-label-sm text-label-sm uppercase tracking-wider text-secondary hover:bg-surface-container-high transition-colors" type="button">
-              Change Rail
+              Change Option
             </button>
 </div>
 </div>

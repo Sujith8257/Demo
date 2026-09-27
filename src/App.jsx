@@ -63,6 +63,7 @@ export default function App() {
       <CheckoutPage
         onNavigateHome={() => navigate("home")}
         onNavigateToCart={() => navigate("cart")}
+        onNavigateToCatalogue={(opts) => navigate("chrono", opts)}
       />
     );
   }

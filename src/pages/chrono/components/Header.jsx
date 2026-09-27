@@ -3,7 +3,7 @@ import BaseHeader from "../../../components/layout/Header.jsx";
 export default function Header({ onNavigateHome, onNavigateToCatalogue, onNavigateToCart, ...props }) {
   return (
     <BaseHeader
-      showNavStrip={false}
+      showNavStrip={true}
       theme="variant5"
       onNavigateHome={onNavigateHome}
       onNavigateToCatalogue={onNavigateToCatalogue}

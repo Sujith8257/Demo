@@ -19,7 +19,7 @@ export default function DaylightCart(){
                 {"2"}
               </span>
               <span>
-                {"Armored Logistics"}
+                {"Shipping"}
               </span>
               <span className="text-outline-variant">
                 {"•"}
@@ -28,7 +28,7 @@ export default function DaylightCart(){
                 {"3"}
               </span>
               <span>
-                {"Escrow Release"}
+                {"Payment"}
               </span>
             </div>
             <div className="hidden md:flex items-center gap-space-xs text-secondary font-label-sm text-label-sm uppercase tracking-widest">
@@ -259,7 +259,7 @@ export default function DaylightCart(){
                             {"₹13,990"}
                           </span>
                           <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider">
-                            {"Escrow Ready"}
+                            {"In Stock"}
                           </span>
                         </div>
                       </div>
@@ -339,10 +339,10 @@ export default function DaylightCart(){
                   </div>
                   <div>
                     <h4 className="font-label-lg text-label-lg font-semibold text-on-surface">
-                      {"Armored Courier & Transit Escrow Included"}
+                      {"Express Courier & Free Transit Insurance"}
                     </h4>
                     <p className="font-body-sm text-body-sm text-outline">
-                      {"Signature-verified white-glove transport with live telemetry and GPS seal track."}
+                      {"Signature-verified delivery with live tracking and full insurance coverage."}
                     </p>
                   </div>
                 </div>
@@ -380,22 +380,22 @@ export default function DaylightCart(){
                           {"stars"}
                         </span>
                         <span className="font-medium">
-                          {"Atelier Member Privilege"}
+                          {"Member Discount"}
                         </span>
                       </div>
                       <span className="font-mono text-secondary font-bold"><CartAmount kind="discount"/></span>
                     </div>
                     <div className="flex items-center justify-between font-body-sm text-body-sm">
                       <span className="text-on-surface-variant">
-                        {"Armored Courier Delivery"}
+                        {"Express Delivery"}
                       </span>
                       <span className="font-mono text-on-tertiary-container font-semibold uppercase">
-                        {"Included (Free)"}
+                        {"FREE"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between font-body-sm text-body-sm">
                       <span className="text-on-surface-variant">
-                        {"Vault Seal & Escrow Insurance"}
+                        {"Transit Insurance"}
                       </span>
                       <span className="font-mono text-on-tertiary-container font-semibold uppercase">
                         {"Complimentary"}
@@ -407,7 +407,7 @@ export default function DaylightCart(){
                       <span className="material-symbols-outlined text-outline text-[18px] ml-space-xs">
                         {"key"}
                       </span>
-                      <input className="w-full bg-transparent border-0 px-space-xs py-space-xs font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none uppercase font-mono" placeholder="Atelier Passcode / Voucher..." type="text" />
+                      <input className="w-full bg-transparent border-0 px-space-xs py-space-xs font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none uppercase font-mono" placeholder="Coupon Code / Voucher..." type="text" />
                       <button className="bg-primary text-on-primary px-space-sm py-space-xs rounded-DEFAULT font-label-sm text-label-sm uppercase tracking-wider hover:bg-primary-container transition-colors" data-cart-action="coupon" type="button">
                         {"\n                    Apply\n                  "}
                       </button>
@@ -417,7 +417,7 @@ export default function DaylightCart(){
                     <div className="flex items-baseline justify-between">
                       <div className="flex flex-col">
                         <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">
-                          {"Total Acquisition Escrow"}
+                          {"Total Amount"}
                         </span>
                         <span className="font-label-sm text-[10px] text-outline-variant font-mono">
                           {"INCL. APPLICABLE VAT/GST"}
@@ -430,7 +430,7 @@ export default function DaylightCart(){
                   </div>
                   <button className="w-full bg-primary hover:bg-primary-container text-on-primary py-space-md px-space-lg rounded-DEFAULT font-label-lg text-label-lg uppercase tracking-wider font-semibold transition-all duration-200 flex items-center justify-center gap-space-sm shadow-md hover:shadow-lg active:scale-[0.99]" data-cart-action="checkout" type="button">
                     <span>
-                      {"Complete Midnight Acquisition"}
+                      {"Proceed to Checkout"}
                     </span>
                     <span className="material-symbols-outlined text-[20px] text-secondary-fixed">
                       {"arrow_forward"}
@@ -441,7 +441,7 @@ export default function DaylightCart(){
                       {"account_balance_wallet"}
                     </span>
                     <span>
-                      {"Wire Transfer / Escrow Split Payment"}
+                      {"Bank Transfer / Split Payment"}
                     </span>
                   </button>
                   <div className="pt-space-xs flex flex-col gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
@@ -450,7 +450,7 @@ export default function DaylightCart(){
                         {"verified_user"}
                       </span>
                       <span>
-                        {"Tamper-evident Wax Sealed Escapement Packaging"}
+                        {"Tamper-evident Sealed Packaging"}
                       </span>
                     </div>
                     <div className="flex items-center gap-space-xs">
@@ -458,7 +458,7 @@ export default function DaylightCart(){
                         {"update"}
                       </span>
                       <span>
-                        {"7-Day Escapement Inspection Trial Guarantee"}
+                        {"7-Day Trial & Free Return Policy"}
                       </span>
                     </div>
                     <div className="flex items-center gap-space-xs">
@@ -466,7 +466,7 @@ export default function DaylightCart(){
                         {"shield"}
                       </span>
                       <span>
-                        {"Bank-Grade Escrow Protection by AMIHIVE Trust"}
+                        {"256-Bit Bank Grade Secure Checkout"}
                       </span>
                     </div>
                   </div>

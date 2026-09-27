@@ -31,7 +31,7 @@ export default function RapidDestination() {
 <p className="font-body-sm text-body-sm text-on-surface-variant">Bengaluru, Karnataka 560025</p>
 <div className="mt-space-sm pt-space-xs flex items-center gap-1 text-primary">
 <span className="material-symbols-outlined text-[16px] text-secondary">flash_on</span>
-<span className="font-label-sm text-label-sm uppercase tracking-wider font-bold">Express Zone • 1-Day Armored Transit</span>
+<span className="font-label-sm text-label-sm uppercase tracking-wider font-bold">Express Zone • 1-Day Delivery</span>
 </div>
 </label>
 

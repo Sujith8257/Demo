@@ -14,14 +14,14 @@ export default function ManifestHero(){
               </span>
             </div>
             <h1 className="font-headline-lg text-headline-lg text-primary tracking-tight font-bold mb-space-xs">
-              {"Precision Acquisition Manifest"}
+              {"Your Shopping Cart"}
             </h1>
             <p className="font-body-md text-body-md text-on-surface-variant">
-              {"\n            Batch 14 Allocated • "}
+              {"\n            In Cart • "}
               <span className="text-primary font-medium">
-                {"3 Calibres Ready for Inspection Dispatch"}
+                {"3 Items Ready for Dispatch"}
               </span>
-              {". Secured in escrow custody until physical delivery confirmation.\n          "}
+              {". Fully insured express delivery with 7-day returns.\n          "}
             </p>
           </div>
           <div className="flex items-center gap-space-md bg-surface-container-low p-space-md rounded-DEFAULT min-w-[280px]">

@@ -22,14 +22,14 @@ export default function CartHero(){
                 {"verified"}
               </span>
               <span>
-                {"3 Pieces Calibrated in Vault Cart"}
+                {"3 Items in Your Cart"}
               </span>
             </div>
             <h1 className="font-headline-xl text-headline-xl text-primary font-bold tracking-tight mb-space-xs">
               {"\n              Your Selection\n            "}
             </h1>
             <p className="font-body-md text-body-md text-on-surface-variant">
-              {"\n              Review your handcrafted timepieces before escrow acquisition. Each mechanical calibre has undergone 7-point precision chronometer inspection.\n            "}
+              {"\n              Review your selected timepieces before proceeding to checkout. Each watch is 100% genuine and verified.\n            "}
             </p>
           </div>
           <div className="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-lg">
@@ -48,7 +48,7 @@ export default function CartHero(){
                 {"2"}
               </span>
               <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
-                {"Vault Escrow"}
+                {"Checkout"}
               </span>
             </div>
             <div className="w-8 h-[2px] bg-surface-container">
@@ -58,7 +58,7 @@ export default function CartHero(){
                 {"3"}
               </span>
               <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
-                {"Atelier Delivery"}
+                {"Delivery"}
               </span>
             </div>
           </div>

@@ -16,7 +16,7 @@ export default function AcquisitionGrid(){
                 {"Allocation Qty"}
               </div>
               <div className="col-span-3 text-right">
-                {"Line Total & Escrow"}
+                {"Line Total"}
               </div>
             </div>
             <div className="flex flex-col">
@@ -89,7 +89,7 @@ export default function AcquisitionGrid(){
                         {"₹18,990"}
                       </div>
                       <span className="font-label-sm text-[10px] text-on-secondary-container font-mono uppercase">
-                        {"Held in Escrow"}
+                        {"100% Secure"}
                       </span>
                     </div>
                   </div>
@@ -188,7 +188,7 @@ export default function AcquisitionGrid(){
                         {"₹14,290"}
                       </div>
                       <span className="font-label-sm text-[10px] text-on-secondary-container font-mono uppercase">
-                        {"Held in Escrow"}
+                        {"100% Secure"}
                       </span>
                     </div>
                   </div>
@@ -287,7 +287,7 @@ export default function AcquisitionGrid(){
                         {"₹13,990"}
                       </div>
                       <span className="font-label-sm text-[10px] text-on-secondary-container font-mono uppercase">
-                        {"Held in Escrow"}
+                        {"100% Secure"}
                       </span>
                     </div>
                   </div>
@@ -325,11 +325,11 @@ export default function AcquisitionGrid(){
                     {"local_shipping"}
                   </span>
                   <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">
-                    {"Armored Logistics Routing"}
+                    {"Express Delivery Check"}
                   </span>
                 </div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">
-                  {"\n                Enter your municipal postal code to calculate insured armored escort routing windows.\n              "}
+                  {"\n                Enter your postal PIN code to check delivery availability.\n              "}
                 </p>
               </div>
               <div className="flex flex-col gap-1.5">
@@ -410,14 +410,14 @@ export default function AcquisitionGrid(){
             <div className="flex flex-col gap-space-sm font-body-sm text-body-sm">
               <div className="flex items-center justify-between">
                 <span className="text-on-surface-variant font-mono uppercase text-label-sm">
-                  {"Escrow Subtotal (3 Items)"}
+                  {"Subtotal (3 Items)"}
                 </span>
                 <span className="font-mono font-bold text-primary text-body-md" id="subtotal-display"><CartAmount kind="subtotal"/></span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1">
                   <span className="text-on-surface-variant font-mono uppercase text-label-sm">
-                    {"Calibre Regulation & Bench Test"}
+                    {"Quality Inspection"}
                   </span>
                   <span className="material-symbols-outlined text-outline text-[14px]" title="Includes multi-position timing machine verification">
                     {"help"}
@@ -430,14 +430,14 @@ export default function AcquisitionGrid(){
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1">
                   <span className="text-on-surface-variant font-mono uppercase text-label-sm">
-                    {"Insured Armored Escort Transit"}
+                    {"Insured Express Delivery"}
                   </span>
-                  <span className="material-symbols-outlined text-outline text-[14px]" title="Covered 100% under Lloyd's of London horological transit protocol">
+                  <span className="material-symbols-outlined text-outline text-[14px]" title="Covered 100% under transit protection">
                     {"shield"}
                   </span>
                 </div>
                 <span className="font-mono text-secondary font-semibold">
-                  {"FREE (Above ₹1,999)"}
+                  {"FREE"}
                 </span>
               </div>
               <div className="flex items-center justify-between">
@@ -451,16 +451,16 @@ export default function AcquisitionGrid(){
               <div className="flex items-baseline justify-between pt-space-xs">
                 <div>
                   <span className="font-label-lg text-label-lg uppercase tracking-wider text-primary font-bold block">
-                    {"Manifest Total"}
+                    {"Total Amount"}
                   </span>
                   <span className="font-label-sm text-[10px] text-outline font-mono uppercase">
-                    {"256-Bit Escrow Vault Protected"}
+                    {"256-Bit Secure Encryption"}
                   </span>
                 </div>
                 <div className="text-right">
                   <span className="font-headline-md text-headline-md font-bold text-primary font-mono block leading-none" id="total-display"><CartAmount kind="total"/></span>
                   <span className="font-label-sm text-[10px] text-secondary font-mono">
-                    {"Net Payable In Escrow"}
+                    {"Total Payable"}
                   </span>
                 </div>
               </div>
@@ -471,7 +471,7 @@ export default function AcquisitionGrid(){
                   {"enhanced_encryption"}
                 </span>
                 <span>
-                  {"Proceed to Certified Checkout"}
+                  {"Proceed to Checkout"}
                 </span>
               </button>
               <button className="w-full py-2.5 bg-surface-container text-primary rounded-DEFAULT font-label-md text-label-md uppercase tracking-wider font-semibold flex items-center justify-center gap-space-xs hover:bg-surface-container-high transition-colors" data-cart-action="export" type="button">
@@ -479,7 +479,7 @@ export default function AcquisitionGrid(){
                   {"download_for_offline"}
                 </span>
                 <span>
-                  {"Export Manifest (PDF / Escrow Receipt)"}
+                  {"Download Invoice / Order PDF"}
                 </span>
               </button>
             </div>
@@ -489,18 +489,18 @@ export default function AcquisitionGrid(){
                   {"verified_user"}
                 </span>
                 <span>
-                  {"Horological Escrow Guarantee"}
+                  {"Safe & Secure Payment"}
                 </span>
               </div>
               <p className="font-body-sm text-[12px] text-on-surface-variant leading-relaxed">
-                {"\n              Every timepiece calibrated across 5 positions. Zero funds transferred to seller until 7-day atelier caliber tolerance verification window concludes. Micro-checked against ISO 1413 shock & DIN 8309 antimagnetic guidelines.\n            "}
+                {"\n              Every timepiece is calibrated and verified. Protected by 256-bit encryption with full transit insurance and a 7-day inspection return guarantee.\n            "}
               </p>
               <div className="flex items-center justify-between pt-1 font-label-sm text-[10px] text-outline font-mono uppercase">
                 <span>
                   {"GENEVA COMPLIANT"}
                 </span>
                 <span>
-                  {"ESCROW #AMH-2025"}
+                  {"100% SECURE"}
                 </span>
               </div>
             </div>

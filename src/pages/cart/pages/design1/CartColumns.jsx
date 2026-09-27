@@ -174,7 +174,7 @@ export default function CartColumns(){
                       <span className="material-symbols-outlined text-[15px] text-tertiary-container">
                         {"lock"}
                       </span>
-                      {"\n                      Escrow Vault Reserved • Dispatches in 24h\n                    "}
+                      {"\n                      In Stock • Dispatches in 24h\n                    "}
                     </span>
                   </div>
                 </div>
@@ -312,15 +312,15 @@ export default function CartColumns(){
               </div>
               <div>
                 <h4 className="font-headline-sm text-headline-sm font-bold text-on-primary">
-                  {"AMIHIVE 256-Bit Escrow Vault Protocol"}
+                  {"AMIHIVE 100% Safe & Secure Checkout"}
                 </h4>
                 <p className="font-body-sm text-body-sm text-outline-variant">
-                  {"Funds remain locked in certified custody until your 7-day inspection and chronometer verification is complete."}
+                  {"Your payment is securely processed with full transit insurance and a 7-day hassle-free return guarantee."}
                 </p>
               </div>
             </div>
             <a className="whitespace-nowrap px-space-md py-space-xs rounded-DEFAULT bg-secondary text-on-secondary font-label-md text-label-md uppercase tracking-wider font-semibold hover:bg-secondary-fixed transition-colors" href="#">
-              {"\n              Read Escrow Charter\n            "}
+              {"\n              Learn More\n            "}
             </a>
           </div>
         </div>
@@ -336,10 +336,10 @@ export default function CartColumns(){
             </div>
             <div className="flex items-center justify-between mb-space-md">
               <h2 className="font-headline-sm text-headline-sm text-primary font-bold">
-                {"Acquisition Ledger"}
+                {"Order Summary"}
               </h2>
               <span className="font-label-sm text-label-sm font-mono text-outline uppercase">
-                {"INR / ESCROW"}
+                {"INR (₹)"}
               </span>
             </div>
             <div className="flex flex-col gap-space-sm font-body-sm text-body-sm">
@@ -361,9 +361,9 @@ export default function CartColumns(){
               <div className="flex items-center justify-between text-on-surface">
                 <span className="flex items-center gap-1">
                   <span>
-                    {"Armored Transit & Insurance"}
+                    {"Express Delivery & Insurance"}
                   </span>
-                  <span className="material-symbols-outlined text-outline text-[15px]" title="Complimentary armored air courier for orders over ₹1,999">
+                  <span className="material-symbols-outlined text-outline text-[15px]" title="Complimentary express courier for orders over ₹1,999">
                     {"help_outline"}
                   </span>
                 </span>
@@ -408,10 +408,10 @@ export default function CartColumns(){
             <div className="flex items-end justify-between mb-space-md">
               <div>
                 <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">
-                  {"Total Escrow Value"}
+                  {"Total Amount"}
                 </span>
                 <p className="font-label-sm text-label-sm text-outline">
-                  {"Incl. all atelier duties & certifications"}
+                  {"All taxes and shipping included"}
                 </p>
               </div>
               <div className="text-right">
@@ -423,7 +423,7 @@ export default function CartColumns(){
                 {"lock"}
               </span>
               <span>
-                {"Proceed to Secure Escrow"}
+                {"Proceed to Checkout"}
               </span>
             </button>
             <div className="w-full grid grid-cols-2 gap-space-xs mb-space-md">
@@ -431,7 +431,7 @@ export default function CartColumns(){
                 <span className="material-symbols-outlined text-[16px]">
                   {"account_balance"}
                 </span>
-                {"\n                Direct Wire\n              "}
+                {"\n                Bank Transfer\n              "}
               </button>
               <button className="py-2 bg-surface-container-low hover:bg-surface-container text-primary rounded-DEFAULT font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center justify-center gap-1" type="button">
                 <span className="material-symbols-outlined text-[16px]">
@@ -446,7 +446,7 @@ export default function CartColumns(){
                   {"verified_user"}
                 </span>
                 <span>
-                  {"256-Bit Escrow Protocol Vault Protection"}
+                  {"256-Bit Secure Encryption"}
                 </span>
               </div>
               <div className="flex items-center gap-space-xs">
@@ -454,7 +454,7 @@ export default function CartColumns(){
                   {"schedule"}
                 </span>
                 <span>
-                  {"7-Day In-Hand Chronometer Precision Trial"}
+                  {"7-Day Return & Trial Period"}
                 </span>
               </div>
               <div className="flex items-center gap-space-xs">
@@ -462,7 +462,7 @@ export default function CartColumns(){
                   {"shield"}
                 </span>
                 <span>
-                  {"5-Year International Mechanical Calibre Warranty"}
+                  {"5-Year Movement Warranty"}
                 </span>
               </div>
             </div>

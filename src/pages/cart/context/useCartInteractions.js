@@ -27,7 +27,19 @@ export function useCartInteractions(){
 
     const button=event.target.closest("button");
     if(!button){if(event.target.closest('a[href="#"]'))event.preventDefault();return;}
+    const btnText = (button.textContent || "").trim().toLowerCase();
     const action=button.dataset.cartAction;
+
+    if (action === "checkout" || btnText.includes("checkout") || btnText.includes("proceed to secure") || btnText.includes("proceed to escrow")) {
+      event.preventDefault();
+      if (cart.onNavigateToCheckout) {
+        cart.onNavigateToCheckout();
+      } else {
+        cart.setToast("Checkout preview only: connect this page to your Spring Boot API.");
+      }
+      return;
+    }
+
     if(!action)return;
     event.preventDefault();
     const item=button.closest("[data-cart-key]")?.dataset.cartKey;

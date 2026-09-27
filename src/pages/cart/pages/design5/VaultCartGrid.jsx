@@ -7,10 +7,10 @@ export default function VaultCartGrid(){
           <div className="flex flex-col gap-space-md">
             <div className="flex items-center justify-between pb-space-xs">
               <span className="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-semibold">
-                {"Allocated Timepieces (3)"}
+                {"Items in Cart (3)"}
               </span>
               <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline font-mono">
-                {"EST. TRANSIT: 48H ESCROW"}
+                {"EST. DELIVERY: 48 HOURS"}
               </span>
             </div>
             <CartItem cartKey="aster" className="bg-surface-container-lowest p-space-md md:p-space-lg rounded-xl shadow-sm flex flex-col sm:flex-row gap-space-md items-center justify-between group transition-all hover:shadow-md">
@@ -337,7 +337,7 @@ export default function VaultCartGrid(){
           <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-md flex flex-col gap-space-md">
             <div className="flex items-center justify-between pb-space-xs">
               <span className="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">
-                {"Escrow Valuation"}
+                {"Order Summary"}
               </span>
               <span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">
                 {"AUTHENTICATED"}
@@ -346,14 +346,14 @@ export default function VaultCartGrid(){
             <div className="flex flex-col gap-space-sm">
               <div className="flex items-center justify-between text-body-sm text-on-surface-variant font-body-sm">
                 <span>
-                  {"Cart Subtotal (3 Pieces)"}
+                  {"Subtotal (3 Items)"}
                 </span>
                 <span className="font-mono text-on-surface font-semibold"><CartAmount kind="subtotal"/></span>
               </div>
               <div className="flex items-center justify-between text-body-sm text-on-surface-variant font-body-sm">
                 <span className="flex items-center gap-1">
                   <span>
-                    {"Milestone Presentation Coffret"}
+                    {"Gift Packaging"}
                   </span>
                   <span className="material-symbols-outlined text-[14px] text-secondary">
                     {"redeem"}
@@ -364,19 +364,19 @@ export default function VaultCartGrid(){
               <div className="flex items-center justify-between text-body-sm text-on-surface-variant font-body-sm">
                 <span className="flex items-center gap-1">
                   <span>
-                    {"White-Glove Armored Transit"}
+                    {"Express Delivery"}
                   </span>
                   <span className="material-symbols-outlined text-[14px] text-outline">
                     {"verified"}
                   </span>
                 </span>
                 <span className="font-mono text-tertiary-container font-bold uppercase tracking-wider text-[11px] bg-secondary-fixed/50 px-1.5 py-0.5 rounded-DEFAULT">
-                  {"Complimentary"}
+                  {"FREE"}
                 </span>
               </div>
               <div className="flex items-center justify-between text-body-sm text-on-surface-variant font-body-sm">
                 <span>
-                  {"Global Horological Escrow Insurance"}
+                  {"Transit Insurance"}
                 </span>
                 <span className="font-mono text-on-surface">
                   {"Included"}
@@ -386,7 +386,7 @@ export default function VaultCartGrid(){
             <div className="bg-surface-container-low p-space-md rounded-lg flex items-baseline justify-between mt-space-xs">
               <div>
                 <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline block">
-                  {"Total Gift Escrow"}
+                  {"Total Amount"}
                 </span>
                 <span className="font-label-sm text-[10px] text-secondary uppercase font-bold">
                   {"Zero Transaction Surcharge"}
@@ -402,7 +402,7 @@ export default function VaultCartGrid(){
             <div className="flex flex-col gap-space-xs pt-space-xs">
               <button className="w-full bg-primary-container text-on-primary hover:bg-primary transition-colors py-space-md px-space-lg rounded-DEFAULT font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-sm shadow-sm group" data-cart-action="checkout" type="button">
                 <span>
-                  {"Acquire as Gift & Proceed to Checkout"}
+                  {"Proceed to Checkout"}
                 </span>
                 <span className="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">
                   {"arrow_forward"}
@@ -413,7 +413,7 @@ export default function VaultCartGrid(){
                   {"bookmark_add"}
                 </span>
                 <span>
-                  {"Save Gifting Configuration to Vault"}
+                  {"Save for Later"}
                 </span>
               </button>
             </div>
@@ -423,7 +423,7 @@ export default function VaultCartGrid(){
                   {"verified"}
                 </span>
                 <span className="font-body-sm text-body-sm">
-                  {"256-bit Secure Escrow Deposit Release"}
+                  {"256-bit Secure Encryption"}
                 </span>
               </div>
               <div className="flex items-center gap-space-xs text-body-sm text-on-surface-variant">
@@ -431,7 +431,7 @@ export default function VaultCartGrid(){
                   {"flight_takeoff"}
                 </span>
                 <span className="font-body-sm text-body-sm">
-                  {"GPS Sealed Armored Courier Transit"}
+                  {"GPS Tracked Express Delivery"}
                 </span>
               </div>
               <div className="flex items-center gap-space-xs text-body-sm text-on-surface-variant">
@@ -439,7 +439,7 @@ export default function VaultCartGrid(){
                   {"restore"}
                 </span>
                 <span className="font-body-sm text-body-sm">
-                  {"7-Day Calibre Inspection Guarantee"}
+                  {"7-Day Return Guarantee"}
                 </span>
               </div>
             </div>

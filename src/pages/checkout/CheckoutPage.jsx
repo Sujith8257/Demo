@@ -22,7 +22,7 @@ function readDesign() {
   return 1;
 }
 
-export default function CheckoutPage({ onNavigateHome, onNavigateToCart }) {
+export default function CheckoutPage({ onNavigateHome, onNavigateToCart, onNavigateToCatalogue }) {
   const [active, setActive] = useState(readDesign);
   const reduced = useReducedMotion();
   const Page = DESIGNS[active];
@@ -59,7 +59,7 @@ export default function CheckoutPage({ onNavigateHome, onNavigateToCart }) {
               transition={{ duration: reduced ? 0 : 0.26, ease: "easeOut" }}
             >
               <Suspense fallback={<div style={{ padding: "190px 28px", color: "#002524" }}>Loading checkout design…</div>}>
-                <Page onNavigateHome={onNavigateHome} onNavigateToCart={onNavigateToCart} />
+                <Page onNavigateHome={onNavigateHome} onNavigateToCart={onNavigateToCart} onNavigateToCatalogue={onNavigateToCatalogue} />
               </Suspense>
             </motion.div>
           </AnimatePresence>

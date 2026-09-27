@@ -22,7 +22,7 @@ export default function Footer(){
               {"verified"}
             </span>
             <span className="font-label-sm text-label-sm uppercase tracking-widest text-on-primary">
-              {"256-BIT ESCROW ENCRYPTION"}
+              {"256-BIT SECURE ENCRYPTION"}
             </span>
           </div>
         </div>

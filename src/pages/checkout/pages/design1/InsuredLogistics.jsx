@@ -7,7 +7,7 @@ export default function InsuredLogistics() {
 <div className="flex items-center justify-between pb-space-md mb-space-lg">
 <div className="flex items-center gap-space-sm">
 <span className="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm">3</span>
-<h2 className="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">Armored Transit & Escapement Logistics</h2>
+<h2 className="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">Express Delivery Options</h2>
 </div>
 <span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary flex items-center gap-1 font-bold">
 <span className="material-symbols-outlined text-[16px]">lock_clock</span> 100% Fully Insured
@@ -24,11 +24,11 @@ export default function InsuredLogistics() {
 <div className="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
 <div>
 <div className="flex items-center gap-space-xs">
-<span className="font-label-lg text-label-lg text-primary font-bold">Armored Sealed Transit (Air Courier)</span>
+<span className="font-label-lg text-label-lg text-primary font-bold">Express Air Delivery</span>
 <span className="px-2 py-0.5 bg-primary text-on-primary font-label-sm text-label-sm rounded uppercase">Free (Atelier Covered)</span>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                    Guaranteed priority delivery within 48 hours. Real-time GPS tamper-evident cryo-seal tracking.
+                    Guaranteed priority delivery within 48 hours. Real-time GPS tamper-evident seal tracking.
                   </p>
 </div>
 <div className="text-left sm:text-right">
@@ -48,7 +48,7 @@ export default function InsuredLogistics() {
 <div>
 <div className="flex items-center gap-space-xs">
 <span className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
-                      White-Glove Vault Hand-Delivery & On-Site Escapement Check
+                      Premium White-Glove Hand Delivery & Sizing
                     </span>
 <span className="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm rounded uppercase">Concierge</span>
 </div>

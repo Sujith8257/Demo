@@ -112,7 +112,7 @@ export default function PRODUCTINTEGRITYTRIPTYCH({
             </span>
             <div>
               <div className={"font-label-md text-label-md font-bold text-on-surface"}>
-                Secure Armored Logistics
+                Secure Express Delivery
               </div>
               <div className={"font-body-sm text-body-sm text-on-surface-variant"}>
                 Insured dispatch within 48 hours

@@ -17,7 +17,7 @@ export default function Accessories(){
               {"\n              Complete the Look — Atelier Accessories\n            "}
             </h2>
             <p className="font-body-sm text-body-sm text-on-surface-variant">
-              {"\n              Engineered additions to accompany your registered timepieces. Added items seamlessly merge into the active escrow parcel.\n            "}
+              {"\n              Engineered additions to accompany your registered timepieces. Added items seamlessly merge into your cart.\n            "}
             </p>
           </div>
           <div className="flex items-center gap-space-xs">

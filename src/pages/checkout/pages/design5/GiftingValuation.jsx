@@ -87,13 +87,13 @@ export default function GiftingValuation() {
 <span className="text-tertiary-container font-semibold">-₹1,500</span>
 </div>
 <div className="flex items-center justify-between font-body-sm text-body-sm">
-<span className="text-on-surface-variant">White-Glove Armored Transit</span>
-<span className="text-secondary font-bold font-label-sm text-label-sm uppercase">Complimentary</span>
+<span className="text-on-surface-variant">Express Delivery</span>
+<span className="text-secondary font-bold font-label-sm text-label-sm uppercase">FREE</span>
 </div>
 
 <div className="mt-space-sm pt-space-sm bg-surface-container p-space-md rounded flex items-center justify-between">
 <div className="flex flex-col">
-<span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Final Escrow Total</span>
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Total Amount</span>
 <span className="font-body-sm text-[11px] text-on-surface-variant">Includes all duties, taxes & insurance</span>
 </div>
 <div className="text-right">
@@ -105,7 +105,7 @@ export default function GiftingValuation() {
 <div className="mt-space-md flex flex-col gap-space-sm">
 <button className="w-full bg-[#123B3A] hover:bg-[#002524] text-on-primary py-3.5 px-space-md rounded font-label-lg text-label-lg uppercase tracking-wider font-bold transition-all shadow-md flex items-center justify-center gap-2 group" type="button">
 <span className="material-symbols-outlined text-[20px] text-secondary group-hover:scale-110 transition-transform">lock</span>
-<span>Confirm Gift Order & Pay Securely — ₹42,770</span>
+<span>Complete Order — ₹42,770</span>
 </button>
 <p className="font-body-sm text-[11px] text-center text-on-surface-variant">
               By confirming, you authorize our atelier to commence custom brass engraving. Dispatched in tamper-sealed wooden coffret within 24 hours.
@@ -135,7 +135,7 @@ export default function GiftingValuation() {
 <div className="flex flex-col">
 <span className="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">7-Day Recipient Inspection Window</span>
 <p className="font-body-sm text-[12px] text-on-surface-variant">
-              If the recipient desires a different reference or case diameter, our armored courier will collect and exchange free of hassle.
+              If the recipient desires a different model or size, our express courier will collect and exchange hassle-free.
             </p>
 </div>
 </div>

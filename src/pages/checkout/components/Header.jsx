@@ -1,11 +1,14 @@
-import { useCheckoutUI } from "../context/CheckoutUI.jsx";
-export default function Header({ onNavigateToCart, onNavigateHome }){
- const { paymentTab,setPaymentTab,remaining,formatCountdown,accordionOpen,toggleAccordion,engraving,setEngraving,giftingIntent,setGiftingIntent }=useCheckoutUI();
- return (<>
-<header className="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="bg-primary-container text-on-primary py-1 px-margin-mobile lg:px-margin text-center tracking-widest uppercase font-label-sm text-label-sm border-b border-primary"><div className="max-w-7xl mx-auto flex items-center justify-center gap-space-sm"><span>Verified Atelier Escapement</span><span className="text-secondary">•</span><span>Insured Armored Transit</span><span className="text-secondary">•</span><span>256-Bit Escrow Encryption</span></div></div><div className="h-20 max-w-7xl mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-space-md"><div className="flex items-center gap-space-sm">
-  <a className="flex items-center gap-space-sm focus:outline-none cursor-pointer" href="#" onClick={(e)=>{e.preventDefault();onNavigateHome?.();}}>
-    <div className="w-9 h-9 rounded bg-primary-container flex items-center justify-center text-secondary shadow-sm"><span className="material-symbols-outlined text-[20px]">workspace_premium</span></div><div className="flex flex-col"><span className="font-headline-sm text-headline-sm tracking-tight text-primary leading-none uppercase">AMIHIVE</span><span className="font-label-sm text-label-sm text-secondary tracking-widest uppercase mt-0.5">Haute Horlogerie</span></div>
-  </a>
-</div><div className="hidden md:flex items-center gap-space-sm bg-surface-container px-space-md py-1.5 rounded-full"><span className="material-symbols-outlined text-secondary text-[16px]">lock</span><span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Secure Escrow Checkout</span><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span><span className="font-label-sm text-label-sm text-on-surface-variant">TLS 1.3 Certified</span></div><div className="flex items-center gap-space-md lg:gap-space-lg"><nav className="flex items-center" data-active-classes="text-primary font-bold"><a className="inline-flex items-center gap-1 font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" data-path="shopping-cart" href="#" onClick={(e)=>{e.preventDefault();onNavigateToCart?.();}}><span className="material-symbols-outlined text-[16px]">arrow_back</span>Back to Cart</a></nav><div className="hidden sm:flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant"><span className="material-symbols-outlined text-[15px] text-secondary">call</span><span className="tracking-wider">+91 (800) CHRONO</span></div><div className="flex items-center gap-1 text-secondary pl-space-xs" title="256-bit Bank Grade Encrypted"><span className="material-symbols-outlined text-[18px]">verified_user</span></div><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header>
-</>);
+import BaseHeader from "../../../components/layout/Header.jsx";
+
+export default function Header({ onNavigateHome, onNavigateToCatalogue, onNavigateToCart, ...props }) {
+  return (
+    <BaseHeader
+      showNavStrip={true}
+      theme="variant5"
+      onNavigateHome={onNavigateHome}
+      onNavigateToCatalogue={onNavigateToCatalogue}
+      onNavigateToCart={onNavigateToCart}
+      {...props}
+    />
+  );
 }

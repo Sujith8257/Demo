@@ -7,11 +7,11 @@ export default function InstantPayment() {
 <div className="flex items-center justify-between pb-space-sm mb-space-sm">
 <div className="flex items-center gap-space-sm">
 <span className="w-6 h-6 rounded bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold">04</span>
-<h2 className="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">Instant Escrow Settlement</h2>
+<h2 className="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">Payment Method</h2>
 </div>
 <div className="flex items-center gap-1 text-secondary font-label-sm text-label-sm">
 <span className="material-symbols-outlined text-[16px]">lock</span>
-<span>256-Bit Escrow Vault</span>
+<span>256-Bit Secure Payment</span>
 </div>
 </div>
 <div className="space-y-space-sm">
@@ -20,7 +20,7 @@ export default function InstantPayment() {
 <div className="flex items-center justify-between">
 <label className="flex items-center gap-space-sm cursor-pointer">
 <input defaultChecked className="accent-primary-container" name="payment_mode" type="radio" />
-<span className="font-label-lg text-label-lg uppercase tracking-wider text-primary font-bold">UPI FastPay • One-Tap Escrow</span>
+<span className="font-label-lg text-label-lg uppercase tracking-wider text-primary font-bold">UPI (Google Pay, PhonePe, Paytm)</span>
 </label>
 <span className="px-2 py-0.5 rounded font-label-sm text-label-sm bg-primary text-on-primary uppercase">Recommended</span>
 </div>
@@ -31,7 +31,7 @@ export default function InstantPayment() {
 <span className="material-symbols-outlined text-secondary text-[18px]">verified</span>
 </div>
 <button className="px-space-md py-2 bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-wider rounded hover:bg-primary-container transition-colors shadow-sm" type="button">
-                  Send UPI Push
+                  Pay via UPI
                 </button>
 </div>
 </div>
@@ -57,7 +57,7 @@ export default function InstantPayment() {
 <div className="flex items-center justify-between">
 <label className="flex items-center gap-space-sm cursor-pointer">
 <input className="accent-primary-container" name="payment_mode" type="radio" />
-<span className="font-label-md text-label-md text-primary font-bold uppercase">Corporate & High-Value NetBanking</span>
+<span className="font-label-md text-label-md text-primary font-bold uppercase">Net Banking</span>
 </label>
 <div className="hidden sm:flex items-center gap-1">
 <span className="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-lowest text-on-surface">HDFC</span>
@@ -73,11 +73,11 @@ export default function InstantPayment() {
 <label className="flex items-center gap-space-sm cursor-pointer">
 <input className="accent-primary-container" name="payment_mode" type="radio" />
 <div>
-<span className="font-label-md text-label-md text-primary font-bold uppercase">Armored Cash on Delivery</span>
+<span className="font-label-md text-label-md text-primary font-bold uppercase">Cash on Delivery (COD)</span>
 <span className="font-label-sm text-label-sm text-on-surface-variant ml-2">(Max Order ₹50,000)</span>
 </div>
 </label>
-<span className="font-label-sm text-label-sm text-secondary uppercase font-bold">+₹150 Secure Box Surcharge</span>
+<span className="font-label-sm text-label-sm text-secondary uppercase font-bold">+₹150 Handling Fee</span>
 </div>
 </div>
 </div>

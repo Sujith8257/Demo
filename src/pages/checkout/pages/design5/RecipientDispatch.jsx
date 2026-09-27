@@ -30,7 +30,7 @@ export default function RecipientDispatch() {
 <span className="font-label-md text-label-md uppercase tracking-wider text-primary font-bold">Send Directly to Gift Recipient</span>
 <span className="px-1.5 py-0.2 bg-secondary text-on-primary font-label-sm text-[9px] rounded font-bold uppercase">Selected</span>
 </div>
-<span className="font-body-sm text-body-sm text-on-surface-variant">White-glove armored dispatch straight to the recipient's private residence.</span>
+<span className="font-body-sm text-body-sm text-on-surface-variant">White-glove express delivery directly to the recipient's address.</span>
 </div>
 </label>
 </div>
@@ -56,11 +56,11 @@ export default function RecipientDispatch() {
 <input className="w-full bg-surface-container-low px-space-md py-2.5 rounded font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-sm" type="text" defaultValue="+91 97412 88301" />
 <span className="material-symbols-outlined absolute right-3 top-3 text-[18px] text-on-surface-variant">smartphone</span>
 </div>
-<span className="font-label-sm text-[10px] text-on-surface-variant italic">Used solely for armored courier delivery coordination. Pricing details are strictly redacted.</span>
+<span className="font-label-sm text-[10px] text-on-surface-variant italic">Used solely for express delivery coordination. Price details are strictly hidden.</span>
 </div>
 </div>
 <div className="flex flex-col gap-1">
-<label className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold">Recipient Vault / Residence Address</label>
+<label className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-bold">Recipient Delivery Address</label>
 <textarea className="w-full bg-surface-container-low px-space-md py-2 rounded font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-sm resize-none" rows="2" defaultValue={"Villa 14, Palm Meadows, Whitefield, Bengaluru 560066, Karnataka"} />
 </div>
 

@@ -10,7 +10,7 @@ const defaults={
 };
 const lookbookCaptions=["08:45 AM — Studio Desk & Structured Focus","03:30 PM — Weekend Transit & Raw Denim","09:15 PM — Nocturne Gathering & Satin Lapels"];
 const activePaths={1:"automatic",2:"automatic",3:"smart",4:"fashion",5:"automatic"};
-export function ProductProvider({children,variant,cart,setCart,wishlist,setWishlist}){
+export function ProductProvider({children,variant,cart,setCart,wishlist,setWishlist,onNavigateToCheckout}){
  const data=designData[String(variant)],initial=defaults[variant];
  const [galleryIndex,setGalleryIndex]=useState(0),[finish,setFinish]=useState(initial.finish),[dialName,setDialName]=useState(initial.dialName),
   [strapName,setStrapName]=useState(initial.strapName),[size,setSize]=useState(initial.size),[dialMode,setMode]=useState(initial.dialMode),
@@ -58,7 +58,7 @@ export function ProductProvider({children,variant,cart,setCart,wishlist,setWishl
   dialMode,dialLabel,setDialMode,dialScreenClass,swatch,setSwatch,optionClass,qty,adjustQty,faqOpen,toggleFaq,pin,setPin,checkPin,deliveryFeedback,
   wrist,setWrist,wristLabel:`${wrist} mm (${wrist>=170?"Recommended: 44mm Chassis":"Recommended: 42mm Chassis"})`,lookbook,setLookbook,lookbookCaption:lookbookCaptions[lookbook],
   lookbookImage:null,monogramOpen,toggleMonogram,monogram,setMonogram,suggestionOffset,shiftSuggestions,suggestionOrder,lume,toggleLume,zoom,toggleZoom,search,setSearch,toast,notify,clearToast,
-  collectionRef,scrollCollection,cartCount:cart.length+2,wishlistCount:wishlist.length+3,addCart,toggleWishlist,resetOptions,navClass
+  collectionRef,scrollCollection,cartCount:cart.length+2,wishlistCount:wishlist.length+3,addCart,toggleWishlist,resetOptions,navClass,onNavigateToCheckout
  }),[variant,data,cart,wishlist,galleryImages,galleryIndex,setGallery,shiftGallery,galleryButtonClass,finish,dialName,strapName,size,dialMode,dialLabel,swatch,optionClass,qty,
   adjustQty,faqOpen,toggleFaq,pin,checkPin,deliveryFeedback,wrist,lookbook,monogramOpen,toggleMonogram,monogram,suggestionOffset,shiftSuggestions,suggestionOrder,lume,toggleLume,zoom,toggleZoom,search,toast,
   notify,clearToast,scrollCollection,addCart,toggleWishlist,resetOptions,navClass,dialScreenClass]);

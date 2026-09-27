@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import "./DesignTaskbar.css";
 
-export default function DesignTaskbar({ active, onChange, onNavigateHome }) {
+export default function DesignTaskbar({ active, onChange, label = "DESIGN" }) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -17,18 +17,8 @@ export default function DesignTaskbar({ active, onChange, onNavigateHome }) {
       >
         <span aria-hidden="true">{collapsed ? "▲" : "▼"}</span>
       </button>
-      <nav id="design-taskbar" className="design-taskbar" aria-label="Choose catalogue design" hidden={collapsed}>
-        {onNavigateHome && (
-          <button
-            type="button"
-            className="design-taskbar-button"
-            onClick={onNavigateHome}
-            title="Back to Home page"
-          >
-            <span className="design-taskbar-text">← Home</span>
-          </button>
-        )}
-        <span className="design-taskbar-label">DESIGN</span>
+      <nav id="design-taskbar" className="design-taskbar" aria-label="Choose design variant" hidden={collapsed}>
+        <span className="design-taskbar-label">{label}</span>
         {[1, 2, 3, 4, 5].map(id => (
           <button
             type="button"
@@ -41,7 +31,7 @@ export default function DesignTaskbar({ active, onChange, onNavigateHome }) {
               <motion.span
                 className="design-taskbar-active"
                 layoutId="design-active"
-                transition={{ type: "spring", stiffness: 420, damping: 38 }}
+                transition={{ type: "spring", stiffness: 450, damping: 35 }}
               />
             )}
             <span className="design-taskbar-text">Variant {id}</span>

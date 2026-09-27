@@ -10,8 +10,8 @@ export default function SecuredVaultDestination() {
                 02
               </div>
 <div>
-<span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Armored Dispatch Point</span>
-<h3 className="font-headline-sm text-headline-sm text-primary">Secured Vault Destination</h3>
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Shipping Address</span>
+<h3 className="font-headline-sm text-headline-sm text-primary">Delivery Destination</h3>
 </div>
 </div>
 <div className="flex items-center gap-space-sm">
@@ -42,7 +42,7 @@ export default function SecuredVaultDestination() {
                 </span>
 <span className="inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
 <span className="material-symbols-outlined text-[15px] text-secondary">lock</span>
-                  Armored Courier Route Active
+                  Express Courier Route Active
                 </span>
 <span className="inline-flex items-center gap-1 bg-surface-container px-2 py-1 rounded">
 <span className="material-symbols-outlined text-[15px] text-secondary">badge</span>
@@ -52,7 +52,7 @@ export default function SecuredVaultDestination() {
 </div>
 <div className="mt-space-sm flex items-center justify-between">
 <button className="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-primary flex items-center gap-1" type="button">
-<span className="material-symbols-outlined text-[16px]">add_circle</span> Add Alternative Vault Chamber
+<span className="material-symbols-outlined text-[16px]">add_circle</span> Add New Delivery Address
               </button>
 <span className="font-label-sm text-label-sm text-on-surface-variant">Zone 1 Secure Air-Cargo Hub</span>
 </div>

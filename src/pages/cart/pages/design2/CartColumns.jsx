@@ -286,7 +286,7 @@ export default function CartColumns(){
           <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col">
             <div className="flex items-center justify-between pb-space-sm">
               <span className="font-headline-sm text-headline-sm text-primary font-bold">
-                {"Order Telemetry"}
+                {"Order Summary"}
               </span>
               <span className="font-label-sm text-label-sm uppercase bg-surface-container px-2 py-0.5 rounded-DEFAULT text-outline font-mono">
                 {"ENCRYPTED"}
@@ -294,7 +294,7 @@ export default function CartColumns(){
             </div>
             <div className="bg-surface-container-low p-space-sm rounded-lg my-space-sm">
               <label className="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-1">
-                {"Armored Transit Estimator"}
+                {"Delivery Estimator"}
               </label>
               <div className="flex items-center gap-space-xs">
                 <input className="bg-surface-container-lowest px-space-sm py-1.5 rounded-DEFAULT font-label-md text-label-md text-on-surface w-full focus:outline-none" id="pincode-input" placeholder="Enter Pincode..." type="text" value="110001" />
@@ -319,7 +319,7 @@ export default function CartColumns(){
             <div className="flex flex-col gap-space-xs font-body-sm text-body-sm py-space-sm">
               <div className="flex justify-between items-center text-on-surface-variant">
                 <span>
-                  {"Selected Calibres Subtotal"}
+                  {"Subtotal"}
                 </span>
                 <span className="font-mono font-semibold text-on-surface" id="summary-subtotal"><CartAmount kind="subtotal"/></span>
               </div>
@@ -328,19 +328,19 @@ export default function CartColumns(){
                   <span className="material-symbols-outlined text-[14px]">
                     {"local_offer"}
                   </span>
-                  {"\n                Performance Bundle Savings\n              "}
+                  {"\n                Bundle Savings\n              "}
                 </span>
                 <span className="font-mono" id="summary-discount"><CartAmount kind="discount"/></span>
               </div>
               <div className="flex justify-between items-center text-on-surface-variant">
                 <span className="flex items-center gap-1">
-                  {"\n                Armored Transit Insurance\n                "}
+                  {"\n                Shipping & Insurance\n                "}
                   <span className="material-symbols-outlined text-[14px] text-outline" title="Includes 100% replacement valuation guarantee during carrier custody.">
                     {"info"}
                   </span>
                 </span>
                 <span className="font-mono text-tertiary-container uppercase font-bold text-label-sm">
-                  {"Complimentary"}
+                  {"FREE"}
                 </span>
               </div>
               <div className="flex justify-between items-center text-on-surface-variant text-label-sm text-[11px]">
@@ -353,7 +353,7 @@ export default function CartColumns(){
             <div className="pt-space-sm flex justify-between items-baseline">
               <div className="flex flex-col">
                 <span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">
-                  {"Total Certified Value"}
+                  {"Total Amount"}
                 </span>
                 <span className="font-label-sm text-[10px] text-outline-variant">
                   {"Inclusive of all duties"}
@@ -366,7 +366,7 @@ export default function CartColumns(){
                 {"lock"}
               </span>
               <span>
-                {"Proceed to Escrow Checkout"}
+                {"Proceed to Checkout"}
               </span>
             </button>
             <div className="grid grid-cols-2 gap-space-xs mt-space-md pt-space-sm font-label-sm text-[11px] text-outline">
@@ -375,7 +375,7 @@ export default function CartColumns(){
                   {"verified"}
                 </span>
                 <span>
-                  {"Geneva Escapement Protocol"}
+                  {"100% Genuine Certified"}
                 </span>
               </div>
               <div className="flex items-center gap-1">
@@ -383,7 +383,7 @@ export default function CartColumns(){
                   {"rotate_right"}
                 </span>
                 <span>
-                  {"7-Day Return Inspection"}
+                  {"7-Day Free Returns"}
                 </span>
               </div>
             </div>

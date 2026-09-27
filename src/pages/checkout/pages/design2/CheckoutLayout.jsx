@@ -1,4 +1,9 @@
 import { useCheckoutUI } from "../../context/CheckoutUI.jsx";
+import EscrowIntro from "./EscrowIntro.jsx";
+import DestinationArchive from "./DestinationArchive.jsx";
+import PaymentMechanism from "./PaymentMechanism.jsx";
+import GuildCovenant from "./GuildCovenant.jsx";
+import OrderSummary from "./OrderSummary.jsx";
 export default function CheckoutLayout() {
   const { paymentTab, setPaymentTab, remaining, formatCountdown, accordionOpen, toggleAccordion, engraving, setEngraving, giftingIntent, setGiftingIntent } = useCheckoutUI();
   return (

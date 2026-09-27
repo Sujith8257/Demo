@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import "../../chrono/components/DesignTaskbar.css";
 
-export default function DesignTaskbar({ active, onChange, onNavigateHome, onNavigateToCart }) {
+export default function DesignTaskbar({ active, onChange, label = "DESIGN" }) {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -17,28 +17,8 @@ export default function DesignTaskbar({ active, onChange, onNavigateHome, onNavi
       >
         <span aria-hidden="true">{collapsed ? "▲" : "▼"}</span>
       </button>
-      <nav id="checkout-design-taskbar" className="design-taskbar" aria-label="Choose checkout design" hidden={collapsed}>
-        {onNavigateHome && (
-          <button
-            type="button"
-            className="design-taskbar-button"
-            onClick={onNavigateHome}
-            title="Back to Home"
-          >
-            <span className="design-taskbar-text">← Home</span>
-          </button>
-        )}
-        {onNavigateToCart && (
-          <button
-            type="button"
-            className="design-taskbar-button"
-            onClick={onNavigateToCart}
-            title="Back to Cart"
-          >
-            <span className="design-taskbar-text">← Cart</span>
-          </button>
-        )}
-        <span className="design-taskbar-label">CHECKOUT</span>
+      <nav id="checkout-design-taskbar" className="design-taskbar" aria-label="Choose checkout variant" hidden={collapsed}>
+        <span className="design-taskbar-label">{label}</span>
         {[1, 2, 3, 4, 5].map(id => (
           <button
             type="button"
@@ -51,10 +31,10 @@ export default function DesignTaskbar({ active, onChange, onNavigateHome, onNavi
               <motion.span
                 className="design-taskbar-active"
                 layoutId="checkout-design-active"
-                transition={{ type: "spring", stiffness: 420, damping: 38 }}
+                transition={{ type: "spring", stiffness: 450, damping: 35 }}
               />
             )}
-            <span className="design-taskbar-text">Checkout {id}</span>
+            <span className="design-taskbar-text">Variant {id}</span>
           </button>
         ))}
       </nav>

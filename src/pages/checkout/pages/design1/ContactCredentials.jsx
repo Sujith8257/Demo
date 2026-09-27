@@ -28,7 +28,7 @@ export default function ContactCredentials() {
               </div>
 </div>
 <div className="flex flex-col gap-space-xs">
-<label className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Armored Courier Mobile</label>
+<label className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Delivery Phone Number</label>
 <div className="p-space-sm bg-surface-container-low rounded-lg text-primary font-body-md text-body-md">
                 +91 98450 12890
               </div>
@@ -42,7 +42,7 @@ export default function ContactCredentials() {
 </div>
 </div>
 <span className="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">
-              Discrete encrypted SMS dispatch notifications with armored transport waypoint milestones
+              SMS notifications for delivery status and tracking updates
             </span>
 </label>
 </section>

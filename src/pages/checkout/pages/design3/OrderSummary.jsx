@@ -9,9 +9,9 @@ export default function OrderSummary() {
 <div className="flex items-center justify-between pb-space-sm mb-space-sm">
 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider">
 <span className="w-2 h-2 rounded-full bg-secondary"></span>
-              Active Sync: 3 Instruments Queued
+              3 Items in Cart
             </span>
-<span className="font-label-sm text-label-sm text-on-surface-variant">Manifest #AH-9810</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant">Order #AH-9810</span>
 </div>
 
 <div className="space-y-space-sm mb-space-md">
@@ -24,7 +24,7 @@ export default function OrderSummary() {
 <span className="font-label-md text-label-md text-primary font-bold">₹13,990</span>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant truncate">Grade 5 Titanium • Sapphire OLED • 46mm</p>
-<span className="font-label-sm text-label-sm text-secondary uppercase">Inspected Calibre • Serial #9102-TI</span>
+<span className="font-label-sm text-label-sm text-secondary uppercase">In Stock • Serial #9102-TI</span>
 </div>
 </div>
 
@@ -36,7 +36,7 @@ export default function OrderSummary() {
 <span className="font-label-md text-label-md text-primary font-bold">₹18,990</span>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant truncate">Calibre AH-2892 • 40mm • 48hr Reserve</p>
-<span className="font-label-sm text-label-sm text-secondary uppercase">COSC Certified Escapement</span>
+<span className="font-label-sm text-label-sm text-secondary uppercase">Automatic Movement</span>
 </div>
 </div>
 
@@ -48,42 +48,42 @@ export default function OrderSummary() {
 <span className="font-label-md text-label-md text-primary font-bold">₹14,290</span>
 </div>
 <p className="font-body-sm text-body-sm text-on-surface-variant truncate">Tactical Black DLC • 100m Hydro-Proof</p>
-<span className="font-label-sm text-label-sm text-secondary uppercase">Shock-Resist Calibre #401</span>
+<span className="font-label-sm text-label-sm text-secondary uppercase">Shock Resistant</span>
 </div>
 </div>
 </div>
 
 <div className="space-y-2 py-space-sm font-body-sm text-body-sm text-on-surface-variant">
 <div className="flex justify-between">
-<span>Items Subtotal (3 timepieces)</span>
+<span>Subtotal (3 Items)</span>
 <span className="text-on-surface font-semibold">₹47,270</span>
 </div>
 <div className="flex justify-between text-secondary">
 <span className="flex items-center gap-1">
 <span className="material-symbols-outlined text-[14px]">loyalty</span>
-                Performance Bundle Incentive
+                Bundle Discount
               </span>
 <span className="font-semibold">-₹2,500</span>
 </div>
 <div className="flex justify-between text-secondary">
 <span className="flex items-center gap-1">
 <span className="material-symbols-outlined text-[14px]">confirmation_number</span>
-                VIP Pass applied [VELOCITY-CHRONO]
+                Coupon Discount [VELOCITY-CHRONO]
               </span>
 <span className="font-semibold">-₹1,500</span>
 </div>
 <div className="flex justify-between">
-<span>Armored Transit Insurance (Comprehensive)</span>
-<span className="text-secondary font-bold uppercase font-label-sm text-label-sm">COMPLIMENTARY</span>
+<span>Express Delivery & Insurance</span>
+<span className="text-secondary font-bold uppercase font-label-sm text-label-sm">FREE</span>
 </div>
 <div className="flex justify-between">
-<span>GST & Escrow Verification Stamp (18% incl.)</span>
+<span>Applicable GST (18% included)</span>
 <span className="text-on-surface">Included</span>
 </div>
 <div className="pt-space-sm mt-space-xs flex items-baseline justify-between text-primary">
 <div className="flex flex-col">
-<span className="font-headline-sm text-headline-sm font-bold uppercase tracking-tight">Total Value</span>
-<span className="font-label-sm text-label-sm text-on-surface-variant">Protected in AMIHIVE Guild Escrow</span>
+<span className="font-headline-sm text-headline-sm font-bold uppercase tracking-tight">Total Amount</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant">100% Safe & Secure Checkout</span>
 </div>
 <div className="text-right">
 <span className="font-headline-lg text-headline-lg font-bold tracking-tight text-primary">₹43,270</span>
@@ -98,7 +98,7 @@ export default function OrderSummary() {
 <span className="w-8 h-8 rounded bg-surface-container-lowest/15 flex items-center justify-center text-secondary">
 <span className="material-symbols-outlined text-[20px]">lock</span>
 </span>
-<span>Slide to Authorize • Pay ₹43,270</span>
+<span>Pay Now — ₹43,270</span>
 </span>
 <span className="material-symbols-outlined text-[22px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
@@ -107,9 +107,9 @@ export default function OrderSummary() {
 <div className="mt-space-md p-space-sm rounded bg-surface-container-low flex items-start gap-space-sm">
 <span className="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5">verified_user</span>
 <div className="flex flex-col">
-<span className="font-label-sm text-label-sm font-bold uppercase tracking-wider text-primary">72-Hour Precision Timing Benchmark</span>
+<span className="font-label-sm text-label-sm font-bold uppercase tracking-wider text-primary">Quality Tested & Inspected</span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5 leading-snug">
-                Every mechanical balance wheel and digital telemetry sensor undergoes strict chronometric verification with signed certificate included in package.
+                Every timepiece undergoes strict quality verification with warranty and authentication card included.
               </p>
 </div>
 </div>
@@ -117,9 +117,9 @@ export default function OrderSummary() {
 
 <div className="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between">
 <div className="flex flex-col">
-<span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Escrow Security Metric</span>
-<span className="font-label-md text-label-md text-primary font-bold">100% Calibre Authenticated</span>
-<span className="font-body-sm text-body-sm text-secondary">Zero Risk Guarantee</span>
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Buyer Protection</span>
+<span className="font-label-md text-label-md text-primary font-bold">100% Genuine & Authenticated</span>
+<span className="font-body-sm text-body-sm text-secondary">7-Day Free Returns</span>
 </div>
 <svg className="w-32 h-10 text-secondary" fill="none" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 24L15 21L30 25L45 15L60 18L75 8L90 12L105 4L120 2" stroke="currentColor" strokeLinecap="round" strokeWidth="2"></path>

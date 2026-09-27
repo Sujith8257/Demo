@@ -10,12 +10,12 @@ export default function EscrowSettlement() {
                 04
               </div>
 <div>
-<span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed">Final Clearance</span>
-<h3 className="font-headline-sm text-headline-sm text-on-primary">Escrow Settlement & Authorization</h3>
+<span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary-fixed">Step 4</span>
+<h3 className="font-headline-sm text-headline-sm text-on-primary">Payment Method</h3>
 </div>
 </div>
 <div className="flex items-center gap-1.5 font-label-sm text-label-sm text-secondary-fixed bg-primary px-3 py-1 rounded-full">
-<span className="material-symbols-outlined text-[16px]">lock_clock</span> 7-Day Protection Active
+<span className="material-symbols-outlined text-[16px]">lock_clock</span> 7-Day Money-Back Guarantee
             </div>
 </div>
 <div className="p-space-lg space-y-space-md">
@@ -23,36 +23,36 @@ export default function EscrowSettlement() {
 <div className="p-space-md bg-surface-container-low rounded-lg flex items-start gap-space-sm">
 <span className="material-symbols-outlined text-secondary text-[22px] mt-0.5">verified</span>
 <div>
-<span className="font-label-md text-label-md text-primary block">Conditional Atelier Escrow Hold</span>
+<span className="font-label-md text-label-md text-primary block">Buyer Protection & Refund Policy</span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                  No funds are cleared to the master atelier until your <strong className="text-on-surface">7-Day Precision Trial</strong> completes. If timekeeping drifts outside ISO 3159 chronometer parameters or dial flaws emerge, initiate a zero-cost reverse courier return for an immediate 100% refund.
+                  Shop with complete peace of mind. If you are not completely satisfied within 7 days, return hassle-free for a full 100% refund.
                 </p>
 </div>
 </div>
 
 <div className="grid grid-cols-3 gap-space-xs bg-surface-container p-1 rounded-lg">
 <button className="py-2.5 px-space-sm rounded font-label-md text-label-md uppercase tracking-wider text-center bg-surface-container-lowest text-primary shadow-sm" id="tab-upi" type="button" onClick={() => setPaymentTab("upi")} data-active={paymentTab === "upi"}>
-                UPI Escrow / QR
+                UPI / QR
               </button>
 <button className="py-2.5 px-space-sm rounded font-label-md text-label-md uppercase tracking-wider text-center text-on-surface-variant hover:text-primary" id="tab-card" type="button" onClick={() => setPaymentTab("card")} data-active={paymentTab === "card"}>
-                Encrypted Card
+                Credit / Debit Card
               </button>
 <button className="py-2.5 px-space-sm rounded font-label-md text-label-md uppercase tracking-wider text-center text-on-surface-variant hover:text-primary" id="tab-netbanking" type="button" onClick={() => setPaymentTab("netbanking")} data-active={paymentTab === "netbanking"}>
-                High-Value Wire
+                Net Banking
               </button>
 </div>
 
 <div className={["space-y-space-md pt-space-xs", paymentTab !== "upi" ? "hidden" : ""].join(" ")} id="panel-upi">
 <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md items-center">
 <div className="space-y-space-sm">
-<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Enter Virtual Payment Address (VPA)</label>
+<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Enter UPI ID</label>
 <div className="relative">
 <input className="w-full bg-surface-container-low px-space-md py-3 rounded text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="username@bank" type="text" defaultValue="vikram.singhania@okhdfcbank" />
 <span className="material-symbols-outlined absolute right-3 top-3.5 text-secondary text-[20px]">verified</span>
 </div>
 <div className="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
 <span className="material-symbols-outlined text-[15px] text-secondary">security</span>
-<span>Instant authorization via Google Pay, PhonePe, BHIM, Cred</span>
+<span>Instant payment via Google Pay, PhonePe, Paytm, BHIM, Cred</span>
 </div>
 </div>
 
@@ -80,9 +80,9 @@ export default function EscrowSettlement() {
 </svg>
 </div>
 <div>
-<span className="font-label-md text-label-md text-primary block">Dynamic Session QR</span>
+<span className="font-label-md text-label-md text-primary block">Scan UPI QR Code</span>
 <p className="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                      Scan with any banking app to lock the ₹43,270 tranche directly into AMIHIVE Escrow Trust.
+                      Scan with any UPI app to pay ₹43,270 securely.
                     </p>
 </div>
 </div>
@@ -91,11 +91,11 @@ export default function EscrowSettlement() {
 
 <div className={["space-y-space-sm pt-space-xs", paymentTab !== "card" ? "hidden" : ""].join(" ")} id="panel-card">
 <div>
-<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-1">Cardholder Designation</label>
+<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-1">Cardholder Name</label>
 <input className="w-full bg-surface-container-low px-space-md py-3 rounded text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="VIKRAMADITYA K SINGHANIA" type="text" />
 </div>
 <div>
-<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-1">Vault Tokenized Card Number</label>
+<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant mb-1">Card Number</label>
 <div className="relative">
 <input className="w-full bg-surface-container-low px-space-md py-3 rounded text-on-surface font-mono text-body-md focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="4532 •••• •••• 9921" type="text" />
 <span className="material-symbols-outlined absolute right-3 top-3.5 text-secondary text-[20px]">credit_card</span>
@@ -114,14 +114,14 @@ export default function EscrowSettlement() {
 </div>
 
 <div className={["space-y-space-sm pt-space-xs", paymentTab !== "netbanking" ? "hidden" : ""].join(" ")} id="panel-netbanking">
-<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Select Designated Clearing Bank</label>
+<label className="block font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Select Your Bank</label>
 <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
-<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">HDFC Imperia</button>
-<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">ICICI Wealth</button>
-<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">Axis Burgundy</button>
-<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">Kotak Privy</button>
+<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">HDFC Bank</button>
+<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">ICICI Bank</button>
+<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">Axis Bank</button>
+<button className="p-space-sm bg-surface-container rounded text-center font-label-sm text-label-sm text-primary hover:bg-surface-container-high transition-colors" type="button">Kotak Bank</button>
 </div>
-<p className="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">RTGS transfers above ₹5,00,000 are allocated immediate dual-signatory escrow certificates automatically.</p>
+<p className="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">All net banking transactions are secured with 256-bit encryption.</p>
 </div>
 </div>
 </div>

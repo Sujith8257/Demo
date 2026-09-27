@@ -75,7 +75,7 @@ export default function BESTSELLERSHORIZONTALRAIL() {
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>
-                Acquire
+                Buy Now
               </button>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function BESTSELLERSHORIZONTALRAIL() {
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>
-                Acquire
+                Buy Now
               </button>
             </div>
           </div>
@@ -179,7 +179,7 @@ export default function BESTSELLERSHORIZONTALRAIL() {
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>
-                Acquire
+                Buy Now
               </button>
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function BESTSELLERSHORIZONTALRAIL() {
                 <span className={"material-symbols-outlined text-[16px]"}>
                   shopping_bag
                 </span>
-                Acquire
+                Buy Now
               </button>
             </div>
           </div>

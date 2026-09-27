@@ -177,10 +177,16 @@ export default function Signup() {
           box-sizing: border-box;
         }
 
+        @media (min-height: 600px) {
+          .signup-card-container {
+            transform: translateY(-26px);
+          }
+        }
+
         /* LEFT PANEL */
         .signup-left-panel {
           margin: 16px !important;
-          padding: 36px 32px;
+          padding: 28px 28px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -197,7 +203,7 @@ export default function Signup() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          padding: 6px 14px;
+          padding: 5px 13px;
           border-radius: 9999px;
           background: rgba(199, 166, 106, 0.16);
           border: 1px solid rgba(199, 166, 106, 0.35);
@@ -206,7 +212,7 @@ export default function Signup() {
           font-weight: 700;
           letter-spacing: 0.8px;
           text-transform: uppercase;
-          margin-bottom: 20px;
+          margin-bottom: 12px;
           width: fit-content;
         }
 
@@ -219,25 +225,25 @@ export default function Signup() {
         }
 
         .signup-left-content h1 {
-          font-size: clamp(26px, 3vw, 36px);
+          font-size: clamp(24px, 2.8vw, 34px);
           line-height: 1.18;
           letter-spacing: -0.8px;
           font-weight: 800;
-          margin-bottom: 14px;
+          margin-bottom: 12px;
           color: #ffffff;
         }
 
         .signup-left-content p {
-          font-size: 13.5px;
-          line-height: 1.6;
+          font-size: 13px;
+          line-height: 1.55;
           color: rgba(255, 255, 255, 0.82);
           font-weight: 400;
         }
 
         .signup-image-wrapper {
-          margin-top: 24px;
+          margin-top: 16px;
           flex: 1;
-          min-height: 220px;
+          min-height: 200px;
           border-radius: 18px;
           overflow: hidden;
           position: relative;
@@ -279,7 +285,7 @@ export default function Signup() {
 
         /* RIGHT PANEL */
         .signup-right-panel {
-          padding: 36px 36px;
+          padding: 26px 32px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -298,7 +304,7 @@ export default function Signup() {
           align-items: center;
           justify-content: center;
           gap: 10px;
-          margin-bottom: 20px;
+          margin-bottom: 14px;
           cursor: pointer;
         }
 
@@ -307,14 +313,14 @@ export default function Signup() {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 40px;
-          height: 40px;
+          width: 38px;
+          height: 38px;
           border-radius: 12px;
           background: var(--brand-100);
         }
 
         .brand h2 {
-          font-size: 21px;
+          font-size: 20px;
           font-weight: 800;
           color: var(--text-900);
           letter-spacing: -0.5px;
@@ -322,15 +328,15 @@ export default function Signup() {
 
         .heading {
           text-align: center;
-          margin-bottom: 20px;
+          margin-bottom: 14px;
         }
 
         .heading h1 {
-          font-size: 25px;
+          font-size: 23px;
           font-weight: 800;
           color: var(--text-900);
           letter-spacing: -0.5px;
-          margin-bottom: 4px;
+          margin-bottom: 3px;
         }
 
         .heading p {
@@ -542,7 +548,7 @@ export default function Signup() {
 
         .login-text {
           text-align: center;
-          margin-top: 18px;
+          margin-top: 12px;
           font-size: 12.5px;
           color: var(--text-500);
         }

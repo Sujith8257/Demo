@@ -157,10 +157,16 @@ export default function Login() {
           box-sizing: border-box;
         }
 
+        @media (min-height: 600px) {
+          .login-card-container {
+            transform: translateY(-26px);
+          }
+        }
+
         /* LEFT PANEL */
         .login-left-panel {
           margin: 16px !important;
-          padding: 36px 32px;
+          padding: 28px 28px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -260,7 +266,7 @@ export default function Login() {
 
         /* RIGHT PANEL */
         .login-right-panel {
-          padding: 40px 36px;
+          padding: 28px 32px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -279,7 +285,7 @@ export default function Login() {
           align-items: center;
           justify-content: center;
           gap: 10px;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
           cursor: pointer;
         }
 
@@ -288,14 +294,14 @@ export default function Login() {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 42px;
-          height: 42px;
+          width: 40px;
+          height: 40px;
           border-radius: 12px;
           background: var(--brand-100);
         }
 
         .brand h2 {
-          font-size: 22px;
+          font-size: 21px;
           font-weight: 800;
           color: var(--text-900);
           letter-spacing: -0.5px;
@@ -303,7 +309,7 @@ export default function Login() {
 
         .heading {
           text-align: center;
-          margin-bottom: 24px;
+          margin-bottom: 16px;
         }
 
         .heading h1 {

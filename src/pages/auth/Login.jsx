@@ -641,16 +641,9 @@ export default function Login() {
                 </div>
 
                 <div className="forgot-wrapper">
-                  <a
-                    href="#forgot"
-                    className="forgot-link"
-                    onClick={(event) => {
-                      event.preventDefault();
-                      setError("Password reset is not available yet.");
-                    }}
-                  >
+                  <Link to="/forgot-password" className="forgot-link">
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
 
                 {error && (

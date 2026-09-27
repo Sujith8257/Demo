@@ -11,6 +11,7 @@ import Checkout from "./pages/Customer/orders/Checkout";
 // Auth Pages
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import ForgotPassword from "./pages/auth/ForgotPassword";
 
 // Root Dispatcher to handle both ?page= query parameter and initial load
 function RootDispatcher() {
@@ -35,6 +36,9 @@ function RootDispatcher() {
   if (page === "signup") {
     return <Signup />;
   }
+  if (page === "forgot-password" || page === "forgotpassword") {
+    return <ForgotPassword />;
+  }
   // Default on root: load Login page first
   return <Login />;
 }
@@ -47,6 +51,8 @@ export default function App() {
         <Route path="/" element={<RootDispatcher />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
 
         {/* Customer Store Routes */}
         <Route path="/home" element={<CustomerHome />} />

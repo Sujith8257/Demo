@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { submitAuth } from "../../auth/api";
+import MasterDropdown from "../../components/Customer/MasterDropdown";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -358,38 +359,70 @@ export default function Signup() {
           width: 100%;
         }
 
-        .country-select {
-          width: 106px;
-          height: 44px;
+        .country-code-dropdown {
           flex-shrink: 0;
-          padding: 0 24px 0 10px;
+        }
+
+        .country-code-dropdown .master-dropdown-trigger {
+          height: 44px;
           background-color: var(--surface-50);
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23171d1c' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 9px center;
-          appearance: none;
-          -webkit-appearance: none;
-          -moz-appearance: none;
           border: 1px solid var(--brand-100);
           border-radius: 12px;
-          outline: none;
+          padding: 0 10px;
           font-size: 12.5px;
           font-weight: 600;
           color: var(--text-900);
-          cursor: pointer;
+          gap: 5px;
           transition: all 0.2s ease;
-          box-sizing: border-box;
         }
 
-        .country-select:hover {
-          background: #f0eee8;
+        .country-code-dropdown .master-dropdown-trigger:hover {
+          background-color: #f0eee8;
           border-color: #cbd8d3;
         }
 
-        .country-select:focus {
-          background: var(--surface-0);
+        .country-code-dropdown .master-dropdown-trigger.open {
+          background-color: var(--surface-0);
           border-color: var(--brand-900);
           box-shadow: 0 0 0 3px rgba(18, 59, 58, 0.14);
+        }
+
+        .country-code-dropdown .master-dropdown-label {
+          font-size: 12.5px;
+          font-weight: 600;
+          color: var(--text-900);
+        }
+
+        .country-code-dropdown .master-dropdown-arrow {
+          width: 9px;
+          height: 9px;
+          fill: var(--text-500);
+        }
+
+        .country-code-dropdown .master-dropdown-menu {
+          min-width: 120px;
+          border-radius: 12px;
+          border: 1px solid var(--brand-100);
+          box-shadow: 0 12px 32px rgba(18, 59, 58, 0.16);
+        }
+
+        .country-code-dropdown .master-dropdown-option {
+          font-size: 12.5px;
+          font-weight: 600;
+          color: var(--text-900);
+          border-radius: 8px;
+          padding: 8px 12px;
+        }
+
+        .country-code-dropdown .master-dropdown-option:hover {
+          background-color: var(--brand-100);
+          color: var(--brand-900);
+        }
+
+        .country-code-dropdown .master-dropdown-option.selected {
+          background-color: var(--brand-900);
+          color: #ffffff;
+          font-weight: 700;
         }
 
         .mobile-input-wrapper {
@@ -588,11 +621,10 @@ export default function Signup() {
           .heading h1 {
             font-size: 22px;
           }
-          .country-select {
-            width: 96px;
-            padding: 0 20px 0 8px;
+          .country-code-dropdown .master-dropdown-trigger {
+            height: 40px;
+            padding: 0 8px;
             font-size: 11.5px;
-            background-position: right 7px center;
           }
           .social-row {
             gap: 8px;
@@ -672,18 +704,21 @@ export default function Signup() {
                 </div>
 
                 <div className="mobile-row">
-                  <select
-                    className="country-select"
-                    name="countryCode"
+                  <MasterDropdown
+                    options={[
+                      { value: "+91", label: "+91 (IN)" },
+                      { value: "+1", label: "+1 (US)" },
+                      { value: "+44", label: "+44 (UK)" },
+                      { value: "+61", label: "+61 (AU)" },
+                      { value: "+971", label: "+971 (AE)" },
+                    ]}
                     value={formData.countryCode}
-                    onChange={handleChange}
-                  >
-                    <option value="+91">+91 (IN)</option>
-                    <option value="+1">+1 (US)</option>
-                    <option value="+44">+44 (UK)</option>
-                    <option value="+61">+61 (AU)</option>
-                    <option value="+971">+971 (AE)</option>
-                  </select>
+                    onChange={(val) => {
+                      setFormData((prev) => ({ ...prev, countryCode: val }));
+                      setError("");
+                    }}
+                    className="country-code-dropdown"
+                  />
 
                   <div className="mobile-input-wrapper">
                     <input

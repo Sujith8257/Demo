@@ -4,6 +4,8 @@
 
 html, body, #root {
   min-height: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 html, body {
   margin: 0;

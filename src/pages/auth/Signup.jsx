@@ -113,11 +113,12 @@ export default function Signup() {
           width: 100%;
           min-height: 100vh;
           min-height: 100dvh;
-          padding: 24px 16px;
+          padding: 20px 16px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          margin: 0 auto;
           background: var(--surface-50);
           box-sizing: border-box;
           overflow-x: hidden;
@@ -126,47 +127,12 @@ export default function Signup() {
           color: var(--text-900);
         }
 
-        .signup-top-bar {
-          width: 100%;
-          max-width: 1020px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 16px;
-          padding: 0 4px;
-          box-sizing: border-box;
-        }
-
-        .top-bar-badge {
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          color: var(--accent-500);
-          white-space: nowrap;
-        }
-
-        .back-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 13px;
-          font-weight: 600;
-          color: var(--text-500);
-          text-decoration: none;
-          white-space: nowrap;
-          transition: color 0.2s ease;
-        }
-
-        .back-link:hover {
-          color: var(--brand-900);
-        }
-
         .signup-card-container {
           width: 100%;
           max-width: 1020px;
-          margin: 0 auto;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          align-self: center !important;
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           background: var(--surface-0);
@@ -296,6 +262,7 @@ export default function Signup() {
         .form-wrapper {
           width: 100%;
           max-width: 380px;
+          margin: 0 auto;
           box-sizing: border-box;
         }
 
@@ -587,6 +554,7 @@ export default function Signup() {
           .signup-card-container {
             grid-template-columns: 1fr;
             max-width: 480px;
+            margin: 0 auto !important;
             border-radius: 24px;
           }
           .signup-left-panel {

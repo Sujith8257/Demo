@@ -166,6 +166,7 @@ export default function Signup() {
         .signup-card-container {
           width: 100%;
           max-width: 1020px;
+          margin: 0 auto;
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           background: var(--surface-0);
@@ -632,17 +633,6 @@ export default function Signup() {
       `}</style>
 
       <div className="signup-page-root">
-        {/* TOP BAR WITH BACK LINK */}
-        <div className="signup-top-bar">
-          <Link to="/home" className="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m15 18-6-6 6-6"/>
-            </svg>
-            <span>Back to Atelier</span>
-          </Link>
-          <span className="top-bar-badge">AMIHIVE PATRON REGISTRY</span>
-        </div>
-
         <div className="signup-card-container">
           {/* LEFT PANEL */}
           <div className="signup-left-panel">
@@ -837,12 +827,6 @@ export default function Signup() {
               {/* LOGIN LINK */}
               <div className="login-text">
                 Already have an account? <Link to="/login">Login</Link>
-              </div>
-
-              <div className="guest-link-wrapper">
-                <Link to="/home" className="guest-link">
-                  Explore Store as Guest &rarr;
-                </Link>
               </div>
             </div>
           </div>

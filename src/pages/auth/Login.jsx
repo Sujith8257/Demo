@@ -146,6 +146,7 @@ export default function Login() {
         .login-card-container {
           width: 100%;
           max-width: 1000px;
+          margin: 0 auto;
           display: grid;
           grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
           background: var(--surface-0);
@@ -587,17 +588,6 @@ export default function Login() {
       `}</style>
 
       <div className="login-page-root">
-        {/* TOP BAR WITH BACK LINK */}
-        <div className="login-top-bar">
-          <Link to="/home" className="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m15 18-6-6 6-6"/>
-            </svg>
-            <span>Back to Atelier</span>
-          </Link>
-          <span className="top-bar-badge">AMIHIVE ESCROW &amp; VAULT</span>
-        </div>
-
         <div className="login-card-container">
           {/* LEFT PANEL */}
           <div className="login-left-panel">
@@ -738,12 +728,6 @@ export default function Login() {
               {/* SIGNUP LINK */}
               <div className="signup-text">
                 Don't have an account? <Link to="/signup">Signup</Link>
-              </div>
-
-              <div className="guest-link-wrapper">
-                <Link to="/home" className="guest-link">
-                  Explore Store as Guest &rarr;
-                </Link>
               </div>
             </div>
           </div>

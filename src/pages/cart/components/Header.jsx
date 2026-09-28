@@ -9,7 +9,7 @@ export default function Header({ onNavigateHome, onNavigateToCatalogue, onNaviga
 
   return (
     <BaseHeader
-      showNavStrip={true}
+      showNavStrip={false}
       theme="variant5"
       onNavigateHome={goHome}
       onNavigateToCatalogue={goCatalogue}

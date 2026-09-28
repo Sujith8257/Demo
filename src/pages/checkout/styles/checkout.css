@@ -32,3 +32,77 @@
   .checkout-canvas .native-mobile-checkout { bottom: 89px; }
   .checkout-page { padding-bottom: 115px; }
 }
+
+/* =============================================
+   MOBILE RESPONSIVE — Checkout Page
+   ============================================= */
+
+/* Correct header top offset */
+.checkout-page main[class*="pt-"] { padding-top: 120px; }
+@media (min-width: 640px) { .checkout-page main[class*="pt-"] { padding-top: 130px; } }
+@media (min-width: 1024px) { .checkout-page main[class*="pt-"] { padding-top: 144px; } }
+
+/* Make address modal responsive */
+@media (max-width: 480px) {
+  .address-modal { padding: 18px; border-radius: 16px; }
+}
+
+@media (max-width: 767px) {
+  /* Horizontal padding for checkout content */
+  .checkout-page .max-w-7xl {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Stack multi-column checkout layout (form + order summary) */
+  .checkout-canvas [class*="lg:grid-cols-"],
+  .checkout-canvas [class*="md:grid-cols-"],
+  .checkout-canvas [class*="lg:flex-row"] {
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+
+  /* Order summary sidebar: move to bottom on mobile */
+  .checkout-canvas [class*="lg:col-span-"],
+  .checkout-canvas [class*="md:col-span-"] {
+    grid-column: 1 !important;
+  }
+
+  /* Sticky checkout summary — flow naturally on mobile */
+  .checkout-canvas [class*="sticky"] {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  /* Form fields — full width on mobile */
+  .checkout-canvas [class*="grid-cols-2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Payment tab row — allow horizontal scroll */
+  .checkout-canvas [id^="tab-"] {
+    flex-shrink: 0;
+    min-width: fit-content;
+  }
+
+  /* Form inputs — comfortable touch height */
+  .checkout-canvas input,
+  .checkout-canvas select,
+  .checkout-canvas textarea {
+    min-height: 44px;
+    font-size: 16px !important; /* prevent iOS zoom */
+  }
+
+  /* Checkout CTA button */
+  .checkout-canvas button[class*="w-full"] {
+    min-height: 48px;
+    font-size: 14px !important;
+  }
+
+  /* Typography scale */
+  .checkout-page [class*="text-4xl"],
+  .checkout-page [class*="text-5xl"] { font-size: 1.75rem !important; line-height: 1.2 !important; }
+  .checkout-page [class*="text-3xl"] { font-size: 1.4rem !important; }
+  .checkout-page [class*="text-2xl"] { font-size: 1.2rem !important; }
+}
+

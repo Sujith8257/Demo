@@ -6,3 +6,116 @@
 .product-page :focus-visible { outline: 2px solid #755a26; outline-offset: 3px; }
 .product-page .max-w-7xl { max-width: 1320px; }
 .product-page .design-dock :focus-visible { outline-color: white; }
+
+/* =============================================
+   MOBILE RESPONSIVE — Product Overview
+   ============================================= */
+
+/* Correct header top offset */
+.product-page main[class*="pt-"] { padding-top: 96px; }
+@media (min-width: 640px) { .product-page main[class*="pt-"] { padding-top: 112px; } }
+@media (min-width: 1024px) { .product-page main[class*="pt-"] { padding-top: 120px; } }
+
+@media (max-width: 767px) {
+  .product-page { padding-bottom: 80px; }
+
+  /* Content padding */
+  .product-page .max-w-7xl,
+  .product-page [class~="max-w-[1320px]"],
+  .product-page [class~="max-w-[1440px]"] {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Hero product section: image + details */
+  /* Stack 2-col grid (image | info) to single column */
+  .product-page [class*="lg:grid-cols-2"],
+  .product-page [class*="md:grid-cols-2"],
+  .product-page [class*="lg:grid-cols-12"],
+  .product-page [class*="lg:gap-"][class*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Product image gallery — full width */
+  .product-page [class*="lg:col-span-"],
+  .product-page [class*="md:col-span-"] {
+    grid-column: 1 !important;
+  }
+
+  /* Gallery thumbnails — horizontal scroll strip */
+  .product-page [class*="flex-col"][class*="gap-"][class*="lg:block"] {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 8px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Thumbnail images */
+  .product-page [class*="w-16"][class*="h-16"],
+  .product-page [class*="w-20"][class*="h-20"] {
+    flex-shrink: 0 !important;
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  /* Sticky buy panel — relative on mobile */
+  .product-page [class*="sticky"] {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  /* CTA add to cart button */
+  .product-page button[class*="w-full"] {
+    min-height: 48px;
+    font-size: 14px !important;
+  }
+
+  /* Related products grid */
+  .product-page [class*="grid-cols-3"],
+  .product-page [class*="grid-cols-4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Spec/feature tables — horizontal scroll */
+  .product-page table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  /* Colour/size selectors — wrap */
+  .product-page [class*="flex"][class*="gap-"][class*="flex-wrap"] {
+    flex-wrap: wrap !important;
+  }
+
+  /* Typography scale */
+  .product-page [class*="text-5xl"],
+  .product-page [class*="text-6xl"] { font-size: 2rem !important; line-height: 1.2 !important; }
+  .product-page [class*="text-4xl"] { font-size: 1.75rem !important; line-height: 1.25 !important; }
+  .product-page [class*="text-3xl"] { font-size: 1.4rem !important; }
+  .product-page [class*="text-2xl"] { font-size: 1.2rem !important; }
+
+  /* Review cards — full width */
+  .product-page [class*="grid-cols-"][class*="reviews"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-page main[class*="pt-"] { padding-top: 96px; }
+  .product-page .max-w-7xl {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  /* Single column related products on very small phones */
+  .product-page [class*="grid-cols-2"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Full-width form inputs */
+  .product-page input, .product-page select, .product-page textarea {
+    font-size: 16px !important; /* prevent iOS zoom */
+  }
+}
+

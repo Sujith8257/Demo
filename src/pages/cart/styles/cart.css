@@ -20,3 +20,78 @@
 @media (max-width: 680px) {
   .cart-demo-toast { right: 12px; bottom: 94px; }
 }
+
+/* =============================================
+   MOBILE RESPONSIVE — Cart Page
+   ============================================= */
+
+/* Correct header top offset */
+.cart-page main[class*="pt-"] { padding-top: 120px; }
+@media (min-width: 640px) { .cart-page main[class*="pt-"] { padding-top: 130px; } }
+@media (min-width: 1024px) { .cart-page main[class*="pt-"] { padding-top: 144px; } }
+
+@media (max-width: 767px) {
+  .cart-page { padding-bottom: 80px; }
+
+  /* Content max-width padding */
+  .cart-page .max-w-7xl {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  /* Stack the 2-column cart + summary layout vertically */
+  .cart-page [class*="lg:grid-cols-12"],
+  .cart-page [class*="lg:grid-cols-3"],
+  .cart-page [class*="lg:grid-cols-2"],
+  .cart-page [class*="md:grid-cols-2"],
+  .cart-page [class*="md:grid-cols-3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Cart item row — stack image + info vertically on very small */
+  .cart-page [class*="sm:flex-row"] { flex-direction: column !important; }
+
+  /* Item image sizing */
+  .cart-page [class*="w-28"][class*="h-36"],
+  .cart-page [class*="w-36"][class*="h-44"],
+  .cart-page [class*="md:w-36"][class*="md:h-44"] {
+    width: 100% !important;
+    height: 180px !important;
+    max-width: 180px;
+    margin: 0 auto;
+  }
+
+  /* Sticky order summary: on mobile just flow normally */
+  .cart-page [class*="sticky"] { position: relative !important; top: auto !important; }
+
+  /* Touch-friendly quantity buttons */
+  .cart-page button[class*="rounded-full"] {
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+
+  /* Typography */
+  .cart-page [class*="text-4xl"],
+  .cart-page [class*="text-5xl"] { font-size: 1.75rem !important; line-height: 1.2 !important; }
+  .cart-page [class*="text-3xl"] { font-size: 1.4rem !important; }
+  .cart-page [class*="text-2xl"] { font-size: 1.2rem !important; }
+
+  /* Accessories / recently-viewed horizontal scroll */
+  .cart-page [class*="overflow-x-auto"] {
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-page main[class*="pt-"] { padding-top: 110px; }
+  .cart-page .max-w-7xl {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  /* Quantity/action row wrapping */
+  .cart-page [class*="flex"][class*="gap-"][class*="items-center"] {
+    flex-wrap: wrap;
+  }
+}
+

@@ -26,7 +26,8 @@ export function CheckoutUIProvider({ children, design }){
     if(/upi quickpay|apple \/ google pay|cred pay/.test(low)){setPaymentTab(low.includes('upi')?'upi':low.includes('apple')?'card':'upi');setToast(`Selected ${label.split('  ')[0]} for this preview.`);return;}
     if(/verify|connect|switch profile|edit dossier|change rail|edit spec|modify billing/.test(low)){setToast(`${label}: connect your backend to enable this action.`);return;}
     if(/authorize|complete|pay|proceed|checkout|confirm|seal ledger|express pay/.test(low)){
-      setToast('Preview only: no payment has been charged or order placed. Connect your payment provider and backend.');
+      window.location.href = `/order-success?design=${design || 1}`;
+      return;
     }
   }
   return <CheckoutContext.Provider value={{paymentTab,setPaymentTab,remaining,formatCountdown,setToast,setAddressEditorOpen,previewAddress,selectedBank,accordionOpen,toggleAccordion,engraving,setEngraving,giftingIntent,setGiftingIntent}}>

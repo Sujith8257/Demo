@@ -1,8 +1,10 @@
 import { useCallback } from "react";
 import { useCart } from "./CartContext.jsx";
+import { useCheckoutFlow } from "./CheckoutFlowContext.jsx";
 
 export function useCartInteractions(){
   const cart=useCart();
+  const { openFlow } = useCheckoutFlow();
   const handleClick=useCallback((event)=>{
     const link = event.target.closest("a");
     if (link) {
@@ -20,7 +22,7 @@ export function useCartInteractions(){
       }
       if (link.dataset.cartAction === "checkout" || text.includes("checkout")) {
         event.preventDefault();
-        cart.onNavigateToCheckout?.();
+        openFlow();
         return;
       }
     }
@@ -30,13 +32,9 @@ export function useCartInteractions(){
     const btnText = (button.textContent || "").trim().toLowerCase();
     const action=button.dataset.cartAction;
 
-    if (action === "checkout" || btnText.includes("checkout") || btnText.includes("proceed to secure") || btnText.includes("proceed to escrow")) {
+    if (action === "checkout" || btnText.includes("proceed to checkout") || btnText.includes("proceed to secure") || btnText.includes("proceed to escrow")) {
       event.preventDefault();
-      if (cart.onNavigateToCheckout) {
-        cart.onNavigateToCheckout();
-      } else {
-        cart.setToast("Checkout preview only: connect this page to your Spring Boot API.");
-      }
+      openFlow();
       return;
     }
 
@@ -78,17 +76,13 @@ export function useCartInteractions(){
       }
       case "accessory":cart.addAccessory(button.dataset.accessoryName||"Accessory",Number(button.dataset.accessoryPrice)||0);break;
       case "checkout":
-        if (cart.onNavigateToCheckout) {
-          cart.onNavigateToCheckout();
-        } else {
-          cart.setToast("Checkout preview only: connect this page to your Spring Boot API.");
-        }
+        openFlow();
         break;
       case "export":cart.setToast("Export can be connected to your backend manifest endpoint.");break;
       case "save-config":cart.setToast("Gifting configuration saved in this preview.");break;
       default:break;
     }
-  },[cart]);
+  },[cart, openFlow]);
   const handleChange=useCallback((event)=>{
     const el=event.target;
     if(el.id==='giftToggle')cart.setGift(el.checked);

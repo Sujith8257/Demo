@@ -7,6 +7,7 @@ import Cart from "./pages/Customer/customer/Cart";
 import ProductList from "./pages/Customer/products/ProductList";
 import ProductOverview from "./pages/Customer/products/ProductOverview";
 import Checkout from "./pages/Customer/orders/Checkout";
+import OrderSuccessPage from "./pages/order-success/OrderSuccessPage";
 
 // Auth Pages
 import Login from "./pages/auth/Login";
@@ -32,6 +33,9 @@ function RootDispatcher() {
   }
   if (page === "checkout") {
     return <Checkout />;
+  }
+  if (page === "order-success" || page === "ordersuccess" || page === "success" || page === "order-confirmation") {
+    return <OrderSuccessPage />;
   }
   if (page === "signup") {
     return <Signup />;
@@ -65,6 +69,9 @@ export default function App() {
         <Route path="/productdetail" element={<ProductOverview />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-success" element={<OrderSuccessPage />} />
+        <Route path="/order-confirmation" element={<OrderSuccessPage />} />
+        <Route path="/ordersuccess" element={<OrderSuccessPage />} />
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/" replace />} />

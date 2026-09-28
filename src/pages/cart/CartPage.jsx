@@ -2,6 +2,8 @@ import "./styles/cart.css";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from "motion/react";
 import { CartProvider } from "./context/CartContext.jsx";
+import { CheckoutFlowProvider } from "./context/CheckoutFlowContext.jsx";
+import CheckoutFlowModal from "./components/CheckoutFlowModal.jsx";
 import DesignTaskbar from "./components/DesignTaskbar.jsx";
 
 const DESIGNS = {
@@ -56,19 +58,23 @@ export default function CartPage({ onNavigateHome, onNavigateToCatalogue, onNavi
           onNavigateToProductDetail={onNavigateToProductDetail}
           onNavigateToCheckout={onNavigateToCheckout}
         >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={active}
-              initial={reduced ? false : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduced ? { opacity: 0 } : { opacity: 0, y: -9 }}
-              transition={{ duration: reduced ? 0 : 0.28, ease: "easeOut" }}
-            >
-              <Suspense fallback={<div style={{ padding: "190px 24px", color: "#002524" }}>Loading cart design…</div>}>
-                <Page />
-              </Suspense>
-            </motion.div>
-          </AnimatePresence>
+          <CheckoutFlowProvider>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={active}
+                initial={reduced ? false : { opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduced ? { opacity: 0 } : { opacity: 0, y: -9 }}
+                transition={{ duration: reduced ? 0 : 0.28, ease: "easeOut" }}
+              >
+                <Suspense fallback={<div style={{ padding: "190px 24px", color: "#002524" }}>Loading cart design…</div>}>
+                  <Page />
+                </Suspense>
+              </motion.div>
+            </AnimatePresence>
+            {/* Amazon-style inline checkout modal */}
+            <CheckoutFlowModal />
+          </CheckoutFlowProvider>
         </CartProvider>
         <DesignTaskbar active={active} onChange={onChange} onNavigateHome={onNavigateHome} />
       </MotionConfig>

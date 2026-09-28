@@ -1,0 +1,25 @@
+/* ─── AMIHIVE Order Success Styles ─────────────────────────── */
+:root {
+  --brand-900: #123B3A;
+  --accent-500: #C7A66A;
+  --surface-50: #F7F6F2;
+  --text-900: #171B1B;
+  --text-500: #707776;
+  --success-600: #34745F;
+  --brand-100: #DDE9E4;
+}
+
+.order-success-root {
+  min-height: 100vh;
+  background: var(--surface-50);
+  font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
+}
+
+.bezel-curve-success {
+  border-radius: 48px 16px 16px 16px;
+}
+
+@media print {
+  header, footer, .no-print { display: none !important; }
+  .order-success-root { background: white; }
+}

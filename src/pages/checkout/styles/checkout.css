@@ -37,10 +37,7 @@
    MOBILE RESPONSIVE — Checkout Page
    ============================================= */
 
-/* Correct header top offset */
-.checkout-page main[class*="pt-"] { padding-top: 120px; }
-@media (min-width: 640px) { .checkout-page main[class*="pt-"] { padding-top: 130px; } }
-@media (min-width: 1024px) { .checkout-page main[class*="pt-"] { padding-top: 144px; } }
+/* Header top offset is set per-design via Tailwind pt-[88px] sm:pt-[100px] */
 
 /* Make address modal responsive */
 @media (max-width: 480px) {

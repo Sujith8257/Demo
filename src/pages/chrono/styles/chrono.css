@@ -50,15 +50,15 @@
    MOBILE RESPONSIVE — Product List (Chrono)
    ============================================= */
 
-/* Correct header top offset on mobile */
+/* Correct header top offset (header is ~86px mobile, ~94px desktop) */
 .chrono-page main[class*="pt-"] {
-  padding-top: 120px;
+  padding-top: 86px;
 }
 @media (min-width: 640px) {
-  .chrono-page main[class*="pt-"] { padding-top: 130px; }
+  .chrono-page main[class*="pt-"] { padding-top: 92px; }
 }
 @media (min-width: 1024px) {
-  .chrono-page main[class*="pt-"] { padding-top: 144px; }
+  .chrono-page main[class*="pt-"] { padding-top: 96px; }
 }
 
 @media (max-width: 767px) {

@@ -1,4 +1,4 @@
-# AMIHIVE React conversion
+# AMIHIVE React conversion 
 
 This project converts the five supplied HTML homepage variants into React.
 
